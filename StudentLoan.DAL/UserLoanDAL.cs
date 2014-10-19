@@ -81,6 +81,8 @@ namespace StudentLoan.DAL
 
             paramsList.Add(new SqlParameter("@ShouldRepayMoney", model.ShouldRepayMoney));
 
+            paramsList.Add(new SqlParameter("@TotalAmortization", model.TotalAmortization));
+
             paramsList.Add(new SqlParameter("@LoanDescription", model.LoanDescription));
 
             #endregion

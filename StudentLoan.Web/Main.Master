@@ -33,17 +33,17 @@
                     <p>张无忌</p>
                 </div>--%>
                 <ul class="menu fr">
-                    <li class="active nav">
-                        <a href="javascript:;" class="dropdown-toggle">象牙塔</a>
+                    <li id="IvoryTower" class="active nav">
+                        <a href="IvoryTower.aspx" class="dropdown-toggle">象牙塔</a>
                     </li>
-                    <li class="nav nav-product">
-                        <a href="javascript:;" class="dropdown-toggle">雪中送炭</a>
+                    <li id="LoanList" class="nav nav-product">
+                        <a href="LoanList.aspx" class="dropdown-toggle">雪中送炭</a>
                     </li>
-                    <li class="nav nav-case">
-                        <a href="javascript:;" class="dropdown-toggle">聚宝盆</a>
+                    <li id="ManageMoneyNav" class="nav nav-case">
+                        <a href="ManageMoneyNav.aspx" class="dropdown-toggle">聚宝盆</a>
                     </li>
-                    <li class="nav nav-support">
-                        <a href="javascript:;" class="dropdown-toggle">关于我们</a>
+                    <li id="About" class="nav nav-support">
+                        <a href="About.aspx" class="dropdown-toggle">关于我们</a>
                     </li>
                 </ul>
             </div>

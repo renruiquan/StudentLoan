@@ -67,6 +67,7 @@
     <Content Include=".idea\scopes\scope_settings.xml" />
     <Content Include=".idea\vcs.xml" />
     <Content Include=".idea\workspace.xml" />
+    <Content Include="About.aspx" />
     <Content Include="Admin\AdminAdd.aspx" />
     <Content Include="Admin\AdminEdit.aspx" />
     <Content Include="Admin\AdminList.aspx" />
@@ -183,6 +184,7 @@
     <Content Include="channel\dinpay.aspx" />
     <Content Include="channel\dinpayQuery.aspx" />
     <Content Include="Charge.aspx" />
+    <Content Include="Contact.aspx" />
     <Content Include="css\animate.min.css" />
     <Content Include="css\bootstrap-responsive.css" />
     <Content Include="css\bootstrap-responsive.min.css" />
@@ -288,12 +290,14 @@
     <Content Include="css\modules\front\into.css" />
     <Content Include="css\public.css" />
     <Content Include="css\reset.css" />
+    <Content Include="Culture.aspx" />
     <Content Include="DetailInfo.aspx" />
     <Content Include="Global.asax" />
     <Content Include="img\anonymous.jpg" />
     <Content Include="img\glyphicons-halflings-white.png" />
     <Content Include="img\glyphicons-halflings.png" />
     <Content Include="index.html" />
+    <Content Include="Introduction.aspx" />
     <Content Include="js\birthday.js" />
     <Content Include="js\bootstrap-datepicker.js" />
     <Content Include="js\bootstrap.js" />
@@ -325,6 +329,7 @@
     <Content Include="LoanList.aspx" />
     <Content Include="login.aspx" />
     <Content Include="MasterTest.aspx" />
+    <Content Include="ManageMoneyNav.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="SchoolInfo.aspx" />
     <Content Include="TTTTTTTTTTTTTTTTTTTTT.aspx" />
@@ -382,6 +387,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AdminAdd.aspx.cs">
       <DependentUpon>AdminAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -563,6 +575,20 @@
     <Compile Include="Charge.aspx.designer.cs">
       <DependentUpon>Charge.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Culture.aspx.cs">
+      <DependentUpon>Culture.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Culture.aspx.designer.cs">
+      <DependentUpon>Culture.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -579,6 +605,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Introduction.aspx.cs">
+      <DependentUpon>Introduction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Introduction.aspx.designer.cs">
+      <DependentUpon>Introduction.aspx</DependentUpon>
     </Compile>
     <Compile Include="LoanList.aspx.cs">
       <DependentUpon>LoanList.aspx</DependentUpon>
@@ -607,6 +640,13 @@
     </Compile>
     <Compile Include="MasterTest.aspx.designer.cs">
       <DependentUpon>MasterTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageMoneyNav.aspx.cs">
+      <DependentUpon>ManageMoneyNav.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageMoneyNav.aspx.designer.cs">
+      <DependentUpon>ManageMoneyNav.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

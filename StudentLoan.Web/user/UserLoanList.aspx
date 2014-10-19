@@ -4,6 +4,7 @@
 
 <%@ Register Assembly="AspNetPager" Namespace="Wuqi.Webdiyer" TagPrefix="webdiyer" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>雪中送炭 - 借款记录</title>
     <link href="../css/datepicker.css" rel="stylesheet" />
     <script src="../js/bootstrap-datepicker.js"></script>
     <script type="text/javascript">

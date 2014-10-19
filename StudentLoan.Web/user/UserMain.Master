@@ -33,17 +33,17 @@
                     <p><%=this.UserModel.UserName %></p>
                 </div>
                 <ul class="menu fr">
-                    <li class="active nav">
-                        <a href="javascript:;" class="dropdown-toggle">象牙塔</a>
+                    <li id="IvoryTower" class="nav">
+                        <a href="../IvoryTower.aspx" class="dropdown-toggle">象牙塔</a>
                     </li>
-                    <li class="nav nav-product">
-                        <a href="javascript:;" class="dropdown-toggle">雪中送炭</a>
+                    <li id="LoanList" class="nav nav-product">
+                        <a href="../LoanList.aspx" class="dropdown-toggle">雪中送炭</a>
                     </li>
-                    <li class="nav nav-case">
-                        <a href="javascript:;" class="dropdown-toggle">聚宝盆</a>
+                    <li id="ManageMoneyNav" class="nav nav-case">
+                        <a href="../ManageMoneyNav.aspx" class="dropdown-toggle">聚宝盆</a>
                     </li>
-                    <li class="nav nav-support">
-                        <a href="javascript:;" class="dropdown-toggle">关于我们</a>
+                    <li id="About" class="nav nav-support">
+                        <a href="../About.aspx" class="dropdown-toggle">关于我们</a>
                     </li>
                 </ul>
             </div>
@@ -74,7 +74,7 @@
                         </ul>
                     </div>
                     <div class="item">
-                        <h2>雪中送碳管理</h2>
+                        <h2>雪中送炭管理</h2>
                         <ul>
                             <li><a id="UserLoanList" runat="server" href="UserLoanList.aspx"><i class="ico-note"></i>借款记录</a></li>
                             <li><a id="UserBillList" runat="server" href="UserBillList.aspx"><i class="ico-news"></i>我的账单</a></li>

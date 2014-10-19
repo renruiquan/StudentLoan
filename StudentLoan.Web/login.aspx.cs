@@ -62,7 +62,7 @@ namespace StudentLoan.Web
             UsersEntityEx model = bll.GetModel(userName, userPwd, true);
             if (model == null)
             {
-                this.artDialog("提示","用户名或密码有误，请重试！");
+                this.artDialog("提示", "用户名或密码有误，请重试！");
                 return;
             }
             Session[StudentLoanKeys.SESSION_USER_INFO] = model;
@@ -83,6 +83,7 @@ namespace StudentLoan.Web
             this.WriteCookie("UserName", "StudentLoan", model.UserName);
             this.WriteCookie("UserPwd", "StudentLoan", model.Password);
             Response.Redirect("default.aspx");
+
             return;
         }
     }

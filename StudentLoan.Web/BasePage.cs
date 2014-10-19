@@ -20,7 +20,7 @@ namespace StudentLoan.Web
             //判断管理员是否登录
             if (!IsUsersLogin())
             {
-                Response.Write("<script>parent.location.href='login.aspx'</script>");
+                Response.Write("<script>parent.location.href='/login.aspx'</script>");
                 Response.End();
             }
         }

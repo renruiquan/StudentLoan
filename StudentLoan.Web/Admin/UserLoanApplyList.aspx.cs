@@ -37,10 +37,26 @@ namespace StudentLoan.Web.Admin
                         switch (action)
                         {
                             case "pass":
-                                result = new UserLoanBLL().UpdateByAdmin(new UserLoanEntityEx() { LoanId = loanId, Status = 1, AdminId = adminModel.AdminId, LoanMoney = userLoanModel.LoanMoney, UserId = userLoanModel.UserId });
+                                result = new UserLoanBLL().UpdateByAdmin(new UserLoanEntityEx()
+                                {
+                                    LoanId = loanId,
+                                    Status = 1,
+                                    AdminId = adminModel.AdminId,
+                                    LoanMoney = userLoanModel.LoanMoney,
+                                    UserId = userLoanModel.UserId,
+                                    TotalAmortization = userLoanModel.TotalAmortization
+                                });
                                 break;
                             case "refuse":
-                                result = new UserLoanBLL().UpdateByAdmin(new UserLoanEntityEx() { LoanId = loanId, Status = 2, AdminId = adminModel.AdminId, LoanMoney = 0, UserId = userLoanModel.UserId });
+                                result = new UserLoanBLL().UpdateByAdmin(new UserLoanEntityEx()
+                                {
+                                    LoanId = loanId,
+                                    Status = 2,
+                                    AdminId = adminModel.AdminId,
+                                    LoanMoney = 0,
+                                    UserId = userLoanModel.UserId,
+                                    TotalAmortization = userLoanModel.TotalAmortization
+                                });
                                 break;
                         }
 

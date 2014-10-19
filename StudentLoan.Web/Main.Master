@@ -5,15 +5,17 @@
 <html>
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="../css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="../css/public.css" />
-    <link rel="stylesheet" type="text/css" href="../css/common.css" />
-    <link rel="stylesheet" type="text/css" href="../css/icomoon/icon.css" />
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="../css/modules/admin/admin.css" />
-    <link href="../css/ui-dialog.css" rel="stylesheet" />
-    <script src="../js/jquery-1.11.0.min.js"></script>
-    <script src="../js/dialog-plus-min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/css/public.css" />
+    <link rel="stylesheet" type="text/css" href="/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="/css/icomoon/icon.css" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/css/modules/admin/admin.css" />
+
+    <link href="/css/ui-dialog.css" rel="stylesheet" />
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/dialog-plus-min.js"></script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -26,24 +28,25 @@
                 <h1 class="logo">
                     <img src="../css/img/admin/logo.jpg" alt="" />
                 </h1>
-                <%--<div class="user-icon">
+                <div class="user-icon">
                     <div class="icon">
-                        <img src="../css/img/admin/user_no_frame.png" alt="" />
+                        <a href="#">
+                            <img id="account" src="<%=this.UserModel==null?"/css/img/admin/user_no_frame.png":this.UserModel.Avatar %>" alt="" /></a>
                     </div>
-                    <p>张无忌</p>
-                </div>--%>
+                    <p><%=this.UserModel==null?"<a href='/login.aspx' style='color:#FFF;line-height:1.5em;'>请登录</a>": this.UserModel.UserName %></p>
+                </div>
                 <ul class="menu fr">
-                    <li id="IvoryTower" class="active nav">
-                        <a href="IvoryTower.aspx" class="dropdown-toggle">象牙塔</a>
+                    <li id="IvoryTower" class="nav">
+                        <a href="/IvoryTower.aspx" class="dropdown-toggle">象牙塔</a>
                     </li>
                     <li id="LoanList" class="nav nav-product">
-                        <a href="LoanList.aspx" class="dropdown-toggle">雪中送炭</a>
+                        <a href="/LoanList.aspx" class="dropdown-toggle">雪中送炭</a>
                     </li>
                     <li id="ManageMoneyNav" class="nav nav-case">
-                        <a href="ManageMoneyNav.aspx" class="dropdown-toggle">聚宝盆</a>
+                        <a href="/ManageMoneyNav.aspx" class="dropdown-toggle">聚宝盆</a>
                     </li>
                     <li id="About" class="nav nav-support">
-                        <a href="About.aspx" class="dropdown-toggle">关于我们</a>
+                        <a href="/About.aspx" class="dropdown-toggle">关于我们</a>
                     </li>
                 </ul>
             </div>
@@ -71,7 +74,7 @@
                 </div>
                 <div class="copyright">
                     <div class="foot-logo">
-                        <img src="../css/img/admin/logo_footer.jpg" alt="" />
+                        <img src="/css/img/admin/logo_footer.jpg" alt="" />
                     </div>
                     <ul>
                         <li>@2014 学子易贷 All rights reserved</li>

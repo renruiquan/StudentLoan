@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Introduction.aspx.cs" Inherits="StudentLoan.Web.Introduction" %>
-<%@ OutputCache  Duration="18000" VaryByParam="*"%>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
         $(function () {

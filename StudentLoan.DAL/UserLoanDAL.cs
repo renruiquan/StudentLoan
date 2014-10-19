@@ -51,8 +51,6 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" DECLARE @i int,@LoanId int; set @i = 1;");
-
             commandText.Append(" Insert Into sl_user_loan( ");
 
             commandText.Append(" LoanNo, ProductId, UserId,LoanTitle,LoanMoney,LoanTypeId,LoanCategory,ShouldRepayMoney,TotalAmortization,LoanDescription) ");
@@ -60,24 +58,6 @@ namespace StudentLoan.DAL
             commandText.Append(" Values ( ");
 
             commandText.Append(" @LoanNo,@ProductId,@UserId,@LoanTitle,@LoanMoney,@LoanTypeId,@LoanCategory,@ShouldRepayMoney,@TotalAmortization,@LoanDescription); ");
-
-            commandText.Append(@"SELECT @LoanId= @@IDENTITY; ");
-
-            commandText.Append(@" while @i<= @TotalAmortization");
-
-            commandText.Append(@" Begin ");
-
-            commandText.Append(" Insert Into sl_user_repayment( ");
-
-            commandText.Append(" LoanId,CurrentAmortization,RepaymentMoney,BreakContract,RepaymentTime,Status) ");
-
-            commandText.Append(" Values ( ");
-
-            commandText.Append(@" @LoanId,@i,0,0,DATEADD(Month,@i,getdate()),0); ");
-
-            commandText.Append(@" set @i+=1;");
-
-            commandText.Append(@" End; ");
 
             #endregion
 
@@ -100,8 +80,6 @@ namespace StudentLoan.DAL
             paramsList.Add(new SqlParameter("@LoanCategory", model.LoanCategory));
 
             paramsList.Add(new SqlParameter("@ShouldRepayMoney", model.ShouldRepayMoney));
-
-            paramsList.Add(new SqlParameter("@TotalAmortization", model.TotalAmortization));
 
             paramsList.Add(new SqlParameter("@LoanDescription", model.LoanDescription));
 
@@ -202,6 +180,10 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
+            //声明SQL变量
+            commandText.Append(" DECLARE @i int; set @i = 1;");
+
+            //更新用户账户余额
             commandText.Append(" Update sl_users Set Amount += @Amount where UserId = @UserId;");
 
             commandText.Append(" Update sl_user_loan Set ");
@@ -212,7 +194,24 @@ namespace StudentLoan.DAL
 
             commandText.Append(" Status = @Status ");
 
-            commandText.Append(" Where LoanId = @LoanId ");
+            commandText.Append(" Where LoanId = @LoanId; ");
+
+            //生成借款账单
+            commandText.Append(@" while @i<= @TotalAmortization");
+
+            commandText.Append(@" Begin ");
+
+            commandText.Append(" Insert Into sl_user_repayment( ");
+
+            commandText.Append(" LoanId,CurrentAmortization,RepaymentMoney,BreakContract,RepaymentTime,Status) ");
+
+            commandText.Append(" Values ( ");
+
+            commandText.Append(@" @LoanId,@i,0,0,DATEADD(Month,@i,getdate()),0); ");
+
+            commandText.Append(@" set @i+=1;");
+
+            commandText.Append(@" End; ");
 
             #endregion
 
@@ -231,6 +230,8 @@ namespace StudentLoan.DAL
             paramsList.Add(new SqlParameter("@PassTime", DateTime.Now));
 
             paramsList.Add(new SqlParameter("@Status", model.Status));
+
+            paramsList.Add(new SqlParameter("@TotalAmortization", model.TotalAmortization));
 
             #endregion
 

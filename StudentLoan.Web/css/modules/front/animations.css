@@ -1,0 +1,377 @@
+@charset "UTF-8";
+
+/*动画相关样式*/
+
+.domove {
+    position: absolute;
+    left: 109px;
+    right: 0;
+    bottom: 0;
+    display: block;
+    top: 424px;
+    width: 148px;
+    height: 106px;
+    font-size: 0;
+    background: rgba(255, 255, 255, 0.06);
+    margin: 0 auto;
+    border-radius: 0 0 25% 25%;
+}
+
+.domove-content {
+    width: 148px;
+    height: 106px;
+    display: inline-block;
+}
+
+/*兼容谷歌和火狐浏览器*/
+
+@keyframes wave-animation {
+    0% {
+        background-position: 0 bottom;
+    }
+    100% {
+        background-position: 200px bottom;
+    }
+}
+
+@keyframes loading-animation {
+    0% {
+        background-size: 200px 100px;
+    }
+    100% {
+        background-size: 200px 100px;
+    }
+}
+
+@-webkit-keyframes wave-animation {
+    0% {
+        background-position: 0 bottom;
+    }
+    100% {
+        background-position: 200px bottom;
+    }
+}
+
+@-webkit-keyframes loading-animation {
+    0% {
+        background-size: 200px 100px;
+    }
+    100% {
+        background-size: 200px 100px;
+    }
+}
+
+.wave {
+    background-image: url("../../img/uFpLbYt.png");
+    -moz-background-clip: text;
+    -o-background-clip: text;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0px 0px rgba(255, 255, 255, 0.06);
+    animation: wave-animation 1s infinite linear, loading-animation 10s infinite linear alternate;
+    -webkit-animation: wave-animation 1s infinite linear, loading-animation 10s infinite linear alternate;
+    background-size: 200px 100px;
+    background-repeat: repeat-x;
+    opacity: 1;
+}
+
+.wave-two {
+    -moz-background-clip: initial;
+    -o-background-clip: initial;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    display: inline-block;
+}
+
+/*波浪动画结束*/
+
+/*-------- 天空背景以及动画 --------*/
+
+.stage {
+    position: relative;
+    overflow: hidden;
+    height: 645px;
+    -webkit-animation: skyset 110s infinite linear;
+    -moz-animation: skyset 110s infinite linear;
+    -o-animation: skyset 110s infinite linear;
+    animation: skyset 110s infinite linear;
+}
+
+/*-------- 云以及动画 --------*/
+
+.cloud {
+    position: absolute;
+}
+
+.cloud.small {
+    z-index: 1;
+    top: 5%;
+    left: 15%;
+    background: url('../../img/cloudSmall.png') no-repeat no-repeat center;
+    height: 50px;
+    width: 89px;
+    -webkit-animation: cloudSmall 165s infinite;
+    -moz-animation: cloudSmall 165s infinite;
+    -o-animation: cloudSmall 165s infinite;
+    animation: cloudSmall 165s infinite;
+}
+
+.cloud.medium {
+    z-index: 3;
+    top: 25%;
+    left: 30%;
+    background: url('../../img/cloudMedium.png') no-repeat no-repeat center;
+    height: 92px;
+    width: 159px;
+    -webkit-animation: cloudMedium 80s infinite;
+    -moz-animation: cloudMedium 80s infinite;
+    -o-animation: cloudMedium 80s infinite;
+    animation: cloudMedium 80s infinite;
+}
+
+.cloud.large {
+    z-index: 2;
+    top: 5%;
+    left: 15%;
+    background: url('../../img/cloudLarge.png') no-repeat no-repeat center;
+    height: 169px;
+    width: 302px;
+    -webkit-animation: cloudLarge 105s infinite;
+    -moz-animation: cloudLarge 105s infinite;
+    -o-animation: cloudLarge 105s infinite;
+    animation: cloudLarge 105s infinite;
+}
+
+@-webkit-keyframes cloudSmall {
+    0% {
+        left: -8%;
+    }
+    100% {
+        left: 108%;
+    }
+}
+
+@-moz-keyframes cloudSmall {
+    0% {
+        left: -5%;
+    }
+    100% {
+        left: 105%;
+    }
+}
+
+@-o-keyframes cloudSmall {
+    0% {
+        left: -5%;
+    }
+    100% {
+        left: 105%;
+    }
+}
+
+@keyframes cloudSmall {
+    0% {
+        left: -5%;
+    }
+    100% {
+        left: 105%;
+    }
+}
+
+@-webkit-keyframes cloudMedium {
+    0% {
+        left: -8%;
+    }
+    100% {
+        left: 108%;
+    }
+}
+
+@-moz-keyframes cloudMedium {
+    0% {
+        left: -8%;
+    }
+    100% {
+        left: 108%;
+    }
+}
+
+@-o-keyframes cloudMedium {
+    0% {
+        left: -8%;
+    }
+    100% {
+        left: 108%;
+    }
+}
+
+@keyframes cloudMedium {
+    0% {
+        left: -8%;
+    }
+    100% {
+        left: 108%;
+    }
+}
+
+@-webkit-keyframes cloudLarge {
+    0% {
+        left: -18%;
+    }
+    100% {
+        left: 118%;
+    }
+}
+
+@-moz-keyframes cloudLarge {
+    0% {
+        left: -18%;
+    }
+    100% {
+        left: 118%;
+    }
+}
+
+@-o-keyframes cloudLarge {
+    0% {
+        left: -18%;
+    }
+    100% {
+        left: 118%;
+    }
+}
+
+@keyframes cloudLarge {
+    0% {
+        left: -18%;
+    }
+    100% {
+        left: 118%;
+    }
+}
+
+.balloon {
+    position: absolute;
+    z-index: 3;
+    top: 35%;
+    left: 20%;
+    background: url('../../img/cloudMedium2.png') no-repeat no-repeat center;
+    height: 83px;
+    width: 143px;
+    -webkit-animation: balloon 50s infinite cubic-bezier(0.91, 0.01, 1, 0.89);
+    -moz-animation: balloon 50s infinite cubic-bezier(0.1, 0.1, 0.95, 0.5);
+    -o-animation: balloon 50s infinite cubic-bezier(0.1, 0.1, 0.95, 0.5);
+    animation: balloon 50s infinite cubic-bezier(0.1, 0.1, 0.95, 0.5);
+}
+
+@-webkit-keyframes balloon {
+    0% {
+        left: -20%;
+        opacity: 1;
+    }
+    100% {
+        left: 120%;
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes balloon {
+    0% {
+        left: -20%;
+        opacity: 1;
+    }
+    100% {
+        left: 120%;
+        opacity: 0;
+    }
+}
+
+@-o-keyframes balloon {
+    0% {
+        left: -20%;
+        opacity: 1;
+    }
+    100% {
+        left: 120%;
+        opacity: 0;
+    }
+}
+
+@keyframes balloon {
+    0% {
+        left: -20%;
+        opacity: 1;
+    }
+    100% {
+        left: 120%;
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes apply-btn {
+    0% {
+        opacity: 0.7;
+        box-shadow: 0 0 10px #000;
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 30px #aaa;
+    }
+    100% {
+        opacity: 0.7;
+        box-shadow: 0 0 10px #000;
+    }
+}
+
+@-moz-keyframes apply-btn {
+    0% {
+        opacity: 0.7;
+        box-shadow: 0 0 10px #000;
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 30px #aaa;
+    }
+    100% {
+        opacity: 0.7;
+        box-shadow: 0 0 10px #000;
+    }
+}
+
+@-o-keyframes apply-btn {
+    0% {
+        opacity: 0.7;
+        box-shadow: 0 0 10px #000;
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 30px #aaa;
+    }
+    100% {
+        opacity: 0.7;
+        box-shadow: 0 0 10px #000;
+    }
+}
+
+@keyframes apply-btn {
+    0% {
+        opacity: 0.7;
+        box-shadow: 0 0 10px #000;
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 30px #aaa;
+    }
+    100% {
+        opacity: 0.7;
+        box-shadow: 0 0 10px #000;
+    }
+}
+
+.apply-btn {
+    -webkit-animation: 3s apply-btn ease-out infinite;
+    -moz-animation: 3s apply-btn ease-out infinite;
+    -o-animation: 3s apply-btn ease-out infinite;
+    animation-name: 3s apply-btn ease-out infinite;
+}

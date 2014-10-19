@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6B6DA0C7-D86D-443C-AFF9-640B9E5E03FE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StudentLoan.Model</RootNamespace>
+    <AssemblyName>StudentLoan.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminEntityEx.cs" />
+    <Compile Include="AdminLogEntityEx.cs" />
+    <Compile Include="AdminRoleEntityEx.cs" />
+    <Compile Include="AdminRoleValueEntityEx.cs" />
+    <Compile Include="BaseBankEntityEx.cs" />
+    <Compile Include="BaseSchoolEntityEx.cs" />
+    <Compile Include="Base\AdminEntity.cs" />
+    <Compile Include="Base\AdminLogEntity.cs" />
+    <Compile Include="Base\AdminRoleEntity.cs" />
+    <Compile Include="Base\AdminRoleValueEntity.cs" />
+    <Compile Include="Base\BaseBankEntity.cs" />
+    <Compile Include="Base\BaseSchoolEntity.cs" />
+    <Compile Include="Base\CategoryEntity.cs" />
+    <Compile Include="Base\ChannelEntity.cs" />
+    <Compile Include="Base\DrawMoneyEntity.cs" />
+    <Compile Include="Base\ProductEntity.cs" />
+    <Compile Include="Base\ProductSchemeEntity.cs" />
+    <Compile Include="Base\UserBankEntity.cs" />
+    <Compile Include="Base\UserCertificationEntity.cs" />
+    <Compile Include="Base\UserChargeEntity.cs" />
+    <Compile Include="Base\UserEarningsEntity.cs" />
+    <Compile Include="Base\UserLoanEntity.cs" />
+    <Compile Include="Base\UserLoginLogEntity.cs" />
+    <Compile Include="Base\UserManageMoneyEntity.cs" />
+    <Compile Include="Base\UserMessageEntity.cs" />
+    <Compile Include="Base\UserRelationshipEntity.cs" />
+    <Compile Include="Base\UserRepaymentEntity.cs" />
+    <Compile Include="Base\UserSchoolEntity.cs" />
+    <Compile Include="Base\UsersEntity.cs" />
+    <Compile Include="CategoryEntityEx.cs" />
+    <Compile Include="ChannelEntityEx.cs" />
+    <Compile Include="DrawMoneyEntityEx.cs" />
+    <Compile Include="PorductEntityEx.cs" />
+    <Compile Include="ProductSchemeEntityEx.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserBankEntityEx.cs" />
+    <Compile Include="UserCertificationEntityEx.cs" />
+    <Compile Include="UserChargeEntityEx.cs" />
+    <Compile Include="UserEarningsEntityEx.cs" />
+    <Compile Include="UserLoanEntityEx.cs" />
+    <Compile Include="UserLoginLogEntityEx.cs" />
+    <Compile Include="UserManageMoneyEntityEx.cs" />
+    <Compile Include="UserMessageEntityEx.cs" />
+    <Compile Include="UserRelationshipEntityEx.cs" />
+    <Compile Include="UserRepaymentEntityEx.cs" />
+    <Compile Include="UserSchoolEntityEx.cs" />
+    <Compile Include="UsersEntityEx.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StudentLoan.Common\StudentLoan.Common.csproj">
+      <Project>{2fcc17a3-2392-4bae-bd4a-0c7fc526a017}</Project>
+      <Name>StudentLoan.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

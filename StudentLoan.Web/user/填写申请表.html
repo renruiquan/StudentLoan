@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>填写申请表</title>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/icomoon/icon.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/modules/admin/admin.css"/>
+</head>
+
+<body>
+
+<div class="top">
+    <div class="wrapper">
+        <h1 class="logo">
+            <img src="../css/img/admin/logo.jpg" alt=""/>
+        </h1>
+        <div class="user-icon">
+            <div class="icon">
+                <img src="../css/img/admin/user_no_frame.png" alt=""/>
+            </div>
+            <p>张无忌</p>
+        </div>
+        <ul class="menu fr">
+            <li class="active nav">
+                <a href="javascript:;" class="dropdown-toggle">象牙塔</a>
+            </li>
+            <li class="nav nav-product">
+                <a href="javascript:;" class="dropdown-toggle">雪中送炭</a>
+            </li>
+            <li class="nav nav-case">
+                <a href="javascript:;" class="dropdown-toggle">聚宝盆</a>
+            </li>
+            <li class="nav nav-support">
+                <a href="javascript:;" class="dropdown-toggle">关于我们</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<hr class="line"/>
+
+<div class="container-wrap">
+    <div class="wrapper">
+
+        <div class="text-center ptb20">
+            <h1>请填写借款申请表单</h1>
+
+            <p>借款需要达到一定信用等级认证，如果不够一定信用等级认证，<a href="javascript:;"><span class="c-blue">请完善资料</span></a></p>
+
+        </div>
+
+        <div class="border-radius bg-rb">
+
+
+            <form class="form-horizontal">
+
+                <div class="item">
+
+                    <div class="control-group mt10">
+                        <label class="control-label" for="inputSle">* 借款用途：</label>
+
+                        <div class="controls text-left">
+
+                            <select id="inputSle">
+                                <option value="">请选择...</option>
+                                <option value="1">交学费</option>
+                                <option value="2">购买学习用品</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="numberSle">* 借款金额：</label>
+
+                        <div class="controls text-left">
+                            <select id="numberSle">
+                                <option value="">请选择...</option>
+                                <option value="1">1000.00</option>
+                                <option value="2">20000.00</option>
+                            </select>
+                            <span> 元 </span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="deadline">* 借款期限：</label>
+
+                        <div class="controls text-left">
+
+                            <select id="deadline">
+                                <option value="">请选择...</option>
+                                <option value="1">1年</option>
+                                <option value="2">5年</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="rate">* 年利率：</label>
+
+                        <div class="controls text-left">
+                            <input class="span3" type="text" id="rate" placeholder="请输入年利率">
+                            <span> %  （利率精确到小数点后一位，范围10-24%之间）</span>
+
+                            <p class="mt10">借款最低利率由您的借款期限确定，一般来说借款利率越高，借款速度越快</p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">* 还款周期：</label>
+
+                        <div class="controls text-left">
+                            <p>按月还款</p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="way">* 还款方式：</label>
+
+                        <div class="controls text-left">
+                            <select id="way">
+                                <option value="">请选择...</option>
+                                <option value="1">还款方式一</option>
+                                <option value="2">还款方式二</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="last-date">* 筹标期限：</label>
+
+                        <div class="controls text-left">
+                            <select id="last-date">
+                                <option value="">请选择...</option>
+                                <option value="1">期限一</option>
+                                <option value="2">期限二</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">* 每月还本息：</label>
+
+                        <div class="controls text-left">
+                            <p class="c-blue">￥：00.00</p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">* 每月叫借款管理费：</label>
+
+                        <div class="controls text-left">
+                            <p class="c-blue">￥：00.00</p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">* 成交服务费：</label>
+
+                        <div class="controls text-left">
+                            <p>
+                                即风险准备金。借款成功后按照借款成交额一次性从借款中扣除，标准为：Z级0%：AA级5%：A级5%：B级5%：C级5%：D级5%；E级5%：HR级5%。实际收取比列以最终审评核定级别为准。</p>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">* 借款描述：</label>
+
+                        <div class="controls text-left">
+
+                            <textarea class="w600" rows="10"></textarea>
+
+                            <p class="c-blue mt10">借款描述尽可能具体，详细阐述您借款的用途。真实、诚信、切记弄虚作假</p>
+
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label"></label>
+
+                        <div class="controls text-left">
+                            <p class="w400 ptb20 text-center">
+                                <button class="mt10 btn btn-large btn-block btn-primary" type="button">确定申请</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+            <div class="rb"></div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="footer">
+
+    <div class="wrapper">
+
+        <div class="link">
+            <ul>
+                <li><a href="javascript:;">百度</a></li>
+                <li>|</li>
+                <li><a href="javascript:;">百度</a></li>
+                <li>|</li>
+                <li><a href="javascript:;">百度</a></li>
+                <li>|</li>
+                <li><a href="javascript:;">百度</a></li>
+            </ul>
+        </div>
+        <div class="copyright">
+            <div class="foot-logo">
+                <img src="../css/img/admin/logo_footer.jpg" alt=""/>
+            </div>
+            <ul>
+                <li>@2014 学子易贷 All rights reserved</li>
+                <li>|</li>
+                <li>苏ICP备案14002001号</li>
+                <li>|</li>
+                <li><a href="javascript:;">免责条款</a></li>
+            </ul>
+
+        </div>
+
+        <div class="contact">
+            <p>客服电话</p>
+            <span>400-145-8888</span>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

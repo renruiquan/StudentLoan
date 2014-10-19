@@ -1,0 +1,4 @@
+2014-09-28 22:27:17       interface_version=V3.0&merchant_code=1111110166&notify_id=89a6d983345347408a451a3c61e67d7a&notify_type=offline_notify&order_amount=0.01&order_no=201409282226229263&order_time=2014-09-28 22:26:22&trade_no=1009836049&trade_status=SUCCESS&trade_time=2014-09-28 22:26:23&key=123456789a123456789_&sign=5388478096930b4b5cef39caa6cf26ec
+2014-09-28 22:27:17       校验成功，订单状态：True
+2014-09-28 22:27:17       interface_version=V3.0&merchant_code=1111110166&notify_id=89a6d983345347408a451a3c61e67d7a&notify_type=offline_notify&order_amount=0.01&order_no=201409282226229263&order_time=2014-09-28 22:26:22&trade_no=1009836049&trade_status=SUCCESS&trade_time=2014-09-28 22:26:23&key=123456789a123456789_&sign=5388478096930b4b5cef39caa6cf26ec
+2014-09-28 22:27:17       校验成功，订单状态：True

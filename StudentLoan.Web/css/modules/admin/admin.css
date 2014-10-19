@@ -1,0 +1,854 @@
+@charset "UTF-8";
+/**
+ * Created by Administrator on 2014/10/2.
+ * 后台相关的样式
+ */
+body {
+    background: #f2f2f2;
+}
+
+.wrapper {
+    clear: both;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.line {
+    border: 0;
+    height: 1px;
+    background: #d8d8d8;
+    margin: 40px 0;
+}
+
+.top {
+    height: 64px;
+    width: 100%;
+    background: #0061cc;
+}
+
+.top .logo {
+    width: 110px;
+    height: 44px;
+    float: left;
+    overflow: hidden;
+}
+
+.top .menu {
+    font: normal 16px/64px "microsoft yahei";
+}
+
+.top .menu .active {
+    padding: 0;
+    background: none;
+}
+
+.top .menu {
+    padding: 0;
+    height: 64px;
+    margin: 0;
+    display: inline-block;
+    position: relative;
+}
+
+.top .menu .nav {
+    height: 64px;
+    line-height: 64px;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    font-size: 16px;
+    float: left;
+}
+
+.top .menu .nav a {
+    padding: 0 20px;
+    color: #fff;
+    height: 64px;
+    font: normal 16px/64px "microsoft yahei";
+}
+
+.top .menu .nav:hover, .top .menu .active {
+    background-color: #0b4e98;
+    text-decoration: none;
+}
+
+.top .menu .nav:hover > a, .top .menu .active > a {
+    height: 64px;
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+}
+
+.top .user-icon {
+    height: 64px;
+    text-align: center;
+    float: right;
+    padding: 0 20px;
+    background: #0a5bb6;
+    overflow: hidden;
+}
+
+.top .user-icon p {
+    clear: both;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.top .user-icon .icon {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    margin: 5px 0 4px 0;
+    background: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.top .user-icon .icon img {
+    height: 30px;
+    width: 30px;
+}
+
+.container-wrap {
+    clear: both;
+    margin: 0 auto 20px;
+    overflow: hidden;
+}
+
+.container-wrap .menu {
+    min-width: 220px;
+    min-height: 786px;
+    padding: 20px 0;
+    margin-right: 20px;
+    float: left;
+    background: #fff;
+    border: 1px solid #d8d8d8;
+    border-radius: 5px;
+}
+
+.container-wrap .menu h2 {
+    color: #0061cc;
+    background: #f5f5f5;
+    text-align: right;
+    padding: 0 40px 0 0;
+    font: normal 18px/44px "microsoft yahei";
+}
+
+.container-wrap .menu ul {
+    margin: 0;
+}
+
+.container-wrap .menu ul li {
+    height: 33px;
+    overflow: hidden;
+}
+
+.container-wrap .menu ul li a {
+    display: block;
+    height: 33px;
+    text-align: right;
+    padding: 0 40px 0 0;
+    vertical-align: middle;
+    font: 14px/33px "microsoft yahei";
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.container-wrap .menu ul li a i {
+    margin: 8px 8px 0px 8px;
+}
+
+.container-wrap .menu ul .active,
+.container-wrap .menu ul li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: #0061cc;
+}
+
+.container-wrap .menu ul .active i,
+.container-wrap .menu ul li a:hover i {
+    color: #fff;
+}
+
+.container-wrap .menu ul .active {
+    cursor: default;
+}
+
+.tabs {
+    clear: both;
+    height: 48px;
+    background: #f1f1f1;
+    border: 1px solid #d8d8d8;
+}
+
+.tabs ul {
+    width: 100%;
+    margin: 0;
+}
+
+.tabs ul li {
+    height: 48px;
+    float: left;
+    background: #fff;
+    border-right: 1px solid #d8d8d8;
+
+}
+
+.tabs ul li a {
+    color: #616161;
+    background: #f1f1f1;
+    height: 48px;
+    padding: 0 30px;
+    font: 16px/48px "microsoft yahei";
+}
+
+.tabs ul .active a,
+.tabs ul li a:hover {
+    text-decoration: none;
+}
+
+.tabs ul .active a {
+    height: 54px;
+    color: #0061cc;
+    background: #fff;
+    cursor: default;
+}
+
+.content {
+    float: left;
+    width: 940px;
+}
+
+.content .cont {
+    clear: both;
+    padding: 30px;
+    min-height: 716px;
+    background: #fff;
+    margin-top: -2px;
+    border: 1px solid #d8d8d8;
+    border-radius: 0 0 5px 5px;
+}
+
+.content .item {
+    clear: both;
+}
+
+.content .item h3 {
+    margin: 20px 0;
+    font: 18px/30px "microsoft yahei";
+}
+
+.content .item table {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.content .item table caption,
+.content .item th,
+.content .item td {
+    min-height: 44px;
+    vertical-align: middle;
+    text-align: center;
+    font: 16px/44px "microsoft yahei";
+}
+
+.content .item table thead th {
+    padding: 10px 0;
+}
+
+.content .item table thead {
+    border-bottom: none;
+    background: #f1f1f1;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.content a {
+    color: #0061cc;
+}
+
+.big-num {
+    color: #0061cc;
+    font-size: 20px;
+}
+
+.border-radius {
+    border: 1px solid #d8d8d8;
+    border-radius: 5px;
+}
+
+.grade {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: #fff;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.blue {
+    background: #0061cc;
+}
+
+.green {
+    background: #48cc00;
+}
+
+.green-two {
+    background: #00cbad;
+}
+
+.brown {
+    background: #cdc000;
+}
+
+.orange {
+    background: #fb8509;
+}
+
+.red {
+    background: #df5b4c;
+}
+
+.pink {
+    background: #e44fff;
+}
+
+.purple {
+    background: #a582f8;
+}
+
+.green-three {
+    background: #ec4512 !important;
+}
+
+.c-white {
+    color: #fff !important;
+}
+
+.content .friend-cont {
+    padding: 0;
+    margin: 0;
+    background: #ff6a3c;
+}
+
+.content .friend-cont h3 {
+    background: #ec4512;
+    margin: 0;
+    padding: 0;
+    line-height: 60px;
+}
+
+.friend-bg {
+    min-height: 900px;
+    background: url("../../img/admin/friend.jpg") no-repeat center bottom;
+}
+
+.friend-text {
+    margin-top: 100px;
+    text-align: center;
+    color: #fff;
+}
+
+.footer {
+    clear: both;
+    overflow: hidden;
+    padding: 20px 0;
+    color: #9e9fa3;
+    background: #434449;
+}
+
+.link {
+    overflow: hidden;
+    padding: 15px 0;
+    border-bottom: 1px solid #9e9fa3;
+}
+
+.link ul {
+    margin: 0;
+}
+
+.link ul li {
+    float: left;
+}
+
+.link a {
+    padding: 0 10px;
+    color: #9e9fa3;
+}
+
+.copyright {
+    float: left;
+    margin-top: 5px;
+}
+
+.copyright ul li {
+    float: left;
+    padding: 0 10px;
+}
+
+.copyright a {
+    color: #9e9fa3;
+    font: 14px "microsoft yahei";
+}
+
+.contact {
+    margin-top: 20px;
+    float: right;
+    text-align: right;
+}
+
+.contact span {
+    font: 30px/40px "microsoft yahei";
+}
+
+.input-large {
+    height: 30px !important;
+    line-height: 30px !important;
+}
+
+.select-bank .bank {
+    position: relative;
+    float: left;
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    margin: 0 20px 20px 0;
+    text-align: center;
+    overflow: hidden;
+    border: 1px solid #9e9fa3;
+    border-radius: 5px;
+
+}
+
+.select-bank .bank input {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    overflow: hidden;
+
+}
+
+.select-bank .active {
+    border-color: #0061cc;
+    background: #0061cc;
+}
+
+.btn:hover,
+.btn {
+    color: #fff !important;
+    font-family: "microsoft yahei";
+}
+
+.all-view {
+}
+
+.all-left {
+    float: left;
+    width: 236px;
+    margin: 30px 50px 30px 30px;
+
+}
+
+.user-img {
+    width: 236px;
+    height: 310px;
+    overflow: hidden;
+    position: relative;
+}
+
+.user-img .img img,
+.user-img .img {
+    width: 236px;
+    height: 300px;
+}
+
+.user-img .name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #fa4a33;
+    text-align: center;
+    color: #fff;
+    font: 18px/44px "microsoft yahei";
+}
+
+.all-right {
+    float: left;
+    width: 480px;
+}
+
+.head-icon {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+}
+
+.lock {
+    background: url("../../img/admin/lock.jpg") no-repeat;
+}
+
+.dollar {
+    background: url("../../img/admin/dollar.jpg") no-repeat;
+}
+
+.refresh {
+    background: url("../../img/admin/refresh.jpg") no-repeat;
+}
+
+.rows-3 {
+
+}
+
+.rows-3 div {
+    display: inline-block;
+    width: 33%;
+}
+
+.rows-3 div h4 {
+    font-weight: normal;
+}
+
+.bg-rb {
+    position: relative;
+    padding: 80px 100px;
+    background: #fff;
+}
+
+.bg-rb .rb {
+    position: absolute;
+    right: -9px;
+    bottom: -1px;
+    width: 183px;
+    height: 181px;
+    background: url("../../img/admin/writer_from.jpg") no-repeat right bottom #fff;
+}
+
+/*贷款分类*/
+.class-of {
+    float: left;
+    padding: 120px 0 120px 120px;
+    width: 1020px;
+}
+
+.class-of .ima {
+    width: 182px;
+    height: 182px;
+    float: left;
+    margin: 0 30px 20px;
+}
+
+.generic,
+.diamond,
+.at-any-time {
+    width: 240px;
+    margin-right: 100px;
+    float: left;
+    text-align: center;
+}
+
+.generic .ima {
+    background: url("../../img/admin/generic.png") no-repeat;
+}
+
+.diamond .ima {
+    background: url("../../img/admin/diamond.png") no-repeat;
+}
+
+.at-any-time .ima {
+    background: url("../../img/admin/at_any_time.png") no-repeat;
+}
+
+.class-of h2 {
+    color: #3d3d3d;
+    font: normal 32px/46px "microsoft yahei";
+    clear: both;
+}
+
+.class-of h4 {
+    color: #0060cc;
+    font-weight: normal;
+}
+
+.class-of .c-gray {
+    color: #808080;
+}
+
+.class-of .money {
+    position: relative;
+    margin: 20px 0;
+}
+
+.class-of .dollar {
+    position: absolute;
+    right: 0;
+    top: -10px;
+    background: none;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    background: #0060cc;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+.class-of .money h2 {
+    color: #fff;
+    letter-spacing: -2px;
+    font: normal 34px/60px "microsoft yahei";
+}
+
+.class-of .txt {
+    margin-bottom: 20px;
+}
+
+.less-to-multi,
+.money-drawing,
+.top-full {
+    clear: both;
+    margin: 0;
+    padding: 0;
+    float: left;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+}
+
+.less-to-multi {
+    background: #ffe9de;
+}
+
+.money-drawing {
+    background: #c9fffd;
+}
+
+.top-full {
+    background: #c6fdca;
+}
+
+.class-shadow,
+.shadow-text,
+.cornucopia .shadow {
+    width: 236px;
+    height: 236px;
+    float: left;
+    margin: 65px 40px 65px 0;
+    background: url("../../img/admin/money_drawing_shadow.png") no-repeat 20px 25px;
+}
+
+.shadow-text {
+    background: none;
+}
+
+.class-shadow {
+    width: 256px;
+    height: 256px;
+    margin: 0 40px 0 0;
+    background-position: 47px 22px;
+}
+
+.cornucopia .ima {
+    width: 180px;
+    height: 180px;
+    float: left;
+}
+
+.less-to-multi .ima {
+    background: url("../../img/admin/less_to_multi.png") no-repeat;
+}
+
+.money-drawing .ima {
+    background: url("../../img/admin/money_drawing.png") no-repeat;
+}
+
+.top-full .ima {
+    background: url("../../img/admin/top_full.png") no-repeat;
+}
+
+.cornucopia h3 {
+    font-weight: normal;
+}
+
+.cornucopia h3 span {
+    color: #939393;
+}
+
+.cornucopia .b-group {
+    width: 100%;
+    overflow: hidden;
+    padding-left: 1px;
+    color: #898989;
+}
+
+.cornucopia .b-group span {
+
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #ccc;
+    height: 40px;
+    line-height: 40px;
+    width: 170px;
+    float: left;
+    margin-left: -1px;
+    font: normal 14px/40px "microsoft yahei";
+    text-align: center;
+
+}
+
+.cornucopia .disc {
+    width: 700px;
+    float: left;
+    margin: 60px 0 20px 0;
+}
+
+.cornucopia .invest {
+    float: left;
+    margin: 121px 0 0 40px;
+}
+
+.mb0 {
+    margin-bottom: 0;
+}
+
+.login {
+    float: left;
+    height: 1220px;
+    width: 100%;
+    background: url("../../img/bg/login.jpg") no-repeat center 0;
+}
+
+.login-form {
+    width: 458px;
+    margin: 50px auto;
+}
+
+.dark-gray:hover,
+.dark-gray {
+    color: #333 !important;
+}
+
+.login-form h2 {
+    color: #0060cc;
+    text-align: center;
+    font: normal 22px/30px "microsoft yahei";
+}
+
+.login-form p {
+    color: #fff;
+    text-align: center;
+}
+
+.login-form .check-code {
+    position: relative;
+}
+
+.login-form .check-code .check-a {
+    position: absolute;
+    display: inline-block;
+    height: 38px;
+    width: 100px;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    background: #f5f5f5;
+    border: 1px solid #d9d9d9;
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+}
+
+.clear-top {
+    margin-top: 0 !important;
+    min-height: 765px !important;
+}
+
+.article h3 {
+    color: #0061cc;
+    font-weight: normal;
+}
+
+.article p {
+    font: normal 14px/22px "microsoft yahei";
+}
+
+.bg-cyan {
+    background: #9df0ff;
+}
+
+.wbb {
+    width: 100%;
+}
+
+.register {
+    float: left;
+    width: 100%;
+    text-align: center;
+    background: #f2f2f2;
+}
+
+.register-form {
+    width: 900px;
+    margin: 60px auto;
+}
+
+.reg-step {
+    height: 180px;
+    width: 100%;
+    float: left;
+}
+
+.reg-step .step-right,
+.reg-step .step-left {
+    float: left;
+    width: 130px;
+}
+
+.reg-step .step-right {
+    float: right;
+}
+
+.reg-step .step-center {
+    float: left;
+    width: 620px;
+    margin: 0 10px;
+}
+
+.reg-step .step-center .line {
+    margin-top: 80px;
+}
+
+.reg-step .step-right .icon,
+.reg-step .step-left .icon {
+    float: left;
+    width: 130px;
+    height: 130px;
+    margin: 0;
+    text-align: center;
+    background: url("../../img/admin/regina_1.png") no-repeat center center;
+}
+
+.reg-step .step-right .icon {
+    background: url("../../img/admin/regina_2.png") no-repeat center center;
+}
+
+.reg-step .left-outdated .icon {
+    background: url("../../img/admin/regina_1_outdated.png") no-repeat center center;
+}
+
+.reg-step .right-outdated .icon {
+    background: url("../../img/admin/regina_2_outdated.png") no-repeat center center;
+}
+
+.reg-step .icon h4 {
+    margin-top: 80px;
+    color: #fff;
+}

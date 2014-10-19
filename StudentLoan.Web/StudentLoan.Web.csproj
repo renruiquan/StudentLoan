@@ -1,0 +1,774 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{06ADAED4-CEDF-4DF5-9B57-CCFED8F8E309}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StudentLoan.Web</RootNamespace>
+    <AssemblyName>StudentLoan.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AspNetPager">
+      <HintPath>..\Libraries\AspNetPager.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".idea\encodings.xml" />
+    <Content Include=".idea\misc.xml" />
+    <Content Include=".idea\modules.xml" />
+    <Content Include=".idea\scopes\scope_settings.xml" />
+    <Content Include=".idea\vcs.xml" />
+    <Content Include=".idea\workspace.xml" />
+    <Content Include="Admin\AdminAdd.aspx" />
+    <Content Include="Admin\AdminEdit.aspx" />
+    <Content Include="Admin\AdminList.aspx" />
+    <Content Include="Admin\ChangePassword.aspx" />
+    <Content Include="Admin\ChargeList.aspx" />
+    <Content Include="Admin\css\admin.content.css" />
+    <Content Include="Admin\css\admin.global.css" />
+    <Content Include="Admin\css\admin.index.css" />
+    <Content Include="Admin\css\admin.login.css" />
+    <Content Include="Admin\Default.aspx" />
+    <Content Include="Admin\DrawMoneyList.aspx" />
+    <Content Include="Admin\images\block-corner.png" />
+    <Content Include="Admin\images\block-h.gif" />
+    <Content Include="Admin\images\box-title.gif" />
+    <Content Include="Admin\images\button-green-lit.png" />
+    <Content Include="Admin\images\button-green.png" />
+    <Content Include="Admin\images\button-white.gif" />
+    <Content Include="Admin\images\close.gif" />
+    <Content Include="Admin\images\data-table-th.gif" />
+    <Content Include="Admin\images\icon-mail.gif" />
+    <Content Include="Admin\images\icon-phone.gif" />
+    <Content Include="Admin\images\icons.png" />
+    <Content Include="Admin\images\index-footer.gif" />
+    <Content Include="Admin\images\index-header.gif" />
+    <Content Include="Admin\images\index-table-bottom-center.gif" />
+    <Content Include="Admin\images\index-table-bottom-left.gif" />
+    <Content Include="Admin\images\index-table-bottom-right.gif" />
+    <Content Include="Admin\images\index-table-middle-left.gif" />
+    <Content Include="Admin\images\index-table-middle-right.gif" />
+    <Content Include="Admin\images\index-table-top-center.gif" />
+    <Content Include="Admin\images\index-table-top-left.gif" />
+    <Content Include="Admin\images\index-table-top-right.gif" />
+    <Content Include="Admin\images\index-table-welcome-01.gif" />
+    <Content Include="Admin\images\index-table-welcome-02.gif" />
+    <Content Include="Admin\images\index-table-welcome-03.gif" />
+    <Content Include="Admin\images\index_menu_bg.gif" />
+    <Content Include="Admin\images\index_menu_bottom.gif" />
+    <Content Include="Admin\images\index_menu_line.gif" />
+    <Content Include="Admin\images\index_menu_off.gif" />
+    <Content Include="Admin\images\index_menu_on.gif" />
+    <Content Include="Admin\images\index_menu_tit.gif" />
+    <Content Include="Admin\images\loading.gif" />
+    <Content Include="Admin\images\loading_16x16.gif" />
+    <Content Include="Admin\images\lock.gif" />
+    <Content Include="Admin\images\login-bottom.gif" />
+    <Content Include="Admin\images\login-top.gif" />
+    <Content Include="Admin\images\login-welcome.gif" />
+    <Content Include="Admin\images\login_middle_1.gif" />
+    <Content Include="Admin\images\login_middle_3.gif" />
+    <Content Include="Admin\images\logo.gif" />
+    <Content Include="Admin\images\out.gif" />
+    <Content Include="Admin\images\title.gif" />
+    <Content Include="Admin\images\tree\server.png" />
+    <Content Include="Admin\images\tree\server_group_close.png" />
+    <Content Include="Admin\images\tree\server_group_open.png" />
+    <Content Include="Admin\images\ts.gif" />
+    <Content Include="Admin\jBox\jquery.jBox-2.3.min.js" />
+    <Content Include="Admin\jBox\Skins\Green\images\jbox-button1.png" />
+    <Content Include="Admin\jBox\Skins\Green\images\jbox-button2.png" />
+    <Content Include="Admin\jBox\Skins\Green\images\jbox-close.gif" />
+    <Content Include="Admin\jBox\Skins\Green\images\jbox-content-loading.gif" />
+    <Content Include="Admin\jBox\Skins\Green\images\jbox-icons-ie6.gif" />
+    <Content Include="Admin\jBox\Skins\Green\images\jbox-icons.png" />
+    <Content Include="Admin\jBox\Skins\Green\images\jbox-loading1.gif" />
+    <Content Include="Admin\jBox\Skins\Green\images\jbox-loading2.gif" />
+    <Content Include="Admin\jBox\Skins\Green\images\jbox-loading3.gif" />
+    <Content Include="Admin\jBox\Skins\Green\images\jbox-title-icon.gif" />
+    <Content Include="Admin\jBox\Skins\Green\jbox.css" />
+    <Content Include="Admin\js\additional-methods.js" />
+    <Content Include="Admin\js\admin.js" />
+    <Content Include="Admin\js\DatePicker\calendar.js" />
+    <Content Include="Admin\js\DatePicker\lang\en.js" />
+    <Content Include="Admin\js\DatePicker\lang\zh-cn.js" />
+    <Content Include="Admin\js\DatePicker\lang\zh-tw.js" />
+    <Content Include="Admin\js\DatePicker\skin\datePicker.gif" />
+    <Content Include="Admin\js\DatePicker\skin\default\datepicker.css" />
+    <Content Include="Admin\js\DatePicker\skin\default\img.gif" />
+    <Content Include="Admin\js\DatePicker\skin\WdatePicker.css" />
+    <Content Include="Admin\js\DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="Admin\js\DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="Admin\js\DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="Admin\js\DatePicker\WdatePicker.js" />
+    <Content Include="Admin\js\DatePicker\开发包\lang\en.js" />
+    <Content Include="Admin\js\DatePicker\开发包\lang\zh-cn.js" />
+    <Content Include="Admin\js\DatePicker\开发包\lang\zh-tw.js" />
+    <Content Include="Admin\js\DatePicker\开发包\readme.txt" />
+    <Content Include="Admin\js\DatePicker\开发包\skin\datePicker.gif" />
+    <Content Include="Admin\js\DatePicker\开发包\skin\default\datepicker.css" />
+    <Content Include="Admin\js\DatePicker\开发包\skin\default\img.gif" />
+    <Content Include="Admin\js\DatePicker\开发包\skin\WdatePicker.css" />
+    <Content Include="Admin\js\DatePicker\开发包\skin\whyGreen\bg.jpg" />
+    <Content Include="Admin\js\DatePicker\开发包\skin\whyGreen\datepicker.css" />
+    <Content Include="Admin\js\DatePicker\开发包\skin\whyGreen\img.gif" />
+    <Content Include="Admin\js\jquery-1.11.1.js" />
+    <Content Include="Admin\js\jquery-1.4.2.min.js" />
+    <Content Include="Admin\js\jquery.utils.js" />
+    <Content Include="Admin\js\jquery.validate.cn.js" />
+    <Content Include="Admin\js\jquery.validate.js" />
+    <Content Include="Admin\Login.aspx" />
+    <Content Include="Admin\LoginLog.aspx" />
+    <Content Include="Admin\MainMenu.aspx" />
+    <Content Include="Admin\ProductSchemeAdd.aspx" />
+    <Content Include="Admin\ProductSchemeEdit.aspx" />
+    <Content Include="Admin\ProductSchemeList.aspx" />
+    <Content Include="Admin\UserDetail.aspx" />
+    <Content Include="Admin\UserEdit.aspx" />
+    <Content Include="Admin\UserList.aspx" />
+    <Content Include="Admin\UserLoanApplyList.aspx" />
+    <Content Include="Admin\UserManageMoneyList.aspx" />
+    <Content Include="Admin\UserEarningsList.aspx" />
+    <Content Include="Admin\welcome.aspx" />
+    <Content Include="callback\DinPayNotifyUrl.aspx" />
+    <Content Include="callback\ReturnUrl.aspx" />
+    <Content Include="channel\dinpay.aspx" />
+    <Content Include="channel\dinpayQuery.aspx" />
+    <Content Include="Charge.aspx" />
+    <Content Include="css\animate.min.css" />
+    <Content Include="css\bootstrap-responsive.css" />
+    <Content Include="css\bootstrap-responsive.min.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\bootstrap\css\bootstrap.css" />
+    <Content Include="css\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="css\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="css\bootstrap\js\bootstrap.js" />
+    <Content Include="css\bootstrap\js\bootstrap.min.js" />
+    <Content Include="css\common.css" />
+    <Content Include="css\datepicker.css" />
+    <Content Include="css\icomoon\fonts\icomoon.svg" />
+    <Content Include="css\icomoon\icon.css" />
+    <Content Include="css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="css\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="css\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="css\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="css\images\ui-icons_454545_256x240.png" />
+    <Content Include="css\images\ui-icons_888888_256x240.png" />
+    <Content Include="css\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="css\img\admin\at_any_time.jpg" />
+    <Content Include="css\img\admin\at_any_time.png" />
+    <Content Include="css\img\admin\bank_logo.jpg" />
+    <Content Include="css\img\admin\booklet.jpg" />
+    <Content Include="css\img\admin\booklet_ex.jpg" />
+    <Content Include="css\img\admin\carbook.jpg" />
+    <Content Include="css\img\admin\carbook_ex.jpg" />
+    <Content Include="css\img\admin\card.jpg" />
+    <Content Include="css\img\admin\card_ex.jpg" />
+    <Content Include="css\img\admin\check_code.png" />
+    <Content Include="css\img\admin\culture_1.jpg" />
+    <Content Include="css\img\admin\culture_2.jpg" />
+    <Content Include="css\img\admin\culture_3.jpg" />
+    <Content Include="css\img\admin\culture_4.jpg" />
+    <Content Include="css\img\admin\cup.jpg" />
+    <Content Include="css\img\admin\cup_ex.jpg" />
+    <Content Include="css\img\admin\diamond.jpg" />
+    <Content Include="css\img\admin\diamond.png" />
+    <Content Include="css\img\admin\dollar.jpg" />
+    <Content Include="css\img\admin\friend.jpg" />
+    <Content Include="css\img\admin\generic.jpg" />
+    <Content Include="css\img\admin\generic.png" />
+    <Content Include="css\img\admin\identity_back.jpg" />
+    <Content Include="css\img\admin\identity_default.jpg" />
+    <Content Include="css\img\admin\identity_ex.jpg" />
+    <Content Include="css\img\admin\identity_front.jpg" />
+    <Content Include="css\img\admin\identity_front_ex.jpg" />
+    <Content Include="css\img\admin\internetbank.jpg" />
+    <Content Include="css\img\admin\internetbank_ex.jpg" />
+    <Content Include="css\img\admin\less_to_multi.png" />
+    <Content Include="css\img\admin\lock.jpg" />
+    <Content Include="css\img\admin\logo.jpg" />
+    <Content Include="css\img\admin\logo_footer.jpg" />
+    <Content Include="css\img\admin\money_drawing.png" />
+    <Content Include="css\img\admin\money_drawing_shadow.png" />
+    <Content Include="css\img\admin\parents.jpg" />
+    <Content Include="css\img\admin\parents_back.jpg" />
+    <Content Include="css\img\admin\refresh.jpg" />
+    <Content Include="css\img\admin\regina_1.png" />
+    <Content Include="css\img\admin\regina_1_outdated.png" />
+    <Content Include="css\img\admin\regina_2.png" />
+    <Content Include="css\img\admin\regina_2_outdated.png" />
+    <Content Include="css\img\admin\search_result.jpg" />
+    <Content Include="css\img\admin\search_result_ex.jpg" />
+    <Content Include="css\img\admin\student_content.jpg" />
+    <Content Include="css\img\admin\student_content_ex.jpg" />
+    <Content Include="css\img\admin\student_front.jpg" />
+    <Content Include="css\img\admin\student_front_ex.jpg" />
+    <Content Include="css\img\admin\telephone.jpg" />
+    <Content Include="css\img\admin\telephone_ex.jpg" />
+    <Content Include="css\img\admin\top_full.png" />
+    <Content Include="css\img\admin\user_head.jpg" />
+    <Content Include="css\img\admin\user_icon.jpg" />
+    <Content Include="css\img\admin\user_no_frame.png" />
+    <Content Include="css\img\admin\writer_from.jpg" />
+    <Content Include="css\img\air.png" />
+    <Content Include="css\img\baseImagex.png" />
+    <Content Include="css\img\bg\into.jpg" />
+    <Content Include="css\img\bg\login.jpg" />
+    <Content Include="css\img\bg\logo_top.png" />
+    <Content Include="css\img\cloudLarge.png" />
+    <Content Include="css\img\cloudMedium.png" />
+    <Content Include="css\img\cloudMedium2.png" />
+    <Content Include="css\img\cloudSmall.png" />
+    <Content Include="css\img\cloudSmall2.png" />
+    <Content Include="css\img\into_projection.png" />
+    <Content Include="css\img\rx.jpg" />
+    <Content Include="css\img\safety.png" />
+    <Content Include="css\img\secret.png" />
+    <Content Include="css\img\uFpLbYt.png" />
+    <Content Include="css\jquery-ui.css" />
+    <Content Include="css\modules\admin\admin.css" />
+    <Content Include="css\modules\admin\custom-variables.css" />
+    <Content Include="css\modules\admin\ucom.min.css" />
+    <Content Include="css\modules\front\animations.css" />
+    <Content Include="css\modules\front\into.css" />
+    <Content Include="css\public.css" />
+    <Content Include="css\reset.css" />
+    <Content Include="DetailInfo.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="img\anonymous.jpg" />
+    <Content Include="img\glyphicons-halflings-white.png" />
+    <Content Include="img\glyphicons-halflings.png" />
+    <Content Include="index.html" />
+    <Content Include="js\birthday.js" />
+    <Content Include="js\bootstrap-datepicker.js" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="css\ui-dialog.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="js\city.min.js" />
+    <Content Include="js\dialog-plus-min.js" />
+    <Content Include="Admin\images\icons.psd" />
+    <Content Include="Admin\images\Thumbs.db" />
+    <Content Include="Admin\jBox\LGPL-LICENSE" />
+    <Content Include="Admin\jBox\Skins\Green\images\Thumbs.db" />
+    <Content Include=".idea\.name" />
+    <Content Include=".idea\学子易贷.iml" />
+    <Content Include="css\icomoon\fonts\icomoon.eot" />
+    <Content Include="css\icomoon\fonts\icomoon.ttf" />
+    <Content Include="css\icomoon\fonts\icomoon.woff" />
+    <Content Include="css\modules\admin\admin.less" />
+    <Content Include="css\modules\admin\custom-other.less" />
+    <Content Include="css\modules\admin\custom-variables.less" />
+    <None Include="js\jquery-1.11.0-vsdoc.js" />
+    <Content Include="js\jquery-1.11.0.min.js" />
+    <Content Include="js\jquery-ui-slide.min.js" />
+    <Content Include="js\jquery-ui-timepicker-addon.js" />
+    <Content Include="js\jquery-ui.js" />
+    <Content Include="js\jquery.cityselect.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\prefixfree.min.js" />
+    <Content Include="LoanList.aspx" />
+    <Content Include="login.aspx" />
+    <Content Include="MasterTest.aspx" />
+    <Content Include="Register.aspx" />
+    <Content Include="SchoolInfo.aspx" />
+    <Content Include="TTTTTTTTTTTTTTTTTTTTT.aspx" />
+    <Content Include="UserLoanApply.aspx" />
+    <Content Include="UserManageMoney.aspx" />
+    <Content Include="UserManageMoneyBuy.aspx" />
+    <Content Include="user\1阶段.html" />
+    <Content Include="user\ChangePassword.aspx" />
+    <Content Include="user\UserBillList.aspx" />
+    <Content Include="user\UserBillList_2.aspx" />
+    <Content Include="user\UserLoanList.aspx" />
+    <Content Include="user\WebForm1.aspx" />
+    <Content Include="user\交易记录-雪中送炭.html" />
+    <Content Include="user\会员充值.html" />
+    <Content Include="user\会员提现.html" />
+    <Content Include="user\修改密码.html" />
+    <Content Include="user\充值日志.html" />
+    <Content Include="user\关于我们-企业文化.html" />
+    <Content Include="user\关于我们-保障.html" />
+    <Content Include="user\关于我们-公司简介.html" />
+    <Content Include="user\关于我们-联系我们.html" />
+    <Content Include="user\可选信用认证.html" />
+    <Content Include="user\基本信息认证.html" />
+    <Content Include="user\填写申请表.html" />
+    <Content Include="user\填写申请表2.html" />
+    <Content Include="user\审核通知.html" />
+    <Content Include="user\必要信用认证.html" />
+    <Content Include="user\手机绑定.html" />
+    <Content Include="user\注册.html" />
+    <Content Include="user\注册协议.html" />
+    <Content Include="user\注册完成.html" />
+    <Content Include="user\消息管理-我最近的动态.html" />
+    <Content Include="user\消息管理-通知.html" />
+    <Content Include="user\登陆.html" />
+    <Content Include="user\聚宝盆-我的收益.html" />
+    <Content Include="user\聚宝盆-收款明细.html" />
+    <Content Include="user\聚宝盆-收益.html" />
+    <Content Include="user\聚宝盆-理财明细.html" />
+    <Content Include="user\聚宝盆-理财统计.html" />
+    <Content Include="user\聚宝盆-理财记录.html" />
+    <Content Include="user\聚宝盆.html" />
+    <Content Include="user\账户总览.html" />
+    <Content Include="user\账户日志.html" />
+    <Content Include="user\账户认证.html" />
+    <Content Include="user\邀请好友.html" />
+    <Content Include="user\银行账户信息.html" />
+    <Content Include="user\隐私条款.html" />
+    <Content Include="user\雪中送炭-借款记录.html" />
+    <Content Include="user\雪中送炭-借贷统计.html" />
+    <Content Include="user\雪中送炭-我的账单.html" />
+    <Content Include="user\雪中送炭10-10.html" />
+    <Content Include="user\雪中送炭9-30.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\AdminAdd.aspx.cs">
+      <DependentUpon>AdminAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminAdd.aspx.designer.cs">
+      <DependentUpon>AdminAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminBasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminEdit.aspx.cs">
+      <DependentUpon>AdminEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminEdit.aspx.designer.cs">
+      <DependentUpon>AdminEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminList.aspx.cs">
+      <DependentUpon>AdminList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminList.aspx.designer.cs">
+      <DependentUpon>AdminList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ChargeList.aspx.cs">
+      <DependentUpon>ChargeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ChargeList.aspx.designer.cs">
+      <DependentUpon>ChargeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DrawMoneyList.aspx.cs">
+      <DependentUpon>DrawMoneyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DrawMoneyList.aspx.designer.cs">
+      <DependentUpon>DrawMoneyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\LoginLog.aspx.cs">
+      <DependentUpon>LoginLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\LoginLog.aspx.designer.cs">
+      <DependentUpon>LoginLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\MainMenu.aspx.cs">
+      <DependentUpon>MainMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\MainMenu.aspx.designer.cs">
+      <DependentUpon>MainMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ProductSchemeAdd.aspx.cs">
+      <DependentUpon>ProductSchemeAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ProductSchemeAdd.aspx.designer.cs">
+      <DependentUpon>ProductSchemeAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ProductSchemeEdit.aspx.cs">
+      <DependentUpon>ProductSchemeEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ProductSchemeEdit.aspx.designer.cs">
+      <DependentUpon>ProductSchemeEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ProductSchemeList.aspx.cs">
+      <DependentUpon>ProductSchemeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ProductSchemeList.aspx.designer.cs">
+      <DependentUpon>ProductSchemeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserDetail.aspx.cs">
+      <DependentUpon>UserDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserDetail.aspx.designer.cs">
+      <DependentUpon>UserDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserEdit.aspx.cs">
+      <DependentUpon>UserEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserEdit.aspx.designer.cs">
+      <DependentUpon>UserEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserList.aspx.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserList.aspx.designer.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserLoanApplyList.aspx.cs">
+      <DependentUpon>UserLoanApplyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserLoanApplyList.aspx.designer.cs">
+      <DependentUpon>UserLoanApplyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserManageMoneyList.aspx.cs">
+      <DependentUpon>UserManageMoneyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserManageMoneyList.aspx.designer.cs">
+      <DependentUpon>UserManageMoneyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserEarningsList.aspx.cs">
+      <DependentUpon>UserEarningsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserEarningsList.aspx.designer.cs">
+      <DependentUpon>UserEarningsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\welcome.aspx.cs">
+      <DependentUpon>welcome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\welcome.aspx.designer.cs">
+      <DependentUpon>welcome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="callback\DinPayNotifyUrl.aspx.cs">
+      <DependentUpon>DinPayNotifyUrl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="callback\DinPayNotifyUrl.aspx.designer.cs">
+      <DependentUpon>DinPayNotifyUrl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="callback\ReturnUrl.aspx.cs">
+      <DependentUpon>ReturnUrl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="callback\ReturnUrl.aspx.designer.cs">
+      <DependentUpon>ReturnUrl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="channel\dinpay.aspx.cs">
+      <DependentUpon>dinpay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="channel\dinpay.aspx.designer.cs">
+      <DependentUpon>dinpay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="channel\dinpayQuery.aspx.cs">
+      <DependentUpon>dinpayQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="channel\dinpayQuery.aspx.designer.cs">
+      <DependentUpon>dinpayQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Charge.aspx.cs">
+      <DependentUpon>Charge.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Charge.aspx.designer.cs">
+      <DependentUpon>Charge.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetailInfo.aspx.cs">
+      <DependentUpon>DetailInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetailInfo.aspx.designer.cs">
+      <DependentUpon>DetailInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="LoanList.aspx.cs">
+      <DependentUpon>LoanList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoanList.aspx.designer.cs">
+      <DependentUpon>LoanList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main.Master.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main.Master.designer.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterTest.aspx.cs">
+      <DependentUpon>MasterTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterTest.aspx.designer.cs">
+      <DependentUpon>MasterTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SchoolInfo.aspx.cs">
+      <DependentUpon>SchoolInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SchoolInfo.aspx.designer.cs">
+      <DependentUpon>SchoolInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Time_Task.cs" />
+    <Compile Include="tools\validate_code.ashx.cs">
+      <DependentUpon>validate_code.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="TTTTTTTTTTTTTTTTTTTTT.aspx.cs">
+      <DependentUpon>TTTTTTTTTTTTTTTTTTTTT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TTTTTTTTTTTTTTTTTTTTT.aspx.designer.cs">
+      <DependentUpon>TTTTTTTTTTTTTTTTTTTTT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserLoanApply.aspx.cs">
+      <DependentUpon>UserLoanApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserLoanApply.aspx.designer.cs">
+      <DependentUpon>UserLoanApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserManageMoney.aspx.cs">
+      <DependentUpon>UserManageMoney.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserManageMoney.aspx.designer.cs">
+      <DependentUpon>UserManageMoney.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserManageMoneyBuy.aspx.cs">
+      <DependentUpon>UserManageMoneyBuy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserManageMoneyBuy.aspx.designer.cs">
+      <DependentUpon>UserManageMoneyBuy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\UserBillList.aspx.cs">
+      <DependentUpon>UserBillList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\UserBillList.aspx.designer.cs">
+      <DependentUpon>UserBillList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\UserBillList_2.aspx.cs">
+      <DependentUpon>UserBillList_2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\UserBillList_2.aspx.designer.cs">
+      <DependentUpon>UserBillList_2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\UserLoanList.aspx.cs">
+      <DependentUpon>UserLoanList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\UserLoanList.aspx.designer.cs">
+      <DependentUpon>UserLoanList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\UserMain.Master.cs">
+      <DependentUpon>UserMain.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\UserMain.Master.designer.cs">
+      <DependentUpon>UserMain.Master</DependentUpon>
+    </Compile>
+    <Compile Include="user\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="tools\validate_code.ashx" />
+    <Content Include="js\jquery-1.11.0.min.map" />
+    <Content Include="Main.Master" />
+    <None Include="Properties\PublishProfiles\Demo.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="user\UserMain.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StudentLoan.API\StudentLoan.API.csproj">
+      <Project>{d4708868-a33d-445c-b374-a7c5f6cf4fd3}</Project>
+      <Name>StudentLoan.API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StudentLoan.BLL\StudentLoan.BLL.csproj">
+      <Project>{aaa98bfb-68b9-497e-b842-6e98c9253287}</Project>
+      <Name>StudentLoan.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StudentLoan.Common\StudentLoan.Common.csproj">
+      <Project>{2fcc17a3-2392-4bae-bd4a-0c7fc526a017}</Project>
+      <Name>StudentLoan.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StudentLoan.Model\StudentLoan.Model.csproj">
+      <Project>{6b6da0c7-d86d-443c-aff9-640b9e5e03fe}</Project>
+      <Name>StudentLoan.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>5169</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:5169/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

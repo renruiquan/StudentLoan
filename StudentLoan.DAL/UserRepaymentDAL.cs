@@ -158,10 +158,6 @@ namespace StudentLoan.DAL
 
             commandText.Append(" LoanId = @LoanId, ");
 
-            commandText.Append(" CurrentAmortization = @CurrentAmortization, ");
-
-            commandText.Append(" RepaymentMoney = @RepaymentMoney, ");
-
             commandText.Append(" BreakContract = @BreakContract, ");
 
             commandText.Append(" CreateTime = @CreateTime, ");

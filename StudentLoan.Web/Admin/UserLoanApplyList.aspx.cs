@@ -44,7 +44,9 @@ namespace StudentLoan.Web.Admin
                                     AdminId = adminModel.AdminId,
                                     LoanMoney = userLoanModel.LoanMoney,
                                     UserId = userLoanModel.UserId,
-                                    TotalAmortization = userLoanModel.TotalAmortization
+                                    TotalAmortization = userLoanModel.TotalAmortization,
+                                    AnnualFee = userLoanModel.AnnualFee,
+                                    ProductId = userLoanModel.ProductId
                                 });
                                 break;
                             case "refuse":
@@ -55,7 +57,9 @@ namespace StudentLoan.Web.Admin
                                     AdminId = adminModel.AdminId,
                                     LoanMoney = 0,
                                     UserId = userLoanModel.UserId,
-                                    TotalAmortization = userLoanModel.TotalAmortization
+                                    TotalAmortization = userLoanModel.TotalAmortization,
+                                    AnnualFee = userLoanModel.AnnualFee,
+                                    ProductId = userLoanModel.ProductId
                                 });
                                 break;
                         }

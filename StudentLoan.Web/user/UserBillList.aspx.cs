@@ -169,12 +169,14 @@ namespace StudentLoan.Web.user
                     userRepaymentModel.BreakContract = (0.005 * overdueDay * Convert.ToDouble(userLoanModel.LoanMoney)).Convert<decimal>();
                     userRepaymentModel.RepaymentMoney = repaymentMoney + userRepaymentModel.BreakContract;
                     userRepaymentModel.Status = 2;
+                    userRepaymentModel.UserId = userLoanModel.UserId;
                 }
                 else
                 {
                     userRepaymentModel.BreakContract = 0;
                     userRepaymentModel.RepaymentMoney = repaymentMoney;
                     userRepaymentModel.Status = 1;
+                    userRepaymentModel.UserId = userLoanModel.UserId;
                 }
 
                 //从用户账户中扣除金额并更新还款期数，以及还款详情

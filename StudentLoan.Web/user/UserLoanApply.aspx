@@ -81,6 +81,8 @@
                                 <asp:DropDownList runat="server" ID="ddlTotalAmortization">
                                 </asp:DropDownList>
 
+                                <asp:TextBox ID="txtTotalAmortization" runat="server" Visible="false" placeholder="单位（天）"></asp:TextBox>
+
                             </div>
                         </div>
 

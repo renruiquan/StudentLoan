@@ -87,7 +87,8 @@ namespace StudentLoan.Web.user
                 this.ddlLoanMoney.Items.Add(new ListItem("9000元", "9000"));
                 this.ddlLoanMoney.Items.Add(new ListItem("10000元", "10000"));
 
-                this.ddlTotalAmortization.Items.Add(new ListItem("最多可借90天", "90"));
+                this.ddlTotalAmortization.Visible = false;
+                this.txtTotalAmortization.Visible = true;
             }
         }
 
@@ -106,8 +107,18 @@ namespace StudentLoan.Web.user
             string loanTitle = this.txtLoanTitle.Text.Trim().HtmlEncode();
             decimal loanMoney = Math.Abs(this.ddlLoanMoney.SelectedValue.Convert<decimal>(0));
             int loanCategory = this.ddlLoanCategory.SelectedValue.Convert<int>(1);
-            int totalAmortization = this.ddlTotalAmortization.SelectedValue.Convert<int>(1);
             string loanDescription = this.txtLoanDescription.Text.Trim().HtmlEncode();
+            int totalAmortization = 0;
+
+            if (this.ProductId == 3)
+            {
+                totalAmortization = this.txtTotalAmortization.Text.Trim().Convert<int>(1);
+            }
+            else
+            {
+                totalAmortization = this.ddlTotalAmortization.SelectedValue.Convert<int>(1);
+            }
+
 
             if (string.IsNullOrEmpty(loanTitle))
             {
@@ -136,13 +147,13 @@ namespace StudentLoan.Web.user
             userLoanModel.ShouldRepayMoney = shouldRepayMoney;
             userLoanModel.TotalAmortization = totalAmortization;
             userLoanModel.LoanDescription = loanDescription;
-
+            userLoanModel.AnnualFee = ProductModel.BaseAnnualFee;
             UserLoanBLL bll = new UserLoanBLL();
 
             bool result = bll.Insert(userLoanModel);
 
 
-            this.artDialog(string.Format("提交申请{0}", result == true ? "成功，请等待管理员审核！" : "失败"));
+            this.artDialog("提示", string.Format("提交申请{0}", result == true ? "成功，请等待管理员审核！" : "失败"), "UserLoanList.aspx");
         }
     }
 }

@@ -32,10 +32,21 @@ namespace StudentLoan.Model.Base
             set { _currentAmortization = value; }
         }
 
+        private decimal _interest;
+
+        /// <summary>
+        /// 利息
+        /// </summary>
+        public decimal Interest
+        {
+            get { return _interest; }
+            set { _interest = value; }
+        }
+
         private decimal _repaymentMondy;
 
         /// <summary>
-        /// 还款金额
+        /// 本金
         /// </summary>
         public decimal RepaymentMoney
         {

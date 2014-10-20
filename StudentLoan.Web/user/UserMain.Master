@@ -78,7 +78,7 @@
                         <ul>
                             <li><a id="UserLoanList" runat="server" href="UserLoanList.aspx"><i class="ico-note"></i>借款记录</a></li>
                             <li><a id="UserBillList" runat="server" href="UserBillList.aspx"><i class="ico-news"></i>我的账单</a></li>
-                            <li><a href="javascript:;"><i class="ico-wallet"></i>贷款统计</a></li>
+                            <li><a id="StatUserLoan" runat="server" href="StatUserLoan.aspx"><i class="ico-wallet"></i>贷款统计</a></li>
                         </ul>
                     </div>
                     <div class="item">

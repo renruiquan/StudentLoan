@@ -77,7 +77,7 @@ namespace StudentLoan.Web
                             UserId = item.UserId,
                             ProductSchemeId = item.ProductSchemeId,
                             //计算每天的利息
-                            Amount = item.Amount * item.MaxYield / 365,
+                            Amount = Math.Round(item.Amount * item.MaxYield / 365, 2),
                             Type = 1,
                             Status = 1,
                             CreateTime = DateTime.Now
@@ -87,11 +87,11 @@ namespace StudentLoan.Web
 
                         if (result)
                         {
-                            LogHelper.Default.Info(string.Format("用户ID:{0},用户名{1}:的利息:{2}打款到账", item.UserId, item.UserName, earningsModel.Amount));
+                            LogHelper.Default.Info(string.Format("用户ID:{0},利息:{1}打款到账", item.UserId, Math.Round(earningsModel.Amount, 2)));
                         }
                         else
                         {
-                            LogHelper.Default.Warn(string.Format("用户ID:{0},用户名{1}:的利息:{2}打款失败", item.UserId, item.UserName, earningsModel.Amount));
+                            LogHelper.Default.Warn(string.Format("用户ID:{0},利息:{1}打款失败", item.UserId, Math.Round(earningsModel.Amount, 2)));
                         }
                     }
                 }

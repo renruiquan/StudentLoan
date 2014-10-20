@@ -56,5 +56,10 @@ namespace StudentLoan.Model
         /// </summary>
         public decimal AnnualFee { get; set; }
 
+        /// <summary>
+        /// 借款人ID
+        /// </summary>
+        public int UserId { get; set; }
+
     }
 }

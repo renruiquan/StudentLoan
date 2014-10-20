@@ -338,6 +338,7 @@
     <Content Include="UserManageMoneyBuy.aspx" />
     <Content Include="user\1阶段.html" />
     <Content Include="user\ChangePassword.aspx" />
+    <Content Include="user\StatUserLoan.aspx" />
     <Content Include="user\UserBillList.aspx" />
     <Content Include="user\UserBillList_2.aspx" />
     <Content Include="user\UserLoanApply.aspx" />
@@ -707,6 +708,13 @@
     </Compile>
     <Compile Include="user\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\StatUserLoan.aspx.cs">
+      <DependentUpon>StatUserLoan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\StatUserLoan.aspx.designer.cs">
+      <DependentUpon>StatUserLoan.aspx</DependentUpon>
     </Compile>
     <Compile Include="user\UserBillList.aspx.cs">
       <DependentUpon>UserBillList.aspx</DependentUpon>

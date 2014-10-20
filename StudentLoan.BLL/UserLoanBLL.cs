@@ -86,6 +86,24 @@ namespace StudentLoan.BLL
 
 
         /// <summary>
+        /// 统计逾期的用户借款数据
+        /// </summary>
+        /// <returns></returns>
+        public UserLoanEntityEx GetStatBreakContractUserLoan(int userId)
+        {
+            return dal.GetStatBreakContractUserLoan(userId);
+        }
+
+        /// <summary>
+        /// 统计正常的用户借款数据
+        /// </summary>
+        /// <returns></returns>
+        public UserLoanEntityEx GetStatNormalUserLoan(int userId)
+        {
+            return dal.GetStatNormalUserLoan(userId);
+        }
+
+        /// <summary>
         /// 获取一个实体
         /// </summary>
         public UserLoanEntityEx GetModel(int loanId)

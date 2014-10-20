@@ -53,11 +53,11 @@ namespace StudentLoan.DAL
 
             commandText.Append(" Insert Into sl_user_loan( ");
 
-            commandText.Append(" LoanNo, ProductId, UserId,LoanTitle,LoanMoney,LoanTypeId,LoanCategory,ShouldRepayMoney,TotalAmortization,LoanDescription) ");
+            commandText.Append(" LoanNo, ProductId, UserId,LoanTitle,LoanMoney,LoanTypeId,LoanCategory,AnnualFee,ShouldRepayMoney,TotalAmortization,LoanDescription) ");
 
             commandText.Append(" Values ( ");
 
-            commandText.Append(" @LoanNo,@ProductId,@UserId,@LoanTitle,@LoanMoney,@LoanTypeId,@LoanCategory,@ShouldRepayMoney,@TotalAmortization,@LoanDescription); ");
+            commandText.Append(" @LoanNo,@ProductId,@UserId,@LoanTitle,@LoanMoney,@LoanTypeId,@LoanCategory,@AnnualFee,@ShouldRepayMoney,@TotalAmortization,@LoanDescription); ");
 
             #endregion
 
@@ -78,6 +78,8 @@ namespace StudentLoan.DAL
             paramsList.Add(new SqlParameter("@LoanTypeId", model.LoanTypeId));
 
             paramsList.Add(new SqlParameter("@LoanCategory", model.LoanCategory));
+
+            paramsList.Add(new SqlParameter("@AnnualFee", model.AnnualFee));
 
             paramsList.Add(new SqlParameter("@ShouldRepayMoney", model.ShouldRepayMoney));
 
@@ -183,11 +185,12 @@ namespace StudentLoan.DAL
             StringBuilder commandText = new StringBuilder();
 
             //声明SQL变量
-            commandText.Append(" DECLARE @i int; set @i = 1;");
+            commandText.Append(" DECLARE @i int,@Interest decimal,@RepaymentMoney decimal; set @i = 1;set @RepaymentMoney = 0;");
 
             //更新用户账户余额
             commandText.Append(" Update sl_users Set Amount += @Amount where UserId = @UserId;");
 
+            //更新管理员放款时间及状态
             commandText.Append(" Update sl_user_loan Set ");
 
             commandText.Append(" AdminId = @AdminId, ");
@@ -203,14 +206,32 @@ namespace StudentLoan.DAL
 
             commandText.Append(@" Begin ");
 
+            commandText.Append(@" SET @Interest = @Amount * @AnnualFee; ");
+
+            commandText.Append(@" if(@i=@TotalAmortization) ");
+
+            commandText.Append(@" BEGIN ");
+
+            commandText.Append(@" set @RepaymentMoney = @Amount; ");
+
+            commandText.Append(@" END ");
+
             commandText.Append(" Insert Into sl_user_repayment( ");
 
-            commandText.Append(" LoanId,CurrentAmortization,RepaymentMoney,BreakContract,RepaymentTime,Status) ");
+            commandText.Append(" LoanId,UserId, CurrentAmortization, Interest, RepaymentMoney, BreakContract, RepaymentTime, Status) ");
 
             commandText.Append(" Values ( ");
 
-            commandText.Append(@" @LoanId,@i,0,0,DATEADD(Month,@i,getdate()),0); ");
+            commandText.Append(@" @LoanId,@UserId, @i, @Interest, @RepaymentMoney, 0, ");
 
+            if (model.ProductId == 3)
+            {
+                commandText.Append(@" DATEADD(DAY, @i, GETDATE()), 0); ");
+            }
+            else
+            {
+                commandText.Append(@" DATEADD(MONTH, @i, GETDATE()), 0); ");
+            }
             commandText.Append(@" set @i+=1;");
 
             commandText.Append(@" End; ");
@@ -234,6 +255,8 @@ namespace StudentLoan.DAL
             paramsList.Add(new SqlParameter("@Status", model.Status));
 
             paramsList.Add(new SqlParameter("@TotalAmortization", model.TotalAmortization));
+
+            paramsList.Add(new SqlParameter("@AnnualFee", model.AnnualFee));
 
             #endregion
 
@@ -270,6 +293,72 @@ namespace StudentLoan.DAL
             }
         }
 
+        /// <summary>
+        /// 统计正常的用户借款数据
+        /// </summary>
+        /// <returns></returns>
+        public UserLoanEntityEx GetStatNormalUserLoan(int userId)
+        {
+            #region CommandText
+
+            string commandText = @"SELECT
+	                                SUM(LoanMoney) AS TotalAmount,
+	                                COUNT(0) AS 'TotalCount',
+	                                (SELECT SUM(RepaymentMoney)+SUM(Interest) FROM sl_user_repayment WHERE UserId = @UserId and Status >0) as 'RepaymentMoney',
+	                                (SELECT COUNT(0) FROM sl_user_loan WHERE Status =1 and UserId = @UserId ) as 'LoanSuccessCount',
+	                                (select SUM(RepaymentMoney)+SUM(Interest) from sl_user_repayment where Status=0 and UserId = @UserId ) as 'WaitMoney',
+	                                (select count(DISTINCT LoanId) from sl_user_repayment where Status=0 and UserId = @UserId ) as 'WaitLoanCount',
+	                                (select COUNT(DISTINCT LoanId) from sl_user_repayment where Status=1 and UserId = @UserId ) as 'NormalLoanCount'
+                                FROM sl_user_loan
+                                WHERE UserId = @UserId
+                                GROUP BY UserId";
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@UserId", userId));
+
+            #endregion
+
+            using (SqlDataReader objReader = SqlHelper.ExecuteReader(base.ConnectionString, CommandType.Text, commandText, paramsList.ToArray()))
+            {
+                return objReader.ReaderToModel<UserLoanEntityEx>() as UserLoanEntityEx;
+            }
+        }
+
+        /// <summary>
+        /// 统计逾期的用户借款数据
+        /// </summary>
+        /// <returns></returns>
+        public UserLoanEntityEx GetStatBreakContractUserLoan(int userId)
+        {
+            #region CommandText
+
+            string commandText = @"SELECT SUM(RepaymentMoney)+SUM(Interest) as 'TotalAmount',
+                                    (select count(0) from sl_user_repayment where UserID=@UserId and  Status=2 and  DATEDIFF(DAY,RepaymentTime,getdate())<=5)as 'TotalBreakCount',
+                                    sum(BreakContract) as 'TotalBreakContract',
+                                    (select count(0) from sl_user_repayment where UserID=@UserId and  Status=2 and  DATEDIFF(DAY,RepaymentTime,getdate())>5)as 'TotalSevereBreakCount'
+                                    from sl_user_repayment
+                                    where UserID=@UserId and  DATEDIFF(DAY,RepaymentTime,getdate())>=5";
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@UserId", userId));
+
+            #endregion
+
+            using (SqlDataReader objReader = SqlHelper.ExecuteReader(base.ConnectionString, CommandType.Text, commandText, paramsList.ToArray()))
+            {
+                return objReader.ReaderToModel<UserLoanEntityEx>() as UserLoanEntityEx;
+            }
+        }
 
         /// <summary>
         /// 获取数据列表

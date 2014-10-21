@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserManageMoneyBuy.aspx.cs" Inherits="StudentLoan.Web.UserManageMoneyBuy" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserManageMoneyBuy.aspx.cs" Inherits="StudentLoan.Web.user.UserManageMoneyBuy" %>
 
 <!DOCTYPE html>
 

@@ -84,7 +84,7 @@
                                         <th scope="col">产品</th>
                                         <th scope="col">保障计划</th>
                                         <th scope="col">益率</th>
-                                        <th scope="col">金额</th>
+                                        <th scope="col">方案金额</th>
                                         <th scope="col">投资期限</th>
                                         <th scope="col">开始时间</th>
                                         <th scope="col">截止时间</th>

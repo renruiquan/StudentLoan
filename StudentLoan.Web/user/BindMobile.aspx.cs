@@ -9,13 +9,13 @@ using System.Web.UI.WebControls;
 
 namespace StudentLoan.Web.user
 {
-    public partial class EarningsList : BasePage
+    public partial class BindMobile : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                #region 设置导航样式
+                 #region 设置导航样式
 
                 string id = MethodBase.GetCurrentMethod().DeclaringType.Name;
 

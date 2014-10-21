@@ -12,6 +12,11 @@ namespace StudentLoan.Web.Admin
 {
     public partial class ProductSchemeAdd : AdminBasePage
     {
+        /// <summary>
+        /// 理财产品列表
+        /// </summary>
+        public List<ProductEntityEx> ProductList { get { return new ProductBLL().GetList(" ProductType = 2 and Status=1 "); } }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -22,9 +27,7 @@ namespace StudentLoan.Web.Admin
 
         private void BindProductList()
         {
-
-            List<ProductEntityEx> productList = new ProductBLL().GetList(" ProductType = 2 and Status=1 ");
-            this.ddlProductId.DataSource = productList;
+            this.ddlProductId.DataSource = this.ProductList;
             this.ddlProductId.DataTextField = "ProductName";
             this.ddlProductId.DataValueField = "ProductId";
             this.ddlProductId.DataBind();
@@ -65,6 +68,13 @@ namespace StudentLoan.Web.Admin
             bool result = new ProductSchemeBLL().Insert(schemeModel);
 
             this.Alert(string.Format("添加理财方案{0}", result == true ? "成功" : "失败"), "ProductSchemeList.aspx");
+        }
+
+
+        [System.Web.Services.WebMethod]
+        public ProductEntityEx ProductEntity(int productId)
+        {
+            return this.ProductList.Where(s => s.ProductId == productId).First();
         }
     }
 }

@@ -10,7 +10,7 @@
 namespace StudentLoan.Web.user {
     
     
-    public partial class ManageMoneyList {
+    public partial class ManageMoneyList_2 {
         
         /// <summary>
         /// txtStartTime 控件。

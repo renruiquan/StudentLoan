@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user/UserMain.Master" AutoEventWireup="true" CodeBehind="ManageMoneyList.aspx.cs" Inherits="StudentLoan.Web.user.ManageMoneyList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user/UserMain.Master" AutoEventWireup="true" CodeBehind="ManageMoneyList_2.aspx.cs" Inherits="StudentLoan.Web.user.ManageMoneyList_2" %>
 
 <%@ Register Assembly="StudentLoan.Common" Namespace="StudentLoan.Common.WebControl" TagPrefix="StudentLoan" %>
 
@@ -22,8 +22,8 @@
         <div class="tabs">
 
             <ul>
-                <li class="active"><a href="javascript:;">待支付</a></li>
-                <li><a href="ManageMoneyList_2.aspx">转入</a></li>
+                <li><a href="ManageMoneyList.aspx">待支付</a></li>
+                <li class="active"><a href="javascript:;">转入</a></li>
                 <li><a href="javascript:;">转出</a></li>
                 <li><a href="javascript:;">收益</a></li>
                 <li><a href="javascript:;">资金记录</a></li>

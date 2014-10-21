@@ -1,5 +1,5 @@
 ﻿//作者：Brazelren
-//日期：2014/9/13 18:28:27
+//日期：2014/09/13 22:48:58
 
 using System;
 using System.Collections.Generic;
@@ -53,11 +53,11 @@ namespace StudentLoan.DAL
 
             commandText.Append(" Insert Into sl_product( ");
 
-            commandText.Append(" ProductName,ProductDescription,Remark,Status,CreateTime) ");
+            commandText.Append(" ProductName,BaseAnnualFee,ProductDescription,ProductType,ProductMinMoney,ProductMaxMoney,MinPeriod,MaxPeriod,Remark,Status,CreateTime) ");
 
             commandText.Append(" Values ( ");
 
-            commandText.Append(" @ProductName,@ProductDescription,@Remark,@Status,@CreateTime) ");
+            commandText.Append(" @ProductName,@BaseAnnualFee,@ProductDescription,@ProductType,@ProductMinMoney,@ProductMaxMoney,@MinPeriod,@MaxPeriod,@Remark,@Status,@CreateTime) ");
 
             #endregion
 
@@ -69,7 +69,19 @@ namespace StudentLoan.DAL
 
             paramsList.Add(new SqlParameter("@ProductName", model.ProductName));
 
+            paramsList.Add(new SqlParameter("@BaseAnnualFee", model.BaseAnnualFee));
+
             paramsList.Add(new SqlParameter("@ProductDescription", model.ProductDescription));
+
+            paramsList.Add(new SqlParameter("@ProductType", model.ProductType));
+
+            paramsList.Add(new SqlParameter("@ProductMinMoney", model.ProductMinMoney));
+
+            paramsList.Add(new SqlParameter("@ProductMaxMoney", model.ProductMaxMoney));
+
+            paramsList.Add(new SqlParameter("@MinPeriod", model.MinPeriod));
+
+            paramsList.Add(new SqlParameter("@MaxPeriod", model.MaxPeriod));
 
             paramsList.Add(new SqlParameter("@Remark", model.Remark));
 
@@ -114,7 +126,7 @@ namespace StudentLoan.DAL
         /// <summary>
         /// 批量删数据
         /// </summary>
-        public bool DeleteList(string PorductIDList)
+        public bool DeleteList(string ProductIDList)
         {
             #region CommandText
 
@@ -122,7 +134,7 @@ namespace StudentLoan.DAL
 
             commandText.Append(" Delete From sl_product ");
 
-            commandText.Append("Where ProductId in (" + PorductIDList + ") ");
+            commandText.Append("Where ProductId in (" + ProductIDList + ") ");
 
             #endregion
 
@@ -143,7 +155,19 @@ namespace StudentLoan.DAL
 
             commandText.Append(" ProductName = @ProductName, ");
 
+            commandText.Append(" BaseAnnualFee = @BaseAnnualFee, ");
+
             commandText.Append(" ProductDescription = @ProductDescription, ");
+
+            commandText.Append(" ProductType = @ProductType, ");
+
+            commandText.Append(" ProductMinMoney = @ProductMinMoney, ");
+
+            commandText.Append(" ProductMaxMoney = @ProductMaxMoney, ");
+
+            commandText.Append(" MinPeriod = @MinPeriod, ");
+
+            commandText.Append(" MaxPeriod = @MaxPeriod, ");
 
             commandText.Append(" Remark = @Remark, ");
 
@@ -163,7 +187,19 @@ namespace StudentLoan.DAL
 
             paramsList.Add(new SqlParameter("@ProductName", model.ProductName));
 
+            paramsList.Add(new SqlParameter("@BaseAnnualFee", model.BaseAnnualFee));
+
             paramsList.Add(new SqlParameter("@ProductDescription", model.ProductDescription));
+
+            paramsList.Add(new SqlParameter("@ProductType", model.ProductType));
+
+            paramsList.Add(new SqlParameter("@ProductMinMoney", model.ProductMinMoney));
+
+            paramsList.Add(new SqlParameter("@ProductMaxMoney", model.ProductMaxMoney));
+
+            paramsList.Add(new SqlParameter("@MinPeriod", model.MinPeriod));
+
+            paramsList.Add(new SqlParameter("@MaxPeriod", model.MaxPeriod));
 
             paramsList.Add(new SqlParameter("@Remark", model.Remark));
 
@@ -186,7 +222,7 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select Top 1 ProductId,ProductName,BaseAnnualFee,ProductDescription,ProductType,ProductMinMoney,ProductMaxMoney,Remark,Status,CreateTime From sl_product Where ProductId = @ProductId ");
+            commandText.Append(" Select Top 1 ProductId,ProductName,BaseAnnualFee,ProductDescription,ProductType,ProductMinMoney,ProductMaxMoney,MinPeriod,MaxPeriod,Remark,Status,CreateTime From sl_product Where ProductId = @ProductId ");
 
             #endregion
 
@@ -214,7 +250,7 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select ProductId,ProductName,BaseAnnualFee,ProductType,ProductDescription,Remark,Status,CreateTime ");
+            commandText.Append(" Select ProductId,ProductName,BaseAnnualFee,ProductDescription,ProductType,ProductMinMoney,ProductMaxMoney,MinPeriod,MaxPeriod,Remark,Status,CreateTime ");
 
             commandText.Append("From sl_product ");
 
@@ -253,7 +289,7 @@ namespace StudentLoan.DAL
             }
 
 
-            commandText.Append(" ProductId,ProductName,ProductDescription,Remark,Status,CreateTime ");
+            commandText.Append(" ProductId,ProductName,BaseAnnualFee,ProductDescription,ProductType,ProductMinMoney,ProductMaxMoney,MinPeriod,MaxPeriod,Remark,Status,CreateTime ");
 
             commandText.Append("From sl_product ");
 

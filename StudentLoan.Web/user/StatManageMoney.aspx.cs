@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace StudentLoan.Web.user
 {
-    public partial class StatManageMoney : System.Web.UI.Page
+    public partial class StatManageMoney : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -28,6 +28,12 @@
 
                 $("#<%=txtPrice.ClientID%>").val(Math.round(amount / part));
             });
+
+            $("#<%=ddlProductId.ClientID%>").on("change", function () {
+                var productId = $(this).val();
+
+                var result = this.ProductEntity(productId);
+            });
         });
     </script>
 </head>
@@ -73,31 +79,38 @@
                                             <asp:ListItem Value="1"> 本息保障计划 </asp:ListItem>
                                         </asp:DropDownList></td>
                                 </tr>
-                                <tr>
+                                <tr class="hide">
                                     <th scope="row">方案总金额：</th>
                                     <td>
-                                        <asp:TextBox ID="txtAmount" runat="server" class="required number"></asp:TextBox></td>
+                                        <asp:TextBox ID="txtAmount" runat="server" class="required number" Enabled="false"></asp:TextBox>(用于后期发起合买使用)</td>
                                 </tr>
 
-                                <tr>
+                                <tr class="hide">
                                     <th scope="row">份数：</th>
                                     <td>
-                                        <asp:TextBox ID="txtPart" runat="server" Text="1" class="required digits"></asp:TextBox></td>
+                                        <asp:TextBox ID="txtPart" runat="server" Text="1" class="required digits" Enabled="false"></asp:TextBox>(用于后期发起合买使用)</td>
                                 </tr>
-                                <tr>
+                                <tr class="hide">
                                     <th scope="row">单价：</th>
                                     <td>
-                                        <asp:TextBox ID="txtPrice" runat="server" class="required number"></asp:TextBox></td>
+                                        <asp:TextBox ID="txtPrice" runat="server" class="required number" Enabled="false"></asp:TextBox>(用于后期发起合买使用)</td>
                                 </tr>
-                                <tr>
+                                <tr class="hide">
                                     <th scope="row">限购份数：</th>
                                     <td>
-                                        <asp:TextBox ID="txtLimitPart" runat="server" Text="0" class="required digits"></asp:TextBox></td>
+                                        <asp:TextBox ID="txtLimitPart" runat="server" Text="0" class="required digits" Enabled="false"></asp:TextBox>(用于后期发起合买使用)</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">益率：</th>
+                                    <td>
+                                        <asp:TextBox ID="TextBox1" runat="server" class="required digits ">0</asp:TextBox>
+                                        （以修改后的数值为准）</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">投资期限（个月）：</th>
                                     <td>
-                                        <asp:TextBox ID="txtDeadline" runat="server" class="required digits ">12</asp:TextBox></td>
+                                        <asp:TextBox ID="txtDeadline" runat="server" class="required digits ">0</asp:TextBox>
+                                        （以修改后的数值为准）</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">购买开始时间：</th>
@@ -114,7 +127,6 @@
                                     <td>
                                         <asp:TextBox ID="txtSchemeDescription" runat="server" TextMode="MultiLine" Rows="8" Columns="80"></asp:TextBox></td>
                                 </tr>
-
                                 <tr>
                                     <th scope="row">备注：</th>
                                     <td>

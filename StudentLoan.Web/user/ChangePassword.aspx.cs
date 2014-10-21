@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace StudentLoan.Web.user
 {
-    public partial class ChangePassword : Page
+    public partial class ChangePassword : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

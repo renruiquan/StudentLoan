@@ -117,8 +117,6 @@
                                 </table>
                             </FooterTemplate>
                         </asp:Repeater>
-
-
                     </div>
                     <div class="pager-bar">
                         <webdiyer:AspNetPager ID="objAspNetPager" CssClass="pages" runat="server" PageSize="20" OnPageChanged="objAspNetPager_PageChanged" FirstPageText="首页" LastPageText="末页" NextPageText="下一页" PrevPageText="上一页" CustomInfoStyle="" MoreButtonsClass="" CurrentPageButtonClass="cpb" AlwaysShow="True"></webdiyer:AspNetPager>

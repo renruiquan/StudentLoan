@@ -11,7 +11,7 @@ using StudentLoan.Model;
 using StudentLoan.API;
 
 
-namespace StudentLoan.Web
+namespace StudentLoan.Web.user
 {
     public partial class UserManageMoneyBuy : BasePage
     {
@@ -19,7 +19,12 @@ namespace StudentLoan.Web
 
         public int ProductSchemeId { get { return this.Request<int>("ProductSchemeId"); } }
 
-        public int BuyPart { get { return this.Request<int>("part"); } }
+        //        public int BuyPart { get { return this.Request<int>("part"); } }
+
+        /// <summary>
+        /// 金买金额
+        /// </summary>
+        public int purchaseMoney { get { return this.Request<int>("purchaseMoney"); } }
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -30,23 +35,25 @@ namespace StudentLoan.Web
                 return;
             }
 
-            int part = this.BuyPart;
+            //int part = this.BuyPart;
 
-            if (part == 0)
-            {
-                this.Alert("最少购买一份", "ProductSchemeList.aspx");
-                return;
-            }
+            //if (part == 0)
+            //{
+            //    this.Alert("最少购买一份", "ProductSchemeList.aspx");
+            //    return;
+            //}
 
-            ProductSchemeEntityEx schemeModel = new ProductSchemeBLL().GetModel(this.ProductId);
+            ProductSchemeEntityEx schemeModel = new ProductSchemeBLL().GetModel(this.ProductSchemeId);
             UsersEntityEx userModel = base.GetUserModel();
             UserManageMoneyEntityEx model = new UserManageMoneyEntityEx()
             {
                 UserId = userModel.UserId,
                 ProductId = this.ProductId,
                 ProductSchemeId = this.ProductSchemeId,
-                Count = part,
-                Amount = schemeModel.Price * part,
+                // Count = part,
+                // Amount = schemeModel.Price * part,
+                Count = 1,
+                Amount = this.purchaseMoney,
                 CreateTime = DateTime.Now,
                 Status = 0
             };

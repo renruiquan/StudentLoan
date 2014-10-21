@@ -10,7 +10,7 @@ using StudentLoan.Common;
 using StudentLoan.API;
 using StudentLoan.Common.Logging;
 
-namespace StudentLoan.Web
+namespace StudentLoan.Web.user
 {
     public partial class UserManageMoney : BasePage
     {
@@ -21,7 +21,7 @@ namespace StudentLoan.Web
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            
+
         }
     }
 }

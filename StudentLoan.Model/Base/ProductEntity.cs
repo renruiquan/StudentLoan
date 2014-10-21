@@ -67,7 +67,7 @@ namespace StudentLoan.Model.Base
 
         private decimal _productMinMoney;
         /// <summary>
-        /// ProductType=1时，最小借款金额
+        /// ProductType=1时，最小借款金额; ProductType=2时，最小起投金额
         /// </summary>
         public decimal ProductMinMoney
         {
@@ -78,12 +78,35 @@ namespace StudentLoan.Model.Base
         private decimal _productMaxMoney;
 
         /// <summary>
-        /// ProductType=1时，最大借款金额
+        /// ProductType=1时，最大借款金额;ProductType=2时，最大起投金额
         /// </summary>
         public decimal ProductMaxMoney
         {
             get { return _productMaxMoney; }
             set { _productMaxMoney = value; }
+        }
+
+
+        private int _minPeriod;
+
+        /// <summary>
+        /// 最小投资期限
+        /// </summary>
+        public int MinPeriod
+        {
+            get { return _minPeriod; }
+            set { _minPeriod = value; }
+        }
+
+        private int _maxPeriod;
+
+        /// <summary>
+        /// 最大投资期限
+        /// </summary>
+        public int MaxPeriod
+        {
+            get { return _maxPeriod; }
+            set { _maxPeriod = value; }
         }
 
         private string _remark;

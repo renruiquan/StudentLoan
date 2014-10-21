@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace StudentLoan.Web {
+namespace StudentLoan.Web.user {
     
     
-    public partial class UserManageMoneyBuy {
+    public partial class UserManageMoney {
         
         /// <summary>
         /// form1 控件。

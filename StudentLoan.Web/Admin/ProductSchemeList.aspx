@@ -84,8 +84,6 @@
                                         <th scope="col">产品</th>
                                         <th scope="col">保障计划</th>
                                         <th scope="col">益率</th>
-                                        <th scope="col">方案金额</th>
-                                        <th scope="col">投资期限</th>
                                         <th scope="col">开始时间</th>
                                         <th scope="col">截止时间</th>
                                         <th scope="col">方案描述</th>
@@ -102,8 +100,6 @@
                                     <td class="txt40"><%#Eval("ProductName")%></td>
                                     <td class="txt40"><%#Convert.ToInt32(Eval("PlanType"))==1?"本息保障计划":"未知"%></td>
                                     <td class="txt40"><%#Convert.ToDouble( Eval("MaxYield")).ToString("P")%> </td>
-                                    <td class="txt40"><%#Eval("Amount")%></td>
-                                    <td class="txt40"><%#Eval("Deadline")%>个月</td>
                                     <td class="txt40"><%#Eval("StartTime")%></td>
                                     <td class="txt40"><%#Eval("EndTime")%></td>
                                     <td class="txt40"><%#Eval("SchemeDescription")%></td>

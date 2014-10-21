@@ -28,12 +28,6 @@
 
                 $("#<%=txtPrice.ClientID%>").val(Math.round(amount / part));
             });
-
-            $("#<%=ddlProductId.ClientID%>").on("change", function () {
-                var productId = $(this).val();
-
-                var result = this.ProductEntity(productId);
-            });
         });
     </script>
 </head>
@@ -69,7 +63,7 @@
                                 <tr>
                                     <th scope="row">理财产品：</th>
                                     <td>
-                                        <asp:DropDownList ID="ddlProductId" runat="server" class="required">
+                                        <asp:DropDownList ID="ddlProductId" runat="server" class="required" OnTextChanged="ddlProductId_TextChanged" AutoPostBack="true" >
                                         </asp:DropDownList></td>
                                 </tr>
                                 <tr>
@@ -103,14 +97,8 @@
                                 <tr>
                                     <th scope="row">益率：</th>
                                     <td>
-                                        <asp:TextBox ID="TextBox1" runat="server" class="required digits ">0</asp:TextBox>
-                                        （以修改后的数值为准）</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">投资期限（个月）：</th>
-                                    <td>
-                                        <asp:TextBox ID="txtDeadline" runat="server" class="required digits ">0</asp:TextBox>
-                                        （以修改后的数值为准）</td>
+                                        <asp:TextBox ID="txtMaxYield" runat="server" class="required number ">0</asp:TextBox>
+                                        （以修改后的数值为准,默认值为当前理财产品的益率）</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">购买开始时间：</th>

@@ -19,6 +19,18 @@ namespace StudentLoan.Model.Base
             set { _buyId = value; }
         }
 
+
+        private int _period;
+
+        /// <summary>
+        /// 投资期限
+        /// </summary>
+        public int Period
+        {
+            get { return _period; }
+            set { _period = value; }
+        }
+
         private int _userId;
 
         /// <summary>

@@ -10,7 +10,7 @@
 </head>
 <body>
     <form id="form1" runat="server" action="UserManageMoneyBuy.aspx" method="post">
-        购买份数:<input type="text" name="part" />
+        购买其限:<input type="text" name="period" />
         购买金额:<input type="text" name="purchaseMoney" />
         <input type="submit" value="确认购买" />
         <input type="hidden" name="ProductID" value="<%=this.ProductId %>" />

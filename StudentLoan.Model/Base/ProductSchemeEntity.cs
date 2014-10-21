@@ -129,17 +129,6 @@ namespace StudentLoan.Model.Base
             set { _limitPart = value; }
         }
 
-        private int _deadline;
-
-        /// <summary>
-        /// 投资期限 单位月
-        /// </summary>
-        public int Deadline
-        {
-            get { return _deadline; }
-            set { _deadline = value; }
-        }
-
         private int _numberOfPeople;
 
         /// <summary>

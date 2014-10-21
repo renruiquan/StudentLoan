@@ -53,11 +53,11 @@ namespace StudentLoan.DAL
 
             commandText.Append(" Insert Into sl_user_manage_money( ");
 
-            commandText.Append(" UserId,ProductId,ProductSchemeId,Count,Amount,CreateTime,Status) ");
+            commandText.Append(" UserId,ProductId,ProductSchemeId,Period,Count,Amount,CreateTime,Status) ");
 
             commandText.Append(" Values ( ");
 
-            commandText.Append(" @UserId,@ProductId,@ProductSchemeId,@Count,@Amount,@CreateTime,@Status);SELECT @@Identity; ");
+            commandText.Append(" @UserId,@ProductId,@ProductSchemeId,@Period,@Count,@Amount,@CreateTime,@Status);SELECT @@Identity; ");
 
             #endregion
 
@@ -72,6 +72,8 @@ namespace StudentLoan.DAL
             paramsList.Add(new SqlParameter("@ProductId", model.ProductId));
 
             paramsList.Add(new SqlParameter("@ProductSchemeId", model.ProductSchemeId));
+
+            paramsList.Add(new SqlParameter("@Period", model.Period));
 
             paramsList.Add(new SqlParameter("@Count", model.Count));
 
@@ -210,7 +212,7 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(@" SELECT a.UserId,a.ProductId,b.ProductName, a.ProductSchemeId,c.SchemeName,c.MaxYield,c.Deadline, a.count,a.Amount,a.CreateTime,a.PayTime,a.EndTime,a.Status ");
+            commandText.Append(@" SELECT a.UserId,a.ProductId,b.ProductName, a.ProductSchemeId,c.SchemeName,c.MaxYield,a.Period, a.count,a.Amount,a.CreateTime,a.PayTime,a.EndTime,a.Status ");
 
             commandText.Append("From sl_user_manage_money  a ,sl_product b,sl_product_scheme c ");
 
@@ -323,7 +325,7 @@ namespace StudentLoan.DAL
             else
             {
                 commandText.Append(" Order By T.BuyId Desc");
-            } 
+            }
             commandText.Append(" )AS Row, T.*,a.ProductName,b.SchemeName,c.UserName From sl_user_manage_money T ,sl_product a, sl_product_scheme b,sl_users c ");
 
             if (!string.IsNullOrEmpty(strWhere.Trim()))

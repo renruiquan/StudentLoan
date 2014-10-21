@@ -55,7 +55,7 @@
                 <div class="br corner"></div>
                 <div class="cnt-wp">
                     <div class="cnt form">
-                        <table class="data-form" cellspacing="0" cellpadding="0">
+                           <table class="data-form" cellspacing="0" cellpadding="0">
                             <tbody>
                                 <tr>
                                     <th scope="row">方案名称：</th>
@@ -65,7 +65,7 @@
                                 <tr>
                                     <th scope="row">理财产品：</th>
                                     <td>
-                                        <asp:DropDownList ID="ddlProductId" runat="server" class="required">
+                                        <asp:DropDownList ID="ddlProductId" runat="server" class="required" OnTextChanged="ddlProductId_TextChanged" AutoPostBack="true" >
                                         </asp:DropDownList></td>
                                 </tr>
                                 <tr>
@@ -75,31 +75,32 @@
                                             <asp:ListItem Value="1"> 本息保障计划 </asp:ListItem>
                                         </asp:DropDownList></td>
                                 </tr>
-                                <tr>
+                                <tr class="hide">
                                     <th scope="row">方案总金额：</th>
                                     <td>
-                                        <asp:TextBox ID="txtAmount" runat="server" class="required number"></asp:TextBox></td>
+                                        <asp:TextBox ID="txtAmount" runat="server" class="required number" Enabled="false"></asp:TextBox>(用于后期发起合买使用)</td>
                                 </tr>
 
-                                <tr>
+                                <tr class="hide">
                                     <th scope="row">份数：</th>
                                     <td>
-                                        <asp:TextBox ID="txtPart" runat="server" Text="1" class="required digits"></asp:TextBox></td>
+                                        <asp:TextBox ID="txtPart" runat="server" Text="1" class="required digits" Enabled="false"></asp:TextBox>(用于后期发起合买使用)</td>
                                 </tr>
-                                <tr>
+                                <tr class="hide">
                                     <th scope="row">单价：</th>
                                     <td>
-                                        <asp:TextBox ID="txtPrice" runat="server" class="required number"></asp:TextBox></td>
+                                        <asp:TextBox ID="txtPrice" runat="server" class="required number" Enabled="false"></asp:TextBox>(用于后期发起合买使用)</td>
                                 </tr>
-                                <tr>
+                                <tr class="hide">
                                     <th scope="row">限购份数：</th>
                                     <td>
-                                        <asp:TextBox ID="txtLimitPart" runat="server" Text="0" class="required digits"></asp:TextBox></td>
+                                        <asp:TextBox ID="txtLimitPart" runat="server" Text="0" class="required digits" Enabled="false"></asp:TextBox>(用于后期发起合买使用)</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">投资期限（个月）：</th>
+                                    <th scope="row">益率：</th>
                                     <td>
-                                        <asp:TextBox ID="txtDeadline" runat="server" class="required digits ">12</asp:TextBox></td>
+                                        <asp:TextBox ID="txtMaxYield" runat="server" class="required number ">0</asp:TextBox>
+                                        （以修改后的数值为准,默认值为当前理财产品的益率）</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">购买开始时间：</th>
@@ -116,7 +117,6 @@
                                     <td>
                                         <asp:TextBox ID="txtSchemeDescription" runat="server" TextMode="MultiLine" Rows="8" Columns="80"></asp:TextBox></td>
                                 </tr>
-
                                 <tr>
                                     <th scope="row">备注：</th>
                                     <td>
@@ -129,6 +129,7 @@
                                     </td>
                                 </tr>
                             </tbody>
+                        </table>
                         </table>
                     </div>
                 </div>

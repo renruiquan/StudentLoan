@@ -53,11 +53,11 @@ namespace StudentLoan.DAL
 
             commandText.Append(" Insert Into sl_product_scheme( ");
 
-            commandText.Append(" SchemeName,InitiatorAdminId,ProductId,PlanType,MaxYield,Amount,Price,Part,LimitPart,Deadline,NumberOfPeople,StartTime,EndTime,SchemeDescription,Remark,Status) ");
+            commandText.Append(" SchemeName,InitiatorAdminId,ProductId,PlanType,MaxYield,Amount,Price,Part,LimitPart,NumberOfPeople,StartTime,EndTime,SchemeDescription,Remark,Status) ");
 
             commandText.Append(" Values ( ");
 
-            commandText.Append("@SchemeName,@InitiatorAdminId,@ProductId,@PlanType,@MaxYield,@Amount,@Price,@Part,@LimitPart,@Deadline,@NumberOfPeople,@StartTime,@EndTime,@SchemeDescription,@Remark,@Status) ");
+            commandText.Append("@SchemeName,@InitiatorAdminId,@ProductId,@PlanType,@MaxYield,@Amount,@Price,@Part,@LimitPart,@NumberOfPeople,@StartTime,@EndTime,@SchemeDescription,@Remark,@Status) ");
 
             #endregion
 
@@ -83,8 +83,6 @@ namespace StudentLoan.DAL
 
             paramsList.Add(new SqlParameter("@LimitPart", model.LimitPart));
 
-            paramsList.Add(new SqlParameter("@Deadline", model.Deadline));
-
             paramsList.Add(new SqlParameter("@NumberOfPeople", model.NumberOfPeople));
 
             paramsList.Add(new SqlParameter("@StartTime", model.StartTime));
@@ -109,24 +107,24 @@ namespace StudentLoan.DAL
         public bool Delete(ProductSchemeEntityEx model)
         {
             #region CommandText
-            
+
             StringBuilder commandText = new StringBuilder();
 
             commandText.Append(" Delete From sl_product_scheme ");
-            
+
             commandText.Append(" Where  SchemeId= @SchemeId ");
-            
+
             #endregion
-            
+
             #region SqlParameters
-            
+
             List<SqlParameter> paramsList = new List<SqlParameter>();
 
             paramsList.Add(new SqlParameter("@SchemeId", model.SchemeId));
-            
-             
+
+
             #endregion
-           
+
             return base.ExecuteNonQuery(commandText.ToString(), paramsList.ToArray());
         }
 
@@ -169,13 +167,13 @@ namespace StudentLoan.DAL
 
             commandText.Append(" Amount = @Amount, ");
 
+            commandText.Append(" MaxYield =@MaxYield, ");
+
             commandText.Append(" Price = @Price, ");
 
             commandText.Append(" Part = @Part, ");
 
             commandText.Append(" LimitPart = @LimitPart, ");
-
-            commandText.Append(" Deadline = @Deadline, ");
 
             commandText.Append(" StartTime = @StartTime, ");
 
@@ -203,13 +201,13 @@ namespace StudentLoan.DAL
 
             paramsList.Add(new SqlParameter("@Amount", model.Amount));
 
+            paramsList.Add(new SqlParameter("@MaxYield", model.MaxYield));
+
             paramsList.Add(new SqlParameter("@Price", model.Price));
 
             paramsList.Add(new SqlParameter("@Part", model.Part));
 
             paramsList.Add(new SqlParameter("@LimitPart", model.LimitPart));
-
-            paramsList.Add(new SqlParameter("@Deadline", model.Deadline));
 
             paramsList.Add(new SqlParameter("@StartTime", model.StartTime));
 
@@ -234,7 +232,7 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select Top 1 SchemeId,SchemeName,InitiatorAdminId,ProductId,PlanType,MinYield,MaxYield,Amount,Price,Part,LimitPart,Deadline,NumberOfPeople,StartTime,EndTime,LockStartTime,LockEndTime,SchemeDescription,Fee,Remark,Status,CreateTime From sl_product_scheme Where  SchemeId= @SchemeId ");
+            commandText.Append(" Select Top 1 SchemeId,SchemeName,InitiatorAdminId,ProductId,PlanType,MinYield,MaxYield,Amount,Price,Part,LimitPart,NumberOfPeople,StartTime,EndTime,LockStartTime,LockEndTime,SchemeDescription,Fee,Remark,Status,CreateTime From sl_product_scheme Where  SchemeId= @SchemeId ");
 
             #endregion
 
@@ -262,7 +260,7 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select SchemeId,SchemeName,InitiatorAdminId,ProductId,PlanType,MinYield,MaxYield,Amount,Price,Part,LimitPart,Deadline,NumberOfPeople,StartTime,EndTime,LockStartTime,LockEndTime,SchemeDescription,Fee,Remark,Status,CreateTime ");
+            commandText.Append(" Select SchemeId,SchemeName,InitiatorAdminId,ProductId,PlanType,MinYield,MaxYield,Amount,Price,Part,LimitPart,NumberOfPeople,StartTime,EndTime,LockStartTime,LockEndTime,SchemeDescription,Fee,Remark,Status,CreateTime ");
 
             commandText.Append("From sl_product_scheme ");
 
@@ -301,7 +299,7 @@ namespace StudentLoan.DAL
             }
 
 
-            commandText.Append(" ,SchemeId,SchemeName,InitiatorAdminId,ProductId,PlanType,MinYield,MaxYield,Amount,Price,Part,LimitPart,Deadline,NumberOfPeople,StartTime,EndTime,LockStartTime,LockEndTime,SchemeDescription,Fee,Remark,Status,CreateTime ");
+            commandText.Append(" ,SchemeId,SchemeName,InitiatorAdminId,ProductId,PlanType,MinYield,MaxYield,Amount,Price,Part,LimitPart,NumberOfPeople,StartTime,EndTime,LockStartTime,LockEndTime,SchemeDescription,Fee,Remark,Status,CreateTime ");
 
             commandText.Append("From sl_product_scheme ");
 

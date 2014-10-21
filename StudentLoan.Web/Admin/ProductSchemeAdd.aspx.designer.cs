@@ -85,22 +85,13 @@ namespace StudentLoan.Web.Admin {
         protected global::System.Web.UI.WebControls.TextBox txtLimitPart;
         
         /// <summary>
-        /// TextBox1 控件。
+        /// txtMaxYield 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
-        
-        /// <summary>
-        /// txtDeadline 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDeadline;
+        protected global::System.Web.UI.WebControls.TextBox txtMaxYield;
         
         /// <summary>
         /// txtStartTime 控件。

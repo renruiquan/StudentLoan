@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using StudentLoan.BLL;
 using StudentLoan.Common;
 using StudentLoan.Model;
+using System.Web.Services;
 
 namespace StudentLoan.Web.Admin
 {
@@ -50,11 +51,9 @@ namespace StudentLoan.Web.Admin
                 InitiatorAdminId = adminModel.AdminId,
                 ProductId = ddlProductId.SelectedValue.Convert<int>(),
                 PlanType = ddlPlanType.SelectedValue.Convert<int>(),
-                MaxYield = productModel.BaseAnnualFee,//取理财产品中的费率，最小收益率没有用到
                 Amount = txtAmount.Text.Trim().Convert<decimal>(),
                 Part = txtPart.Text.Trim().Convert<int>(),
                 LimitPart = 0,
-                Deadline = txtDeadline.Text.Trim().Convert<int>(),
                 NumberOfPeople = 0,//购买人数 
                 StartTime = txtStartTime.Text.Trim().Convert<DateTime>(),
                 EndTime = txtEndTime.Text.Trim().Convert<DateTime>(),
@@ -63,7 +62,14 @@ namespace StudentLoan.Web.Admin
                 CreateTime = DateTime.Now,
                 Status = 1
             };
+
+
             schemeModel.Price = schemeModel.Amount / schemeModel.Part;
+
+            if (this.txtMaxYield.Text != productModel.BaseAnnualFee.ToString())
+            {
+                schemeModel.MaxYield = this.txtMaxYield.Text.Convert<decimal>();//取理财产品中的费率，最小收益率没有用到
+            }
 
             bool result = new ProductSchemeBLL().Insert(schemeModel);
 
@@ -71,10 +77,13 @@ namespace StudentLoan.Web.Admin
         }
 
 
-        [System.Web.Services.WebMethod]
-        public ProductEntityEx ProductEntity(int productId)
+
+        protected void ddlProductId_TextChanged(object sender, EventArgs e)
         {
-            return this.ProductList.Where(s => s.ProductId == productId).First();
+            ListControl objControl = sender as ListControl;
+
+            this.txtMaxYield.Text = this.ProductList.Where(s => s.ProductId == objControl.SelectedValue.Convert<decimal>()).First().BaseAnnualFee.ToString();
+
         }
     }
 }

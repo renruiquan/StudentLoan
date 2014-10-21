@@ -19,7 +19,10 @@ namespace StudentLoan.Web.user
 
         public int ProductSchemeId { get { return this.Request<int>("ProductSchemeId"); } }
 
-        //        public int BuyPart { get { return this.Request<int>("part"); } }
+        /// <summary>
+        /// 投资期限
+        /// </summary>
+        public int Period { get { return this.Request<int>("period"); } }
 
         /// <summary>
         /// 金买金额
@@ -43,6 +46,12 @@ namespace StudentLoan.Web.user
             //    return;
             //}
 
+            if (this.Period <= 0)
+            {
+                this.Alert("参数不正确", "ProductSchemeList.aspx");
+                return;
+            }
+
             ProductSchemeEntityEx schemeModel = new ProductSchemeBLL().GetModel(this.ProductSchemeId);
             UsersEntityEx userModel = base.GetUserModel();
             UserManageMoneyEntityEx model = new UserManageMoneyEntityEx()
@@ -52,6 +61,7 @@ namespace StudentLoan.Web.user
                 ProductSchemeId = this.ProductSchemeId,
                 // Count = part,
                 // Amount = schemeModel.Price * part,
+                Period = this.Period,
                 Count = 1,
                 Amount = this.purchaseMoney,
                 CreateTime = DateTime.Now,
@@ -74,14 +84,14 @@ namespace StudentLoan.Web.user
                     if (result)
                     {
                         //扣费成功后更新订单状态 
-                        result = new UserManageMoneyBLL().Update(new UserManageMoneyEntityEx() { BuyId = buyId, PayTime = DateTime.Now, EndTime = DateTime.Now.AddMonths(schemeModel.Deadline), Status = 1 });
+                        result = new UserManageMoneyBLL().Update(new UserManageMoneyEntityEx() { BuyId = buyId, PayTime = DateTime.Now, EndTime = DateTime.Now.AddMonths(this.Period), Status = 1 });
 
                         if (result)
                         {
                             string code = new Message().Send(userModel.Telphone, string.Format("亲，你购买了理财产品{0},共消费了{1}元。【学子易贷】", schemeModel.SchemeName, model.Amount));
                             LogHelper.Default.Info("短信内容：" + code);
 
-                            this.Alert("购买成功", "UserManageMoneyList.aspx");
+                            this.Alert("购买成功", "ManageMoneyList.aspx");
                         }
                         else
                         {

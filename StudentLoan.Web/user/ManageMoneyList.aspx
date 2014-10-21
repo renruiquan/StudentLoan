@@ -55,7 +55,7 @@
                                     <th>交易时间</th>
                                     <th>交易类型</th>
                                     <th>方案名称</th>
-                                    <th>购买份数</th>
+                                    <th>投资期限</th>
                                     <th>理财金额</th>
                                     <th>状态</th>
                                     <th>操作</th>
@@ -68,7 +68,7 @@
                             <td><%#Eval("CreateTime").Convert<DateTime>().ToString("yyyy-MM-dd")%></td>
                             <td><%#Eval("ProductName")%></td>
                             <td><%#Eval("SchemeName")%></td>
-                            <td><%#Eval("Count")%>份</td>
+                            <td><%#Eval("Period")%>个月</td>
                             <td><%#Eval("Amount").Convert<decimal>().ToString("C")%></td>
                             <td><%# this.GetStatusName(Convert.ToInt32(Eval("Status")))%></td>
                             <td>

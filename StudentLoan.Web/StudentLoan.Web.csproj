@@ -296,7 +296,6 @@
     <Content Include="img\anonymous.jpg" />
     <Content Include="img\glyphicons-halflings-white.png" />
     <Content Include="img\glyphicons-halflings.png" />
-    <Content Include="index.html" />
     <Content Include="Introduction.aspx" />
     <Content Include="js\birthday.js" />
     <Content Include="js\bootstrap-datepicker.js" />
@@ -337,12 +336,23 @@
     <Content Include="UserManageMoney.aspx" />
     <Content Include="UserManageMoneyBuy.aspx" />
     <Content Include="user\1阶段.html" />
+    <Content Include="user\BindBank.aspx" />
+    <Content Include="user\BindMobile.aspx" />
     <Content Include="user\ChangePassword.aspx" />
+    <Content Include="user\Charge.aspx" />
+    <Content Include="user\EarningsList.aspx" />
+    <Content Include="user\InviteFriend.aspx" />
+    <Content Include="user\ManageMoneyDetail.aspx" />
+    <Content Include="user\ManageMoneyList.aspx" />
+    <Content Include="user\StatManageMoney.aspx" />
     <Content Include="user\StatUserLoan.aspx" />
+    <Content Include="user\UserAccount.aspx" />
+    <Content Include="user\UserAccountCert.aspx" />
     <Content Include="user\UserBillList.aspx" />
     <Content Include="user\UserBillList_2.aspx" />
     <Content Include="user\UserLoanApply.aspx" />
     <Content Include="user\UserLoanList.aspx" />
+    <Content Include="user\UserMessage.aspx" />
     <Content Include="user\WebForm1.aspx" />
     <Content Include="user\交易记录-雪中送炭.html" />
     <Content Include="user\会员充值.html" />
@@ -702,6 +712,20 @@
     <Compile Include="UserManageMoneyBuy.aspx.designer.cs">
       <DependentUpon>UserManageMoneyBuy.aspx</DependentUpon>
     </Compile>
+    <Compile Include="user\BindBank.aspx.cs">
+      <DependentUpon>BindBank.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\BindBank.aspx.designer.cs">
+      <DependentUpon>BindBank.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\BindMobile.aspx.cs">
+      <DependentUpon>BindMobile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\BindMobile.aspx.designer.cs">
+      <DependentUpon>BindMobile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="user\ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -709,12 +733,68 @@
     <Compile Include="user\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
+    <Compile Include="user\Charge.aspx.cs">
+      <DependentUpon>Charge.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\Charge.aspx.designer.cs">
+      <DependentUpon>Charge.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\EarningsList.aspx.cs">
+      <DependentUpon>EarningsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\EarningsList.aspx.designer.cs">
+      <DependentUpon>EarningsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\InviteFriend.aspx.cs">
+      <DependentUpon>InviteFriend.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\InviteFriend.aspx.designer.cs">
+      <DependentUpon>InviteFriend.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\ManageMoneyDetail.aspx.cs">
+      <DependentUpon>ManageMoneyDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\ManageMoneyDetail.aspx.designer.cs">
+      <DependentUpon>ManageMoneyDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\ManageMoneyList.aspx.cs">
+      <DependentUpon>ManageMoneyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\ManageMoneyList.aspx.designer.cs">
+      <DependentUpon>ManageMoneyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\StatManageMoney.aspx.cs">
+      <DependentUpon>StatManageMoney.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\StatManageMoney.aspx.designer.cs">
+      <DependentUpon>StatManageMoney.aspx</DependentUpon>
+    </Compile>
     <Compile Include="user\StatUserLoan.aspx.cs">
       <DependentUpon>StatUserLoan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="user\StatUserLoan.aspx.designer.cs">
       <DependentUpon>StatUserLoan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\UserAccount.aspx.cs">
+      <DependentUpon>UserAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\UserAccount.aspx.designer.cs">
+      <DependentUpon>UserAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\UserAccountCert.aspx.cs">
+      <DependentUpon>UserAccountCert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\UserAccountCert.aspx.designer.cs">
+      <DependentUpon>UserAccountCert.aspx</DependentUpon>
     </Compile>
     <Compile Include="user\UserBillList.aspx.cs">
       <DependentUpon>UserBillList.aspx</DependentUpon>
@@ -750,6 +830,13 @@
     </Compile>
     <Compile Include="user\UserMain.Master.designer.cs">
       <DependentUpon>UserMain.Master</DependentUpon>
+    </Compile>
+    <Compile Include="user\UserMessage.aspx.cs">
+      <DependentUpon>UserMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\UserMessage.aspx.designer.cs">
+      <DependentUpon>UserMessage.aspx</DependentUpon>
     </Compile>
     <Compile Include="user\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>

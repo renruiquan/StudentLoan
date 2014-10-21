@@ -57,20 +57,19 @@
                     <div class="item">
                         <h2>账户信息</h2>
                         <ul>
-                            <li><a id="account" href="javascript:;"><i class="ico-eye"></i>账户总览</a></li>
-                            <li><a href="javascript:;"><i class="ico-star"></i>账户认证</a></li>
-                            <li><a href="javascript:;"><i class="ico-news"></i>充值提现/账户日志</a></li>
-                            <li><a href="javascript:;"><i class="ico-note"></i>交易记录</a></li>
+                            <li><a id="UserAccount" runat="server" href="UserAccount.aspx"><i class="ico-eye"></i>账户总览</a></li>
+                            <li><a id="UserAccountCert" runat="server" href="UserAccountCert.aspx"><i class="ico-star"></i>账户认证</a></li>
+                            <li><a id="Charge" runat="server" href="Charge.aspx"><i class="ico-news"></i>充值提现/账户日志</a></li>
                         </ul>
                     </div>
                     <div class="item">
                         <h2>个人信息</h2>
                         <ul>
                             <li><a id="ChangePassword" runat="server" href="ChangePassword.aspx"><i class="ico-key"></i>修改登录密码</a></li>
-                            <li><a href="javascript:;"><i class="ico-phone"></i>手机绑定</a></li>
-                            <li><a href="javascript:;"><i class="ico-diamond"></i>银行账户信息</a></li>
-                            <li><a href="javascript:;"><i class="ico-bubble"></i>消息管理</a></li>
-                            <li><a href="javascript:;"><i class="ico-sound"></i>邀请好友</a></li>
+                            <li><a id="BindMobile" runat="server" href="BindMobile.aspx"><i class="ico-phone"></i>手机绑定</a></li>
+                            <li><a id="BindBank" runat="server" href="BindBank.aspx"><i class="ico-diamond"></i>银行账户信息</a></li>
+                            <li><a id="UserMessage" runat="server" href="UserMessage.aspx"><i class="ico-bubble"></i>消息管理</a></li>
+                            <li><a id="InviteFriend" runat="server" href="InviteFriend.aspx"><i class="ico-sound"></i>邀请好友</a></li>
                         </ul>
                     </div>
                     <div class="item">
@@ -84,10 +83,10 @@
                     <div class="item">
                         <h2>聚宝盆管理</h2>
                         <ul>
-                            <li><a href="javascript:;"><i class="ico-note"></i>理财记录</a></li>
-                            <li><a href="javascript:;"><i class="ico-params"></i>我的收益</a></li>
-                            <li><a href="javascript:;"><i class="ico-note"></i>理财明细</a></li>
-                            <li><a href="javascript:;"><i class="ico-wallet"></i>理财统计</a></li>
+                            <li><a id="ManageMoneyList" runat="server" href="ManageMoneyList.aspx"><i class="ico-note"></i>理财记录</a></li>
+                            <li><a id="EarningsList" runat="server" href="EarningsList.aspx"><i class="ico-params"></i>我的收益</a></li>
+                            <li><a id="ManageMoneyDetail" runat="server" href="ManageMoneyDetail.aspx"><i class="ico-note"></i>理财明细</a></li>
+                            <li><a id="StatManageMoney" runat="server" href="StatManageMoney.aspx"><i class="ico-wallet"></i>理财统计</a></li>
                         </ul>
                     </div>
                 </div>

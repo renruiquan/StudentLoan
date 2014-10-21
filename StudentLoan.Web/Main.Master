@@ -30,7 +30,7 @@
                 </h1>
                 <div class="user-icon">
                     <div class="icon">
-                        <a href="#">
+                        <a href="/user/UserAccount.aspx">
                             <img id="account" src="<%=this.UserModel==null?"/css/img/admin/user_no_frame.png":this.UserModel.Avatar %>" alt="" /></a>
                     </div>
                     <p><%=this.UserModel==null?"<a href='/login.aspx' style='color:#FFF;line-height:1.5em;'>请登录</a>": this.UserModel.UserName %></p>

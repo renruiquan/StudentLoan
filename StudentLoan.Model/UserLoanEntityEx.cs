@@ -59,5 +59,10 @@ namespace StudentLoan.Model
         /// 严重逾期次数，即逾期天数>5天
         /// </summary>
         public int TotalSevereBreakCount { get; set; }
+
+        /// <summary>
+        /// 产品名称
+        /// </summary>
+        public string ProductName { get; set; }
     }
 }

@@ -76,20 +76,7 @@
 
                         </div>
 
-                        <div class="item">
-                            <h3>通过其他银行储蓄卡充值<span class="c-gray">(充值手续费2元一笔)</span></h3>
-
-                            <p class="w220">
-                                <a href="javascript:;" class="btn btn-block btn-primary">使用第三方支付</a></p>
-
-                            <select name="">
-                                <option value="">中国农业银行</option>
-                                <option value="">中国工商银行</option>
-                                <option value="">中国建设银行</option>
-                                <option value="">深圳发展银行</option>
-                                <option value="">中国邮政银行</option>
-                            </select>
-                        </div>
+                       
 
                     </div>
 

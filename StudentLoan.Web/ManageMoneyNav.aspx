@@ -47,7 +47,7 @@
                             </div>
 
                             <div class="invest">
-                                <button class="btn btn-large btn-primary" type="button" onclick='return window.location.href="/user/UserManageMoney.aspx?ProductId=<%#Eval("ProductId") %>&ProductSchemeId=1"'>投资</button>
+                                <button class="btn btn-large btn-primary" type="button" onclick='return window.location.href="/user/UserManageMoney.aspx?ProductId=<%#Eval("ProductId") %>&ProductSchemeId=1"'>理财</button>
                             </div>
                         </div>
                     </div>

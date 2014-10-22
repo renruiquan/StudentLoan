@@ -39,8 +39,7 @@
                                 </p>
 
                                 <p>
-                                    <button type="button" class="btn btn-primary">打开</button>
-                                    <button type="button" class="btn btn-danger">删除</button>
+                                   
                                 </p>
                             </div>
                         </div>

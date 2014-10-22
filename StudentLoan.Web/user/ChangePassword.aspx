@@ -24,7 +24,7 @@
                             <label class="control-label">当前密码：</label>
 
                             <div class="controls">
-                                <input class="span5" type="password" value="123456789">
+                                <input class="span5" type="password" value="">
                             </div>
                         </div>
 

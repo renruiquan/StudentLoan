@@ -445,11 +445,11 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select count(0) From sl_user_loan T ");
+            commandText.Append(" Select count(0) From sl_user_loan T,sl_users a,sl_product b ");
 
             if (!string.IsNullOrEmpty(strWhere.Trim()))
             {
-                commandText.AppendFormat(" WHERE {0}", strWhere);
+                commandText.AppendFormat(" WHERE T.UserId = a.UserId and T.ProductId=b.ProductId and {0}", strWhere);
             }
 
             #endregion
@@ -484,11 +484,11 @@ namespace StudentLoan.DAL
                 commandText.Append(" Order By T.LoanId Desc");
             }
 
-            commandText.Append(" )AS Row,a.UserName, T.*  From sl_user_loan T,sl_users a ");
+            commandText.Append(" )AS Row,a.UserName,b.ProductName, T.*  From sl_user_loan T,sl_users a,sl_product b ");
 
             if (!string.IsNullOrEmpty(strWhere))
             {
-                commandText.AppendFormat(" Where T.UserId = a.UserId and {0} ", strWhere);
+                commandText.AppendFormat(" Where T.UserId = a.UserId and T.ProductId=b.ProductId and {0} ", strWhere);
             }
 
 

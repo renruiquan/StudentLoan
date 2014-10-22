@@ -51,8 +51,9 @@
                             <thead>
                                 <tr>
                                     <th>借款编号</th>
+                                    <th>借款类型</th>
                                     <th>借款金额</th>
-                                    <th>年费率</th>
+                                    <th>月服务费</th>
                                     <th>申请时间</th>
                                     <th>应还金额</th>
                                     <th>已还</th>
@@ -64,7 +65,7 @@
                         <table class="table table-bordered table-striped">
                             <tbody>
                                 <tr>
-                                    <td colspan="8">暂无数据</td>
+                                    <td colspan="9">暂无数据</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -73,6 +74,7 @@
                         <tbody>
                             <tr>
                                 <td><%#Eval("LoanNo") %></td>
+                                <td><%#Eval("ProductName") %></td>
                                 <td><%#Convert.ToDecimal( Eval("LoanMoney")).ToString("C") %></td>
                                 <td><%#Convert.ToDouble(Eval("AnnualFee")).ToString("P2") %></td>
                                 <td><%#((DateTime)Eval("CreateTime")).ToString("yyyy-MM-dd") %></td>

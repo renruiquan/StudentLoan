@@ -40,7 +40,7 @@
                     </div>
 
                     <div class="control-group">
-                        <label class="control-label">账号：</label>
+                        <label class="control-label">登录账号：</label>
 
                         <div class="controls">
                             <input class="span5" type="text" placeholder="请输入你的注册账号">
@@ -59,7 +59,7 @@
                     </div>
 
                     <div class="control-group">
-                        <label class="control-label">账户：</label>
+                        <label class="control-label">银行账户：</label>
 
                         <div class="controls">
                             <input class="span5" type="text" placeholder="请输入你的银行卡账户">

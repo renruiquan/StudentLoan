@@ -90,6 +90,7 @@
     <Content Include="Admin\images\icon-mail.gif" />
     <Content Include="Admin\images\icon-phone.gif" />
     <Content Include="Admin\images\icons.png" />
+    <Content Include="Admin\images\icons.psd" />
     <Content Include="Admin\images\index-footer.gif" />
     <Content Include="Admin\images\index-header.gif" />
     <Content Include="Admin\images\index-table-bottom-center.gif" />
@@ -197,7 +198,10 @@
     <Content Include="css\bootstrap\js\bootstrap.min.js" />
     <Content Include="css\common.css" />
     <Content Include="css\datepicker.css" />
+    <Content Include="css\icomoon\fonts\icomoon.eot" />
     <Content Include="css\icomoon\fonts\icomoon.svg" />
+    <Content Include="css\icomoon\fonts\icomoon.ttf" />
+    <Content Include="css\icomoon\fonts\icomoon.woff" />
     <Content Include="css\icomoon\icon.css" />
     <Content Include="css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="css\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -284,12 +288,16 @@
     <Content Include="css\img\uFpLbYt.png" />
     <Content Include="css\jquery-ui.css" />
     <Content Include="css\modules\admin\admin.css" />
+    <Content Include="css\modules\admin\admin.less" />
+    <Content Include="css\modules\admin\custom-other.less" />
     <Content Include="css\modules\admin\custom-variables.css" />
+    <Content Include="css\modules\admin\custom-variables.less" />
     <Content Include="css\modules\admin\ucom.min.css" />
     <Content Include="css\modules\front\animations.css" />
     <Content Include="css\modules\front\into.css" />
     <Content Include="css\public.css" />
     <Content Include="css\reset.css" />
+    <Content Include="css\ui-dialog.css" />
     <Content Include="Culture.aspx" />
     <Content Include="DetailInfo.aspx" />
     <Content Include="Global.asax" />
@@ -301,22 +309,12 @@
     <Content Include="js\bootstrap-datepicker.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
-    <Content Include="css\ui-dialog.css" />
     <Content Include="Default.aspx" />
     <Content Include="js\city.min.js" />
     <Content Include="js\dialog-plus-min.js" />
-    <Content Include="Admin\images\icons.psd" />
-    <Content Include="Admin\images\Thumbs.db" />
     <Content Include="Admin\jBox\LGPL-LICENSE" />
-    <Content Include="Admin\jBox\Skins\Green\images\Thumbs.db" />
     <Content Include=".idea\.name" />
     <Content Include=".idea\学子易贷.iml" />
-    <Content Include="css\icomoon\fonts\icomoon.eot" />
-    <Content Include="css\icomoon\fonts\icomoon.ttf" />
-    <Content Include="css\icomoon\fonts\icomoon.woff" />
-    <Content Include="css\modules\admin\admin.less" />
-    <Content Include="css\modules\admin\custom-other.less" />
-    <Content Include="css\modules\admin\custom-variables.less" />
     <None Include="js\jquery-1.11.0-vsdoc.js" />
     <Content Include="js\jquery-1.11.0.min.js" />
     <Content Include="js\jquery-ui-slide.min.js" />
@@ -818,6 +816,7 @@
     <Content Include="js\jquery-1.11.0.min.map" />
     <Content Include="Main.Master" />
     <None Include="Properties\PublishProfiles\Demo.pubxml" />
+    <None Include="Properties\PublishProfiles\StudentLoan.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

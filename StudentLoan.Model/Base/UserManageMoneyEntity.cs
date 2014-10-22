@@ -119,6 +119,40 @@ namespace StudentLoan.Model.Base
             set { _endTime = value; }
         }
 
+        private DateTime _withdrawalTime;
+
+        /// <summary>
+        /// 转出日期
+        /// </summary>
+        public DateTime WithdrawalTime
+        {
+            get { return _withdrawalTime; }
+            set { _withdrawalTime = value; }
+        }
+
+
+        private DateTime _applyWithdrawalTime;
+
+        /// <summary>
+        /// 申请转出日期
+        /// </summary>
+        public DateTime ApplyWithdrawalTime
+        {
+            get { return _applyWithdrawalTime; }
+            set { _applyWithdrawalTime = value; }
+        }
+
+        private int _adminId;
+
+        /// <summary>
+        /// 审核人Id
+        /// </summary>
+        public int AdminId
+        {
+            get { return _adminId; }
+            set { _adminId = value; }
+        }
+
         private int _status;
 
         /// <summary>

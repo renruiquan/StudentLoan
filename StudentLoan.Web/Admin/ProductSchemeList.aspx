@@ -83,7 +83,7 @@
                                         <th scope="col">方案发起人</th>
                                         <th scope="col">产品</th>
                                         <th scope="col">保障计划</th>
-                                        <th scope="col">益率</th>
+                                        <th scope="col">年收益率</th>
                                         <th scope="col">开始时间</th>
                                         <th scope="col">截止时间</th>
                                         <th scope="col">方案描述</th>

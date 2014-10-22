@@ -214,14 +214,21 @@ namespace StudentLoan.Web.user
                 UserManageMoneyEntityEx model = e.Item.DataItem as UserManageMoneyEntityEx;
                 Literal objLiteral = e.Item.FindControl("objLiteral") as Literal;
 
-
                 if (model.Status == 0)
                 {
                     objLiteral.Text = string.Format("<a href=\"ManageMoneyList.aspx?buyId={0}&action=pay\">支付</a>", model.BuyId);
                 }
-                else
+                else if (model.Status == 1)
                 {
-                    objLiteral.Text = "<a href=\"javascript:void(0);\">完成</a>";
+                    objLiteral.Text = string.Format("<a href=\"ManageMoneyList_2.aspx?buyId={0}&action=drawMoney\">申请转出</a>", model.BuyId);
+                }
+                else if (model.Status == 2)
+                {
+                    objLiteral.Text = "转出申请中";
+                }
+                else if (model.Status == 3)
+                {
+                    objLiteral.Text = "转出成功";
                 }
 
             }

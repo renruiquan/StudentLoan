@@ -65,7 +65,7 @@
             <div class="block">
                 <div class="h">
                     <span class="icon-sprite icon-list"></span>
-                    <h3>盈亏明细列表</h3>
+                    <h3>收益明细列表</h3>
                 </div>
                 <div class="tl corner"></div>
                 <div class="tr corner"></div>
@@ -81,8 +81,8 @@
                                         <th scope="col">方案名称</th>
                                         <th scope="col">用户名</th>
                                         <th scope="col">账户余额</th>
-                                        <th scope="col">类型</th>
-                                        <th scope="col">盈亏金额</th>
+                                        <th scope="col">收益金额</th>
+                                        <th scope="col">理财周期</th>
                                         <th scope="col">打款日期</th>
                                     </tr>
                             </HeaderTemplate>
@@ -94,6 +94,7 @@
                                     <td class="txt40"><%#Eval("UserAmount")%></td>
                                     <td class="txt40"><%#Eval("Type").ToString() =="1"?"盈利":"亏损" %></td>
                                     <td class="txt40"><%#Eval("Amount")%></td>
+                                    <td class="txt40"><%#Eval("CreateTime")%>-<%#Eval("CreateTime")%></td>
                                     <td class="txt40"><%#Eval("CreateTime")%></td>
 
                                 </tr>

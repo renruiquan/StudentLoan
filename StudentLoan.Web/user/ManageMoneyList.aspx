@@ -24,8 +24,7 @@
             <ul>
                 <li class="active"><a href="javascript:;">待支付</a></li>
                 <li><a href="ManageMoneyList_2.aspx">转入</a></li>
-                <li><a href="javascript:;">转出</a></li>
-                <li><a href="javascript:;">资金记录</a></li>
+                <li><a href="ManageMoneyList_3.aspx">转出</a></li>
             </ul>
 
         </div>
@@ -71,7 +70,7 @@
                             <td><%#Eval("Amount").Convert<decimal>().ToString("C")%></td>
                             <td><%# this.GetStatusName(Convert.ToInt32(Eval("Status")))%></td>
                             <td>
-                                <asp:Literal ID="objLiteral" runat="server">支付</asp:Literal></td>
+                                <asp:Literal ID="objLiteral" runat="server"></asp:Literal></td>
 
                         </tr>
                     </ItemTemplate>

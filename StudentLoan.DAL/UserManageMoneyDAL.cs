@@ -185,6 +185,85 @@ namespace StudentLoan.DAL
 
 
         /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        public bool Withdrawal(UserManageMoneyEntityEx model)
+        {
+            #region CommandText
+
+            StringBuilder commandText = new StringBuilder();
+
+            commandText.Append(" Update sl_user_manage_money Set ");
+
+            commandText.Append(" ApplyWithdrawalTime = getdate(), ");
+
+            commandText.Append(" Status = @Status ");
+
+            commandText.Append(" Where BuyId = @BuyId ");
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@BuyId", model.BuyId));
+
+            paramsList.Add(new SqlParameter("@Status", model.Status));
+
+            #endregion
+
+            return base.ExecuteNonQuery(commandText.ToString(), paramsList.ToArray());
+        }
+
+
+        /// <summary>
+        /// 转出时管理员通过审核
+        /// </summary>
+        public bool PassApplyWithdrawal(UserManageMoneyEntityEx model)
+        {
+            #region CommandText
+
+            StringBuilder commandText = new StringBuilder();
+
+            commandText.Append(" Update sl_users Set Amount += @Amount Where UserId=@UserId ");
+
+            commandText.Append(" Update sl_user_manage_money Set ");
+
+            commandText.Append(" ApplyWithdrawalTime = getdate(), ");
+
+            commandText.Append(" AdminId = @AdminId, ");
+
+            commandText.Append(" Status = @Status ");
+
+            commandText.Append(" Where BuyId = @BuyId ");
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+
+            paramsList.Add(new SqlParameter("@BuyId", model.BuyId));
+
+            paramsList.Add(new SqlParameter("@Status", model.Status));
+
+            paramsList.Add(new SqlParameter("@Amount", model.Amount));
+
+            paramsList.Add(new SqlParameter("@UserId", model.UserId));
+
+            paramsList.Add(new SqlParameter("@AdminId", model.AdminId));
+
+            #endregion
+
+            SqlTransaction trans = base.GetTransaction();
+
+
+            return base.ExecuteNonQuery(trans, commandText.ToString(), paramsList.ToArray());
+        }
+
+        /// <summary>
         /// 获取一个实体
         /// </summary>
         public UserManageMoneyEntityEx GetModel(int BuyId)

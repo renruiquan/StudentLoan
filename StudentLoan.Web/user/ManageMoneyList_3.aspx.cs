@@ -1,5 +1,6 @@
 ﻿using StudentLoan.BLL;
 using StudentLoan.Model;
+using StudentLoan.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,13 +9,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using StudentLoan.Common;
+using StudentLoan.Common.Logging;
+using StudentLoan.API;
 
 namespace StudentLoan.Web.user
 {
-    public partial class ManageMoneyList_2 : BasePage
+    public partial class ManageMoneyList_3 : BasePage
     {
-
 
         private string StartTime
         {
@@ -54,7 +55,7 @@ namespace StudentLoan.Web.user
 
                 string id = MethodBase.GetCurrentMethod().DeclaringType.Name;
 
-                Control objControl = Master.FindControl(id.Replace("_2", ""));
+                Control objControl = Master.FindControl(id.Replace("_3", ""));
 
                 if (objControl != null)
                 {
@@ -70,8 +71,6 @@ namespace StudentLoan.Web.user
                 this.txtEndTime.Attributes.Add("ReadOnly", "true");
                 this.txtStartTime.Text = this.StartTime.Convert<DateTime>().ToString("yyyy-MM-dd");
                 this.txtEndTime.Text = this.EndTime.Convert<DateTime>().ToString("yyyy-MM-dd");
-
-                this.Withdrawal();
 
                 this.BindData();
             }
@@ -89,7 +88,7 @@ namespace StudentLoan.Web.user
 
         public void BindData()
         {
-            string strWhere = @" 1=1 and T.Status=1 ";
+            string strWhere = @" 1=1 and T.Status=2 ";
 
             string startTime = this.txtStartTime.Text.Trim();
             string endTime = this.txtEndTime.Text.Trim();
@@ -158,7 +157,6 @@ namespace StudentLoan.Web.user
                 UserManageMoneyEntityEx model = e.Item.DataItem as UserManageMoneyEntityEx;
                 Literal objLiteral = e.Item.FindControl("objLiteral") as Literal;
 
-
                 if (model.Status == 0)
                 {
                     objLiteral.Text = string.Format("<a href=\"ManageMoneyList.aspx?buyId={0}&action=pay\">支付</a>", model.BuyId);
@@ -175,43 +173,7 @@ namespace StudentLoan.Web.user
                 {
                     objLiteral.Text = "转出成功";
                 }
-            }
-        }
 
-        /// <summary>
-        /// 申请转出
-        /// </summary>
-        protected void Withdrawal()
-        {
-            string action = this.Request<string>("action");
-
-            if (action == "drawMoney")
-            {
-                int buyId = this.Request<int>("buyId");
-
-                if (buyId == 0)
-                {
-                    this.artDialog("提示", "参数不正确！", "ManageMoneyList_2.aspx");
-                    return;
-                }
-
-                UserManageMoneyBLL bll = new UserManageMoneyBLL();
-
-                UserManageMoneyEntityEx model = bll.GetModel(buyId);
-
-                if (model != null)
-                {
-                    model = new UserManageMoneyEntityEx()
-                    {
-                        //转出
-                        Status = 2,
-                        BuyId = buyId
-                    };
-
-                    bool result = bll.Withdrawal(model);
-
-                    this.artDialog("提示", string.Format("申请转出{0}", result == true ? "成功" : "失败"), "ManageMoneyList_2.aspx");
-                }
             }
         }
     }

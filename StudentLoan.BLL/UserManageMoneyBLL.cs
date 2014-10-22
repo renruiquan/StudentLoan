@@ -18,9 +18,9 @@ namespace StudentLoan.BLL
     /// </summary>
     public class UserManageMoneyBLL
     {
-    
+
         UserManageMoneyDAL dal = new UserManageMoneyDAL();
-        
+
         /// <summary>
         /// 是否存在该记录
         /// </summary>
@@ -28,8 +28,8 @@ namespace StudentLoan.BLL
         {
             return dal.Exists(Status);
         }
-        
-        
+
+
         /// <summary>
         /// 增加一条数据
         /// </summary>
@@ -37,8 +37,8 @@ namespace StudentLoan.BLL
         {
             return dal.Insert(model);
         }
-        
-        
+
+
         /// <summary>
         /// 删除一条数据
         /// </summary>
@@ -46,8 +46,8 @@ namespace StudentLoan.BLL
         {
             return dal.Delete(model);
         }
-        
-        
+
+
         /// <summary>
         /// 批量删数据
         /// </summary>
@@ -55,8 +55,8 @@ namespace StudentLoan.BLL
         {
             return dal.DeleteList(UserManageMoneyIDList);
         }
-        
-        
+
+
         /// <summary>
         /// 更新一条数据
         /// </summary>
@@ -64,8 +64,8 @@ namespace StudentLoan.BLL
         {
             return dal.Update(model);
         }
-        
-        
+
+
         /// <summary>
         /// 获取一个实体
         /// </summary>
@@ -73,8 +73,24 @@ namespace StudentLoan.BLL
         {
             return dal.GetModel(Status);
         }
-        
-        
+
+
+        /// <summary>
+        /// 用户申请转出操作
+        /// </summary>
+        public bool Withdrawal(UserManageMoneyEntityEx model)
+        {
+            return dal.Withdrawal(model);
+        }
+
+        /// <summary>
+        /// 转出时管理员通过审核
+        /// </summary>
+        public bool PassApplyWithdrawal(UserManageMoneyEntityEx model)
+        {
+            return dal.PassApplyWithdrawal(model);
+        }
+
         /// <summary>
         /// 获取数据列表
         /// </summary>
@@ -82,16 +98,16 @@ namespace StudentLoan.BLL
         {
             return dal.GetList(strWhere);
         }
-        
+
         /// <summary>
         /// 获取数据列表
         /// </summary>
-        public List<UserManageMoneyEntityEx> GetList(int top,string strWhere,string orderby)
+        public List<UserManageMoneyEntityEx> GetList(int top, string strWhere, string orderby)
         {
-            return dal.GetList(top,strWhere,orderby); 
+            return dal.GetList(top, strWhere, orderby);
         }
-        
-        
+
+
         /// <summary>
         /// 获取记录总数
         /// </summary>
@@ -99,14 +115,14 @@ namespace StudentLoan.BLL
         {
             return dal.GetRecordCount(strWhere);
         }
-        
-        
+
+
         /// <summary>
         /// 分页获取数据列表
         /// </summary>
         public List<UserManageMoneyEntityEx> GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
         {
-            return dal.GetListByPage(strWhere,orderby,startIndex,endIndex);
+            return dal.GetListByPage(strWhere, orderby, startIndex, endIndex);
         }
     }
 }

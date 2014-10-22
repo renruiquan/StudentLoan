@@ -22,53 +22,46 @@
                     <caption>还款统计</caption>
                     <tbody>
                         <tr>
-                            <td>
-                                <p>总借贷额</p>
+                            <td>总借贷额
                             </td>
                             <td>
-                                <p><%=this.StatNormalUserLoan.TotalAmount.ToString("C") %>元</p>
+                                <%=this.StatNormalUserLoan.TotalAmount.ToString("C") %>元
+                            </td>
+                            <td>发布借贷笔数
                             </td>
                             <td>
-                                <p>发布借贷笔数</p>
-                            </td>
-                            <td>
-                                <p><%=this.StatNormalUserLoan.TotalCount %></p>
+                                <%=this.StatNormalUserLoan.TotalCount %>
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                <p>已还本息</p>
+                            <td>已还本息
                             </td>
                             <td>
-                                <p><%=this.StatNormalUserLoan.RepaymentMoney.ToString("C") %>元</p>
+                                <%=this.StatNormalUserLoan.RepaymentMoney.ToString("C") %>元
+                            </td>
+                            <td>成功借贷笔数
                             </td>
                             <td>
-                                <p>成功借贷笔数</p>
-                            </td>
-                            <td>
-                                <p><%=this.StatNormalUserLoan.LoanSuccessCount %></p>
+                                <%=this.StatNormalUserLoan.LoanSuccessCount %>
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                <p>待还本息</p>
+                            <td>待还本息
                             </td>
                             <td>
-                                <p><%=this.StatNormalUserLoan.WaitMoney.ToString("C") %>元</p>
+                                <%=this.StatNormalUserLoan.WaitMoney.ToString("C") %>元
+                            </td>
+                            <td>正常还清笔数
                             </td>
                             <td>
-                                <p>正常还清笔数</p>
-                            </td>
-                            <td>
-                                <p><%=this.StatNormalUserLoan.NormalLoanCount %></p>
+                                <%=this.StatNormalUserLoan.NormalLoanCount %>
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                <p>未还清笔数</p>
+                            <td>未还清笔数
                             </td>
                             <td colspan="3">
-                                <p><%=this.StatNormalUserLoan.WaitLoanCount %></p>
+                                <%=this.StatNormalUserLoan.WaitLoanCount %>
                             </td>
                         </tr>
 
@@ -84,31 +77,28 @@
                     <caption>逾期统计</caption>
                     <tbody>
                         <tr>
-                            <td>
-                                <p>逾期本息</p>
+                            <td>逾期本息
                             </td>
                             <td>
-                                <p><%=this.StatBreakContractUserLoan.TotalAmount.ToString("C") %>元</p>
+                                <%=this.StatBreakContractUserLoan.TotalAmount.ToString("C") %>元
+                            </td>
+                            <td>逾期次数
                             </td>
                             <td>
-                                <p>逾期次数</p>
-                            </td>
-                            <td>
-                                <p><%=this.StatBreakContractUserLoan.TotalBreakCount %></p>
+                                <%=this.StatBreakContractUserLoan.TotalBreakCount %>
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                <p>逾期费用</p>
+                            <td>逾期费用
                             </td>
                             <td>
-                                <p><%=this.StatBreakContractUserLoan.TotalBreakContract.ToString("C") %>元</p>
+                                <%=this.StatBreakContractUserLoan.TotalBreakContract.ToString("C") %>元
                             </td>
                             <td>
-                                <p>严重逾期次数</p>
+                                严重逾期次数
                             </td>
                             <td>
-                                <p><%=this.StatBreakContractUserLoan.TotalSevereBreakCount %></p>
+                                <%=this.StatBreakContractUserLoan.TotalSevereBreakCount %>
                             </td>
                         </tr>
                     </tbody>

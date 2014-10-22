@@ -116,6 +116,13 @@ namespace StudentLoan.BLL
             return dal.GetRecordCount(strWhere);
         }
 
+          /// <summary>
+        /// 获取理财明细记录数
+        /// </summary>
+        public int GetRecordDetailCount(string strWhere)
+        {
+            return dal.GetRecordDetailCount(strWhere);
+        }
 
         /// <summary>
         /// 分页获取数据列表
@@ -123,6 +130,14 @@ namespace StudentLoan.BLL
         public List<UserManageMoneyEntityEx> GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
         {
             return dal.GetListByPage(strWhere, orderby, startIndex, endIndex);
+        }
+
+        /// <summary>
+        /// 获取理财明细的分页获取数据列表
+        /// </summary>
+        public List<UserManageMoneyEntityEx> GetListByDetail(string strWhere, string orderby, int startIndex, int endIndex)
+        {
+            return dal.GetListByDetail(strWhere, orderby, startIndex, endIndex);
         }
     }
 }

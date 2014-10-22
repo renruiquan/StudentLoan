@@ -53,11 +53,11 @@ namespace StudentLoan.DAL
 
             commandText.Append(" Insert Into sl_user_earnings( ");
 
-            commandText.Append(" UserId,ProductSchemeId,Amount,Type,Status) ");
+            commandText.Append(" BuyId,UserId,ProductId,ProductName, ProductSchemeId,Amount,Type,Status) ");
 
             commandText.Append(" Values ( ");
 
-            commandText.Append(" @UserId,@ProductSchemeId,@Amount,@Type,@Status); ");
+            commandText.Append(" @BuyId,@UserId,@ProductId,@ProductName,@ProductSchemeId,@Amount,@Type,@Status); ");
 
             commandText.Append(@"Update sl_users Set Amount += @Amount where UserId = @UserId");
 
@@ -67,7 +67,13 @@ namespace StudentLoan.DAL
 
             List<SqlParameter> paramsList = new List<SqlParameter>();
 
+            paramsList.Add(new SqlParameter("@BuyId", model.BuyId));
+
             paramsList.Add(new SqlParameter("@UserId", model.UserId));
+
+            paramsList.Add(new SqlParameter("@ProductId", model.ProductId));
+
+            paramsList.Add(new SqlParameter("@ProductName", model.ProductName));
 
             paramsList.Add(new SqlParameter("@ProductSchemeId", model.ProductSchemeId));
 
@@ -314,11 +320,11 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select count(0) From sl_user_earnings T,sl_users a,sl_product_scheme  b,sl_product c ");
+            commandText.Append(" Select count(0) From sl_user_earnings T,sl_users a,sl_product_scheme b");
 
             if (!string.IsNullOrEmpty(strWhere.Trim()))
             {
-                commandText.AppendFormat(" WHERE t.UserId = a.UserId and t.ProductSchemeId = b.SchemeId and t.ProductSchemeId = c.ProductId  and {0}", strWhere);
+                commandText.AppendFormat(" WHERE t.UserId = a.UserId and t.ProductSchemeId = b.SchemeId  and {0}", strWhere);
             }
 
             #endregion
@@ -353,11 +359,11 @@ namespace StudentLoan.DAL
                 commandText.Append(" Order By T.EarningsId Desc");
             }
 
-            commandText.Append(" )AS Row, T.*,a.UserName,a.Amount as 'UserAmount' ,b.SchemeName ,c.ProductName  From sl_user_earnings T,sl_users a,sl_product_scheme b ,sl_product c");
+            commandText.Append(" )AS Row, T.*,a.UserName,a.Amount as 'UserAmount' ,b.SchemeName   From sl_user_earnings T,sl_users a,sl_product_scheme b");
 
             if (!string.IsNullOrEmpty(strWhere.Trim()))
             {
-                commandText.AppendFormat(" WHERE t.UserId = a.UserId and t.ProductSchemeId = b.SchemeId and t.ProductSchemeId = c.ProductId and {0}", strWhere);
+                commandText.AppendFormat(" WHERE t.UserId = a.UserId and t.ProductSchemeId = b.SchemeId  and {0}", strWhere);
             }
 
             commandText.Append(" ) TT");

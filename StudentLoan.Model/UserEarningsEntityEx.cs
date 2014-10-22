@@ -18,5 +18,7 @@ namespace StudentLoan.Model
 
         public string ProductName { get; set; }
 
+        public int BuyId { get; set; }
+
     }
 }

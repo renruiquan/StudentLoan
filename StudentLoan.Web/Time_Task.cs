@@ -68,7 +68,7 @@ namespace StudentLoan.Web
                 {
                     // ExecuteTask(sender, e);
 
-                    List<UserManageMoneyEntityEx> list = new UserManageMoneyBLL().GetList(" a.Status = 1");
+                    List<UserManageMoneyEntityEx> list = new UserManageMoneyBLL().GetList(" (a.Status = 1 or a.Status = 2)");
 
                     foreach (UserManageMoneyEntityEx item in list)
                     {
@@ -80,7 +80,10 @@ namespace StudentLoan.Web
                             Amount = Math.Round(item.Amount * item.MaxYield / 365, 2),
                             Type = 1,
                             Status = 1,
-                            CreateTime = DateTime.Now
+                            ProductName = item.ProductName,
+                            ProductId = item.ProductId,
+                            CreateTime = DateTime.Now,
+                            BuyId = item.BuyId
                         };
 
                         bool result = new UserEarningsBLL().Insert(earningsModel);

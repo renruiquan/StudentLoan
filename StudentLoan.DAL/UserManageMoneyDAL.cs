@@ -300,7 +300,7 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(@" SELECT a.UserId,a.ProductId,b.ProductName, a.ProductSchemeId,c.SchemeName,c.MaxYield,a.Period, a.count,a.Amount,a.CreateTime,a.PayTime,a.EndTime,a.Status ");
+            commandText.Append(@" SELECT  a.BuyId,a.UserId,a.ProductId,b.ProductName, a.ProductSchemeId,c.SchemeName,c.MaxYield,a.Period, a.count,a.Amount,a.CreateTime,a.PayTime,a.EndTime,a.Status ");
 
             commandText.Append("From sl_user_manage_money  a ,sl_product b,sl_product_scheme c ");
 
@@ -394,6 +394,32 @@ namespace StudentLoan.DAL
 
 
         /// <summary>
+        /// 获取理财明细记录数
+        /// </summary>
+        public int GetRecordDetailCount(string strWhere)
+        {
+            #region CommandText
+
+            StringBuilder commandText = new StringBuilder();
+
+            commandText.Append(" Select count(0) From sl_user_manage_money T,sl_user_earnings b");
+
+            if (!string.IsNullOrEmpty(strWhere.Trim()))
+            {
+                commandText.AppendFormat(" WHERE T.BuyId = b.BuyId and {0}", strWhere);
+            }
+
+            #endregion
+
+            #region SqlParameters
+
+            #endregion
+
+            return (int)base.ExecuteScalar(commandText.ToString());
+        }
+
+
+        /// <summary>
         /// 分页获取数据列表
         /// </summary>
         public List<UserManageMoneyEntityEx> GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
@@ -419,6 +445,57 @@ namespace StudentLoan.DAL
             if (!string.IsNullOrEmpty(strWhere.Trim()))
             {
                 commandText.AppendFormat(" WHERE T.ProductId = a.ProductId AND T.ProductSchemeId = b.SchemeId and T.UserId=c.UserId and 1=1 and {0}", strWhere);
+            }
+
+            commandText.Append(" ) TT");
+
+            commandText.Append(" WHERE TT.Row between @startIndex and @endIndex");
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@startIndex", startIndex));
+
+            paramsList.Add(new SqlParameter("@endIndex", endIndex));
+
+            #endregion
+
+            using (SqlDataReader objReader = SqlHelper.ExecuteReader(base.ConnectionString, CommandType.Text, commandText.ToString(), paramsList.ToArray()))
+            {
+                return objReader.ReaderToList<UserManageMoneyEntityEx>() as List<UserManageMoneyEntityEx>;
+            }
+        }
+
+
+        /// <summary>
+        /// 获取理财明细的分页获取数据列表
+        /// </summary>
+        public List<UserManageMoneyEntityEx> GetListByDetail(string strWhere, string orderby, int startIndex, int endIndex)
+        {
+            #region CommandText
+
+            StringBuilder commandText = new StringBuilder();
+
+            commandText.Append(" Select * from ( ");
+
+            commandText.Append(" Select ROW_NUMBER() OVER ( ");
+
+            if (!string.IsNullOrEmpty(orderby.Trim()))
+            {
+                commandText.AppendFormat(" Order By b.{0} ", orderby);
+            }
+            else
+            {
+                commandText.Append(" Order By T.BuyId Desc");
+            }
+            commandText.Append(" )AS Row, T.*,b.EarningsId,b.ProductName,b.Amount AS 'Interest' From sl_user_manage_money T,sl_user_earnings b ");
+
+            if (!string.IsNullOrEmpty(strWhere.Trim()))
+            {
+                commandText.AppendFormat(" WHERE T.BuyId = b.BuyId and {0}", strWhere);
             }
 
             commandText.Append(" ) TT");

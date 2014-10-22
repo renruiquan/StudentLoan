@@ -30,6 +30,18 @@ namespace StudentLoan.Model.Base
             set { _userId = value; }
         }
 
+
+        private int _productId;
+
+        /// <summary>
+        /// 理财产品ID
+        /// </summary>
+        public int ProductId
+        {
+            get { return _productId; }
+            set { _productId = value; }
+        }
+
         private int _productSchemeId;
 
         /// <summary>

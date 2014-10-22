@@ -145,6 +145,8 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
+            commandText.Append(" Update sl_users Set Amount -= @Amount where UserId = @UserId;");
+
             commandText.Append(" Update sl_user_manage_money Set ");
 
             commandText.Append(" PayTime = @PayTime, ");
@@ -154,6 +156,9 @@ namespace StudentLoan.DAL
             commandText.Append(" Status = @Status ");
 
             commandText.Append(" Where BuyId = @BuyId ");
+
+
+            SqlTransaction trans = base.GetTransaction();
 
             #endregion
 
@@ -169,9 +174,13 @@ namespace StudentLoan.DAL
 
             paramsList.Add(new SqlParameter("@Status", model.Status));
 
+            paramsList.Add(new SqlParameter(@"UserId", model.UserId));
+
+            paramsList.Add(new SqlParameter(@"Amount", model.Amount));
+
             #endregion
 
-            return base.ExecuteNonQuery(commandText.ToString(), paramsList.ToArray());
+            return base.ExecuteNonQuery(trans, commandText.ToString(), paramsList.ToArray());
         }
 
 
@@ -184,7 +193,7 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select Top 1 BuyId,UserId,ProductId,ProductSchemeId,Count,Amount,CreateTime,PayTime,Status From sl_user_manage_money Where BuyId = @BuyId ");
+            commandText.Append(" Select Top 1 BuyId,UserId,ProductId,ProductSchemeId,Count,period,Amount,CreateTime,PayTime,Status From sl_user_manage_money Where BuyId = @BuyId ");
 
             #endregion
 

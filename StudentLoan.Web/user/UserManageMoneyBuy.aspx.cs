@@ -78,26 +78,31 @@ namespace StudentLoan.Web.user
 
                 if (userModel.Amount >= Math.Abs(model.Amount))
                 {
+                    model = new UserManageMoneyEntityEx()
+                    {
+                        BuyId = buyId,
+                        UserId = userModel.UserId,
+                        Amount = Math.Abs(model.Amount),
+                        PayTime = DateTime.Now,
+                        EndTime = DateTime.Now.AddMonths(model.Period),
+                        Status = 1
+                    };
+
                     //扣费操作
-                    bool result = new UsersBLL().UpdateAmount(new UsersEntityEx() { Amount = -model.Amount, UserId = userModel.UserId });
+
+                    //扣费成功后更新订单状态 
+                    bool result = new UserManageMoneyBLL().Update(model);
 
                     if (result)
                     {
-                        //扣费成功后更新订单状态 
-                        result = new UserManageMoneyBLL().Update(new UserManageMoneyEntityEx() { BuyId = buyId, PayTime = DateTime.Now, EndTime = DateTime.Now.AddMonths(this.Period), Status = 1 });
+                        string code = new Message().Send(userModel.Telphone, string.Format("亲，你购买了理财产品{0},共消费了{1}元。【学子易贷】", schemeModel.SchemeName, model.Amount));
+                        LogHelper.Default.Info("短信内容：" + code);
 
-                        if (result)
-                        {
-                            string code = new Message().Send(userModel.Telphone, string.Format("亲，你购买了理财产品{0},共消费了{1}元。【学子易贷】", schemeModel.SchemeName, model.Amount));
-                            LogHelper.Default.Info("短信内容：" + code);
-
-                            this.Alert("购买成功", "ManageMoneyList.aspx");
-                        }
-                        else
-                        {
-                            this.Alert("亲，对不起，由于系统原因，扣费成功，但购买失败，请联系在线客服！给您带来困扰，请谅解！");
-                        }
-
+                        this.Alert("购买成功", "ManageMoneyList.aspx");
+                    }
+                    else
+                    {
+                        this.Alert("亲，对不起，由于系统原因，扣费成功，但购买失败，请联系在线客服！给您带来困扰，请谅解！");
                     }
                 }
                 else

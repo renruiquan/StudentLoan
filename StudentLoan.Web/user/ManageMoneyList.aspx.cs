@@ -9,6 +9,9 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using StudentLoan.Common;
+using StudentLoan.API;
+using StudentLoan.Common.Logging;
+
 
 namespace StudentLoan.Web.user
 {
@@ -69,6 +72,62 @@ namespace StudentLoan.Web.user
                 this.txtEndTime.Attributes.Add("ReadOnly", "true");
                 this.txtStartTime.Text = this.StartTime.Convert<DateTime>().ToString("yyyy-MM-dd");
                 this.txtEndTime.Text = this.EndTime.Convert<DateTime>().ToString("yyyy-MM-dd");
+
+                string action = this.Request<string>("action");
+
+                if (action == "pay")
+                {
+                    int buyId = this.Request<int>("buyId", 0);
+
+                    if (buyId == 0)
+                    {
+                        this.artDialog("提示", "参数不正确！", "ManageMoneyList.aspx");
+                        return;
+                    }
+                    else
+                    {
+                        //付款操作
+
+                        UsersEntityEx userModel = new UsersBLL().GetModel(base.GetUserModel().UserId);
+                        UserManageMoneyEntityEx userManageMoneyModel = new UserManageMoneyBLL().GetModel(buyId);
+
+                        if (userManageMoneyModel != null)
+                        {
+                            if (userModel.Amount < userManageMoneyModel.Amount)
+                            {
+                                this.artDialog("提示", string.Format("对不起，你的账户余额不足，无法完成还款，前账号的余额为{0}，还需充值{1}元", userModel.Amount.ToString("C"), Convert.ToDecimal(userManageMoneyModel.Amount - userModel.Amount).ToString("C")), "Charge.aspx");
+                                return;
+                            }
+                            else
+                            {
+                                //扣费并更新理财订单状态
+                                userManageMoneyModel = new UserManageMoneyEntityEx()
+                                {
+                                    BuyId = buyId,
+                                    UserId = userModel.UserId,
+                                    Amount = Math.Abs(userManageMoneyModel.Amount),
+                                    PayTime = DateTime.Now,
+                                    EndTime = DateTime.Now.AddMonths(userManageMoneyModel.Period),
+                                    Status = 1
+                                };
+
+                                bool result = new UserManageMoneyBLL().Update(userManageMoneyModel);
+
+                                if (result)
+                                {
+                                    string code = new Message().Send(userModel.Telphone, string.Format("亲，你购买了理财产品{0},共消费了{1}元。【学子易贷】", userManageMoneyModel.SchemeName, userManageMoneyModel.Amount));
+                                    LogHelper.Default.Info("短信内容：" + code);
+
+                                    this.Alert("购买成功", "ManageMoneyList.aspx");
+                                }
+                                else
+                                {
+                                    this.Alert("亲，对不起，由于系统原因，扣费成功，但购买失败，请联系在线客服！给您带来困扰，请谅解！");
+                                }
+                            }
+                        }
+                    }
+                }
 
                 this.BindData();
             }
@@ -158,7 +217,7 @@ namespace StudentLoan.Web.user
 
                 if (model.Status == 0)
                 {
-                    objLiteral.Text = string.Format("<a href=\"UserBillList_2.aspx?loanid={0}&action=repayment\">支付</a>", model.BuyId);
+                    objLiteral.Text = string.Format("<a href=\"ManageMoneyList.aspx?buyId={0}&action=pay\">支付</a>", model.BuyId);
                 }
                 else
                 {

@@ -15,5 +15,8 @@ namespace StudentLoan.Model
         public string SchemeName { get; set; }
 
         public decimal UserAmount { get; set; }
+
+        public string ProductName { get; set; }
+
     }
 }

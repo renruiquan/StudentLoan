@@ -213,6 +213,21 @@ namespace StudentLoan.DAL
             }
         }
 
+        /// <summary>
+        /// 获取用户累计收益
+        /// </summary>
+        /// <param name="userId">用户ID</param>
+        /// <returns></returns>
+        public decimal GetTotalEarnings(int userId)
+        {
+            string commandText = @"SELECT sum(amount) from sl_user_earnings where UserId = @UserId";
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@UserId", userId));
+
+            return base.ExecuteScalar(commandText, paramsList.ToArray()).Convert<decimal>();
+        }
 
         /// <summary>
         /// 获取数据列表
@@ -299,11 +314,11 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select count(0) From sl_user_earnings T,sl_users a,sl_product_scheme  b ");
+            commandText.Append(" Select count(0) From sl_user_earnings T,sl_users a,sl_product_scheme  b,sl_product c ");
 
             if (!string.IsNullOrEmpty(strWhere.Trim()))
             {
-                commandText.AppendFormat(" WHERE t.UserId = a.UserId and t.ProductSchemeId = b.SchemeId and {0}", strWhere);
+                commandText.AppendFormat(" WHERE t.UserId = a.UserId and t.ProductSchemeId = b.SchemeId and t.ProductSchemeId = c.ProductId  and {0}", strWhere);
             }
 
             #endregion
@@ -338,11 +353,11 @@ namespace StudentLoan.DAL
                 commandText.Append(" Order By T.EarningsId Desc");
             }
 
-            commandText.Append(" )AS Row, T.*,a.UserName,a.Amount as 'UserAmount' ,b.SchemeName   From sl_user_earnings T,sl_users a,sl_product_scheme b ");
+            commandText.Append(" )AS Row, T.*,a.UserName,a.Amount as 'UserAmount' ,b.SchemeName ,c.ProductName  From sl_user_earnings T,sl_users a,sl_product_scheme b ,sl_product c");
 
             if (!string.IsNullOrEmpty(strWhere.Trim()))
             {
-                commandText.AppendFormat(" WHERE t.UserId = a.UserId and t.ProductSchemeId = b.SchemeId and {0}", strWhere);
+                commandText.AppendFormat(" WHERE t.UserId = a.UserId and t.ProductSchemeId = b.SchemeId and t.ProductSchemeId = c.ProductId and {0}", strWhere);
             }
 
             commandText.Append(" ) TT");

@@ -25,7 +25,6 @@
                 <li><a href="ManageMoneyList.aspx">待支付</a></li>
                 <li class="active"><a href="javascript:;">转入</a></li>
                 <li><a href="javascript:;">转出</a></li>
-                <li><a href="javascript:;">收益</a></li>
                 <li><a href="javascript:;">资金记录</a></li>
             </ul>
 

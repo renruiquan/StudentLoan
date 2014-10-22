@@ -1,7 +1,18 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user/UserMain.Master" AutoEventWireup="true" CodeBehind="EarningsList.aspx.cs" Inherits="StudentLoan.Web.user.EarningsList" %>
 
+<%@ Register Assembly="StudentLoan.Common" Namespace="StudentLoan.Common.WebControl" TagPrefix="StudentLoan" %>
+
+<%@ Register Assembly="AspNetPager" Namespace="Wuqi.Webdiyer" TagPrefix="webdiyer" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>聚宝盆管理 - 我的收益</title>
+    <link href="../css/datepicker.css" rel="stylesheet" />
+    <script src="../js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.datepickers').datepicker();
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="content">
@@ -9,8 +20,7 @@
         <div class="tabs">
 
             <ul>
-                <li class="active"><a href="javascript:;">已收</a></li>
-                <li><a href="javascript:;">未收</a></li>
+                <li class="active"><a href="javascript:;">我的收益</a></li>
             </ul>
 
         </div>
@@ -19,90 +29,63 @@
 
             <div class="text-center mb20 rows-3">
                 <div>
-                    <h4>累计收入：￥0.00</h4>
+                    <h4>累计收益：<%=this.TotalAmount.ToString("C") %>元</h4>
                 </div>
                 <div>
-                    <h4>截至今日累计收益:￥0.00</h4>
+                    <h4></h4>
                 </div>
             </div>
 
             <div class="text-center form-inline">
                 <div style="margin: 0 0 20px">
                     <span>交易时间：</span>
-                    <input class="span3" value="" type="text" />
+                    <asp:TextBox ID="txtStartTime" runat="server" class="span2 datepickers" value="" type="text" data-date-format="yyyy-mm-dd" placeholder="起始日期" />
                     <span>- </span>
-                    <input class="span3" value="" type="text" />
-                    <button class="btn btn-primary" type="button">导出结果</button>
+                    <asp:TextBox ID="txtEndTime" runat="server" class="span2 datepickers" value="" type="text" data-date-format="yyyy-mm-dd" placeholder="结束日期" />
+
+                    <button id="btnQuery" runat="server" class="btn btn-primary" type="button" onserverclick="btnQuery_ServerClick">查询</button>
                 </div>
             </div>
 
             <div class="item">
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>名称</th>
-                            <th>购买时间</th>
-                            <th>累计收益</th>
-                            <th>收入类型</th>
-                            <th>明细</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <p>聚宝盆</p>
-                            </td>
-                            <td>
-                                <p>2014-07-07  15:50</p>
-                            </td>
-                            <td>
-                                <p>￥：500:00</p>
-                            </td>
-                            <td>
-                                <p>高额贷</p>
-                            </td>
-                            <td>
-                                <p>￥500</p>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <p>聚宝盆</p>
-                            </td>
-                            <td>
-                                <p>2014-07-07  15:50</p>
-                            </td>
-                            <td>
-                                <p>￥：500:00</p>
-                            </td>
-                            <td>
-                                <p>随时贷</p>
-                            </td>
-                            <td>
-                                <p>￥500</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>聚宝盆</p>
-                            </td>
-                            <td>
-                                <p>2014-07-07  15:50</p>
-                            </td>
-                            <td>
-                                <p>￥：500:00</p>
-                            </td>
-                            <td>
-                                <p>一般贷</p>
-                            </td>
-                            <td>
-                                <p>￥500</p>
-                            </td>
-                        </tr>
-
-                    </tbody>
-                </table>
+                <StudentLoan:RepeaterPlus ID="objRepeater" runat="server">
+                    <HeaderTemplate>
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>收益日期</th>
+                                    <th>产品名称</th>
+                                    <th>方案名称</th>
+                                    <th>金额</th>
+                                    <th>信息</th>
+                                </tr>
+                            </thead>
+                    </HeaderTemplate>
+                    <EmptyDataTemplate>
+                        <table class="table table-bordered table-striped">
+                            <tbody>
+                                <tr>
+                                    <td colspan="5">暂无数据</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </EmptyDataTemplate>
+                    <ItemTemplate>
+                        <tbody>
+                            <tr>
+                                <td><%#Eval("CreateTime")%></td>
+                                <td><%#Eval("ProductName") %></td>
+                                <td><%#Eval("SchemeName") %></td>
+                                <td><%#Convert.ToDouble(Eval("Amount")).ToString("C") %></td>
+                                <td><%#Eval("Type").ToString() =="1"?"收益":"亏损" %></td>
+                            </tr>
+                        </tbody>
+                    </ItemTemplate>
+                    <FooterTemplate>
+                        </tbody>
+                            </table>
+                    </FooterTemplate>
+                </StudentLoan:RepeaterPlus>
 
             </div>
 
@@ -110,15 +93,7 @@
             <div class="clear mt20"></div>
 
             <div class="pagination pagination-centered">
-                <ul>
-                    <li><a href="#">«</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">»</a></li>
-                </ul>
+                <webdiyer:AspNetPager ID="objAspNetPager" PagingButtonLayoutType="UnorderedList" runat="server" PageSize="8" OnPageChanged="objAspNetPager_PageChanged" FirstPageText="首页" LastPageText="末页" NextPageText="下一页" PrevPageText="上一页" CustomInfoStyle="" CurrentPageButtonClass="active" AlwaysShow="True" PagingButtonSpacing="0px"></webdiyer:AspNetPager>
             </div>
 
         </div>

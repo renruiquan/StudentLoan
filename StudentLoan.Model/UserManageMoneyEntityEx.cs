@@ -27,5 +27,37 @@ namespace StudentLoan.Model
         /// 利息
         /// </summary>
         public decimal Interest { get; set; }
+
+        /// <summary>
+        /// 理财总金额
+        /// </summary>
+        public decimal TotalAmount { get; set; }
+
+        /// <summary>
+        /// 理财总次数
+        /// </summary>
+        public int TotalCount { get; set; }
+
+
+        /// <summary>
+        /// 理财总利息
+        /// </summary>
+        public decimal TotalInterest { get; set; }
+
+        /// <summary>
+        /// 理财总收益次数
+        /// </summary>
+        public int TotalEarningsCount { get; set; }
+
+        /// <summary>
+        /// 总待收利息
+        /// </summary>
+        public decimal WaitTotalInterest { get; set; }
+
+        /// <summary>
+        /// 进行中的理财笔数
+        /// </summary>
+        public int WaitTotalCount { get; set; }
+
     }
 }

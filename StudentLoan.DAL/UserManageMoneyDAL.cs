@@ -293,6 +293,125 @@ namespace StudentLoan.DAL
 
 
         /// <summary>
+        /// 获取理财统计数据
+        /// </summary>
+        public UserManageMoneyEntityEx GetStatUserManageMoney(int userId)
+        {
+            #region CommandText
+
+            StringBuilder commandText = new StringBuilder();
+
+            commandText.Append(@" 
+                                SELECT
+
+	                                SUM(Amount) AS 'TotalAmount',
+	                                COUNT(0) AS TotalCount,
+	                                (SELECT
+		                                SUM(Amount)
+	                                FROM sl_user_earnings
+	                                WHERE UserId = @UserId)
+	                                AS 'TotalInterest',
+	                                (SELECT
+		                                COUNT(0)
+	                                FROM sl_user_earnings
+	                                WHERE UserId = @UserId)
+	                                AS 'TotalEarningsCount'
+                                FROM sl_user_manage_money
+                                WHERE UserId = @UserId ");
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@UserId", userId));
+
+            #endregion
+
+            using (SqlDataReader objReader = SqlHelper.ExecuteReader(base.ConnectionString, CommandType.Text, commandText.ToString(), paramsList.ToArray()))
+            {
+                return objReader.ReaderToModel<UserManageMoneyEntityEx>() as UserManageMoneyEntityEx;
+            }
+        }
+
+
+        /// <summary>
+        /// 获取总待收利息
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public decimal WaitTotalInterest(int userId)
+        {
+            #region CommandText
+
+            StringBuilder commandText = new StringBuilder();
+
+            commandText.Append(@" 
+                            SELECT
+	                            SUM(amount) AS 'WaitTotalInterest'
+                            FROM (SELECT
+	                            (t.day * t.MaxYield * t.Amount / 365) AS 'amount'
+                            FROM (SELECT
+	                            DATEDIFF(DAY, GETDATE(), a.EndTime) AS day,
+	                            b.MaxYield,
+	                            b.Amount
+                            FROM	sl_user_manage_money a,
+		                            sl_product_scheme b
+                            WHERE a.ProductSchemeId = b.SchemeId
+                            AND a.UserId = @UserId
+                            AND (a.Status = 1
+                            OR a.Status = 2)
+                            AND a.EndTime >= GETDATE()) t) t2 ");
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@UserId", userId));
+
+            #endregion
+
+            return base.ExecuteScalar(commandText.ToString(), paramsList.ToArray()).Convert<decimal>();
+        }
+
+        /// <summary>
+        /// 获取总待到期的理财产品数
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public decimal WaitTotalCount(int userId)
+        {
+            #region CommandText
+
+            StringBuilder commandText = new StringBuilder();
+
+            commandText.Append(@" 
+                            SELECT
+	                            COUNT(0) AS 'WaitTotalCount'
+                            FROM sl_user_manage_money
+                            WHERE UserId = @UserId
+                            AND (Status = 1
+                            OR Status = 2)
+                            AND EndTime >= GETDATE() ");
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@UserId", userId));
+
+            #endregion
+
+            return base.ExecuteScalar(commandText.ToString(), paramsList.ToArray()).Convert<decimal>();
+        }
+
+
+        /// <summary>
         /// 获取数据列表
         /// </summary>
         public List<UserManageMoneyEntityEx> GetList(string strWhere)

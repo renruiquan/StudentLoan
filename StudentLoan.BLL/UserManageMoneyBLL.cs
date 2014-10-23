@@ -74,6 +74,33 @@ namespace StudentLoan.BLL
             return dal.GetModel(Status);
         }
 
+        /// <summary>
+        /// 获取理财统计数据
+        /// </summary>
+        public UserManageMoneyEntityEx GetStatUserManageMoney(int userId)
+        {
+            return dal.GetStatUserManageMoney(userId);
+        }
+
+        /// <summary>
+        /// 获取总待收利息
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public decimal WaitTotalInterest(int userId)
+        {
+            return dal.WaitTotalInterest(userId);
+        }
+
+        /// <summary>
+        /// 获取总待到期的理财产品数
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public decimal WaitTotalCount(int userId)
+        {
+            return dal.WaitTotalCount(userId);
+        }
 
         /// <summary>
         /// 用户申请转出操作
@@ -116,7 +143,7 @@ namespace StudentLoan.BLL
             return dal.GetRecordCount(strWhere);
         }
 
-          /// <summary>
+        /// <summary>
         /// 获取理财明细记录数
         /// </summary>
         public int GetRecordDetailCount(string strWhere)

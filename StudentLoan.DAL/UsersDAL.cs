@@ -395,7 +395,7 @@ namespace StudentLoan.DAL
 
             commandText.Append(" Update sl_users Set ");
 
-            commandText.Append(" Password = @Password, ");
+            commandText.Append(" Password = @Password ");
 
             commandText.Append(" Where UserId = @UserId ");
 

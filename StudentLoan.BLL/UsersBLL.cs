@@ -75,8 +75,14 @@ namespace StudentLoan.BLL
             return dal.UpdateStatus(userId);
         }
 
+
+        public bool UpdatePassword(UsersEntityEx model)
+        {
+            return dal.UpdatePassword(model);
+        }
+
         /// <summary>
-        ///更新用户密码
+        ///管理员更新用户密码
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>

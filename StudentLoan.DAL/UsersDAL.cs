@@ -385,6 +385,36 @@ namespace StudentLoan.DAL
         }
 
         /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        public bool UpdatePassword(UsersEntityEx model)
+        {
+            #region CommandText
+
+            StringBuilder commandText = new StringBuilder();
+
+            commandText.Append(" Update sl_users Set ");
+
+            commandText.Append(" Password = @Password, ");
+
+            commandText.Append(" Where UserId = @UserId ");
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@UserId", model.UserId));
+
+            paramsList.Add(new SqlParameter("@Password", model.Password));
+
+            #endregion
+
+            return base.ExecuteNonQuery(commandText.ToString(), paramsList.ToArray());
+        }
+
+        /// <summary>
         /// 管理员放款时将借款金额直接打到用户账号中
         /// </summary>
         /// <param name="model"></param>

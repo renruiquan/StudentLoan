@@ -320,11 +320,11 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select count(0) From sl_user_earnings T,sl_users a,sl_product_scheme b");
+            commandText.Append(" Select count(0) From sl_user_earnings T,sl_users a,sl_product_scheme b,sl_user_manage_money c");
 
             if (!string.IsNullOrEmpty(strWhere.Trim()))
             {
-                commandText.AppendFormat(" WHERE t.UserId = a.UserId and t.ProductSchemeId = b.SchemeId  and {0}", strWhere);
+                commandText.AppendFormat(" WHERE t.UserId = a.UserId and t.ProductSchemeId = b.SchemeId  and t.BuyId = c.BuyId and {0}", strWhere);
             }
 
             #endregion
@@ -359,11 +359,11 @@ namespace StudentLoan.DAL
                 commandText.Append(" Order By T.EarningsId Desc");
             }
 
-            commandText.Append(" )AS Row, T.*,a.UserName,a.Amount as 'UserAmount' ,b.SchemeName   From sl_user_earnings T,sl_users a,sl_product_scheme b");
+            commandText.Append(" )AS Row, T.*,a.UserName,a.Amount as 'UserAmount' ,b.SchemeName ,c.PayTime,c.EndTime  From sl_user_earnings T,sl_users a,sl_product_scheme b,	sl_user_manage_money c");
 
             if (!string.IsNullOrEmpty(strWhere.Trim()))
             {
-                commandText.AppendFormat(" WHERE t.UserId = a.UserId and t.ProductSchemeId = b.SchemeId  and {0}", strWhere);
+                commandText.AppendFormat(" WHERE t.UserId = a.UserId and t.ProductSchemeId = b.SchemeId and t.BuyId = c.BuyId and {0}", strWhere);
             }
 
             commandText.Append(" ) TT");

@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserEarningsList.aspx.cs" Inherits="StudentLoan.Web.Admin.UserEarningsList" %>
 
-
+<%@ Import Namespace="StudentLoan.Common" %>
 
 <%@ Register Assembly="AspNetPager" Namespace="Wuqi.Webdiyer" TagPrefix="webdiyer" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -92,9 +92,8 @@
                                     <td class="txt40"><%#Eval("SchemeName")%></td>
                                     <td class="txt40"><%#Eval("UserName")%></td>
                                     <td class="txt40"><%#Eval("UserAmount")%></td>
-                                    <td class="txt40"><%#Eval("Type").ToString() =="1"?"盈利":"亏损" %></td>
                                     <td class="txt40"><%#Eval("Amount")%></td>
-                                    <td class="txt40"><%#Eval("CreateTime")%>-<%#Eval("CreateTime")%></td>
+                                    <td class="txt80"><%#Eval("PayTime")%> - <%#Eval("EndTime")%></td>
                                     <td class="txt40"><%#Eval("CreateTime")%></td>
 
                                 </tr>

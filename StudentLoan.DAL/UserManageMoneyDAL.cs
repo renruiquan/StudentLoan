@@ -259,9 +259,10 @@ namespace StudentLoan.DAL
 
             SqlTransaction trans = base.GetTransaction();
 
-
             return base.ExecuteNonQuery(trans, commandText.ToString(), paramsList.ToArray());
         }
+
+
 
         /// <summary>
         /// 获取一个实体
@@ -306,7 +307,7 @@ namespace StudentLoan.DAL
 
             if (!string.IsNullOrEmpty(strWhere.Trim()))
             {
-                commandText.AppendFormat(" WHERE  a.ProductId = b.ProductId and a.ProductSchemeId = c.SchemeId and a.EndTime >=getdate() and {0}", strWhere);
+                commandText.AppendFormat(" WHERE  a.ProductId = b.ProductId and a.ProductSchemeId = c.SchemeId  and {0}", strWhere);
             }
 
             #endregion

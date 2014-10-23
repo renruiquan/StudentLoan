@@ -20,5 +20,14 @@ namespace StudentLoan.Model
 
         public int BuyId { get; set; }
 
+        /// <summary>
+        /// 理财支付时间
+        /// </summary>
+        public DateTime PayTime { get; set; }
+
+        /// <summary>
+        /// 理财结束时间
+        /// </summary>
+        public DateTime EndTime { get; set; }
     }
 }

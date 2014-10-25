@@ -123,10 +123,18 @@ namespace StudentLoan.Web.callback
 
                     try
                     {
+                        UserChargeEntityEx chargeModel = new UserChargeBLL().GetModel(order_no);
+
+                        if (chargeModel == null)
+                        {
+                            Response.Write("Fail:订单不存在");
+                            return;
+                        }
+
                         //封装订单信息，准备更新订单状态
                         UserChargeEntityEx model = new UserChargeEntityEx()
                         {
-                            UserId = new UserChargeBLL().GetModel(order_no).UserId,
+                            UserId = chargeModel.UserId,
                             ChannelOrderNo = trade_no,
                             OrderNo = order_no,
                             ConfirmMoney = Math.Abs(order_amount.Convert<decimal>()),

@@ -24,9 +24,9 @@ namespace StudentLoan.BLL
         /// <summary>
         /// 增加一条数据
         /// </summary>
-        public bool Insert(UserBankEntityEx model)
+        public bool Insert(UserBankEntityEx model, UsersEntityEx userModel)
         {
-            return dal.Insert(model);
+            return dal.Insert(model, userModel);
         }
 
 
@@ -60,9 +60,9 @@ namespace StudentLoan.BLL
         /// <summary>
         /// 获取一个实体
         /// </summary>
-        public UserBankEntityEx GetModel(int userId, string bankCardNo)
+        public UserBankEntityEx GetModel(int userId)
         {
-            return dal.GetModel(userId, bankCardNo);
+            return dal.GetModel(userId);
         }
 
 

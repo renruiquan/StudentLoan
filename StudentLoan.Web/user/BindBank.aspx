@@ -2,6 +2,17 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>个人信息 - 银行账户信息</title>
+    <script src="../js/jquery.cityselect.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#bank_area").citySelect(
+                {
+                    url: "/js/city.min.js",
+                    prov: "<%=this.BankModel.BankProvince%>", //省份 
+                    city: "<%=this.BankModel.BankCity%>", //城市
+                });
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="content">
@@ -32,91 +43,59 @@
                     <div class="clear mt20"></div>
 
                     <div class="control-group">
-                        <label class="control-label">真实姓名：</label>
-
-                        <div class="controls">
-                            <input class="span5" type="text" placeholder="">
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <label class="control-label">登录账号：</label>
-
-                        <div class="controls">
-                            <input class="span5" type="text" placeholder="请输入你的注册账号">
-                        </div>
-                    </div>
-
-                    <div class="control-group">
                         <label class="control-label">银行卡类型：</label>
 
                         <div class="controls">
-                            <select>
-                                <option value="">请选择...</option>
-                                <option value="1">中国工商银行</option>
-                            </select>
+                            <asp:HiddenField ID="hidBankId" runat="server" />
+                            <asp:DropDownList ID="ddlBankTypeList" CssClass="span5" runat="server">
+                            </asp:DropDownList>
                         </div>
                     </div>
-
-                    <div class="control-group">
-                        <label class="control-label">银行账户：</label>
-
-                        <div class="controls">
-                            <input class="span5" type="text" placeholder="请输入你的银行卡账户">
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <label class="control-label">开户行所在省份：</label>
-
-                        <div class="controls">
-                            <select>
-                                <option value="">请选择...</option>
-                                <option value="1">中国工商银行</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <label class="control-label">开户行所在市：</label>
-
-                        <div class="controls">
-                            <select>
-                                <option value="">请选择...</option>
-                                <option value="1">中国工商银行</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!--
-                        <div class="control-group">
-                            <label class="control-label">查询关键字：</label>
-
-                            <div class="controls">
-                                <input class="span5" type="text" placeholder="请输入要查询的关键字">
-                                <button type="button" class="btn btn-info">查询</button>
-                            </div>
-                        </div>
-                        -->
 
                     <div class="control-group">
                         <label class="control-label">开户银行全称：</label>
 
                         <div class="controls">
-                            <select>
-                                <option value="">请选择...</option>
-                                <option value="1">中国工商银行</option>
-                            </select>
+                            <asp:TextBox ID="txtBankName" runat="server" CssClass="span5" placeholder="请输入你的开户行名称"></asp:TextBox>
                         </div>
                     </div>
 
+
+
+                    <div class="control-group">
+                        <label class="control-label">银行账户：</label>
+
+                        <div class="controls">
+                            <asp:TextBox ID="txtBankCard" runat="server" CssClass="span5" placeholder="请输入你的银行卡账户"></asp:TextBox>
+                        </div>
+                    </div>
+
+
+
+                    <div class="control-group">
+                        <label class="control-label">开户行所在地区：</label>
+
+                        <div class="controls" id="bank_area">
+                            <select id="ddlProvince" name="ddlProvince" class="prov span2"></select>省
+                            <select id="ddlCity" name="ddlCity" class="city span3"></select>市
+                        </div>
+                    </div>
+
+
+                    <div class="control-group">
+                        <label class="control-label">真实姓名：</label>
+
+                        <div class="controls">
+                            <asp:TextBox ID="txtTrueName" runat="server" CssClass="span5"></asp:TextBox>
+                        </div>
+                    </div>
 
                     <div class="control-group">
                         <label class="control-label">&nbsp;</label>
 
                         <div class="controls">
                             <p class="w220">
-                                <button class="btn btn-large btn-block btn-primary" type="button">确 定</button>
+                                <button id="btnSubmit" runat="server" class="btn btn-large btn-block btn-primary" onserverclick="btnSubmit_ServerClick" type="button">确 定</button>
                             </p>
                         </div>
                     </div>

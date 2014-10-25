@@ -1,9 +1,0 @@
-2014-10-09 00:39:10       System.Net.WebException: 请求被中止: 请求已被取消。 ---> System.IO.IOException: 在写入所有字节之前不能关闭流。
-   在 System.Net.ConnectStream.CloseInternal(Boolean internalCall, Boolean aborting)
-   --- 内部异常堆栈跟踪的结尾 ---
-   在 System.Net.ConnectStream.CloseInternal(Boolean internalCall, Boolean aborting)
-   在 System.Net.ConnectStream.System.Net.ICloseEx.CloseEx(CloseExState closeState)
-   在 System.Net.ConnectStream.Dispose(Boolean disposing)
-   在 System.IO.Stream.Close()
-   在 System.IO.Stream.Dispose()
-   在 StudentLoan.Common.WebExtension.Post(String requestUrl, String requestParams, String type) 位置 c:\Users\Administrator\Documents\GitHub\StudentLoan\StudentLoan.Common\ExtensionMethods\WebExtension.cs:行号 108

@@ -121,28 +121,32 @@ namespace StudentLoan.Web.callback
                     业务结束
                     */
 
-
-                    //封装订单信息，准备更新订单状态
-                    UserChargeEntityEx model = new UserChargeEntityEx()
+                    try
                     {
-                        UserId = new UserChargeBLL().GetModel("order_no").UserId,
-                        ChannelOrderNo = trade_no,
-                        OrderNo = order_no,
-                        ConfirmMoney = Math.Abs(order_amount.Convert<decimal>()),
-                        CallbackCode = trade_status,
-                        CallbackTime = DateTime.Now,
-                        PayTime = trade_time.Convert<DateTime>(),
-                        Status = 2
-                    };
+                        //封装订单信息，准备更新订单状态
+                        UserChargeEntityEx model = new UserChargeEntityEx()
+                        {
+                            UserId = new UserChargeBLL().GetModel(order_no).UserId,
+                            ChannelOrderNo = trade_no,
+                            OrderNo = order_no,
+                            ConfirmMoney = Math.Abs(order_amount.Convert<decimal>()),
+                            CallbackCode = trade_status,
+                            CallbackTime = DateTime.Now,
+                            PayTime = trade_time.Convert<DateTime>(),
+                            Status = 2
+                        };
 
 
+                        //更新用户账号余额及订单状态
 
-                    //更新用户账号余额及订单状态
+                        bool result = new UserChargeBLL().UpdateOrderStatus(model);
 
-                    bool result = new UserChargeBLL().UpdateOrderStatus(model);
-
-                    LogHelper.Default.Info(string.Format("校验成功，订单状态：{0}", result));
-
+                        LogHelper.Default.Info(string.Format("校验成功，订单状态：{0}", result));
+                    }
+                    catch (Exception ex)
+                    {
+                        LogHelper.Default.Error(string.Format("充值回调时发生错误：{0}", ex.ToString()));
+                    }
                 }
                 else
                 {

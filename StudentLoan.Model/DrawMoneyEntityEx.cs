@@ -15,5 +15,7 @@ namespace StudentLoan.Model
         public string BankCardNo { get; set; }
         public string BankProvince { get; set; }
         public string BankCity { get; set; }
+
+        public string TrueName { get; set; }
     }
 }

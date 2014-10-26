@@ -89,7 +89,8 @@ namespace StudentLoan.Web.user
                     BankCardNo = bankCard,
                     BankProvince = province,
                     BankCity = city,
-                    BankId = bankId
+                    BankId = this.hidBankId.Value.Convert<int>(),
+                    NewBankId = bankId
                 };
 
                 bool result = new UserBankBLL().Update(this.BankModel);

@@ -76,8 +76,8 @@
                         <label class="control-label">开户行所在地区：</label>
 
                         <div class="controls" id="bank_area">
-                            <select id="ddlProvince" name="ddlProvince" class="prov span2"></select>省
-                            <select id="ddlCity" name="ddlCity" class="city span3"></select>市
+                            <select id="ddlProvince" name="ddlProvince" class="prov span2"></select>
+                            <select id="ddlCity" name="ddlCity" class="city span3"></select>    
                         </div>
                     </div>
 

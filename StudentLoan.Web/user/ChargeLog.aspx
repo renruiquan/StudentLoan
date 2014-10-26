@@ -1,20 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user/UserMain.Master" AutoEventWireup="true" CodeBehind="ManageMoneyList.aspx.cs" Inherits="StudentLoan.Web.user.ManageMoneyList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user/UserMain.Master" AutoEventWireup="true" CodeBehind="ChargeLog.aspx.cs" Inherits="StudentLoan.Web.user.ChargeLog" %>
 
 <%@ Register Assembly="StudentLoan.Common" Namespace="StudentLoan.Common.WebControl" TagPrefix="StudentLoan" %>
 
 <%@ Register Assembly="AspNetPager" Namespace="Wuqi.Webdiyer" TagPrefix="webdiyer" %>
 
 <%@ Import Namespace="StudentLoan.Common" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>聚宝盆管理 - 理财记录</title>
-    <link href="../css/datepicker.css" rel="stylesheet" />
-    <script src="../js/bootstrap-datepicker.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $('.datepickers').datepicker();
-        });
-    </script>
+    <title>账户信息 - 充值日志</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="content">
@@ -22,25 +14,15 @@
         <div class="tabs">
 
             <ul>
-                <li class="active"><a href="javascript:;">待支付</a></li>
-                <li><a href="ManageMoneyList_2.aspx">转入</a></li>
-                <li><a href="ManageMoneyList_3.aspx">转出</a></li>
+                <li><a href="javascript:;">账户日志</a></li>
+                <li><a href="Charge.aspx">会员充值</a></li>
+                <li class="active"><a href="javascript:;">充值日志</a></li>
+                <li><a href="Withdraw.aspx">会员提现</a></li>
             </ul>
 
         </div>
 
         <div class="cont">
-
-            <div class="text-center form-inline">
-                <div style="margin: 0 0 20px">
-                    <span>交易时间：</span>
-                    <asp:TextBox ID="txtStartTime" runat="server" class="span2 datepickers" value="" type="text" data-date-format="yyyy-mm-dd" placeholder="起始日期" />
-                    <span>- </span>
-                    <asp:TextBox ID="txtEndTime" runat="server" class="span2 datepickers" value="" type="text" data-date-format="yyyy-mm-dd" placeholder="结束日期" />
-
-                    <button id="btnQuery" runat="server" class="btn btn-primary" type="button" onserverclick="btnSearch_Click">查询</button>
-                </div>
-            </div>
 
             <div class="item">
 
@@ -49,12 +31,10 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>编号</th>
-                                    <th>交易时间</th>
-                                    <th>交易类型</th>
-                                    <th>方案名称</th>
-                                    <th>投资期限</th>
-                                    <th>理财金额</th>
+                                    <th>订单号</th>
+                                    <th>充值金额</th>
+                                    <th>建档日期</th>
+                                    <th>支付日期</th>
                                     <th>状态</th>
                                     <th>操作</th>
                                 </tr>
@@ -62,12 +42,10 @@
                     </HeaderTemplate>
                     <ItemTemplate>
                         <tr>
-                            <td><%#Eval("BuyID")%></td>
+                            <td><%#Eval("OrderNo")%></td>
+                            <td><%#Eval("ChargeMoney").Convert<decimal>().ToString("C")%></td>
                             <td><%#Eval("CreateTime").Convert<DateTime>().ToString("yyyy-MM-dd")%></td>
-                            <td><%#Eval("ProductName")%></td>
-                            <td><%#Eval("SchemeName")%></td>
-                            <td><%#Eval("Period")%>个月</td>
-                            <td><%#Eval("Amount").Convert<decimal>().ToString("C")%></td>
+                            <td><%#Eval("PayTime").Convert<DateTime>().ToString("yyyy-MM-dd") =="0001-01-01"?"":Eval("PayTime").Convert<DateTime>().ToString("yyyy-MM-dd")%></td>
                             <td><%# this.GetStatusName(Convert.ToInt32(Eval("Status")))%></td>
                             <td>
                                 <asp:Literal ID="objLiteral" runat="server"></asp:Literal></td>
@@ -78,7 +56,7 @@
                         <table class="table table-bordered table-striped">
                             <tbody>
                                 <tr>
-                                    <td colspan="8">暂无数据</td>
+                                    <td colspan="6">暂无数据</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -87,15 +65,14 @@
                         </table>
                     </FooterTemplate>
                 </StudentLoan:RepeaterPlus>
-            </div>
 
+            </div>
 
             <div class="clear mt20"></div>
 
             <div class="pagination pagination-centered">
                 <webdiyer:AspNetPager ID="objAspNetPager" PagingButtonLayoutType="UnorderedList" runat="server" PageSize="10" OnPageChanged="objAspNetPager_PageChanged" FirstPageText="首页" LastPageText="末页" NextPageText="下一页" PrevPageText="上一页" CustomInfoStyle="" CurrentPageButtonClass="active" AlwaysShow="True" PagingButtonSpacing="0px"></webdiyer:AspNetPager>
             </div>
-
         </div>
 
     </div>

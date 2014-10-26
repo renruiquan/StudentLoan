@@ -56,7 +56,7 @@ namespace StudentLoan.DAL
 
             paramsList.Add(new SqlParameter("@IsDefault", model.IsDefault));
 
-            paramsList.Add(new SqlParameter("@CreateTime", model.CreateTime));
+            paramsList.Add(new SqlParameter("@CreateTime", DateTime.Now));
 
             paramsList.Add(new SqlParameter("@Remark", model.Remark));
 
@@ -134,9 +134,11 @@ namespace StudentLoan.DAL
 
             commandText.Append(" BankProvince = @BankProvince, ");
 
+            commandText.Append(" BankId = @NewBankId, ");
+
             commandText.Append(" BankCity = @BankCity ");
 
-            commandText.Append(" Where  BankId = @BankId ");
+            commandText.Append(" Where  BankId = @BankId and UserId = @UserId ");
 
             #endregion
 
@@ -147,6 +149,8 @@ namespace StudentLoan.DAL
             paramsList.Add(new SqlParameter("@UserId", model.UserId));
 
             paramsList.Add(new SqlParameter("@BankId", model.BankId));
+
+            paramsList.Add(new SqlParameter("@NewBankId", model.NewBankId));
 
             paramsList.Add(new SqlParameter("@BankName", model.BankName));
 

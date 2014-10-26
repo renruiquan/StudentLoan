@@ -53,11 +53,11 @@ namespace StudentLoan.DAL
 
             commandText.Append(" Insert Into sl_user_charge( ");
 
-            commandText.Append(" UserId,OrderNo,ChannelId,ProductName,ChargeMoney,CreateTime) ");
+            commandText.Append(" UserId,OrderNo,ChannelId,ProductName,ChargeMoney,CreateTime,Ext5) ");
 
             commandText.Append(" Values ( ");
 
-            commandText.Append(" @UserId,@OrderNo,@ChannelId,@ProductName,@ChargeMoney,@CreateTime ) ");
+            commandText.Append(" @UserId,@OrderNo,@ChannelId,@ProductName,@ChargeMoney,@CreateTime,@Ext5 ) ");
 
             #endregion
 
@@ -76,6 +76,8 @@ namespace StudentLoan.DAL
             paramsList.Add(new SqlParameter("@ChargeMoney", model.ChargeMoney));
 
             paramsList.Add(new SqlParameter("@CreateTime", model.CreateTime == default(DateTime) ? DateTime.Now : model.CreateTime));
+
+            paramsList.Add(new SqlParameter("@Ext5", model.Ext5));
 
             #endregion
 

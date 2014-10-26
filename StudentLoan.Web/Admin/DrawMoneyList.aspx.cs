@@ -165,6 +165,8 @@ namespace StudentLoan.Web.Admin
                     StringBuilder objSB = new StringBuilder();
 
                     objSB.AppendFormat(" <a onclick=\"return confirm('打款后将更新用户提现记录，请确保打款成功后，再执行此操作！')\" href=\"DrawMoneyList.aspx?Action=DrawMoney&DrawId={0}&UserId={1}\">完成打款</a>", model.DrawId, model.UserId);
+
+                    objLiteral.Text = objSB.ToString();
                 }
             }
         }

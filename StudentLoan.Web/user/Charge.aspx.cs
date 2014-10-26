@@ -56,7 +56,8 @@ namespace StudentLoan.Web.user
                 BankCode = this.Request<string>("bank"),
                 Ext4 = "",
                 ChannelId = channelModel.ChannelId,
-                CreateTime = DateTime.Now
+                CreateTime = DateTime.Now,
+                Ext5 = this.Request<string>("bank")
 
             };
 

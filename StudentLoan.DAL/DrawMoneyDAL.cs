@@ -51,13 +51,15 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
+            commandText.Append(" update sl_users set Amount -= @LockMoney where UserId =@UserId  ");
+
             commandText.Append(" Insert Into sl_draw_money( ");
 
-            commandText.Append(" BindBankId,DrawMoney,Fee,LockMoney,ConfirmMoney,ApplyTime,PassTime,AdminId,Status) ");
+            commandText.Append(" UserId,BindBankId,DrawMoney,Fee,LockMoney,ApplyTime,Status) ");
 
             commandText.Append(" Values ( ");
 
-            commandText.Append(" @BindBankId,@DrawMoney,@Fee,@LockMoney,@ConfirmMoney,@ApplyTime,@PassTime,@AdminId,@Status) ");
+            commandText.Append(" @UserId,@BindBankId,@DrawMoney,@Fee,@LockMoney,getdate(),0) ");
 
             #endregion
 
@@ -65,7 +67,7 @@ namespace StudentLoan.DAL
 
             List<SqlParameter> paramsList = new List<SqlParameter>();
 
-            paramsList.Add(new SqlParameter("@DrawId", model.DrawId));
+            paramsList.Add(new SqlParameter("@UserId", model.UserId));
 
             paramsList.Add(new SqlParameter("@BindBankId", model.BindBankId));
 
@@ -75,19 +77,11 @@ namespace StudentLoan.DAL
 
             paramsList.Add(new SqlParameter("@LockMoney", model.LockMoney));
 
-            paramsList.Add(new SqlParameter("@ConfirmMoney", model.ConfirmMoney));
-
-            paramsList.Add(new SqlParameter("@ApplyTime", model.ApplyTime));
-
-            paramsList.Add(new SqlParameter("@PassTime", model.PassTime));
-
-            paramsList.Add(new SqlParameter("@AdminId", model.AdminId));
-
-            paramsList.Add(new SqlParameter("@Status", model.Status));
-
             #endregion
 
-            return base.ExecuteNonQuery(commandText.ToString(), paramsList.ToArray());
+            SqlTransaction trans = base.GetTransaction();
+
+            return base.ExecuteNonQuery(trans, commandText.ToString(), paramsList.ToArray());
         }
 
 
@@ -351,11 +345,11 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select count(0) From sl_draw_money T,sl_user_bank b ");
+            commandText.Append(" Select count(0) From sl_draw_money T,sl_user_bank b,sl_users c ");
 
             if (!string.IsNullOrEmpty(strWhere.Trim()))
             {
-                commandText.AppendFormat(" WHERE {0}", strWhere);
+                commandText.AppendFormat(" WHERE T.UserId = b.Userid and T.UserId = c.UserId and  {0}", strWhere);
             }
 
             #endregion
@@ -390,11 +384,11 @@ namespace StudentLoan.DAL
                 commandText.Append(" Order By T.DrawId Desc");
             }
 
-            commandText.Append(" )AS Row, T.*,b.BankName ,b.BankCardNo,b.BankProvince,b.BankCity From sl_draw_money T,sl_user_bank b ");
+            commandText.Append(" )AS Row, T.*,c.TrueName, b.BankName ,b.BankCardNo,b.BankProvince,b.BankCity From sl_draw_money T,sl_user_bank b,sl_users c ");
 
             if (!string.IsNullOrEmpty(strWhere.Trim()))
             {
-                commandText.AppendFormat(" WHERE T.UserId=b.UserId and {0}", strWhere);
+                commandText.AppendFormat(" WHERE T.UserId=b.UserId and T.UserId = c.UserId and {0}", strWhere);
             }
 
             commandText.Append(" ) TT");

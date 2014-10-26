@@ -94,37 +94,36 @@
                             <HeaderTemplate>
                                 <table class="data-table" width="100%" border="0" cellspacing="0" cellpadding="0">
                                     <tr>
-                                        <th scope="col">提款编号</th>
-                                        <th scope="col">用户名</th>
-                                        <th scope="col">开户行名称</th>
-                                        <th scope="col">银行卡卡号</th>
-                                        <th scope="col">开户行地区</th>
-                                        <th scope="col">提现金额</th>
-                                        <th scope="col">确认金额</th>
-                                        <th scope="col">手续费</th>
-                                        <th scope="col">申请时间</th>
-                                        <th scope="col">通过时间</th>
-                                        <th scope="col">回调代码</th>
-                                        <th scope="col">打款人</th>
-                                        <th scope="col">状态</th>
-                                        <th>操作</th>
+                                        <th class="txt40 c">提款编号</th>
+                                        <th class="txt40 c">用户名</th>
+                                        <th class="txt40 c">开户行名称</th>
+                                        <th class="txt40 c">银行卡卡号</th>
+                                        <th class="txt40 c">开户行地区</th>
+                                        <th class="txt40 c">提现金额</th>
+                                        <th class="txt40 c">确认金额</th>
+                                        <th class="txt40 c">手续费</th>
+                                        <th class="txt40 c">申请时间</th>
+                                        <th class="txt40 c">通过时间</th>
+                                        <th class="txt40 c">打款人</th>
+                                        <th class="txt40 c">状态</th>
+                                        <th >操作</th>
                                     </tr>
                             </HeaderTemplate>
                             <ItemTemplate>
                                 <tr>
-                                    <td class="txt40 c"><%#Eval("DrawId")%></td>
-                                    <td class="txt40 c"><%#Eval("UserName")%></td>
-                                    <td class="txt40 c"><%#Eval("BankName")%></td>
-                                    <td class="txt40 c"><%#Eval("BankCardNo")%></td>
-                                    <td class="txt40 c"><%#Eval("BankProvince")%> <%#Eval("BankCity")%></td>
-                                    <td class="txt40 c"><%#Eval("DrawMoney")%></td>
-                                    <td class="txt40 c"><%#Eval("ConfirmMoney")%></td>
-                                    <td class="txt40 c"><%#Eval("Fee")%></td>
-                                    <td class="txt40 c"><%#Eval("ApplyTime")%></td>
-                                    <td class="txt40 c"><%#Eval("PassTime")%></td>
-                                    <td class="txt40 c"><%#Eval("AdminId")%></td>
-                                    <td class="txt40 c"><%# this.GetStatusName(Convert.ToInt32(Eval("Status")))%></td>
-                                    <td class="txt40 c">
+                                    <td><%#Eval("DrawId")%></td>
+                                    <td><%#Eval("TrueName")%></td>
+                                    <td><%#Eval("BankName")%></td>
+                                    <td><%#Eval("BankCardNo")%></td>
+                                    <td><%#Eval("BankProvince")%> <%#Eval("BankCity")%></td>
+                                    <td><%#Eval("DrawMoney")%></td>
+                                    <td><%#Eval("ConfirmMoney")%></td>
+                                    <td><%#Eval("Fee")%></td>
+                                    <td><%#Eval("ApplyTime")%></td>
+                                    <td><%#Eval("PassTime")%></td>
+                                    <td><%#Eval("AdminId")%></td>
+                                    <td><%# this.GetStatusName(Convert.ToInt32(Eval("Status")))%></td>
+                                    <td>
                                         <asp:Literal ID="objLiteral" runat="server"></asp:Literal>
                                     </td>
                                 </tr>

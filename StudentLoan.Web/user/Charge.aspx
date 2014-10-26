@@ -18,8 +18,8 @@
             <ul>
                 <li><a href="javascript:;">账户日志</a></li>
                 <li class="active"><a href="javascript:;">会员充值</a></li>
-                <li><a href="javascript:;">充值日志</a></li>
-                <li><a href="javascript:;">会员提现</a></li>
+                <li><a href="ChargeLog.aspx">充值日志</a></li>
+                <li><a href="Withdraw.aspx">会员提现</a></li>
             </ul>
 
         </div>
@@ -142,7 +142,7 @@
                     </p>
 
                     <p class="w210">
-                        <button id="btnSubmit" runat="server" class="btn btn-large btn-block btn-primary" type="button" onserverclick="btnSubmit_ServerClick">确 定</button>
+                        <button id="btnSubmit" runat="server" class="btn btn-large btn-block btn-primary" type="button" onclick="" onserverclick="btnSubmit_ServerClick">确 定</button>
                     </p>
 
                 </div>

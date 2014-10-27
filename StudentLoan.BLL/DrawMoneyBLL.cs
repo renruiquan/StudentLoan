@@ -84,6 +84,16 @@ namespace StudentLoan.BLL
             return dal.GetModel(Status);
         }
 
+        /// <summary>
+        /// 获取用户锁定资金总合
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public int GetTotalLockMoney(int userId)
+        {
+            return dal.GetTotalLockMoney(userId);
+        }
+
 
         /// <summary>
         /// 获取数据列表

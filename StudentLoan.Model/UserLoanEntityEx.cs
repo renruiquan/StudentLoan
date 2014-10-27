@@ -64,5 +64,10 @@ namespace StudentLoan.Model
         /// 产品名称
         /// </summary>
         public string ProductName { get; set; }
+
+        /// <summary>
+        /// 还款日期
+        /// </summary>
+        public DateTime RepaymentTime { get; set; }
     }
 }

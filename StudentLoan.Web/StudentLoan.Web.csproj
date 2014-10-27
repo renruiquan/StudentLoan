@@ -360,9 +360,13 @@
     <Content Include="SchoolInfo.aspx" />
     <Content Include="TTTTTTTTTTTTTTTTTTTTT.aspx" />
     <Content Include="UserLoanApply.aspx" />
+    <Content Include="user\AccountLog.aspx" />
     <Content Include="user\ChargeLog.aspx" />
     <Content Include="user\ManageMoneyList_2.aspx" />
     <Content Include="user\ManageMoneyList_3.aspx" />
+    <Content Include="user\UserAccountCert_2.aspx" />
+    <Content Include="user\UserAccountCert_3.aspx" />
+    <Content Include="user\UserAccountCert_4.aspx" />
     <Content Include="user\UserManageMoney.aspx" />
     <Content Include="user\UserManageMoneyBuy.aspx" />
     <Content Include="user\BindBank.aspx" />
@@ -688,6 +692,13 @@
     <Compile Include="UserLoanApply.aspx.designer.cs">
       <DependentUpon>UserLoanApply.aspx</DependentUpon>
     </Compile>
+    <Compile Include="user\AccountLog.aspx.cs">
+      <DependentUpon>AccountLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\AccountLog.aspx.designer.cs">
+      <DependentUpon>AccountLog.aspx</DependentUpon>
+    </Compile>
     <Compile Include="user\ChargeLog.aspx.cs">
       <DependentUpon>ChargeLog.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -708,6 +719,27 @@
     </Compile>
     <Compile Include="user\ManageMoneyList_3.aspx.designer.cs">
       <DependentUpon>ManageMoneyList_3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\UserAccountCert_2.aspx.cs">
+      <DependentUpon>UserAccountCert_2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\UserAccountCert_2.aspx.designer.cs">
+      <DependentUpon>UserAccountCert_2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\UserAccountCert_3.aspx.cs">
+      <DependentUpon>UserAccountCert_3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\UserAccountCert_3.aspx.designer.cs">
+      <DependentUpon>UserAccountCert_3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\UserAccountCert_4.aspx.cs">
+      <DependentUpon>UserAccountCert_4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\UserAccountCert_4.aspx.designer.cs">
+      <DependentUpon>UserAccountCert_4.aspx</DependentUpon>
     </Compile>
     <Compile Include="user\UserManageMoney.aspx.cs">
       <DependentUpon>UserManageMoney.aspx</DependentUpon>

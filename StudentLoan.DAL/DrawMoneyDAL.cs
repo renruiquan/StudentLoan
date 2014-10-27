@@ -259,6 +259,32 @@ namespace StudentLoan.DAL
             }
         }
 
+        /// <summary>
+        /// 获取用户锁定资金总合
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public int GetTotalLockMoney(int userId)
+        {
+            #region CommandText
+
+            StringBuilder commandText = new StringBuilder();
+
+            commandText.Append(" Select sum(LockMoney) as LockMoney From sl_draw_money Where UserId=@UserId and Status=0");
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@UserId", userId));
+
+            #endregion
+
+            return base.ExecuteScalar(commandText.ToString(), paramsList.ToArray()).Convert<int>();
+        }
+
 
         /// <summary>
         /// 获取数据列表

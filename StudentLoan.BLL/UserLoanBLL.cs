@@ -103,6 +103,17 @@ namespace StudentLoan.BLL
             return dal.GetStatNormalUserLoan(userId);
         }
 
+
+         /// <summary>
+        /// 获取账户信息中的贷款数据列表
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public List<UserLoanEntityEx> GetAccountLoan(int userId, int startIndex, int endIndex)
+        {
+            return dal.GetAccountLoan(userId, startIndex, endIndex);
+        }
+
         /// <summary>
         /// 获取一个实体
         /// </summary>

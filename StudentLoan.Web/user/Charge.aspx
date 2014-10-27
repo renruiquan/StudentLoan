@@ -16,7 +16,7 @@
         <div class="tabs">
 
             <ul>
-                <li><a href="javascript:;">账户日志</a></li>
+                <li><a href="AccountLog.aspx">账户日志</a></li>
                 <li class="active"><a href="javascript:;">会员充值</a></li>
                 <li><a href="ChargeLog.aspx">充值日志</a></li>
                 <li><a href="Withdraw.aspx">会员提现</a></li>

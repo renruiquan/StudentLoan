@@ -294,6 +294,49 @@ namespace StudentLoan.DAL
         }
 
         /// <summary>
+        /// 获取账户信息中的贷款数据列表
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public List<UserLoanEntityEx> GetAccountLoan(int userId, int startIndex, int endIndex)
+        {
+            string commandText = @"
+                            SELECT
+	                            *
+                            FROM (SELECT
+	                            ROW_NUMBER() OVER (ORDER BY T.CreateTime DESC) AS 'Row',
+	                            T.CreateTime,
+	                            T.LoanMoney,
+	                            (SELECT
+		                            MIN(RepaymentTime)
+	                            FROM sl_user_repayment
+	                            WHERE LoanId = T.LoanId
+	                            AND Status = 0)
+	                            AS 'RepaymentTime'
+                            FROM sl_user_loan T
+                            WHERE T.UserId = @UserId) TT
+                            WHERE TT.Row between @startIndex and @endIndex";
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@UserId", userId));
+
+            paramsList.Add(new SqlParameter("@startIndex", startIndex));
+
+            paramsList.Add(new SqlParameter("@endIndex", endIndex));
+
+            #endregion
+
+            using (SqlDataReader objReader = SqlHelper.ExecuteReader(base.ConnectionString, CommandType.Text, commandText, paramsList.ToArray()))
+            {
+                return objReader.ReaderToList<UserLoanEntityEx>() as List<UserLoanEntityEx>;
+            }
+        }
+
+
+        /// <summary>
         /// 统计正常的用户借款数据
         /// </summary>
         /// <returns></returns>

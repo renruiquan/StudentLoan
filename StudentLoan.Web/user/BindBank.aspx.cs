@@ -17,7 +17,6 @@ namespace StudentLoan.Web.user
         public UsersEntityEx UserModel { get { return base.GetUserModel(); } }
 
         public UserBankEntityEx BankModel { get; set; }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -37,8 +36,6 @@ namespace StudentLoan.Web.user
 
                 #endregion
 
-                this.BankModel = new UserBankBLL().GetModel(this.UserModel.UserId);
-
                 this.BindBankList();
 
                 this.BindData();
@@ -54,31 +51,22 @@ namespace StudentLoan.Web.user
             string city = this.Request<string>("ddlCity");
 
             UsersEntityEx userModel = base.GetUserModel();
-            userModel = new UsersEntityEx()
+
+            this.BankModel = new UserBankEntityEx()
             {
-                
-                UserId = userModel.UserId
+                UserId = userModel.UserId,
+                BankName = bankName,
+                BankCardNo = bankCard,
+                BankProvince = province,
+                BankCity = city,
+                BankId = bankId,
+                IsDefault = false,
             };
 
-            this.BankModel = new UserBankBLL().GetModel(this.UserModel.UserId);
+            bool result = new UserBankBLL().Insert(this.BankModel);
 
-            if (this.BankModel == null)
-            {
-                this.BankModel = new UserBankEntityEx()
-                {
-                    UserId = userModel.UserId,
-                    BankName = bankName,
-                    BankCardNo = bankCard,
-                    BankProvince = province,
-                    BankCity = city,
-                    BankId = bankId,
-                    IsDefault = true
-                };
+            this.artDialog(string.Format("添加{0}", result == true ? "成功" : "失败"));
 
-                bool result = new UserBankBLL().Insert(this.BankModel, userModel);
-
-                this.artDialog(string.Format("添加{0}", result == true ? "成功" : "失败"));
-            }
         }
 
         /// <summary>
@@ -86,7 +74,12 @@ namespace StudentLoan.Web.user
         /// </summary>
         public void BindData()
         {
-            
+            string strWhere = string.Format(@" 1=1  and UserId = {0} and Status=1 Order By CreateTime desc ", base.GetUserModel().UserId);
+
+            List<UserBankEntityEx> list = new UserBankBLL().GetList(strWhere);
+
+            this.objRepeater.DataSource = list;
+            this.objRepeater.DataBind();
         }
 
         /// <summary>
@@ -98,6 +91,38 @@ namespace StudentLoan.Web.user
             this.ddlBankTypeList.DataTextField = "BankName";
             this.ddlBankTypeList.DataValueField = "BankId";
             this.ddlBankTypeList.DataBind();
+        }
+
+        protected void objRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
+            {
+                UserBankEntityEx model = e.Item.DataItem as UserBankEntityEx;
+
+                Literal objLiteral = e.Item.FindControl("objLiteral") as Literal;
+
+                switch (model.BankId)
+                {
+                    case 1: objLiteral.Text = "<i><img src=\"../css/img/banks/icon_ICBC.jpg\" alt=\"\"></i>中国工商银行"; break;
+                    case 2: objLiteral.Text = "<i><img src=\"../css/img/banks/icon_ABC.jpg\" alt=\"\"></i>中国农业银行"; break;
+                    case 3: objLiteral.Text = "<i><img src=\"../css/img/banks/icon_BOC.jpg\" alt=\"\"></i>中国银行"; break;
+                    case 4: objLiteral.Text = "<i><img src=\"../css/img/banks/icon_CCB.jpg\" alt=\"\"></i>中国建设银行"; break;
+                    case 5: objLiteral.Text = "<i><img src=\"../css/img/banks/icon_BCOM.jpg\" alt=\"\"></i>交通银行"; break;
+                    case 6: objLiteral.Text = "<i><img src=\"../css/img/banks/icon_ECITIC.jpg\" alt=\"\"></i>中信银行"; break;
+                    case 7: objLiteral.Text = "<i><img src=\"../css/img/banks/icon_CEBB.jpg\" alt=\"\"></i>中国光大银行"; break;
+                    case 8: objLiteral.Text = "<i><img src=\"../css/img/banks/icon_HXB.jpg\" alt=\"\"></i>华夏银行"; break;
+                    case 9: objLiteral.Text = "<i><img src=\"../css/img/banks/icon_CMBC.jpg\" alt=\"\"></i>中国民生银行"; break;
+                    case 10: objLiteral.Text = "<i><img src=\"../css/img/banks/icon_GDB.jpg\" alt=\"\"></i>广发银行"; break;
+                    case 11: objLiteral.Text = "<i><img src=\"../css/img/banks/icon_SDB.jpg\" alt=\"\"></i>深圳发展银行"; break;
+                    case 12: objLiteral.Text = "<i><img src=\"../css/img/banks/icon_CMB.jpg\" alt=\"\"></i>招商银行"; break;
+                    case 13: objLiteral.Text = "<i><img src=\"../css/img/banks/icon_CIB.jpg\" alt=\"\"></i>兴业银行"; break;
+                    case 14: objLiteral.Text = "<i><img src=\"../css/img/banks/icon_SPDB.jpg\" alt=\"\"></i>上海浦东发展银行"; break;
+                    case 18: objLiteral.Text = "<i><img src=\"../css/img/banks/icon_PSBC.jpg\" alt=\"\"></i>中国邮政储蓄银行"; break;
+                    case 57: objLiteral.Text = "<i><img src=\"../css/img/banks/icon_EBA.jpg\" alt=\"\"></i>东亚银行"; break;
+                    case 316: objLiteral.Text = "<i><img src=\"../css/img/banks/icon_SPABANK.jpg\" alt=\"\"></i>平安银行"; break;
+
+                }
+            }
         }
     }
 }

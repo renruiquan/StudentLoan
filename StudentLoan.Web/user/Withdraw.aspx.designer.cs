@@ -13,58 +13,31 @@ namespace StudentLoan.Web.user {
     public partial class Withdraw {
         
         /// <summary>
-        /// WithdrawMoney 控件。
+        /// objRepeater 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox WithdrawMoney;
+        protected global::System.Web.UI.WebControls.Repeater objRepeater;
         
         /// <summary>
-        /// TrueName 控件。
+        /// txtWithdrawMoney 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TrueName;
+        protected global::System.Web.UI.WebControls.TextBox txtWithdrawMoney;
         
         /// <summary>
-        /// hidBankId 控件。
+        /// txtDrawMoneyPassword 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hidBankId;
-        
-        /// <summary>
-        /// ddlBankTypeList 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlBankTypeList;
-        
-        /// <summary>
-        /// txtCardNo 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCardNo;
-        
-        /// <summary>
-        /// txtConfirmCardNo 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtConfirmCardNo;
+        protected global::System.Web.UI.WebControls.TextBox txtDrawMoneyPassword;
         
         /// <summary>
         /// btnWithdraw 控件。

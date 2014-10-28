@@ -436,6 +436,7 @@ body {
     overflow: hidden;
 
 }
+
 .select-bank .bank:hover,
 .select-bank .active {
     border-color: #0061cc;
@@ -1079,4 +1080,45 @@ body {
 
 .foot-txt .max {
     font: normal 40px/60px "microsoft yahei";
+}
+
+.foot-thin {
+    font-weight: normal;
+}
+
+.select-bank-cards {
+    clear: both;
+    display: block;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.select-bank-cards-active,
+.select-bank-cards:hover {
+    border-color: #0060cc;
+}
+
+.select-bank-cards input {
+    margin: 0 5px;
+}
+
+.select-bank-cards .bank-name {
+    margin: 0 5px;
+    display: inline-block;
+    width: 300px;
+}
+
+.select-bank-cards .bank-name i {
+    display: inline-block;
+}
+
+.td-text-center th,
+.td-text-center td
+{
+    text-align: center;
+}
+
+.empty-txt {
+    display: inline-block;
+    width: 115px;
 }

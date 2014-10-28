@@ -20,21 +20,19 @@ namespace StudentLoan.DAL
         /// <summary>
         /// 增加一条数据
         /// </summary>
-        public bool Insert(UserBankEntityEx model, UsersEntityEx userModel)
+        public bool Insert(UserBankEntityEx model)
         {
             #region CommandText
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Update sl_users set TrueName = @TrueName Where UserId = @UserId; ");
-
             commandText.Append(" Insert Into sl_user_bank( ");
 
-            commandText.Append(" UserId,BankId,BankName,BankCardNo,BankProvince,BankCity,Status,IsDefault,CreateTime,Remark) ");
+            commandText.Append(" UserId,BankId,BankName,BankCardNo,BankProvince,BankCity,Status,IsDefault,CreateTime) ");
 
             commandText.Append(" Values ( ");
 
-            commandText.Append(" @UserId,@BankId,@BankName,@BankCardNo,@BankProvince,@BankCity,1,@IsDefault,@CreateTime,@Remark) ");
+            commandText.Append(" @UserId,@BankId,@BankName,@BankCardNo,@BankProvince,@BankCity,1,@IsDefault,getdate()) ");
 
             #endregion
 
@@ -56,11 +54,7 @@ namespace StudentLoan.DAL
 
             paramsList.Add(new SqlParameter("@IsDefault", model.IsDefault));
 
-            paramsList.Add(new SqlParameter("@CreateTime", DateTime.Now));
 
-            paramsList.Add(new SqlParameter("@Remark", model.Remark));
-
-            paramsList.Add(new SqlParameter("@TrueName", userModel.TrueName));
 
             #endregion
 
@@ -224,6 +218,7 @@ namespace StudentLoan.DAL
 
             #region SqlParameters
 
+            List<SqlParameter> paramsList = new List<SqlParameter>();
 
             #endregion
 

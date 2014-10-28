@@ -24,9 +24,9 @@ namespace StudentLoan.BLL
         /// <summary>
         /// 增加一条数据
         /// </summary>
-        public bool Insert(UserBankEntityEx model, UsersEntityEx userModel)
+        public bool Insert(UserBankEntityEx model)
         {
-            return dal.Insert(model, userModel);
+            return dal.Insert(model);
         }
 
 

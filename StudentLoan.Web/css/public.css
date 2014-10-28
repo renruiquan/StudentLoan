@@ -296,9 +296,12 @@ select {
     margin: 2px;
 }
 
-.p12,
-p {
+.f12 {
     font-size: 12px;
+}
+
+.f12,
+p {
     line-height: 1.5em;
 }
 

@@ -16,6 +16,9 @@
     <script src="../js/jquery-1.11.0.min.js"></script>
     <script src="../js/dialog-plus-min.js"></script>
 
+
+
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

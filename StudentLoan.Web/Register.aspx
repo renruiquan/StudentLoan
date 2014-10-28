@@ -74,7 +74,7 @@
                         <label class="control-label"><span class="c-red">* </span>提现密码：</label>
 
                         <div class="controls text-left">
-                            <asp:TextBox ID="txtDrawMoneyPassword" runat="server" class="input-large span7" type="text" placeholder="输入提现密码，长度8-16位，至少包含数字和字母" />
+                            <asp:TextBox  ID="txtDrawMoneyPassword" runat="server" TextMode="Password" class="input-large span7" type="text" placeholder="输入提现密码，长度8-16位，至少包含数字和字母" />
                         </div>
                     </div>
 

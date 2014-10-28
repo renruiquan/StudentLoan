@@ -26,6 +26,11 @@ namespace StudentLoan.Web.Admin
                 }
 
                 UsersEntityEx model = new UsersBLL().GetModel(userId);
+                if (model == null)
+                {
+                    this.Alert("用户不存在");
+                    return;
+                }
                 this.ddlStatus.SelectedValue = model.Status.ToString();
                 this.txtNewPassword.Text = DESHelper.Decrypt(model.Password, model.Salt);
                 this.txtDrawMoneyPassword.Text = DESHelper.Decrypt(model.DrawMoneyPassword, model.Salt);

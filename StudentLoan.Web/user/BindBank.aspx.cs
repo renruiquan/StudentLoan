@@ -50,14 +50,13 @@ namespace StudentLoan.Web.user
             string bankName = this.txtBankName.Text.Trim();
             int bankId = this.ddlBankTypeList.SelectedValue.Convert<int>();
             string bankCard = this.txtBankCard.Text.Trim();
-            string trueName = this.txtTrueName.Text.Trim();
             string province = this.Request<string>("ddlProvince");
             string city = this.Request<string>("ddlCity");
 
             UsersEntityEx userModel = base.GetUserModel();
             userModel = new UsersEntityEx()
             {
-                TrueName = trueName,
+                
                 UserId = userModel.UserId
             };
 
@@ -80,23 +79,6 @@ namespace StudentLoan.Web.user
 
                 this.artDialog(string.Format("添加{0}", result == true ? "成功" : "失败"));
             }
-            else
-            {
-                this.BankModel = new UserBankEntityEx()
-                {
-                    UserId = userModel.UserId,
-                    BankName = bankName,
-                    BankCardNo = bankCard,
-                    BankProvince = province,
-                    BankCity = city,
-                    BankId = this.hidBankId.Value.Convert<int>(),
-                    NewBankId = bankId
-                };
-
-                bool result = new UserBankBLL().Update(this.BankModel);
-
-                this.artDialog(string.Format("更新{0}", result == true ? "成功" : "失败"));
-            }
         }
 
         /// <summary>
@@ -104,25 +86,7 @@ namespace StudentLoan.Web.user
         /// </summary>
         public void BindData()
         {
-            UsersEntityEx userModel = base.GetUserModel();
-
-            this.BankModel = new UserBankBLL().GetModel(userModel.UserId);
-
-            if (!string.IsNullOrEmpty(userModel.TrueName))
-            {
-                this.txtTrueName.Text = userModel.TrueName;
-                this.txtTrueName.Enabled = false;
-            }
-
-
-            if (BankModel != null)
-            {
-                this.txtBankCard.Text = BankModel.BankCardNo;
-                this.txtBankName.Text = BankModel.BankName;
-                this.ddlBankTypeList.SelectedValue = BankModel.BankId.ToString();
-                this.hidBankId.Value = BankModel.BankId.ToString();
-                this.btnSubmit.InnerText = "更新";
-            }
+            
         }
 
         /// <summary>

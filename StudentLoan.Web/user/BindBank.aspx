@@ -7,9 +7,7 @@
         $(function () {
             $("#bank_area").citySelect(
                 {
-                    url: "/js/city.min.js",
-                    prov: "<%=this.BankModel.BankProvince%>", //省份 
-                    city: "<%=this.BankModel.BankCity%>", //城市
+                    url: "/js/city.min.js"
                 });
         });
     </script>
@@ -46,7 +44,6 @@
                         <label class="control-label">银行卡类型：</label>
 
                         <div class="controls">
-                            <asp:HiddenField ID="hidBankId" runat="server" />
                             <asp:DropDownList ID="ddlBankTypeList" CssClass="span5" runat="server">
                             </asp:DropDownList>
                         </div>
@@ -77,16 +74,7 @@
 
                         <div class="controls" id="bank_area">
                             <select id="ddlProvince" name="ddlProvince" class="prov span2"></select>
-                            <select id="ddlCity" name="ddlCity" class="city span3"></select>    
-                        </div>
-                    </div>
-
-
-                    <div class="control-group">
-                        <label class="control-label">真实姓名：</label>
-
-                        <div class="controls">
-                            <asp:TextBox ID="txtTrueName" runat="server" CssClass="span5"></asp:TextBox>
+                            <select id="ddlCity" name="ddlCity" class="city span3"></select>
                         </div>
                     </div>
 
@@ -95,7 +83,7 @@
 
                         <div class="controls">
                             <p class="w220">
-                                <button id="btnSubmit" runat="server" class="btn btn-large btn-block btn-primary" onserverclick="btnSubmit_ServerClick" type="button">确 定</button>
+                                <button id="btnSubmit" runat="server" class="btn btn-large btn-block btn-primary" onserverclick="btnSubmit_ServerClick" type="button">添加绑定</button>
                             </p>
                         </div>
                     </div>

@@ -357,6 +357,7 @@
     <Content Include="MasterTest.aspx" />
     <Content Include="ManageMoneyNav.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="RegProvision.aspx" />
     <Content Include="SchoolInfo.aspx" />
     <Content Include="TTTTTTTTTTTTTTTTTTTTT.aspx" />
     <Content Include="UserLoanApply.aspx" />
@@ -364,6 +365,7 @@
     <Content Include="user\ChargeLog.aspx" />
     <Content Include="user\ManageMoneyList_2.aspx" />
     <Content Include="user\ManageMoneyList_3.aspx" />
+    <Content Include="RegSuccess.aspx" />
     <Content Include="user\UserAccountCert_2.aspx" />
     <Content Include="user\UserAccountCert_3.aspx" />
     <Content Include="user\UserAccountCert_4.aspx" />
@@ -667,6 +669,13 @@
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RegProvision.aspx.cs">
+      <DependentUpon>RegProvision.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegProvision.aspx.designer.cs">
+      <DependentUpon>RegProvision.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SchoolInfo.aspx.cs">
       <DependentUpon>SchoolInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -719,6 +728,13 @@
     </Compile>
     <Compile Include="user\ManageMoneyList_3.aspx.designer.cs">
       <DependentUpon>ManageMoneyList_3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegSuccess.aspx.cs">
+      <DependentUpon>RegSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegSuccess.aspx.designer.cs">
+      <DependentUpon>RegSuccess.aspx</DependentUpon>
     </Compile>
     <Compile Include="user\UserAccountCert_2.aspx.cs">
       <DependentUpon>UserAccountCert_2.aspx</DependentUpon>

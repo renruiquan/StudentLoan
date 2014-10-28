@@ -22,24 +22,6 @@ namespace StudentLoan.Web {
         protected global::System.Web.UI.WebControls.TextBox txtUserName;
         
         /// <summary>
-        /// txtUserTelephone 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUserTelephone;
-        
-        /// <summary>
-        /// txtUserEmail 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUserEmail;
-        
-        /// <summary>
         /// txtPassword 控件。
         /// </summary>
         /// <remarks>
@@ -49,13 +31,67 @@ namespace StudentLoan.Web {
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
         
         /// <summary>
-        /// txtConfirm_Password 控件。
+        /// txtConfirmPassword 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtConfirm_Password;
+        protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
+        
+        /// <summary>
+        /// txtDrawMoneyPassword 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDrawMoneyPassword;
+        
+        /// <summary>
+        /// txtEmail 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        
+        /// <summary>
+        /// txtTelephone 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTelephone;
+        
+        /// <summary>
+        /// txtIdentityCard 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtIdentityCard;
+        
+        /// <summary>
+        /// txtAddress 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddress;
+        
+        /// <summary>
+        /// txtValidateCode 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtValidateCode;
         
         /// <summary>
         /// ckbAgreement 控件。
@@ -67,12 +103,12 @@ namespace StudentLoan.Web {
         protected global::System.Web.UI.WebControls.CheckBox ckbAgreement;
         
         /// <summary>
-        /// btnLogin 控件。
+        /// btnRegister 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnRegister;
     }
 }

@@ -20,13 +20,13 @@ namespace StudentLoan.DAL
         /// <summary>
         /// 是否存在该记录
         /// </summary>
-        public bool Exists(int UserId)
+        public bool Exists(string userName)
         {
             #region CommandText
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append("Select UserId From sl_users Where UserId = @UserId");
+            commandText.Append("Select UserName From sl_users Where UserName = @UserName");
 
             #endregion
 
@@ -34,7 +34,7 @@ namespace StudentLoan.DAL
 
             List<SqlParameter> paramsList = new List<SqlParameter>();
 
-            paramsList.Add(new SqlParameter("@UserId", UserId));
+            paramsList.Add(new SqlParameter("@UserName", userName));
 
             #endregion
 
@@ -53,11 +53,11 @@ namespace StudentLoan.DAL
 
             commandText.Append(" Insert Into sl_users( ");
 
-            commandText.Append(" GroupId,UserName,NickName,TrueName,Password,DrawMoneyPassword,Salt,Email,IdentityCard,Avatar,Gender,Nation,Birthday,Telphone,Mobile,QQ,Country,Province,City,Address,SafeQuestion,SafeAnswer,Amount,Point,Exp,Status,CreateTime,RegIP,Remark) ");
+            commandText.Append(" GroupId,UserName,Password,DrawMoneyPassword,Salt,Email,IdentityCard,Telphone,Province,City,Address,Amount,Point,Exp,Status,CreateTime,RegIP) ");
 
             commandText.Append(" Values ( ");
 
-            commandText.Append(" @GroupId,@UserName,@NickName,@TrueName,@Password,@DrawMoneyPassword,@Salt,@Email,@IdentityCard,@Avatar,@Gender,@Nation,@Birthday,@Telphone,@Mobile,@QQ,@Country,@Province,@City,@Address,@SafeQuestion,@SafeAnswer,@Amount,@Point,@Exp,@Status,@CreateTime,@RegIP,@Remark) ");
+            commandText.Append(" 1,@UserName,@Password,@DrawMoneyPassword,@Salt,@Email,@IdentityCard,@Telphone,@Province,@City,@Address,@Amount,@Point,@Exp,@Status,@CreateTime,@RegIP) ");
 
             #endregion
 
@@ -65,13 +65,8 @@ namespace StudentLoan.DAL
 
             List<SqlParameter> paramsList = new List<SqlParameter>();
 
-            paramsList.Add(new SqlParameter("@GroupId", model.GroupId));
-
             paramsList.Add(new SqlParameter("@UserName", model.UserName));
 
-            paramsList.Add(new SqlParameter("@NickName", model.NickName));
-
-            paramsList.Add(new SqlParameter("@TrueName", model.TrueName));
 
             paramsList.Add(new SqlParameter("@Password", model.Password));
 
@@ -83,31 +78,19 @@ namespace StudentLoan.DAL
 
             paramsList.Add(new SqlParameter("@IdentityCard", model.IdentityCard));
 
-            paramsList.Add(new SqlParameter("@Avatar", model.Avatar));
-
-            paramsList.Add(new SqlParameter("@Gender", model.Gender));
-
-            paramsList.Add(new SqlParameter("@Nation", model.Nation));
-
-            paramsList.Add(new SqlParameter("@Birthday", model.Birthday));
-
             paramsList.Add(new SqlParameter("@Telphone", model.Telphone));
 
-            paramsList.Add(new SqlParameter("@Mobile", model.Mobile));
+
 
             paramsList.Add(new SqlParameter("@QQ", model.Qq));
 
-            paramsList.Add(new SqlParameter("@Country", model.Country));
+
 
             paramsList.Add(new SqlParameter("@Province", model.Province));
 
             paramsList.Add(new SqlParameter("@City", model.City));
 
             paramsList.Add(new SqlParameter("@Address", model.Address));
-
-            paramsList.Add(new SqlParameter("@SafeQuestion", model.SafeQuestion));
-
-            paramsList.Add(new SqlParameter("@SafeAnswer", model.SafeAnswer));
 
             paramsList.Add(new SqlParameter("@Amount", model.Amount));
 
@@ -120,8 +103,6 @@ namespace StudentLoan.DAL
             paramsList.Add(new SqlParameter("@CreateTime", model.CreateTime));
 
             paramsList.Add(new SqlParameter("@RegIP", model.RegIP));
-
-            paramsList.Add(new SqlParameter("@Remark", model.Remark));
 
             #endregion
 
@@ -488,7 +469,7 @@ namespace StudentLoan.DAL
 
             #endregion
 
-            return base.ExecuteScalar(commandText.ToString(),paramsList.ToArray()).Convert<int>();
+            return base.ExecuteScalar(commandText.ToString(), paramsList.ToArray()).Convert<int>();
         }
 
 

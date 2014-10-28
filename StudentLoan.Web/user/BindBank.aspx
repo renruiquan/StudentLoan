@@ -29,6 +29,27 @@
 
                 <div class="item">
 
+                    <div class="alert alert-error">
+                        <strong>友情提示!</strong> 绑定的银行卡卡主姓名，必须和本站的真实姓名相同，否则无法完成提款操作！
+                    </div>
+                    <asp:Repeater ID="objRepeater" runat="server" OnItemDataBound="objRepeater_ItemDataBound">
+                        <HeaderTemplate>
+                            <div>
+                                <h3>已绑定银行卡：</h3>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <label class="border-radius select-bank-cards">
+                                <span class="bank-name">
+                                    <asp:Literal runat="server" ID="objLiteral"></asp:Literal>
+                                </span>
+                                <span>卡号：<%#Eval("BankCardNo") %></span>
+                            </label>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            </div>
+                        </FooterTemplate>
+                    </asp:Repeater>
+
                     <div class="border-radius p10">
 
                         <p>
@@ -39,6 +60,15 @@
                     </div>
 
                     <div class="clear mt20"></div>
+
+                    <div class="control-group">
+                        <label class="control-label">开户行所在地区：</label>
+
+                        <div class="controls" id="bank_area">
+                            <select id="ddlProvince" name="ddlProvince" class="prov span2"></select>
+                            <select id="ddlCity" name="ddlCity" disabled="disabled" class="city span3"></select>
+                        </div>
+                    </div>
 
                     <div class="control-group">
                         <label class="control-label">银行卡类型：</label>
@@ -60,23 +90,13 @@
 
 
                     <div class="control-group">
-                        <label class="control-label">银行账户：</label>
+                        <label class="control-label">银行卡卡号：</label>
 
                         <div class="controls">
-                            <asp:TextBox ID="txtBankCard" runat="server" CssClass="span5" placeholder="请输入你的银行卡账户"></asp:TextBox>
+                            <asp:TextBox ID="txtBankCard" runat="server" CssClass="span5" placeholder="请输入你的银行卡卡号"></asp:TextBox>
                         </div>
                     </div>
 
-
-
-                    <div class="control-group">
-                        <label class="control-label">开户行所在地区：</label>
-
-                        <div class="controls" id="bank_area">
-                            <select id="ddlProvince" name="ddlProvince" class="prov span2"></select>
-                            <select id="ddlCity" name="ddlCity" class="city span3"></select>
-                        </div>
-                    </div>
 
                     <div class="control-group">
                         <label class="control-label">&nbsp;</label>

@@ -84,23 +84,7 @@
                         <div class="controls text-left">
                             <asp:TextBox ID="txtEmail" runat="server" class="input-large span7" type="text" placeholder="有效邮箱，例如 test.@163.com" />
                         </div>
-                    </div>
-
-                    <div class="control-group">
-                        <label class="control-label"><span class="c-red">* </span>手机号码：</label>
-
-                        <div class="controls text-left">
-                            <asp:TextBox ID="txtTelephone" runat="server" class="input-large span7" type="text" placeholder="请输入有效的手机号码" />
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <label class="control-label"><span class="c-red">* </span>身份证号码：</label>
-
-                        <div class="controls text-left">
-                            <asp:TextBox ID="txtIdentityCard" runat="server" class="input-large span7" type="text" placeholder="中华人民共和国身份证号码" />
-                        </div>
-                    </div>
+                    </div>                    
 
                     <div class="control-group">
                         <label class="control-label"><span class="c-red">* </span>所在地区：</label>
@@ -113,7 +97,7 @@
                     </div>
 
                     <div class="control-group">
-                        <label class="control-label"><span class="c-red">* </span>家庭住址：</label>
+                        <label class="control-label"><span class="c-red">* </span>籍贯：</label>
 
                         <div class="controls text-left">
                             <asp:TextBox ID="txtAddress" runat="server" class="input-large span7" type="text" placeholder="户籍地址" />

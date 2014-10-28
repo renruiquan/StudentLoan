@@ -18,11 +18,9 @@ namespace StudentLoan.Web
         protected void btnRegister_Click(object sender, EventArgs e)
         {
             string userName = txtUserName.Text.Trim().HtmlEncode();
-            string userTelephone = txtTelephone.Text.Trim().HtmlEncode();
             string userEmail = txtEmail.Text.Trim().HtmlEncode();
             string userCon_pwd = txtConfirmPassword.Text.Trim().HtmlEncode();
             string userPwd = txtPassword.Text.Trim().HtmlEncode();
-            string userIdentityCard = txtIdentityCard.Text.Trim().HtmlEncode();
             string userProvice = this.Request<string>("ddlProvince").HtmlEncode();
             string userCity = this.Request<string>("ddlCity").HtmlEncode();
             string userDist = this.Request<string>("ddlDist").HtmlEncode();
@@ -41,12 +39,7 @@ namespace StudentLoan.Web
                 this.artDialog("错误", "密码不能空为，请重新填写");
                 return;
             }
-
-            if (string.IsNullOrEmpty(userTelephone))
-            {
-                this.artDialog("错误", "手机号码不能为空，请重新填写");
-                return;
-            }
+        
             if (string.IsNullOrEmpty(userEmail))
             {
                 this.artDialog("错误", "邮箱地址不能为空，请重新填写");
@@ -57,12 +50,7 @@ namespace StudentLoan.Web
             {
                 this.artDialog("错误", "确认密码不能为空，请重新填写");
                 return;
-            }
-            if (string.IsNullOrEmpty(userIdentityCard))
-            {
-                this.artDialog("错误", "身份证号码不能为空，请重新填写");
-                return;
-            }
+            }          
             if (string.IsNullOrEmpty(userAddress))
             {
                 this.artDialog("错误", "家庭地址不能为空，请重新填写");
@@ -109,7 +97,6 @@ namespace StudentLoan.Web
             model.Salt = Guid.NewGuid().ToString().Split('-')[1];
             model.UserName = userName;
             model.Password = DESHelper.Encrypt(userPwd, model.Salt);
-            model.Telphone = userTelephone;
             model.Email = userEmail;
             model.RegIP = Request.UserHostAddress;
             model.CreateTime = DateTime.Now;
@@ -118,8 +105,6 @@ namespace StudentLoan.Web
             model.Province = userProvice;
             model.City = userCity;
             model.Address = string.Format("{0}区{1}", userDist, userAddress);
-            model.IdentityCard = userIdentityCard;
-
 
             //判断用户是否存在
             bool result = new UsersBLL().Exists(model.UserName);

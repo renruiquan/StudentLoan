@@ -5,6 +5,7 @@ using System.Web;
 using StudentLoan.Common;
 using System.Drawing;
 using System.Web.SessionState;
+using KudyStudio;
 
 namespace StudentLoan.Web.tools
 {
@@ -18,15 +19,14 @@ namespace StudentLoan.Web.tools
         {
             context.Response.ContentType = "text/plain";
 
-            Captcha objCaptcha = new Captcha(4, true, false);
+            CaptchaImage image = CaptchaImage.Create(CaptchaText.NumberAndLetter, Color.FromArgb(234, 237, 244));
+           
 
-            objCaptcha.FontColor = Color.Blue;
-            objCaptcha.FontSize = 12;
-            
+            // 保存session
 
-            HttpContext.Current.Session[StudentLoan.Common.StudentLoanKeys.SESSION_CODE] = objCaptcha.VerifyCodeText;
+            HttpContext.Current.Session[StudentLoan.Common.StudentLoanKeys.SESSION_CODE] = image.Text;
+            HttpContext.Current.Response.OutputStream.Write(image.Data, 0, image.Data.Length);
 
-            objCaptcha.Output(HttpContext.Current.Response);
 
         }
 

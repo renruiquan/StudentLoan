@@ -42,6 +42,9 @@
     <Reference Include="AspNetPager">
       <HintPath>..\Libraries\AspNetPager.dll</HintPath>
     </Reference>
+    <Reference Include="KudyStudio">
+      <HintPath>..\Libraries\KudyStudio.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />

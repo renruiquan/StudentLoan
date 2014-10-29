@@ -388,11 +388,11 @@
     <Content Include="user\ManageMoneyList_2.aspx" />
     <Content Include="user\ManageMoneyList_3.aspx" />
     <Content Include="RegSuccess.aspx" />
+    <Content Include="ProductSchemeList.aspx" />
     <Content Include="user\UserAccountCert_2.aspx" />
     <Content Include="user\UserAccountCert_3.aspx" />
     <Content Include="user\UserAccountCert_4.aspx" />
     <Content Include="user\UserManageMoney.aspx" />
-    <Content Include="user\UserManageMoneyBuy.aspx" />
     <Content Include="user\BindBank.aspx" />
     <Content Include="user\BindMobile.aspx" />
     <Content Include="user\ChangePassword.aspx" />
@@ -760,6 +760,13 @@
     <Compile Include="RegSuccess.aspx.designer.cs">
       <DependentUpon>RegSuccess.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ProductSchemeList.aspx.cs">
+      <DependentUpon>ProductSchemeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductSchemeList.aspx.designer.cs">
+      <DependentUpon>ProductSchemeList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="user\UserAccountCert_2.aspx.cs">
       <DependentUpon>UserAccountCert_2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -787,13 +794,6 @@
     </Compile>
     <Compile Include="user\UserManageMoney.aspx.designer.cs">
       <DependentUpon>UserManageMoney.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="user\UserManageMoneyBuy.aspx.cs">
-      <DependentUpon>UserManageMoneyBuy.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="user\UserManageMoneyBuy.aspx.designer.cs">
-      <DependentUpon>UserManageMoneyBuy.aspx</DependentUpon>
     </Compile>
     <Compile Include="user\BindBank.aspx.cs">
       <DependentUpon>BindBank.aspx</DependentUpon>

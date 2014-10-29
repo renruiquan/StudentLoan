@@ -232,7 +232,8 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select Top 1 SchemeId,SchemeName,InitiatorAdminId,ProductId,PlanType,MinYield,MaxYield,Amount,Price,Part,LimitPart,NumberOfPeople,StartTime,EndTime,LockStartTime,LockEndTime,SchemeDescription,Fee,Remark,Status,CreateTime From sl_product_scheme Where  SchemeId= @SchemeId ");
+            commandText.Append(@"Select Top 1 SchemeId,SchemeName,InitiatorAdminId,a.ProductId,b.ProductName,PlanType,MinYield,MaxYield,Amount,Price,Part,LimitPart,NumberOfPeople,StartTime,EndTime,LockStartTime,LockEndTime,SchemeDescription,Fee,a.Remark,a.Status,a.CreateTime From sl_product_scheme a,sl_product b Where  SchemeId= @SchemeId
+            and a.Status=1 and a.ProductId = b.ProductId and b.Status=1 ");
 
             #endregion
 

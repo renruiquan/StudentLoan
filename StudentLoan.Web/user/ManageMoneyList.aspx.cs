@@ -145,7 +145,7 @@ namespace StudentLoan.Web.user
 
         public void BindData()
         {
-            string strWhere = @" 1=1 and T.Status=0 ";
+            string strWhere = string.Format(@" 1=1 and T.Status=0  and T.UserId = {0}", base.GetUserModel().UserId);
 
             string startTime = this.txtStartTime.Text.Trim();
             string endTime = this.txtEndTime.Text.Trim();

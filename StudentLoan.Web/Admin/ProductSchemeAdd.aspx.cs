@@ -70,6 +70,10 @@ namespace StudentLoan.Web.Admin
             {
                 schemeModel.MaxYield = this.txtMaxYield.Text.Convert<decimal>();//取理财产品中的费率，最小收益率没有用到
             }
+            else
+            {
+                schemeModel.MaxYield = productModel.BaseAnnualFee;
+            }
 
             bool result = new ProductSchemeBLL().Insert(schemeModel);
 

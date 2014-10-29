@@ -355,7 +355,7 @@ namespace StudentLoan.DAL
                             FROM (SELECT
 	                            DATEDIFF(DAY, GETDATE(), a.EndTime) AS day,
 	                            b.MaxYield,
-	                            b.Amount
+	                            a.Amount
                             FROM	sl_user_manage_money a,
 		                            sl_product_scheme b
                             WHERE a.ProductSchemeId = b.SchemeId

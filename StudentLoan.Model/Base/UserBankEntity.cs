@@ -20,6 +20,17 @@ namespace StudentLoan.Model.Base
         }
 
 
+        private int _baseBankId;
+
+        /// <summary>
+        /// 用户绑定的银行卡ID（基础表中的数据）
+        /// </summary>
+        public int BaseBankId
+        {
+            get { return _baseBankId; }
+            set { _baseBankId = value; }
+        }
+
         private int _userId;
 
         /// <summary>

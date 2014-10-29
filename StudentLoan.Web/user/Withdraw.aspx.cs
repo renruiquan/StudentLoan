@@ -48,8 +48,15 @@ namespace StudentLoan.Web.user
 
             List<UserBankEntityEx> list = new UserBankBLL().GetList(strWhere);
 
-            this.objRepeater.DataSource = list;
-            this.objRepeater.DataBind();
+            if (list == null || list.Count == 0)
+            {
+                this.artDialog("提示", "请先绑定银行卡", "/user/BindBank.aspx");
+            }
+            else
+            {
+                this.objRepeater.DataSource = list;
+                this.objRepeater.DataBind();
+            }
         }
 
         protected void btnWithdraw_ServerClick(object sender, EventArgs e)

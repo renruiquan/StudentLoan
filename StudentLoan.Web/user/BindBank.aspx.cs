@@ -45,7 +45,7 @@ namespace StudentLoan.Web.user
         protected void btnSubmit_ServerClick(object sender, EventArgs e)
         {
             string bankName = this.txtBankName.Text.Trim();
-            int bankId = this.ddlBankTypeList.SelectedValue.Convert<int>();
+            int baseBankId = this.ddlBankTypeList.SelectedValue.Convert<int>();
             string bankCard = this.txtBankCard.Text.Trim();
             string province = this.Request<string>("ddlProvince");
             string city = this.Request<string>("ddlCity");
@@ -59,7 +59,7 @@ namespace StudentLoan.Web.user
                 BankCardNo = bankCard,
                 BankProvince = province,
                 BankCity = city,
-                BankId = bankId,
+                BaseBankId = baseBankId,
                 IsDefault = false,
             };
 

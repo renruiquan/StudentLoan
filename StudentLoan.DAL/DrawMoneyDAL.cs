@@ -375,7 +375,7 @@ namespace StudentLoan.DAL
 
             if (!string.IsNullOrEmpty(strWhere.Trim()))
             {
-                commandText.AppendFormat(" WHERE T.UserId = b.Userid and T.UserId = c.UserId and  {0}", strWhere);
+                commandText.AppendFormat(" WHERE T.BindBankId=b.BankId and T.UserId = c.UserId and  {0}", strWhere);
             }
 
             #endregion
@@ -414,7 +414,7 @@ namespace StudentLoan.DAL
 
             if (!string.IsNullOrEmpty(strWhere.Trim()))
             {
-                commandText.AppendFormat(" WHERE T.UserId=b.UserId and T.UserId = c.UserId and {0}", strWhere);
+                commandText.AppendFormat(" WHERE T.BindBankId=b.BankId and T.UserId = c.UserId and {0}", strWhere);
             }
 
             commandText.Append(" ) TT");

@@ -28,11 +28,11 @@ namespace StudentLoan.DAL
 
             commandText.Append(" Insert Into sl_user_bank( ");
 
-            commandText.Append(" UserId,BankId,BankName,BankCardNo,BankProvince,BankCity,Status,IsDefault,CreateTime) ");
+            commandText.Append(" UserId,BaseBankId,BankName,BankCardNo,BankProvince,BankCity,Status,IsDefault,CreateTime) ");
 
             commandText.Append(" Values ( ");
 
-            commandText.Append(" @UserId,@BankId,@BankName,@BankCardNo,@BankProvince,@BankCity,1,@IsDefault,getdate()) ");
+            commandText.Append(" @UserId,@BaseBankId,@BankName,@BankCardNo,@BankProvince,@BankCity,1,@IsDefault,getdate()) ");
 
             #endregion
 
@@ -42,7 +42,7 @@ namespace StudentLoan.DAL
 
             paramsList.Add(new SqlParameter("@UserId", model.UserId));
 
-            paramsList.Add(new SqlParameter("@BankId", model.BankId));
+            paramsList.Add(new SqlParameter("@BaseBankId", model.BaseBankId));
 
             paramsList.Add(new SqlParameter("@BankName", model.BankName));
 

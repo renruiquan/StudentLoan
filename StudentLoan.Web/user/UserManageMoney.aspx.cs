@@ -14,14 +14,129 @@ namespace StudentLoan.Web.user
 {
     public partial class UserManageMoney : BasePage
     {
-        public int ProductId { get { return this.Request<int>("ProductId"); } }
+        public int ProductId
+        {
+            get
+            {
+                return this.Request<int>("productId", 0, false);
+            }
+        }
 
-        public int ProductSchemeId { get { return this.Request<int>("ProductSchemeId"); } }
+        public int SchemeId
+        {
+            get
+            {
+                return this.Request<int>("SchemeId", 0, false);
+            }
+        }
+
+        public ProductSchemeEntityEx SchemeModel
+        {
+            get
+            {
+                return new ProductSchemeBLL().GetModel(this.SchemeId);
+            }
+        }
+
+        public UsersEntityEx UserModel
+        {
+            get
+            {
+                return new UsersBLL().GetModel(base.GetUserModel().UserId);
+            }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
+            if (!base.IsPostBack)
+            {
+                if ((this.ProductId < 4) && (this.ProductId > 6))
+                {
+                    this.artDialog("错误", "参数不正确", "/ManageMoneyNav.aspx", true);
+                }
+                else if (this.SchemeId == 0)
+                {
+                    this.artDialog("错误", "参数不正确", "/ManageMoneyNav.aspx", true);
+                }
+                else
+                {
+                    this.BindPeriodList();
+                }
+            }
         }
+
+        private void BindPeriodList()
+        {
+            if (this.ProductId == 4)
+            {
+                this.ddlPeriod.Items.Add(new ListItem("1个月", "1"));
+                this.ddlPeriod.Items.Add(new ListItem("2个月", "2"));
+                this.ddlPeriod.Items.Add(new ListItem("3个月", "3"));
+            }
+            else if (this.ProductId == 5)
+            {
+                this.ddlPeriod.Items.Add(new ListItem("4个月", "4"));
+                this.ddlPeriod.Items.Add(new ListItem("5个月", "5"));
+                this.ddlPeriod.Items.Add(new ListItem("6个月", "6"));
+            }
+            else if (this.ProductId == 6)
+            {
+                this.ddlPeriod.Items.Add(new ListItem("7个月", "7"));
+                this.ddlPeriod.Items.Add(new ListItem("8个月", "8"));
+                this.ddlPeriod.Items.Add(new ListItem("9个月", "9"));
+                this.ddlPeriod.Items.Add(new ListItem("10个月", "10"));
+                this.ddlPeriod.Items.Add(new ListItem("11个月", "11"));
+                this.ddlPeriod.Items.Add(new ListItem("12个月", "12"));
+            }
+        }
+
+        protected void btnConfirmBuy_ServerClick(object sender, EventArgs e)
+        {
+            UsersEntityEx userModel = base.GetUserModel();
+            UserManageMoneyEntityEx model = new UserManageMoneyEntityEx
+            {
+                UserId = userModel.UserId,
+                ProductId = this.ProductId,
+                ProductSchemeId = this.SchemeId,
+                Period = this.ddlPeriod.SelectedValue.Convert<int>(0),
+                Count = 1,
+                Amount = this.PurchaseMoney.Text.Trim().Convert<decimal>(0M),
+                CreateTime = DateTime.Now,
+                Status = 0
+            };
+            int num = new UserManageMoneyBLL().Insert(model);
+            if (num > 0)
+            {
+                userModel = new UsersBLL().GetModel(model.UserId);
+                if (userModel.Amount >= Math.Abs(model.Amount))
+                {
+                    model = new UserManageMoneyEntityEx
+                    {
+                        BuyId = num,
+                        UserId = userModel.UserId,
+                        Amount = Math.Abs(model.Amount),
+                        PayTime = DateTime.Now,
+                        EndTime = DateTime.Now.AddMonths(model.Period),
+                        Status = 1
+                    };
+                    if (new UserManageMoneyBLL().Update(model))
+                    {
+                        LogHelper.Default.Info("短信内容：" + new Message().Send(userModel.Telphone, string.Format("亲，你购买了理财产品{0},共消费了{1}元。【学子易贷】", this.SchemeModel.SchemeName, model.Amount)));
+                        this.artDialog("提示", "购买成功", "ManageMoneyList.aspx", true);
+                    }
+                    else
+                    {
+                        this.artDialog("错误", "亲，对不起，由于系统原因，扣费成功，但购买失败，请联系在线客服！给您带来困扰，请谅解！", true);
+                    }
+                }
+                else
+                {
+                    this.artDialog("提示", "对不起，你的余额不足，请先充值！", "Charge.aspx", true);
+                }
+            }
+        }
+
+       
+
     }
 }

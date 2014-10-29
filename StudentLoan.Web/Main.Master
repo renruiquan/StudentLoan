@@ -82,6 +82,13 @@
                         <li>苏ICP备案14046554号</li>
                         <li>|</li>
                         <li><a href="javascript:;">免责条款</a></li>
+                        <li>|</li>
+                        <li>
+                            <script type="text/javascript">
+                                var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                                document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F6da3d5b62fcd9bb4660cd659e0894d39' type='text/javascript'%3E%3C/script%3E"));
+                            </script>
+                        </li>
                     </ul>
 
                 </div>

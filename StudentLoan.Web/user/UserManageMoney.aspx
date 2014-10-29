@@ -17,7 +17,7 @@
                 <div class="well well-large">
                     <h3>学子易贷精选理财计划 - <%=this.SchemeModel.SchemeName %></h3>
 
-                    <p>本息保障计划 预期年收益率<span class="c-orange">9.00%-11.00%</span></p>
+                    <p>本息保障计划 预期年收益率<span class="c-orange"><%=this.SchemeModel.MaxYield.ToString("P2") %></span></p>
 
                     <p class="c-orange">学子易贷精选理财计划将优先于学子易贷散投用户，根据分散投资原则进行投资</p>
                 </div>

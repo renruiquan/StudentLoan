@@ -14,6 +14,9 @@ namespace StudentLoan.Web.user
 {
     public partial class UserManageMoney : BasePage
     {
+        #region 公共属性
+
+
         public int ProductId
         {
             get
@@ -45,6 +48,8 @@ namespace StudentLoan.Web.user
                 return new UsersBLL().GetModel(base.GetUserModel().UserId);
             }
         }
+
+        #endregion
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -92,6 +97,16 @@ namespace StudentLoan.Web.user
 
         protected void btnConfirmBuy_ServerClick(object sender, EventArgs e)
         {
+            decimal purchaseMoney = this.PurchaseMoney.Text.Trim().Convert<decimal>();
+
+            ProductEntityEx productModel = new ProductBLL().GetModel(this.ProductId);
+
+            if (purchaseMoney < productModel.ProductMinMoney)
+            {
+                this.artDialog("错误", string.Format("至小购买金额为{0}元", productModel.ProductMinMoney));
+                return;
+            }
+
             UsersEntityEx userModel = base.GetUserModel();
             UserManageMoneyEntityEx model = new UserManageMoneyEntityEx
             {
@@ -100,19 +115,19 @@ namespace StudentLoan.Web.user
                 ProductSchemeId = this.SchemeId,
                 Period = this.ddlPeriod.SelectedValue.Convert<int>(0),
                 Count = 1,
-                Amount = this.PurchaseMoney.Text.Trim().Convert<decimal>(0M),
+                Amount = purchaseMoney,
                 CreateTime = DateTime.Now,
                 Status = 0
             };
-            int num = new UserManageMoneyBLL().Insert(model);
-            if (num > 0)
+            int buyId = new UserManageMoneyBLL().Insert(model);
+            if (buyId > 0)
             {
                 userModel = new UsersBLL().GetModel(model.UserId);
                 if (userModel.Amount >= Math.Abs(model.Amount))
                 {
                     model = new UserManageMoneyEntityEx
                     {
-                        BuyId = num,
+                        BuyId = buyId,
                         UserId = userModel.UserId,
                         Amount = Math.Abs(model.Amount),
                         PayTime = DateTime.Now,
@@ -136,7 +151,7 @@ namespace StudentLoan.Web.user
             }
         }
 
-       
+
 
     }
 }

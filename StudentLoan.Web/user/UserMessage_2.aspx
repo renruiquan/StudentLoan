@@ -11,7 +11,6 @@
             <ul>
                 <li><a href="UserMessage.aspx">我最近的动态</a></li>
                 <li class="active"><a href="javascript:;">通知</a></li>
-                <li><a href="UserMessage_3.aspx">私信</a></li>
             </ul>
 
         </div>

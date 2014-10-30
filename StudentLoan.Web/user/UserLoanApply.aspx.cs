@@ -104,7 +104,6 @@ namespace StudentLoan.Web.user
 
             decimal shouldRepayMoney = 0;
             int loanTypeId = this.ddlLoanTypeId.SelectedValue.Convert<int>(this.ProductId);
-            string loanTitle = this.txtLoanTitle.Text.Trim().HtmlEncode();
             decimal loanMoney = Math.Abs(this.ddlLoanMoney.SelectedValue.Convert<decimal>(0));
             int loanCategory = this.ddlLoanCategory.SelectedValue.Convert<int>(1);
             string loanDescription = this.txtLoanDescription.Text.Trim().HtmlEncode();
@@ -119,12 +118,6 @@ namespace StudentLoan.Web.user
                 totalAmortization = this.ddlTotalAmortization.SelectedValue.Convert<int>(1);
             }
 
-
-            if (string.IsNullOrEmpty(loanTitle))
-            {
-                this.artDialog("贷款标题不能为空");
-                return;
-            }
             if (loanMoney < ProductModel.ProductMinMoney || loanMoney > ProductModel.ProductMaxMoney)
             {
                 this.artDialog("贷款金额不正确");
@@ -140,7 +133,7 @@ namespace StudentLoan.Web.user
             userLoanModel.LoanNo = DateTime.Now.ToString("yyyyMMddHHmmssffff");
             userLoanModel.UserId = userModel.UserId;
             userLoanModel.ProductId = ProductModel.ProductId;
-            userLoanModel.LoanTitle = loanTitle;
+            userLoanModel.LoanTitle = string.Empty;
             userLoanModel.LoanMoney = loanMoney;
             userLoanModel.LoanTypeId = loanTypeId;
             userLoanModel.LoanCategory = loanCategory;

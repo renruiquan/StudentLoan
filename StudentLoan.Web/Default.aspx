@@ -57,7 +57,7 @@
 							</div>
 							<span class="bg-gray">
 								<h3>高效</h3>
-								<span class="add-btn"></span>
+								<span class="add-btn"><a href="Culture.aspx" style="display:block; width:100px; height:100px;"></a></span>
 							</span>
 						</div>
 						<h1 class="animated fadeInDown">高效</h1>
@@ -73,7 +73,7 @@
 							</div>
 							<span class="bg-gray">
 								<h3>安全</h3>
-								<span class="add-btn"></span>
+								<span class="add-btn"><a href="About.aspx" style="display:block; width:100px; height:100px;"></a></span>
 							</span>
 						</div>
 						<h1 class="animated fadeInDown">安全</h1>
@@ -89,7 +89,7 @@
 							</div>
 							<span class="bg-gray">
 								<h3>保密</h3>
-								<span class="add-btn"></span>
+								<span class="add-btn"><a href="Contact.aspx" style="display:block; width:100px; height:100px;"></a></span>
 							</span>
 						</div>
 						<h1 class="animated fadeInDown">保密</h1>

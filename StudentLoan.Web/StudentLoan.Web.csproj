@@ -219,11 +219,13 @@
     <Content Include="css\images\ui-icons_454545_256x240.png" />
     <Content Include="css\images\ui-icons_888888_256x240.png" />
     <Content Include="css\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="css\img\admin\about_us.jpg" />
     <Content Include="css\img\admin\at_any_time.jpg" />
     <Content Include="css\img\admin\at_any_time.png" />
     <Content Include="css\img\admin\bank_logo.jpg" />
     <Content Include="css\img\admin\booklet.jpg" />
     <Content Include="css\img\admin\booklet_ex.jpg" />
+    <Content Include="css\img\admin\brid.png" />
     <Content Include="css\img\admin\carbook.jpg" />
     <Content Include="css\img\admin\carbook_ex.jpg" />
     <Content Include="css\img\admin\card.jpg" />
@@ -238,6 +240,9 @@
     <Content Include="css\img\admin\diamond.jpg" />
     <Content Include="css\img\admin\diamond.png" />
     <Content Include="css\img\admin\dollar.jpg" />
+    <Content Include="css\img\admin\dollar_1000_10000.jpg" />
+    <Content Include="css\img\admin\dollar_1000_5000.jpg" />
+    <Content Include="css\img\admin\dollar_6000_10000.jpg" />
     <Content Include="css\img\admin\fashion.png" />
     <Content Include="css\img\admin\friend.jpg" />
     <Content Include="css\img\admin\generic.jpg" />
@@ -251,6 +256,7 @@
     <Content Include="css\img\admin\identity_front_ex.jpg" />
     <Content Include="css\img\admin\internetbank.jpg" />
     <Content Include="css\img\admin\internetbank_ex.jpg" />
+    <Content Include="css\img\admin\knocked_active.png" />
     <Content Include="css\img\admin\less_to_multi.png" />
     <Content Include="css\img\admin\lock.jpg" />
     <Content Include="css\img\admin\logo.jpg" />
@@ -278,10 +284,15 @@
     <Content Include="css\img\admin\telephone_ex.jpg" />
     <Content Include="css\img\admin\top_full.png" />
     <Content Include="css\img\admin\travel.png" />
+    <Content Include="css\img\admin\tree.png" />
     <Content Include="css\img\admin\user_head.jpg" />
     <Content Include="css\img\admin\user_icon.jpg" />
     <Content Include="css\img\admin\user_no_frame.png" />
+    <Content Include="css\img\admin\water.png" />
     <Content Include="css\img\admin\writer_from.jpg" />
+    <Content Include="css\img\admin\writer_from2.jpg" />
+    <Content Include="css\img\admin\write_form.png" />
+    <Content Include="css\img\admin\write_title_bg.jpg" />
     <Content Include="css\img\air.png" />
     <Content Include="css\img\banks\bank_EBA.jpg" />
     <Content Include="css\img\banks\icon_ABC.jpg" />
@@ -382,7 +393,6 @@
     <Content Include="RegProvision.aspx" />
     <Content Include="SchoolInfo.aspx" />
     <Content Include="TTTTTTTTTTTTTTTTTTTTT.aspx" />
-    <Content Include="UserLoanApply.aspx" />
     <Content Include="user\AccountLog.aspx" />
     <Content Include="user\ChargeLog.aspx" />
     <Content Include="user\ManageMoneyList_2.aspx" />
@@ -411,7 +421,6 @@
     <Content Include="user\UserLoanList.aspx" />
     <Content Include="user\UserMessage.aspx" />
     <Content Include="user\UserMessage_2.aspx" />
-    <Content Include="user\UserMessage_3.aspx" />
     <Content Include="user\WebForm1.aspx" />
     <Content Include="user\Withdraw.aspx" />
     <Content Include="Web.config">
@@ -718,13 +727,6 @@
     <Compile Include="TTTTTTTTTTTTTTTTTTTTT.aspx.designer.cs">
       <DependentUpon>TTTTTTTTTTTTTTTTTTTTT.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UserLoanApply.aspx.cs">
-      <DependentUpon>UserLoanApply.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserLoanApply.aspx.designer.cs">
-      <DependentUpon>UserLoanApply.aspx</DependentUpon>
-    </Compile>
     <Compile Include="user\AccountLog.aspx.cs">
       <DependentUpon>AccountLog.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -927,13 +929,6 @@
     </Compile>
     <Compile Include="user\UserMessage_2.aspx.designer.cs">
       <DependentUpon>UserMessage_2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="user\UserMessage_3.aspx.cs">
-      <DependentUpon>UserMessage_3.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="user\UserMessage_3.aspx.designer.cs">
-      <DependentUpon>UserMessage_3.aspx</DependentUpon>
     </Compile>
     <Compile Include="user\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>

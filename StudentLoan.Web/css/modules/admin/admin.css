@@ -1093,6 +1093,7 @@ body {
     margin-bottom: 10px;
     cursor: pointer;
 }
+
 .select-bank-cards-active,
 .select-bank-cards:hover {
     border-color: #0060cc;
@@ -1113,12 +1114,207 @@ body {
 }
 
 .td-text-center th,
-.td-text-center td
-{
+.td-text-center td {
     text-align: center;
 }
 
 .empty-txt {
     display: inline-block;
     width: 115px;
+}
+
+.content .about-us-bg {
+    padding-bottom: 300px;
+    background: url("../../img/admin/about_us.jpg") no-repeat center bottom #fff;
+}
+
+.writer-form {
+    padding: 100px 0 500px 0;
+    margin-bottom: 0;
+    background: url("../../img/admin/write_form.png") repeat-x center bottom #aad2ff;
+}
+
+.w-top-bg {
+    color: #fff;
+    background: url("../../img/admin/write_title_bg.jpg") repeat-x center bottom #ff5c23;
+}
+
+.bg-rb .rb2 {
+    right: -2px;
+    background: url("../../img/admin/writer_from2.jpg") no-repeat right bottom #aad2ff;
+}
+
+.borrow-money-detail {
+    margin: 50px 0;
+    float: left;
+    width: 100%;
+}
+
+.borrow-money-detail .title {
+    text-align: center;
+}
+
+.borrow-money-detail .title h1 {
+    font-weight: normal;
+}
+
+.borrow-money-detail .title p {
+    line-height: 50px;
+}
+
+.borrow-money-detail .project-wrap {
+    width: 105%;
+    margin: 20px 0;
+    clear: both;
+    overflow: hidden;
+}
+
+.borrow-money-detail .project-wrap .item {
+    width: 380px;
+    margin-right: 25px;
+    float: left;
+    border: 1px solid #fff;
+}
+
+.borrow-money-detail .project-wrap .item .title {
+    color: #fff;
+    line-height: 60px;
+    margin-top: 0;
+}
+
+.borrow-money-detail .project-wrap .item h4 {
+    font-weight: normal;
+    color: #b7b6b6;
+    clear: both;
+    margin: 20px 0;
+}
+
+.borrow-money-detail .project-wrap .item .limit {
+    overflow: hidden;
+    margin-bottom: 20px;
+    min-height: 120px;
+}
+
+.borrow-money-detail .project-wrap .item .limit .left {
+    float: left;
+    width: 160px;
+}
+
+.borrow-money-detail .project-wrap .item .limit .right {
+    float: right;
+    width: 160px;
+}
+
+.borrow-money-detail .project-wrap .item .condition {
+    background: #fff;
+    min-height: 125px;
+    padding: 20px;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+
+}
+
+.borrow-money-detail .project-wrap .item .limit span {
+    font-size: 30px;
+}
+
+.borrow-money-detail .project-wrap .item .cont {
+    margin: 20px;
+}
+
+.borrow-money-detail .project-wrap .item .adv {
+    text-align: center;
+}
+
+.borrow-money-detail .project-wrap .item .adv span {
+    display: inline-block;
+    margin: 10px;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 50%;
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+}
+
+/*绿色*/
+.borrow-money-detail .project-wrap .green {
+    background: #ecffe2;
+}
+
+.borrow-money-detail .project-wrap .green .adv span,
+.borrow-money-detail .project-wrap .green .title {
+    background: #55c71d;
+}
+
+.borrow-money-detail .project-wrap .green .condition,
+.borrow-money-detail .project-wrap .green .limit span {
+    color: #55c71d;
+
+}
+
+.borrow-money-detail .project-wrap .green,
+.borrow-money-detail .project-wrap .green .condition {
+    border-color: #cdfdb4;
+}
+
+/*橙色*/
+.borrow-money-detail .project-wrap .orange {
+    background: #fff4e3;
+}
+
+.borrow-money-detail .project-wrap .orange .adv span,
+.borrow-money-detail .project-wrap .orange .title {
+    background: #fe6029;
+}
+
+.borrow-money-detail .project-wrap .orange .condition,
+.borrow-money-detail .project-wrap .orange .limit span {
+    color: #fe6029;
+
+}
+
+.borrow-money-detail .project-wrap .orange,
+.borrow-money-detail .project-wrap .orange .condition {
+    border-color: #ffd799;
+}
+
+/*蓝色*/
+
+.borrow-money-detail .project-wrap .blue {
+    background: #dbe5ff;
+}
+
+.borrow-money-detail .project-wrap .blue .adv span,
+.borrow-money-detail .project-wrap .blue .title {
+    background: #4777f1;
+}
+
+.borrow-money-detail .project-wrap .blue .condition,
+.borrow-money-detail .project-wrap .blue .limit span {
+    color: #4777f1;
+
+}
+
+.borrow-money-detail .project-wrap .blue,
+.borrow-money-detail .project-wrap .blue .condition {
+    border-color: #afc5fb;
+}
+
+.borrow-money-table {
+    width: 100%;
+}
+.borrow-money-table th,
+.borrow-money-table td {
+    line-height: 60px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    padding: 0 20px;
+    background: #f2f2f2;
+}
+
+.borrow-money-table th {
+    text-align: center;
+    background: #e4e4e4;
 }

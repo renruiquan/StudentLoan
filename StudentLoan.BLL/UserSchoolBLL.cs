@@ -20,7 +20,15 @@ namespace StudentLoan.BLL
     {
     
         UserSchoolDAL dal = new UserSchoolDAL();
-        
+
+
+        /// <summary>
+        /// 是否存在该记录
+        /// </summary>
+        public bool Exists(int userid)
+        {
+            return dal.Exists(userid);
+        }
         
         /// <summary>
         /// 增加一条数据

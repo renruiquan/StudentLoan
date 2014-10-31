@@ -182,7 +182,7 @@
                                         <label class="control-label">* 账号：</label>
 
                                         <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入账号">
+                                            <asp:TextBox ID="txtXuexin" runat="server" class="span5" type="text" placeholder="请输入学信网账号" />                                            
                                         </div>
                                     </div>
 
@@ -190,7 +190,7 @@
                                         <label class="control-label">* 密码：</label>
 
                                         <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入密码">
+                                            <asp:TextBox ID="txtXuexin_Password" runat="server" class="span5" type="password" placeholder="请输入学信网密码" />                                            
                                         </div>
                                     </div>
 
@@ -198,36 +198,18 @@
                                         <label class="control-label">* 就读学校：</label>
 
                                         <div class="controls text-left">
-                                            <select class="span2" name="">
-                                                <option value="">请选择...</option>
-                                                <option value="">中国</option>
-                                            </select>
-                                            <select class="span2" name="">
-                                                <option value="">请选择...</option>
-                                                <option value="">北京市</option>
-                                            </select>
-                                            <select class="span2" name="">
-                                                <option value="">请选择...</option>
-                                                <option value="">朝阳区</option>
-                                            </select>
+                                            <asp:TextBox ID="txtSchoolName" runat="server" class="span5" type="text" placeholder="请输入学校名称" />
                                         </div>
                                     </div>
 
-
-                                    <div class="control-group">
-                                        <label class="control-label">* 校区：</label>
-
-                                        <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入校区名称">
-                                        </div>
-                                    </div>
+                                   
 
 
                                     <div class="control-group">
                                         <label class="control-label">* 学校地址：</label>
 
                                         <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入学校地址">
+                                            <asp:TextBox ID="txtSchoolAdd" runat="server" class="span5" type="text" placeholder="请输入学校地址" />
                                         </div>
                                     </div>
 
@@ -236,10 +218,26 @@
                                         <label class="control-label">* 入学年份：</label>
 
                                         <div class="controls text-left">
-                                            <select class="span2" name="">
-                                                <option value="">请选择...</option>
-                                                <option value="">朝阳区</option>
-                                            </select>
+                                           <asp:DropDownList runat="server" ID="ddlYearOfAdmission">
+                                                <asp:ListItem Value="0">请选择</asp:ListItem>
+                                                <asp:ListItem Value="2002">2002</asp:ListItem>
+                                                <asp:ListItem Value="2003">2003</asp:ListItem>
+                                               <asp:ListItem Value="2004">2004</asp:ListItem>
+                                               <asp:ListItem Value="2005">2005</asp:ListItem>
+                                               <asp:ListItem Value="2006">2006</asp:ListItem>
+                                               <asp:ListItem Value="2007">2007</asp:ListItem>
+                                               <asp:ListItem Value="2008">2008</asp:ListItem>
+                                               <asp:ListItem Value="2009">2009</asp:ListItem>
+                                               <asp:ListItem Value="2010">2010</asp:ListItem>
+                                               <asp:ListItem Value="2011">2011</asp:ListItem>
+                                               <asp:ListItem Value="2012">2012</asp:ListItem>
+                                               <asp:ListItem Value="2013">2013</asp:ListItem>
+                                               <asp:ListItem Value="2014">2014</asp:ListItem>
+                                               <asp:ListItem Value="2015">2015</asp:ListItem>
+                                               <asp:ListItem Value="2016">2016</asp:ListItem>
+                                               <asp:ListItem Value="2017">2017</asp:ListItem>
+                                               <asp:ListItem Value="2018">2018</asp:ListItem>
+                                            </asp:DropDownList>
                                         </div>
                                     </div>
 
@@ -247,10 +245,15 @@
                                         <label class="control-label">* 学制：</label>
 
                                         <div class="controls text-left">
-                                            <select class="span2" name="">
-                                                <option value="">请选择...</option>
-                                                <option value="">朝阳区</option>
-                                            </select>
+                                            <asp:DropDownList runat="server" ID="ddlSchoolSystem">
+                                                <asp:ListItem Value="0">请选择</asp:ListItem>
+                                                <asp:ListItem Value="3">3年制</asp:ListItem>
+                                                <asp:ListItem Value="4">4年制</asp:ListItem>
+                                                <asp:ListItem Value="5">5年制</asp:ListItem>
+                                                <asp:ListItem Value="6">6年制</asp:ListItem>
+                                                <asp:ListItem Value="7">7年制</asp:ListItem>
+                                                <asp:ListItem Value="8">8年制</asp:ListItem>
+                                                </asp:DropDownList>
                                         </div>
                                     </div>
 
@@ -258,47 +261,30 @@
                                         <label class="control-label">* 学历：</label>
 
                                         <div class="controls text-left">
-                                            <select class="span2" name="">
-                                                <option value="">请选择...</option>
-                                                <option value="">朝阳区</option>
-                                            </select>
+                                             <asp:DropDownList runat="server" ID="ddlEducation">
+                                                 <asp:ListItem Value="0">请选择</asp:ListItem>
+                                                <asp:ListItem Value="1">专科</asp:ListItem>
+                                                <asp:ListItem Value="2">本科</asp:ListItem>
+                                                <asp:ListItem Value="3">硕士（研究生）</asp:ListItem>
+                                                <asp:ListItem Value="4">博士</asp:ListItem>
+                                                <asp:ListItem Value="5">博士后</asp:ListItem>
+                                                <asp:ListItem Value="6">其他</asp:ListItem>
+                                                </asp:DropDownList>
                                         </div>
                                     </div>
 
-
-                                    <div class="control-group">
-                                        <label class="control-label">* 所在学院：</label>
-
-                                        <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入所在学院">
-                                        </div>
-                                    </div>
+                                  
 
 
                                     <div class="control-group">
                                         <label class="control-label">专业（系）：</label>
 
                                         <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入所在院系">
+                                            <asp:TextBox ID="txtMajor" runat="server" class="span5" type="text" placeholder="请输入专业名称" />
                                         </div>
                                     </div>
-
-                                    <div class="control-group">
-                                        <label class="control-label">班级：</label>
-
-                                        <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入所在班级">
-                                        </div>
-                                    </div>
-
-                                    <div class="control-group">
-                                        <label class="control-label">寝室：</label>
-
-                                        <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入所在寝室">
-                                        </div>
-                                    </div>
-
+                                    
+                                    
                                     <div class="control-group">
                                         <div class="controls text-left">
                                             <p class="w400">
@@ -310,7 +296,7 @@
                                     <div class="control-group">
                                         <div class="controls text-left">
                                             <p class="w400 text-center">
-                                                <button class="mt10 btn btn-large btn-block btn-primary" type="button">保存并继续</button>
+                                                <button id="btnSaveStepTwo" onserverclick="btnSaveStepTwo_ServerClick" runat="server" class="mt10 btn btn-large btn-block btn-primary" type="button">保存并继续</button>
                                             </p>
                                         </div>
                                     </div>
@@ -335,15 +321,15 @@
                                         <label class="control-label">* 姓名：</label>
 
                                         <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入姓名">
+                                            <asp:TextBox ID="txtRelativeName" runat="server" class="span5" type="text" placeholder="请输入亲属姓名" />
                                         </div>
                                     </div>
 
                                     <div class="control-group">
-                                        <label class="control-label">* 关系：</label>
+                                        <label class="control-label">* 与本人关系：</label>
 
                                         <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入关系">
+                                            <asp:TextBox ID="txtRelationtype" runat="server" class="span5" type="text" placeholder="请输入关系" />
                                         </div>
                                     </div>
 
@@ -351,7 +337,7 @@
                                         <label class="control-label">* 手机号码：</label>
 
                                         <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入手机号码">
+                                            <asp:TextBox ID="txtRelativeMobile" runat="server" class="span5" type="text" placeholder="请输入亲属手机号码" />
                                         </div>
                                     </div>
 
@@ -359,136 +345,41 @@
                                         <label class="control-label">* 职业：</label>
 
                                         <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入职业">
+                                            <asp:TextBox ID="txtRelativeProfession" runat="server" class="span5" type="text" placeholder="请输入亲属职业" />
                                         </div>
                                     </div>
-
-                                    <div class="control-group">
-                                        <label class="control-label">* 工作单位：</label>
-
-                                        <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入工作单位">
-                                        </div>
-                                    </div>
-
-                                    <div class="control-group">
-                                        <label class="control-label">* 单位地址：</label>
-
-                                        <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入单位地址">
-                                        </div>
-                                    </div>
-
-                                    <div class="control-group">
-                                        <label class="control-label">* 单位电话：</label>
-
-                                        <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入单位电话">
-                                        </div>
-                                    </div>
-
-                                    <h3 class="text-left pl20">2.其他亲属联系人</h3>
-
+                                    
+                                   
+                                    <h3 class="text-left pl20">2.同学（同室）</h3>
                                     <div class="control-group">
                                         <label class="control-label">* 姓名：</label>
 
                                         <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入姓名">
-                                        </div>
-                                    </div>
-
-                                    <div class="control-group">
-                                        <label class="control-label">* 关系：</label>
-
-                                        <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入关系">
-                                        </div>
-                                    </div>
-
-                                    <div class="control-group">
-                                        <label class="control-label">* 手机号码：</label>
-
-                                        <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入手机号码">
-                                        </div>
-                                    </div>
-
-                                    <div class="control-group">
-                                        <label class="control-label">* 职业：</label>
-
-                                        <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入职业">
-                                        </div>
-                                    </div>
-
-                                    <div class="control-group">
-                                        <label class="control-label">* 居住地址：</label>
-
-                                        <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入居住地址">
-                                        </div>
-                                    </div>
-
-                                    <h3 class="text-left pl20">3.同学（同班）</h3>
-                                    <div class="control-group">
-                                        <label class="control-label">* 姓名：</label>
-
-                                        <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入姓名">
+                                            <asp:TextBox ID="txtMateName" runat="server" class="span5" type="text" placeholder="请输入同学姓名" />
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">* 手机号码：</label>
 
                                         <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入手机号码">
+                                            <asp:TextBox ID="txtMateMobile" runat="server" class="span5" type="text" placeholder="请输入同学手机号码" />
                                         </div>
                                     </div>
-                                    <h3 class="text-left pl20">4.同学（同室）</h3>
+                                    <h3 class="text-left pl20">3.朋友（必须不是同学）</h3>
                                     <div class="control-group">
                                         <label class="control-label">* 姓名：</label>
 
                                         <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入姓名">
+                                            <asp:TextBox ID="txtFriendName" runat="server" class="span5" type="text" placeholder="请输入朋友姓名" />
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label">* 手机号码：</label>
 
                                         <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入手机号码">
+                                            <asp:TextBox ID="txtFriendMobile" runat="server" class="span5" type="text" placeholder="请输入朋友手机号码" />
                                         </div>
-                                    </div>
-                                    <h3 class="text-left pl20">5.朋友1（必须不是同学）</h3>
-                                    <div class="control-group">
-                                        <label class="control-label">* 姓名：</label>
-
-                                        <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入姓名">
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label">* 手机号码：</label>
-
-                                        <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入手机号码">
-                                        </div>
-                                    </div>
-                                    <h3 class="text-left pl20">6.朋友2（必须不是现同学）</h3>
-                                    <div class="control-group">
-                                        <label class="control-label">* 姓名：</label>
-
-                                        <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入姓名">
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label">* 手机号码：</label>
-
-                                        <div class="controls text-left">
-                                            <input class="span5" type="text" placeholder="请输入手机号码">
-                                        </div>
-                                    </div>
+                                    </div>                                    
 
                                     <div class="control-group">
                                         <div class="controls text-left">
@@ -501,7 +392,7 @@
                                     <div class="control-group">
                                         <div class="controls text-left">
                                             <p class="w400 text-center">
-                                                <button class="mt10 btn btn-large btn-block btn-primary" type="button">保存并继续</button>
+                                                <button id="btnSaveStepFinal" runat="server" onserverclick="btnSaveStepFinal_ServerClick" class="mt10 btn btn-large btn-block btn-primary" type="button">保存并继续</button>
                                             </p>
                                         </div>
                                     </div>

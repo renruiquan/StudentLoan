@@ -19,6 +19,17 @@ namespace StudentLoan.Model.Base
             set { _userId = value; }
         }
 
+        private string _schoolname;
+
+        /// <summary>
+        /// 专业(系)
+        /// </summary>
+        public string SchoolName
+        {
+            get { return _schoolname; }
+            set { _schoolname = value; }
+        }
+
         private int _education;
 
         /// <summary>

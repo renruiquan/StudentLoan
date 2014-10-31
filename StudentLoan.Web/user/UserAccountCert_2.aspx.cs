@@ -64,7 +64,8 @@ namespace StudentLoan.Web.user
         //保存基本信息一
         protected void btnSaveStepOne_ServerClick(object sender, EventArgs e)
         {
-            UsersEntityEx userModel = Usermodel();          
+            UsersEntityEx userModel = Usermodel();    
+            //step1个人基本信息字段                  
             string truename = txtTruename.Text.Trim().HtmlEncode();
             string identityCard = txtIdentityCard.Text.Trim().HtmlEncode();
             string mobile = txtMobile.Text.Trim().HtmlEncode();
@@ -72,6 +73,9 @@ namespace StudentLoan.Web.user
             string nation = ddlNation.SelectedValue;
             string birthday = txtBirthday.Text.Trim().HtmlEncode();
 
+           
+
+            //step1个人基本信息验证
             if (string.IsNullOrEmpty(truename))
             {
                 this.artDialog("错误", "真实姓名不能为空，请重新填写");
@@ -123,11 +127,261 @@ namespace StudentLoan.Web.user
             bool result = new UsersBLL().Update(userModel);
             if (result)
             {
-                this.artDialog("提示", "保存成功！");
+                this.artDialog("提示", "保存成功！请继续填写其他信息");
+                this.txtTruename.Attributes.Add("ReadOnly", "true");
+                this.txtIdentityCard.Attributes.Add("ReadOnly", "true");
             }
             else
             {
                 this.artDialog("提示", "保存失败，请检查填写的信息是否正确");
+            }
+        }
+
+        protected void btnSaveStepTwo_ServerClick(object sender, EventArgs e)
+        {
+            UsersEntityEx userModel = Usermodel();
+            UserSchoolEntityEx userschoolModel = new UserSchoolEntityEx();
+            //step2学校信息
+            string xuexin = txtXuexin.Text.Trim().HtmlEncode();
+            string xuexinpass = txtXuexin_Password.Text.Trim().HtmlEncode();
+            string schoolname = txtSchoolName.Text.Trim().HtmlEncode();
+            string schooladd = txtSchoolAdd.Text.Trim().HtmlEncode();
+            int yearofadmission = Convert.ToInt32(ddlYearOfAdmission.SelectedValue);
+            int schoolsystem = Convert.ToInt32(ddlSchoolSystem.SelectedValue);
+            int education = Convert.ToInt32(ddlEducation.SelectedValue);
+            string major = txtMajor.Text.Trim().HtmlEncode();
+
+            //step3学校信息验证
+            if (string.IsNullOrEmpty(xuexin))
+            {
+                this.artDialog("错误", "学信网账号不能为空，请重新填写");
+                return;
+            }
+            if (string.IsNullOrEmpty(xuexinpass))
+            {
+                this.artDialog("错误", "学信网密码不能为空，请重新填写");
+                return;
+            }
+            if (string.IsNullOrEmpty(schoolname))
+            {
+                this.artDialog("错误", "学校名称不能为空，请重新填写");
+                return;
+            }
+            if (string.IsNullOrEmpty(schooladd))
+            {
+                this.artDialog("错误", "学校地址不能为空，请重新填写");
+                return;
+            }
+            if (yearofadmission==0)
+            {
+                this.artDialog("错误", "请选择入学年份");
+                return;
+            }
+            if (schoolsystem == 0)
+            {
+                this.artDialog("错误", "请选择学制");
+                return;
+            }
+            if (education == 0)
+            {
+                this.artDialog("错误", "请选择学历");
+                return;
+            }
+            if (string.IsNullOrEmpty(major))
+            {
+                this.artDialog("错误", "专业(系)不能为空，请重新填写");
+                return;
+            }
+
+            if (Session[StudentLoanKeys.SESSION_USER_LOGIN_SUM] == null)
+            {
+                Session[StudentLoanKeys.SESSION_USER_LOGIN_SUM] = 1;
+            }
+
+            else
+            {
+                Session[StudentLoanKeys.SESSION_USER_LOGIN_SUM] = Convert.ToInt32(Session[StudentLoanKeys.SESSION_USER_LOGIN_SUM]) + 1;
+            }
+
+
+            userschoolModel.UserId = userModel.UserId;
+            userschoolModel.SchoolAddress = schooladd;
+            userschoolModel.YearOfAdmission = yearofadmission;
+            userschoolModel.SchoolSystem = schoolsystem;
+            userschoolModel.Education = education;
+            userschoolModel.Major = major;
+            userschoolModel.SchoolName = schoolname;
+            userschoolModel.CreateTime = DateTime.Now;
+
+            //判断用户的学校信息是否存在
+            //bool result=new UserSchoolBLL().Exists(userModel.UserId);
+            bool result = false;
+            if (result)
+            {
+                result = new UserSchoolBLL().Update(userschoolModel);
+                if (result)
+                {
+                    this.artDialog("提示", "保存成功！请继续填写其他信息");
+                }
+                else
+                {
+                    this.artDialog("提示", "保存失败，请检查填写的信息是否正确");
+                }
+            }
+            else
+            {
+                result = new UserSchoolBLL().Insert(userschoolModel);
+                if (result)
+                {
+                    this.artDialog("提示", "保存成功！请继续填写其他信息");
+                }
+                else
+                {
+                    this.artDialog("提示", "保存失败，请检查填写的信息是否正确");
+                }
+            }
+        }
+
+        protected void btnSaveStepFinal_ServerClick(object sender, EventArgs e)
+        {
+            UsersEntityEx userModel = Usermodel();
+            UserRelationshipEntityEx userrelationshipmodel = new UserRelationshipEntityEx();
+            //step3 联系人信息字段
+            string relativename = txtRelativeName.Text.Trim().HtmlEncode();
+            string relativeprofession = txtRelativeProfession.Text.Trim().HtmlEncode();
+            string relativetype = txtRelationtype.Text.Trim().HtmlEncode();
+            string relativemobile = txtRelativeMobile.Text.Trim().HtmlEncode();
+
+            if (string.IsNullOrEmpty(relativename) || string.IsNullOrEmpty(relativeprofession) || string.IsNullOrEmpty(relativetype) || string.IsNullOrEmpty(relativemobile))
+            {
+                this.artDialog("提示","请将亲属信息填写完整");
+                return;
+            }
+
+            string matename = txtMateName.Text.Trim().HtmlEncode();
+            string matemobile = txtMateMobile.Text.Trim().HtmlEncode();
+
+            if (string.IsNullOrEmpty(matename) || string.IsNullOrEmpty(matename) )
+            {
+                this.artDialog("提示", "请将同学(同室)信息填写完整");
+                return;
+            }
+
+            string friendname = txtFriendName.Text.Trim().HtmlEncode();
+            string friendmobile = txtFriendMobile.Text.Trim().HtmlEncode();
+
+            if (string.IsNullOrEmpty(friendname) || string.IsNullOrEmpty(friendmobile))
+            {
+                this.artDialog("提示", "请将朋友信息填写完整");
+                return;
+            }
+            //亲属
+            userrelationshipmodel.UserId = userModel.UserId;
+            userrelationshipmodel.Name = relativename;
+            userrelationshipmodel.Profession = relativeprofession;
+            userrelationshipmodel.Relationship = relativetype;
+            userrelationshipmodel.Mobile = relativemobile;
+            userrelationshipmodel.Type = 1;
+            userrelationshipmodel.CreateTime = DateTime.Now;
+
+            //bool result = new UserRelationshipBLL().Exists(userModel.UserId,relativename,1);
+            bool result = false;
+            if (result)
+            {                
+                result = new UserRelationshipBLL().Update(userrelationshipmodel);
+                if (result)
+                {
+                    this.artDialog("提示", "保存成功！");
+                }
+                else
+                {
+                    this.artDialog("提示", "保存失败，请检查填写的信息是否正确");
+                }
+            }
+            else
+            {
+                result = new UserRelationshipBLL().Insert(userrelationshipmodel);
+                if (result)
+                {
+                    this.artDialog("提示", "保存成功！");
+                }
+                else
+                {
+                    this.artDialog("提示", "保存失败，请检查填写的信息是否正确");
+                }
+            }
+
+            //同学
+            UserRelationshipEntityEx userrelationshipmodel2 = new UserRelationshipEntityEx();
+            userrelationshipmodel2.UserId = userModel.UserId;
+            userrelationshipmodel2.Name = matename;
+            userrelationshipmodel2.Mobile = matemobile;
+            userrelationshipmodel2.Relationship = "同学(同室)";
+            userrelationshipmodel2.Type = 2;
+            userrelationshipmodel2.CreateTime = DateTime.Now;
+
+            //bool result = new UserRelationshipBLL().Exists(userModel.UserId,relativename,1);
+            bool result2 = false;
+            if (result2)
+            {
+                result = new UserRelationshipBLL().Update(userrelationshipmodel2);
+                if (result)
+                {
+                    this.artDialog("提示", "保存成功！");
+                }
+                else
+                {
+                    this.artDialog("提示", "保存失败，请检查填写的信息是否正确");
+                }
+            }
+            else
+            {
+                result = new UserRelationshipBLL().Insert(userrelationshipmodel2);
+                if (result)
+                {
+                    this.artDialog("提示", "保存成功！");
+                }
+                else
+                {
+                    this.artDialog("提示", "保存失败，请检查填写的信息是否正确");
+                }
+            }
+
+
+            //朋友
+            UserRelationshipEntityEx userrelationshipmodel3 = new UserRelationshipEntityEx();
+            userrelationshipmodel3.UserId = userModel.UserId;
+            userrelationshipmodel3.Name = friendname;
+            userrelationshipmodel3.Mobile = friendmobile;
+            userrelationshipmodel3.Relationship = "朋友";
+            userrelationshipmodel3.Type = 3;
+            userrelationshipmodel3.CreateTime = DateTime.Now;
+
+            //bool result = new UserRelationshipBLL().Exists(userModel.UserId,relativename,1);
+            bool result3 = false;
+            if (result3)
+            {
+                result = new UserRelationshipBLL().Update(userrelationshipmodel3);
+                if (result)
+                {
+                    this.artDialog("提示", "保存成功！");
+                }
+                else
+                {
+                    this.artDialog("提示", "保存失败，请检查填写的信息是否正确");
+                }
+            }
+            else
+            {
+                result = new UserRelationshipBLL().Insert(userrelationshipmodel3);
+                if (result)
+                {
+                    this.artDialog("提示", "保存成功！");
+                }
+                else
+                {
+                    this.artDialog("提示", "保存失败，请检查填写的信息是否正确");
+                }
             }
         }
     }

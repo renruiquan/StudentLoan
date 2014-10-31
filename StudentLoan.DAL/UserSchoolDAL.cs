@@ -17,6 +17,29 @@ namespace StudentLoan.DAL
     /// </summary>
     public class UserSchoolDAL : BaseDAL
     {
+        /// <summary>
+        /// 是否存在该记录
+        /// </summary>
+        public bool Exists(int userid)
+        {
+            #region CommandText
+
+            StringBuilder commandText = new StringBuilder();
+
+            commandText.Append("Select UserID From sl_user_school Where UserID = "+userid+"");
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@UserID", userid));
+
+            #endregion
+
+            return (int)base.ExecuteScalar(commandText.ToString()) > 0 ? true : false;
+        }
        
         /// <summary>
         /// 增加一条数据

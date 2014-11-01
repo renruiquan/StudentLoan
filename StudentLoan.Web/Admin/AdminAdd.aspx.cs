@@ -14,7 +14,10 @@ namespace StudentLoan.Web.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                this.BindRoleList();
+            }
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -45,6 +48,17 @@ namespace StudentLoan.Web.Admin
 
                 this.Alert(string.Format("添加{0}", result == true ? "成功" : "失败"), "AdminList.aspx");
             }
+        }
+
+        protected void BindRoleList()
+        {
+            this.ddlRoleId.DataSource = new AdminRoleBLL().GetList(string.Empty);
+
+            this.ddlRoleId.DataTextField = "RoleName";
+            this.ddlRoleId.DataValueField = "RoleId";
+
+            this.ddlRoleId.DataBind();
+
         }
     }
 }

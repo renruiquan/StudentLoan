@@ -30,23 +30,23 @@ namespace StudentLoan.Model.Base
             set { _roleName = value; }
         }
 
-        private byte _roleType;
+        private int _roleType;
 
         /// <summary>
         /// 角色类型
         /// </summary>
-        public byte RoleType
+        public int RoleType
         {
             get { return _roleType; }
             set { _roleType = value; }
         }
 
-        private byte _isSystem;
+        private int _isSystem;
 
         /// <summary>
         /// 是否系统默认0否1是
         /// </summary>
-        public byte IsSystem
+        public int IsSystem
         {
             get { return _isSystem; }
             set { _isSystem = value; }

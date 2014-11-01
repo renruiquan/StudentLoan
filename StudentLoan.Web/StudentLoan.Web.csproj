@@ -74,6 +74,9 @@
     <Content Include="Admin\AdminAdd.aspx" />
     <Content Include="Admin\AdminEdit.aspx" />
     <Content Include="Admin\AdminList.aspx" />
+    <Content Include="Admin\AdminRoleAdd.aspx" />
+    <Content Include="Admin\AdminRoleEdit.aspx" />
+    <Content Include="Admin\AdminRoleList.aspx" />
     <Content Include="Admin\ChangePassword.aspx" />
     <Content Include="Admin\ChargeList.aspx" />
     <Content Include="Admin\css\admin.content.css" />
@@ -172,7 +175,6 @@
     <Content Include="Admin\js\jquery.validate.js" />
     <Content Include="Admin\Login.aspx" />
     <Content Include="Admin\LoginLog.aspx" />
-    <Content Include="Admin\MainMenu.aspx" />
     <Content Include="Admin\ProductSchemeAdd.aspx" />
     <Content Include="Admin\ProductSchemeEdit.aspx" />
     <Content Include="Admin\ProductSchemeList.aspx" />
@@ -458,6 +460,27 @@
     <Compile Include="Admin\AdminList.aspx.designer.cs">
       <DependentUpon>AdminList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AdminRoleAdd.aspx.cs">
+      <DependentUpon>AdminRoleAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminRoleAdd.aspx.designer.cs">
+      <DependentUpon>AdminRoleAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminRoleEdit.aspx.cs">
+      <DependentUpon>AdminRoleEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminRoleEdit.aspx.designer.cs">
+      <DependentUpon>AdminRoleEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminRoleList.aspx.cs">
+      <DependentUpon>AdminRoleList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminRoleList.aspx.designer.cs">
+      <DependentUpon>AdminRoleList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -499,13 +522,6 @@
     </Compile>
     <Compile Include="Admin\LoginLog.aspx.designer.cs">
       <DependentUpon>LoginLog.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\MainMenu.aspx.cs">
-      <DependentUpon>MainMenu.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\MainMenu.aspx.designer.cs">
-      <DependentUpon>MainMenu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ProductSchemeAdd.aspx.cs">
       <DependentUpon>ProductSchemeAdd.aspx</DependentUpon>

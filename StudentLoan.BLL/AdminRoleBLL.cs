@@ -89,9 +89,9 @@ namespace StudentLoan.BLL
         /// <summary>
         /// 获取一个实体
         /// </summary>
-        public AdminRoleEntityEx GetModel(int IsSystem)
+        public AdminRoleEntityEx GetModel(int roleId)
         {
-            return dal.GetModel(IsSystem);
+            return dal.GetModel(roleId);
         }
 
 
@@ -124,10 +124,8 @@ namespace StudentLoan.BLL
         /// <summary>
         /// 分页获取数据列表
         /// </summary>
-        public List<AdminRoleEntityEx> GetListByPage(string strWhere, string orderby, int startIndex, int endIndex, ref int RecordCount)
+        public List<AdminRoleEntityEx> GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
         {
-            RecordCount = this.GetRecordCount(strWhere);
-
             return dal.GetListByPage(strWhere, orderby, startIndex, endIndex);
         }
     }

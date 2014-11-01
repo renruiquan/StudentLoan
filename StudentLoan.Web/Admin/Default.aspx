@@ -69,6 +69,7 @@
                 <div class="menu-list hide">
                     <div class="top-line"></div>
                     <ul class="nav-items">
+                        <li><a href="AdminRoleList.aspx" target="content">角色列表</a></li>
                         <li><a href="AdminList.aspx" target="content">管理员列表</a></li>
                         <li><a href="LoginLog.aspx" target="content">登录日志</a></li>
                     </ul>

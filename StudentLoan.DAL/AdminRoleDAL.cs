@@ -317,11 +317,6 @@ namespace StudentLoan.DAL
 				commandText.Append(" Order By T.RoleId Desc");
 			}
             
-            if (!string.IsNullOrEmpty(orderby))
-            {
-                commandText.AppendFormat(" Order By  {0} Desc", orderby.Replace("-",""));
-            }
-            
             commandText.Append(" )AS Row, T.*  From sl_admin_role T ");
             
 			if (!string.IsNullOrEmpty(strWhere.Trim()))

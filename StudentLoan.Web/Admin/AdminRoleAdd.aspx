@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminAdd.aspx.cs" Inherits="StudentLoan.Web.Admin.AdminAdd" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminRoleAdd.aspx.cs" Inherits="StudentLoan.Web.Admin.AdminRoleAdd" %>
+
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -24,16 +25,16 @@
 
         <div class="container">
 
-            <div class="location">当前位置：系统管理 -&gt; 添加管理员</div>
+            <div class="location">当前位置：角色管理 -&gt; 添加角色</div>
 
             <div class="blank10"></div>
 
             <div class="block">
                 <div class="h">
                     <span class="icon-sprite icon-list"></span>
-                    <h3>管理员信息</h3>
+                    <h3>添加角色</h3>
                     <div class="bar">
-                        <a class="btn-lit" href="AdminList.aspx"><span>返回</span></a>
+                        <a class="btn-lit" href="AdminRoleList.aspx"><span>返回</span></a>
                     </div>
                 </div>
                 <div class="tl corner"></div>
@@ -45,37 +46,28 @@
                         <table class="data-form" cellspacing="0" cellpadding="0">
                             <tbody>
                                 <tr>
-                                    <th scope="row">角色：</th>
+                                    <th scope="row">角色名称：</th>
                                     <td>
-                                        <asp:DropDownList ID="ddlRoleId" runat="server">
+                                        <asp:TextBox ID="txtAdminRoleName" placeholder="角色名称" runat="server" class="required" /></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">角色类别：</th>
+                                    <td>
+                                        <asp:DropDownList ID="ddlRoleType" runat="server">
+                                            <asp:ListItem Value="1">超级用户</asp:ListItem>
+                                            <asp:ListItem Selected="True" Value="2">系统用户</asp:ListItem>
                                         </asp:DropDownList>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">登录名：</th>
+                                    <th scope="row">系统级别：</th>
                                     <td>
-                                        <asp:TextBox ID="txtAdminName" placeholder="管理员名称" runat="server" class="required" /></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">密码：</th>
-                                    <td>
-                                        <asp:TextBox ID="txtPassword" placeholder="密码" runat="server" class="required" /></td>
-                                </tr>
+                                        <asp:DropDownList ID="ddlIsSystem" runat="server">
+                                            <asp:ListItem Value="0">否</asp:ListItem>
+                                            <asp:ListItem Value="1">是</asp:ListItem>
+                                        </asp:DropDownList>
 
-                                <tr>
-                                    <th scope="row">真实姓名：</th>
-                                    <td>
-                                        <asp:TextBox ID="txtRealName" placeholder="真实姓名" runat="server" class="required" /></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">联系电话：</th>
-                                    <td>
-                                        <asp:TextBox ID="txtTelephone" placeholder="联系电话" runat="server" class="required digits" /></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">邮箱：</th>
-                                    <td>
-                                        <asp:TextBox ID="txtEmail" placeholder="邮箱" runat="server" class="required email" /></td>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">&nbsp;</th>

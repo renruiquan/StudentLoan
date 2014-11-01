@@ -17,6 +17,15 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $("#form1").validate();
+
+            var oldbgcolor;
+            $('table.data-table tr:even').addClass('even');
+            $('table.data-table tr').mouseover(function () {
+                oldbgcolor = $(this).css("background-color");
+                $(this).css("background-color", "#CCC")
+            }).mouseout(function () {
+                $(this).css("background-color", oldbgcolor);
+            });
         });
     </script>
 </head>
@@ -77,6 +86,46 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block" style="margin-top: 10px;">
+                <div class="h">
+                    <span class="icon-sprite icon-list"></span>
+                    <h3>导航列表</h3>
+                </div>
+                <div class="tl corner"></div>
+                <div class="tr corner"></div>
+                <div class="bl corner"></div>
+                <div class="br corner"></div>
+                <div class="cnt-wp">
+                    <div class="cnt">
+                        <asp:Repeater ID="objRepeater" runat="server">
+                            <HeaderTemplate>
+                                <table class="data-table" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <th>导航ID</th>
+                                        <th>标题</th>
+                                        <th>链接地址</th>
+                                        <th>权限</th>
+                                    </tr>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <tr>
+                                    <td><%#Eval("NavID")%></td>
+                                    <td><%#Eval("Title")%></td>
+                                    <td><%#Eval("LinkUrl")%></td>
+                                    <td>
+                                        <asp:CheckBox runat="server" ID="objCheckBox" value='<%#Eval("NavId") %>' /></td>
+                                </tr>
+                            </ItemTemplate>
+                            <FooterTemplate>
+                                </table>
+                            </FooterTemplate>
+                        </asp:Repeater>
+
+
                     </div>
                 </div>
             </div>

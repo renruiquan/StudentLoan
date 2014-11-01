@@ -55,6 +55,7 @@
     <Compile Include="Base\CategoryEntity.cs" />
     <Compile Include="Base\ChannelEntity.cs" />
     <Compile Include="Base\DrawMoneyEntity.cs" />
+    <Compile Include="Base\NavigationEntity.cs" />
     <Compile Include="Base\ProductEntity.cs" />
     <Compile Include="Base\ProductSchemeEntity.cs" />
     <Compile Include="Base\UserBankEntity.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="CategoryEntityEx.cs" />
     <Compile Include="ChannelEntityEx.cs" />
     <Compile Include="DrawMoneyEntityEx.cs" />
+    <Compile Include="NavigationEntityEx.cs" />
     <Compile Include="PorductEntityEx.cs" />
     <Compile Include="ProductSchemeEntityEx.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

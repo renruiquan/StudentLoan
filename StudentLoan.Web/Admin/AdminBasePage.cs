@@ -78,13 +78,13 @@ namespace StudentLoan.Web.Admin
         /// <summary>
         /// 检查管理员权限
         /// </summary>
-        /// <param name="nav_name">菜单名称</param>
+        /// <param name="url">菜单名称</param>
         /// <param name="action_type">操作类型</param>
-        public void ChkAdminLevel(string nav_name, string action_type)
+        public void ChkAdminLevel(string url)
         {
             AdminEntityEx model = GetAdminInfo();
             AdminRoleBLL bll = new AdminRoleBLL();
-            bool result = bll.Exists(model.RoleId, nav_name, action_type);
+            bool result = bll.Exists(model.RoleId, url);
 
             if (!result)
             {

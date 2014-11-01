@@ -18,9 +18,9 @@ namespace StudentLoan.BLL
     /// </summary>
     public class AdminRoleValueBLL
     {
-    
+
         AdminRoleValueDAL dal = new AdminRoleValueDAL();
-        
+
         /// <summary>
         /// 是否存在该记录
         /// </summary>
@@ -28,8 +28,8 @@ namespace StudentLoan.BLL
         {
             return dal.Exists(ActionType);
         }
-        
-        
+
+
         /// <summary>
         /// 增加一条数据
         /// </summary>
@@ -37,8 +37,8 @@ namespace StudentLoan.BLL
         {
             return dal.Insert(model);
         }
-        
-        
+
+
         /// <summary>
         /// 删除一条数据
         /// </summary>
@@ -46,8 +46,8 @@ namespace StudentLoan.BLL
         {
             return dal.Delete(model);
         }
-        
-        
+
+
         /// <summary>
         /// 批量删数据
         /// </summary>
@@ -55,8 +55,8 @@ namespace StudentLoan.BLL
         {
             return dal.DeleteList(AdminRoleValueIDList);
         }
-        
-        
+
+
         /// <summary>
         /// 更新一条数据
         /// </summary>
@@ -64,8 +64,8 @@ namespace StudentLoan.BLL
         {
             return dal.Update(model);
         }
-        
-        
+
+
         /// <summary>
         /// 获取一个实体
         /// </summary>
@@ -73,8 +73,8 @@ namespace StudentLoan.BLL
         {
             return dal.GetModel(ActionType);
         }
-        
-        
+
+
         /// <summary>
         /// 获取数据列表
         /// </summary>
@@ -82,16 +82,16 @@ namespace StudentLoan.BLL
         {
             return dal.GetList(strWhere);
         }
-        
+
         /// <summary>
         /// 获取数据列表
         /// </summary>
-        public List<AdminRoleValueEntityEx> GetList(int top,string strWhere,string orderby)
+        public List<AdminRoleValueEntityEx> GetList(int top, string strWhere, string orderby)
         {
-            return dal.GetList(top,strWhere,orderby); 
+            return dal.GetList(top, strWhere, orderby);
         }
-        
-        
+
+
         /// <summary>
         /// 获取记录总数
         /// </summary>
@@ -99,16 +99,25 @@ namespace StudentLoan.BLL
         {
             return dal.GetRecordCount(strWhere);
         }
-        
-        
+
+
+        /// <summary>
+        /// 获取导航列表
+        /// </summary>
+        public List<NavigationEntityEx> GetNavList(string strWhere)
+        {
+            return dal.GetNavList(strWhere);
+        }
+
+
         /// <summary>
         /// 分页获取数据列表
         /// </summary>
-        public List<AdminRoleValueEntityEx> GetListByPage(string strWhere, string orderby, int startIndex, int endIndex,ref int RecordCount)
+        public List<AdminRoleValueEntityEx> GetListByPage(string strWhere, string orderby, int startIndex, int endIndex, ref int RecordCount)
         {
-            RecordCount = this.GetRecordCount(strWhere); 
-            
-            return dal.GetListByPage(strWhere,orderby,startIndex,endIndex);
+            RecordCount = this.GetRecordCount(strWhere);
+
+            return dal.GetListByPage(strWhere, orderby, startIndex, endIndex);
         }
     }
 }

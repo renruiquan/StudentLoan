@@ -30,26 +30,15 @@ namespace StudentLoan.Model.Base
             set { _roleId = value; }
         }
 
-        private string _navName;
+        private int _navId;
 
         /// <summary>
         /// 导航名称
         /// </summary>
-        public string NavName
+        public int NavId
         {
-            get { return _navName; }
-            set { _navName = value; }
-        }
-
-        private string _actionType;
-
-        /// <summary>
-        /// 权限类型
-        /// </summary>
-        public string ActionType
-        {
-            get { return _actionType; }
-            set { _actionType = value; }
+            get { return _navId; }
+            set { _navId = value; }
         }
 
     }

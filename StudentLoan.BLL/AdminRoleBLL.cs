@@ -24,36 +24,36 @@ namespace StudentLoan.BLL
         /// <summary>
         /// 是否存在该记录
         /// </summary>
-        public bool Exists(int IsSystem)
+        public bool Exists(string roleName)
         {
-            return dal.Exists(IsSystem);
+            return dal.Exists(roleName);
         }
 
         /// <summary>
         /// 检查是否有权限
         /// </summary>
-        public bool Exists(int role_id, string nav_name, string action_type)
+        public bool Exists(int roleid, string url)
         {
-            AdminRoleEntityEx model = dal.GetModel(role_id);
-            if (model != null)
-            {
-                if (model.RoleType == 1)
-                {
-                    return true;
-                }
-                AdminRoleValueEntityEx modelt = model.AdminRoleValues.Find(p => p.NavName == nav_name && p.ActionType == action_type) as AdminRoleValueEntityEx;
-                if (modelt != null)
-                {
-                    return true;
-                }
-            }
+            AdminRoleEntityEx model = dal.GetModel(roleid);
+            //if (model != null)
+            //{
+            //    if (model.RoleType == 1)
+            //    {
+            //        return true;
+            //    }
+            //    AdminRoleValueEntityEx modelt = model.AdminRoleValues.Find(p => p.NavId == url) as AdminRoleValueEntityEx;
+            //    if (modelt != null)
+            //    {
+            //        return true;
+            //    }
+            //}
             return false;
         }
 
         /// <summary>
         /// 增加一条数据
         /// </summary>
-        public bool Insert(AdminRoleEntityEx model)
+        public int Insert(AdminRoleEntityEx model)
         {
             return dal.Insert(model);
         }

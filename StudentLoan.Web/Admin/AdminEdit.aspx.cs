@@ -19,6 +19,8 @@ namespace StudentLoan.Web.Admin
             {
                 AdminEntityEx admin = base.GetAdminInfo();
 
+                this.BindRoleList();
+
                 if (admin.RoleId != 1)
                 {
                     this.Alert("对不起，仅超级管理员才有权限修改其他管理员信息！", "AdminList.aspx");
@@ -66,6 +68,17 @@ namespace StudentLoan.Web.Admin
             bool result = new AdminBLL().Update(model);
 
             this.Alert(string.Format("更新{0}", result == true ? "成功" : "失败"), "AdminList.aspx");
+        }
+
+        protected void BindRoleList()
+        {
+            this.ddlRoleId.DataSource = new AdminRoleBLL().GetList(string.Empty);
+
+            this.ddlRoleId.DataTextField = "RoleName";
+            this.ddlRoleId.DataValueField = "RoleId";
+
+            this.ddlRoleId.DataBind();
+
         }
     }
 }

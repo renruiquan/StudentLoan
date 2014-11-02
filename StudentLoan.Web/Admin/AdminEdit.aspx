@@ -49,9 +49,6 @@
                                     <th scope="row">角色：</th>
                                     <td>
                                         <asp:DropDownList ID="ddlRoleId" runat="server">
-                                            <asp:ListItem Value="1">超级管理员</asp:ListItem>
-                                            <asp:ListItem Value="2">系统管理员</asp:ListItem>
-                                            <asp:ListItem Value="3">普通管理员</asp:ListItem>
                                         </asp:DropDownList>
                                     </td>
                                 </tr>

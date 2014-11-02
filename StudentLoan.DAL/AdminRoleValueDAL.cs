@@ -245,6 +245,38 @@ namespace StudentLoan.DAL
             }
         }
 
+
+        /// <summary>
+        /// 根据角色ID，获取菜单
+        /// </summary>
+        /// <param name="roleId"></param>
+        /// <returns></returns>
+        public List<AdminRoleValueEntityEx> GetNavListByRoleId(int roleId)
+        {
+            #region CommandText
+
+            string commandText = @"SELECT
+	                                    a.id,
+	                                    a.RoleId,
+	                                    a.NavID,
+	                                    b.Title,
+	                                    b.LinkUrl
+                                    FROM	sl_admin_role_value a,
+		                                    sl_navigation b
+                                    WHERE a.NavID = b.NavId
+                                    AND a.RoleId = @RoleId";
+
+            #endregion
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+            paramsList.Add(new SqlParameter("@RoleId", roleId));
+
+            using (SqlDataReader objReader = SqlHelper.ExecuteReader(base.ConnectionString, CommandType.Text, commandText, paramsList.ToArray()))
+            {
+                return objReader.ReaderToList<AdminRoleValueEntityEx>() as List<AdminRoleValueEntityEx>;
+            }
+        }
+
         /// <summary>
         /// 获取数据列表
         /// </summary>

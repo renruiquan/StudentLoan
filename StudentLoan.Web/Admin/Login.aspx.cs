@@ -15,7 +15,12 @@ namespace StudentLoan.Web.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (!IsPostBack)
+            {
+                Session[StudentLoanKeys.SESSION_ADMIN_INFO] = null;
+                this.WriteCookie("AdminName", "StudentLoan", -14400);
+                this.WriteCookie("AdminPassword", "StudentLoan", -14400);
+            }
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)

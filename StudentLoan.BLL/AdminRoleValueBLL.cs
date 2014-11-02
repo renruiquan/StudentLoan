@@ -111,6 +111,16 @@ namespace StudentLoan.BLL
 
 
         /// <summary>
+        /// 根据角色ID，获取菜单
+        /// </summary>
+        /// <param name="roleId"></param>
+        /// <returns></returns>
+        public Dictionary<string, int> GetNavListByRoleId(int roleId)
+        {
+            return dal.GetNavListByRoleId(roleId).ToDictionary(s => s.LinkUrl, s => s.RoleId);
+        }
+
+        /// <summary>
         /// 分页获取数据列表
         /// </summary>
         public List<AdminRoleValueEntityEx> GetListByPage(string strWhere, string orderby, int startIndex, int endIndex, ref int RecordCount)

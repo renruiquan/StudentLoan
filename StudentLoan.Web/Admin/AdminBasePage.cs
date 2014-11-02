@@ -27,6 +27,8 @@ namespace StudentLoan.Web.Admin
                 Response.Write("<script>parent.location.href='login.aspx'</script>");
                 Response.End();
             }
+
+            ChkAdminLevel(Request.Url.LocalPath);
         }
 
         #region 管理员============================================
@@ -83,14 +85,17 @@ namespace StudentLoan.Web.Admin
         public void ChkAdminLevel(string url)
         {
             AdminEntityEx model = GetAdminInfo();
-            AdminRoleBLL bll = new AdminRoleBLL();
-            bool result = bll.Exists(model.RoleId, url);
+            AdminRoleValueBLL bll = new AdminRoleValueBLL();
+            Dictionary<string, int> navList = bll.GetNavListByRoleId(model.RoleId);
 
-            if (!result)
+            if (model.RoleId > 2)
             {
-                string msgbox = "parent.jsdialog(\"错误提示\", \"您没有管理该页面的权限，请勿非法进入！\", \"back\", \"Error\")";
-                Response.Write("<script type=\"text/javascript\">" + msgbox + "</script>");
-                Response.End();
+
+                if (!navList.ContainsKey(url))
+                {
+                    Response.Write("<script type=\"text/javascript\">alert('对不起，您没有该权限！');</script>");
+                    Response.End();
+                }
             }
         }
 

@@ -10,6 +10,9 @@ using StudentLoan.Common;
 using StudentLoan.API;
 using StudentLoan.Common.Logging;
 using System.Text;
+using NPOI.SS.UserModel;
+using System.IO;
+using NPOI.XSSF.UserModel;
 
 namespace StudentLoan.Web.Admin
 {
@@ -146,6 +149,109 @@ namespace StudentLoan.Web.Admin
             {
                 return "异常";
             }
+        }
+
+        protected void btnExport_ServerClick(object sender, EventArgs e)
+        {
+            string strWhere = @" 1=1 ";
+
+            string queryContent = this.txtQueryContent.Text.Trim().HtmlEncode();
+            string startTime = this.txtStartTime.Text.Trim();
+            string endTime = this.txtEndTime.Text.Trim();
+
+            if (!string.IsNullOrEmpty(queryContent))
+            {
+                if (this.ddlQueryType.SelectedValue == "1")
+                {
+                    strWhere += string.Format(@" and c.UserName = '{0}'", queryContent);
+                }
+
+                if (this.ddlQueryType.SelectedValue == "2")
+                {
+                    strWhere += string.Format(@" and b.SchemeName = '{0}'", queryContent);
+                }
+            }
+
+            if (!string.IsNullOrEmpty(startTime))
+            {
+                strWhere += string.Format(@" and T.CreateTime >= '{0}'", startTime.Convert<DateTime>());
+            }
+
+            if (!string.IsNullOrEmpty(endTime))
+            {
+                strWhere += string.Format(@" and T.CreateTime <= '{0}'", endTime.Convert<DateTime>());
+            }
+
+
+            List<UserManageMoneyEntityEx> sheetAdapter = new UserManageMoneyBLL().GetExportList(strWhere);
+
+            string filename = string.Format("理财记录-{0}_{1}.xlsx", startTime, endTime);
+            Response.Clear();
+            Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            Response.AddHeader("Content-Disposition", string.Format("attachment;filename={0}", filename));
+            XSSFWorkbook workbook = new XSSFWorkbook();
+            ISheet sheet = workbook.CreateSheet("Sheet1");
+
+            for (int i = 0; i < sheetAdapter.Count; i++)
+            {
+                //首行
+                IRow firstRow = sheet.CreateRow(0);
+                firstRow.HeightInPoints = 25;
+                sheet.DefaultColumnWidth = 15;
+
+
+                firstRow.CreateCell(0, CellType.String).SetCellValue("理财编号");
+                firstRow.CreateCell(1, CellType.String).SetCellValue("用户名");
+                firstRow.CreateCell(2, CellType.String).SetCellValue("产品名称");
+                firstRow.CreateCell(3, CellType.String).SetCellValue("方案名称");
+                firstRow.CreateCell(4, CellType.Numeric).SetCellValue("购买数量");
+                firstRow.CreateCell(5, CellType.Numeric).SetCellValue("金额");
+                firstRow.CreateCell(6, CellType.String).SetCellValue("订单日期");
+                firstRow.CreateCell(7, CellType.String).SetCellValue("支付日期");
+                firstRow.CreateCell(8, CellType.String).SetCellValue("状态");
+
+
+                //居中对齐
+                for (int j = 0; j <= 8; j++)
+                {
+                    firstRow.Cells[j].CellStyle.VerticalAlignment = VerticalAlignment.Center;
+                    firstRow.Cells[j].CellStyle.Alignment = HorizontalAlignment.Center;
+                }
+
+                //冻结首行
+                sheet.CreateFreezePane(0, 1);
+
+
+                IRow row = sheet.CreateRow(i + 1);
+
+                row.HeightInPoints = 25;
+
+                row.CreateCell(0, CellType.String).SetCellValue(sheetAdapter[i].BuyId);
+                row.CreateCell(1, CellType.String).SetCellValue(sheetAdapter[i].UserName);
+                row.CreateCell(2, CellType.String).SetCellValue(sheetAdapter[i].ProductName);
+                row.CreateCell(3, CellType.String).SetCellValue(sheetAdapter[i].SchemeName);
+                row.CreateCell(4, CellType.Numeric).SetCellValue(sheetAdapter[i].Count);
+                row.CreateCell(5, CellType.Numeric).SetCellValue(sheetAdapter[i].Amount.Convert<double>());
+                row.CreateCell(6, CellType.String).SetCellValue(string.Format("{0}", sheetAdapter[i].CreateTime));
+                row.CreateCell(7, CellType.String).SetCellValue(string.Format("{0}", sheetAdapter[i].PayTime));
+                row.CreateCell(8, CellType.String).SetCellValue(string.Format("{0}", this.GetStatusName(sheetAdapter[i].Status)));
+
+            }
+
+            string savePath = string.Format("{0}", MapPath("~/Excels"));
+
+            if (!Directory.Exists(savePath))
+            {
+                Directory.CreateDirectory(savePath);
+            }
+
+            using (var f = File.Create(string.Format("{0}/{1}", MapPath("~/Excels"), filename)))
+            {
+                workbook.Write(f);
+            }
+            Response.WriteFile(string.Format("{0}/{1}", MapPath("~/Excels"), filename));
+            Response.Flush();
+            Response.End();
         }
 
     }

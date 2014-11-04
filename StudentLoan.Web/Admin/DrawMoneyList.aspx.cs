@@ -247,7 +247,7 @@ namespace StudentLoan.Web.Admin
 
 
                 //居中对齐
-                for (int j = 0; j <= 11; j++)
+                for (int j = 0; j <= 12; j++)
                 {
                     firstRow.Cells[j].CellStyle.VerticalAlignment = VerticalAlignment.Center;
                     firstRow.Cells[j].CellStyle.Alignment = HorizontalAlignment.Center;

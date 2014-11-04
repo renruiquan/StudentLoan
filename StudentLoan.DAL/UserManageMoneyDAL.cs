@@ -443,6 +443,27 @@ namespace StudentLoan.DAL
         }
 
         /// <summary>
+        /// 获取导出数据
+        /// </summary>
+        /// <param name="strWhere"></param>
+        /// <returns></returns>
+        public List<UserManageMoneyEntityEx> GetExportList(string strWhere)
+        {
+            StringBuilder commandText = new StringBuilder();
+
+            commandText.Append(@" SELECT T.*, a.ProductName,b.SchemeName,c.UserName ");
+
+            commandText.Append(" From sl_user_manage_money T ,sl_product a, sl_product_scheme b,sl_users c ");
+            commandText.AppendFormat(" where T.ProductId = a.ProductId AND T.ProductSchemeId = b.SchemeId and T.UserId=c.UserId  and  {0}", strWhere);
+
+            using (SqlDataReader objReader = SqlHelper.ExecuteReader(base.ConnectionString, CommandType.Text, commandText.ToString(), null))
+            {
+                return objReader.ReaderToList<UserManageMoneyEntityEx>() as List<UserManageMoneyEntityEx>;
+            }
+
+        }
+
+        /// <summary>
         /// 获取数据列表
         /// </summary>
         public List<UserManageMoneyEntityEx> GetList(int top, string strWhere, string orderby)

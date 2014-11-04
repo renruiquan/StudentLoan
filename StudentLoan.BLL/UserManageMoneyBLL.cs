@@ -126,6 +126,16 @@ namespace StudentLoan.BLL
             return dal.GetList(strWhere);
         }
 
+          /// <summary>
+        /// 获取导出数据
+        /// </summary>
+        /// <param name="strWhere"></param>
+        /// <returns></returns>
+        public List<UserManageMoneyEntityEx> GetExportList(string strWhere)
+        {
+            return dal.GetExportList(strWhere);
+        }
+
         /// <summary>
         /// 获取数据列表
         /// </summary>

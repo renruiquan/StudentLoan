@@ -326,13 +326,23 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select Id,UserId,OrderNo,ChannelId,ChannelOrderNo,ProductName,ChargeMoney,ConfirmMoney,Fee,CallbackCode,CreateTime,CallbackTime,PayTime,Status,Ext1,Ext2,Ext3,Ext4,Ext5 ");
+            commandText.Append(@" SELECT
+                                        a.UserName,
+                                        T.OrderNo,
+                                        b.ChannelName,
+                                        T.ChannelOrderNo,
+                                        T.ConfirmMoney,
+                                        T.CreateTime,
+                                        T.PayTime,
+                                        T.CallbackTime,
+                                        T.CallbackCode,
+                                        T.Status ");
 
-            commandText.Append("From sl_user_charge ");
+            commandText.Append("FROM sl_user_charge T,sl_users a,sl_channel b ");
 
             if (!string.IsNullOrEmpty(strWhere.Trim()))
             {
-                commandText.AppendFormat(" WHERE {0}", strWhere);
+                commandText.AppendFormat(" WHERE a.UserId=t.UserId and b.ChannelId=t.ChannelId  and {0}", strWhere);
             }
 
             #endregion

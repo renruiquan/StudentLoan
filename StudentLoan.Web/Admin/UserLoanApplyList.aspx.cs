@@ -370,7 +370,7 @@ namespace StudentLoan.Web.Admin
                 row.CreateCell(6, CellType.Numeric).SetCellValue(sheetAdapter[i].ShouldRepayMoney.Convert<double>());
                 row.CreateCell(7, CellType.Numeric).SetCellValue(sheetAdapter[i].AlreadyAmortization);
                 row.CreateCell(8, CellType.Numeric).SetCellValue(sheetAdapter[i].TotalAmortization);
-                row.CreateCell(9, CellType.String).SetCellValue(string.Format("{0}", sheetAdapter[i].Status));
+                row.CreateCell(9, CellType.String).SetCellValue(string.Format("{0}", this.GetStatusName(sheetAdapter[i].Status)));
                 row.CreateCell(10, CellType.String).SetCellValue(string.Format("{0}", sheetAdapter[i].AdminName));
                 row.CreateCell(11, CellType.String).SetCellValue(string.Format("{0}", sheetAdapter[i].PassTime));
 

@@ -316,7 +316,7 @@ namespace StudentLoan.Web.Admin
 
             List<UserLoanEntityEx> sheetAdapter = new UserLoanBLL().GetList(strWhere);
 
-            string filename = string.Format("借款申请-{0}_{1}.xlsx", startTime, endTime);
+            string filename = string.Format("借款记录-{0}_{1}.xlsx", startTime, endTime);
             Response.Clear();
             Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
             Response.AddHeader("Content-Disposition", string.Format("attachment;filename={0}", filename));

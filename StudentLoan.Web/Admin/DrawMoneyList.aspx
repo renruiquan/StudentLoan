@@ -73,6 +73,7 @@
                             </asp:DropDownList>
 
                             <label><a class="btn-lit btn-middle btn-lit-top" href="javascript:void(0);" runat="server" onserverclick="btnSearch_Click"><span>搜索</span></a></label>
+                            <label><a class="btn-lit btn-middle btn-lit-top" href="javascript:void(0);" runat="server" id="btnExport" onserverclick="btnExport_ServerClick"><span>导出数据</span></a></label>
                         </div>
                     </div>
                 </div>
@@ -95,7 +96,7 @@
                                 <table class="data-table" width="100%" border="0" cellspacing="0" cellpadding="0">
                                     <tr>
                                         <th class="txt40 c">提款编号</th>
-                                        <th class="txt40 c">用户名</th>
+                                        <th class="txt40 c">用户名/真实姓名</th>
                                         <th class="txt40 c">开户行名称</th>
                                         <th class="txt40 c">银行卡卡号</th>
                                         <th class="txt40 c">开户行地区</th>
@@ -106,13 +107,13 @@
                                         <th class="txt40 c">通过时间</th>
                                         <th class="txt40 c">打款人</th>
                                         <th class="txt40 c">状态</th>
-                                        <th >操作</th>
+                                        <th>操作</th>
                                     </tr>
                             </HeaderTemplate>
                             <ItemTemplate>
                                 <tr>
                                     <td><%#Eval("DrawId")%></td>
-                                    <td><%#Eval("TrueName")%></td>
+                                    <td><%#Eval("UserName")%>/<%#Eval("TrueName")%></td>
                                     <td><%#Eval("BankName")%></td>
                                     <td><%#Eval("BankCardNo")%></td>
                                     <td><%#Eval("BankProvince")%> <%#Eval("BankCity")%></td>

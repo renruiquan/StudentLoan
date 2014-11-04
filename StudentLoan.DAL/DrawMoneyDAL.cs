@@ -295,13 +295,27 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select DrawId,BindBankId,DrawMoney,Fee,LockMoney,ConfirmMoney,ApplyTime,PassTime,AdminId,Status ");
+            commandText.Append(@" SELECT
+	T.DrawId,
+	c.UserName,
+	c.TrueName,
+	b.BankName,
+	b.BankCardNo,
+	b.BankProvince,
+	b.BankCity,
+	T.DrawMoney,
+	T.ConfirmMoney,
+	T.Fee,
+	T.ApplyTime,
+	T.PassTime,
+	a.AdminName,
+	T.Status ");
 
-            commandText.Append("From sl_draw_money ");
+            commandText.Append("From sl_draw_money T,sl_admin a,sl_user_bank b,sl_users c  ");
 
             if (!string.IsNullOrEmpty(strWhere.Trim()))
             {
-                commandText.AppendFormat(" WHERE {0}", strWhere);
+                commandText.AppendFormat(" WHERE T.BindBankId = b.BankId AND T.UserId = c.UserId AND t.AdminId = a.AdminId and {0}", strWhere);
             }
 
             #endregion
@@ -410,7 +424,7 @@ namespace StudentLoan.DAL
                 commandText.Append(" Order By T.DrawId Desc");
             }
 
-            commandText.Append(" )AS Row, T.*,c.TrueName, b.BankName ,b.BankCardNo,b.BankProvince,b.BankCity From sl_draw_money T,sl_user_bank b,sl_users c ");
+            commandText.Append(" )AS Row, T.*,c.TrueName,c.UserName, b.BankName ,b.BankCardNo,b.BankProvince,b.BankCity From sl_draw_money T,sl_user_bank b,sl_users c ");
 
             if (!string.IsNullOrEmpty(strWhere.Trim()))
             {

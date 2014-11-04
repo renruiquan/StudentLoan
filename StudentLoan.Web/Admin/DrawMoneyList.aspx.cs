@@ -10,6 +10,9 @@ using StudentLoan.Model;
 using System.Text;
 using StudentLoan.API;
 using StudentLoan.Common.Logging;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
+using System.IO;
 
 
 namespace StudentLoan.Web.Admin
@@ -169,6 +172,125 @@ namespace StudentLoan.Web.Admin
                     objLiteral.Text = objSB.ToString();
                 }
             }
+        }
+
+        protected void btnExport_ServerClick(object sender, EventArgs e)
+        {
+            string strWhere = @" 1=1 ";
+
+            string queryContent = this.txtQueryContent.Text.Trim().HtmlEncode();
+            string status = this.ddlStatus.SelectedValue;
+            string startTime = this.txtStartTime.Text.Trim();
+            string endTime = this.txtEndTime.Text.Trim();
+
+            if (!string.IsNullOrEmpty(queryContent))
+            {
+                if (this.ddlQueryType.SelectedValue == "1")
+                {
+                    strWhere += string.Format(@" and T.UserId = '{0}'", new UsersBLL().GetUserId(queryContent));
+                }
+
+                if (this.ddlQueryType.SelectedValue == "2")
+                {
+                    strWhere += string.Format(@" and b.BankCardNo = '{0}'", queryContent);
+                }
+            }
+
+            if (!string.IsNullOrEmpty(status))
+            {
+                strWhere += string.Format(@" and T.Status = {0}", status);
+            }
+
+            if (!string.IsNullOrEmpty(startTime))
+            {
+                strWhere += string.Format(@" and T.ApplyTime >= '{0}'", startTime.Convert<DateTime>());
+            }
+
+            if (!string.IsNullOrEmpty(endTime))
+            {
+                strWhere += string.Format(@" and T.ApplyTime <= '{0}'", endTime.Convert<DateTime>());
+            }
+
+
+            List<DrawMoneyEntityEx> sheetAdapter = new DrawMoneyBLL().GetList(strWhere);
+
+            string filename = string.Format("提现记录-{0}_{1}.xlsx", startTime, endTime);
+            Response.Clear();
+            Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            Response.AddHeader("Content-Disposition", string.Format("attachment;filename={0}", filename));
+            XSSFWorkbook workbook = new XSSFWorkbook();
+            ISheet sheet = workbook.CreateSheet("Sheet1");
+
+            for (int i = 0; i < sheetAdapter.Count; i++)
+            {
+                //首行
+                IRow firstRow = sheet.CreateRow(0);
+                firstRow.HeightInPoints = 25;
+                sheet.DefaultColumnWidth = 15;
+
+
+                firstRow.CreateCell(0, CellType.String).SetCellValue("提款编号");
+                firstRow.CreateCell(1, CellType.String).SetCellValue("用户名");
+                firstRow.CreateCell(2, CellType.String).SetCellValue("真实姓名");
+                firstRow.CreateCell(3, CellType.String).SetCellValue("开户行名称");
+                firstRow.CreateCell(4, CellType.String).SetCellValue("银行卡卡号");
+                firstRow.CreateCell(5, CellType.String).SetCellValue("开户行地区");
+                firstRow.CreateCell(6, CellType.Numeric).SetCellValue("提现金额");
+                firstRow.CreateCell(7, CellType.Numeric).SetCellValue("确认金额");
+                firstRow.CreateCell(8, CellType.Numeric).SetCellValue("手续费");
+                firstRow.CreateCell(9, CellType.String).SetCellValue("申请时间");
+                firstRow.CreateCell(10, CellType.String).SetCellValue("通过时间");
+                firstRow.CreateCell(11, CellType.String).SetCellValue("打款人");
+                firstRow.CreateCell(12, CellType.String).SetCellValue("状态");
+
+
+
+
+                //居中对齐
+                for (int j = 0; j <= 11; j++)
+                {
+                    firstRow.Cells[j].CellStyle.VerticalAlignment = VerticalAlignment.Center;
+                    firstRow.Cells[j].CellStyle.Alignment = HorizontalAlignment.Center;
+                }
+
+                //冻结首行
+                sheet.CreateFreezePane(0, 1);
+
+
+                IRow row = sheet.CreateRow(i + 1);
+
+                row.HeightInPoints = 25;
+
+                row.CreateCell(0, CellType.String).SetCellValue(sheetAdapter[i].DrawId);
+                row.CreateCell(1, CellType.String).SetCellValue(sheetAdapter[i].UserName);
+                row.CreateCell(2, CellType.String).SetCellValue(sheetAdapter[i].TrueName);
+                row.CreateCell(3, CellType.String).SetCellValue(sheetAdapter[i].BankName);
+                row.CreateCell(4, CellType.String).SetCellValue(sheetAdapter[i].BankCardNo);
+                row.CreateCell(5, CellType.String).SetCellValue(string.Format("{0} {1}", sheetAdapter[i].BankProvince, sheetAdapter[i].BankCity));
+                row.CreateCell(6, CellType.Numeric).SetCellValue(sheetAdapter[i].DrawMoney.Convert<double>());
+                row.CreateCell(7, CellType.Numeric).SetCellValue(sheetAdapter[i].ConfirmMoney.Convert<double>());
+                row.CreateCell(8, CellType.Numeric).SetCellValue(sheetAdapter[i].Fee.Convert<double>());
+                row.CreateCell(9, CellType.String).SetCellValue(string.Format("{0}", sheetAdapter[i].ApplyTime));
+                row.CreateCell(10, CellType.String).SetCellValue(string.Format("{0}", sheetAdapter[i].PassTime));
+                row.CreateCell(11, CellType.String).SetCellValue(string.Format("{0}", sheetAdapter[i].AdminName));
+                row.CreateCell(12, CellType.String).SetCellValue(string.Format("{0}", this.GetStatusName(sheetAdapter[i].Status)));
+
+            }
+
+            string savePath = string.Format("{0}", MapPath("~/Excels"));
+
+            if (!Directory.Exists(savePath))
+            {
+                Directory.CreateDirectory(savePath);
+            }
+
+            using (var f = File.Create(string.Format("{0}/{1}", MapPath("~/Excels"), filename)))
+            {
+                workbook.Write(f);
+            }
+            Response.WriteFile(string.Format("{0}/{1}", MapPath("~/Excels"), filename));
+            Response.Flush();
+            Response.End();
         }
 
     }

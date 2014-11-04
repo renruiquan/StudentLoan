@@ -163,7 +163,7 @@ namespace StudentLoan.Web.Admin
 
             List<UserChargeEntityEx> sheetAdapter = new UserChargeBLL().GetList(strWhere);
 
-            string filename = string.Format("用户充值-{0}_{1}.xlsx", startTime, endTime);
+            string filename = string.Format("充值记录-{0}_{1}.xlsx", startTime, endTime);
             Response.Clear();
             Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
             Response.AddHeader("Content-Disposition", string.Format("attachment;filename={0}", filename));

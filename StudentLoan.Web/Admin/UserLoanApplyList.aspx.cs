@@ -8,6 +8,10 @@ using System.Web.UI.WebControls;
 using StudentLoan.BLL;
 using StudentLoan.Common;
 using System.Text;
+using NPOI.XSSF.UserModel;
+using System.IO;
+using NPOI.SS.UserModel;
+using System.Data;
 
 namespace StudentLoan.Web.Admin
 {
@@ -94,7 +98,7 @@ namespace StudentLoan.Web.Admin
 
             if (!string.IsNullOrEmpty(loanCategory))
             {
-                strWhere += string.Format(" and  LoanCategory = {0}", loanCategory);
+                strWhere += string.Format(" and  T.ProductID = {0}", loanCategory);
             }
 
             if (!string.IsNullOrEmpty(this.ddlStatus.SelectedValue))
@@ -256,5 +260,138 @@ namespace StudentLoan.Web.Admin
                 }
             }
         }
+
+        protected void btnExport_ServerClick(object sender, EventArgs e)
+        {
+            string startTime = txtStartTime.Text.Trim().HtmlEncode();
+            string endTime = txtEndTime.Text.Trim().HtmlEncode();
+            string loanCategory = this.ddlLoanCategory.SelectedValue.HtmlEncode();
+            string queryContent = this.txtQueryContent.Text.Trim().HtmlEncode();
+
+
+            if (string.IsNullOrEmpty(startTime))
+            {
+                this.Alert("请选择起始查询日期");
+                return;
+            }
+            if (string.IsNullOrEmpty(endTime))
+            {
+                this.Alert("请选择结束查询日期");
+                return;
+            }
+
+            string strWhere = "1 = 1";
+
+            if (!string.IsNullOrEmpty(loanCategory))
+            {
+                strWhere += string.Format(" and  T.ProductID = {0}", loanCategory);
+            }
+
+            if (!string.IsNullOrEmpty(this.ddlStatus.SelectedValue))
+            {
+                strWhere += string.Format(" and T.Status ={0} ", this.ddlStatus.SelectedValue);
+            }
+            if (!string.IsNullOrEmpty(startTime))
+            {
+                strWhere += string.Format(" and T.CreateTime >='{0}'", startTime.Convert<DateTime>());
+            }
+            if (!string.IsNullOrEmpty(endTime))
+            {
+                strWhere += string.Format(" and T.CreateTime <='{0}'", endTime.Convert<DateTime>());
+            }
+            if (!string.IsNullOrEmpty(queryContent))
+            {
+                int userId = new UsersBLL().GetUserId(queryContent);
+
+                if (this.ddlQueryType.SelectedValue == "1")
+                {
+                    strWhere += string.Format(" and T.UserId = '{0}'", userId);
+                }
+                else if (this.ddlQueryType.SelectedValue == "2")
+                {
+                    strWhere += string.Format(" and T.LoanNo = '{0}' ", queryContent);
+                }
+            }
+
+
+            List<UserLoanEntityEx> sheetAdapter = new UserLoanBLL().GetList(strWhere);
+
+            string filename = string.Format("借款申请-{0}_{1}.xlsx", startTime, endTime);
+            Response.Clear();
+            Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            Response.AddHeader("Content-Disposition", string.Format("attachment;filename={0}", filename));
+            XSSFWorkbook workbook = new XSSFWorkbook();
+            ISheet sheet = workbook.CreateSheet("Sheet1");
+
+            for (int i = 0; i < sheetAdapter.Count; i++)
+            {
+                //首行
+                IRow firstRow = sheet.CreateRow(0);
+                firstRow.HeightInPoints = 25;
+                sheet.DefaultColumnWidth = 15;
+
+
+                firstRow.CreateCell(0, CellType.String).SetCellValue("借款编号");
+                firstRow.CreateCell(1, CellType.String).SetCellValue("借款人");
+                firstRow.CreateCell(2, CellType.String).SetCellValue("类型");
+                firstRow.CreateCell(3, CellType.Numeric).SetCellValue("借款金额");
+                firstRow.CreateCell(4, CellType.Numeric).SetCellValue("费率");
+                firstRow.CreateCell(5, CellType.String).SetCellValue("申请时间");
+                firstRow.CreateCell(6, CellType.String).SetCellValue("应还金额");
+                firstRow.CreateCell(7, CellType.Numeric).SetCellValue("已还期数");
+                firstRow.CreateCell(8, CellType.Numeric).SetCellValue("总期数");
+                firstRow.CreateCell(9, CellType.String).SetCellValue("借款状态");
+                firstRow.CreateCell(10, CellType.String).SetCellValue("管理员");
+                firstRow.CreateCell(11, CellType.String).SetCellValue("通过日期");
+
+
+
+                //居中对齐
+                for (int j = 0; j <= 11; j++)
+                {
+                    firstRow.Cells[j].CellStyle.VerticalAlignment = VerticalAlignment.Center;
+                    firstRow.Cells[j].CellStyle.Alignment = HorizontalAlignment.Center;
+                }
+
+                //冻结首行
+                sheet.CreateFreezePane(0, 1);
+
+
+                IRow row = sheet.CreateRow(i + 1);
+
+                row.HeightInPoints = 25;
+
+                row.CreateCell(0, CellType.String).SetCellValue(sheetAdapter[i].LoanNo);
+                row.CreateCell(1, CellType.String).SetCellValue(sheetAdapter[i].UserName);
+                row.CreateCell(2, CellType.String).SetCellValue(sheetAdapter[i].ProductName);
+                row.CreateCell(3, CellType.Numeric).SetCellValue(sheetAdapter[i].LoanMoney.Convert<double>());
+                row.CreateCell(4, CellType.Numeric).SetCellValue(sheetAdapter[i].AnnualFee.Convert<double>());
+                row.CreateCell(5, CellType.String).SetCellValue(sheetAdapter[i].CreateTime);
+                row.CreateCell(6, CellType.Numeric).SetCellValue(sheetAdapter[i].ShouldRepayMoney.Convert<double>());
+                row.CreateCell(7, CellType.Numeric).SetCellValue(sheetAdapter[i].AlreadyAmortization);
+                row.CreateCell(8, CellType.Numeric).SetCellValue(sheetAdapter[i].TotalAmortization);
+                row.CreateCell(9, CellType.String).SetCellValue(string.Format("{0}", sheetAdapter[i].Status));
+                row.CreateCell(10, CellType.String).SetCellValue(string.Format("{0}", sheetAdapter[i].AdminName));
+                row.CreateCell(11, CellType.String).SetCellValue(string.Format("{0}", sheetAdapter[i].PassTime));
+
+
+            }
+
+            string savePath = string.Format("{0}", MapPath("~/Excels"));
+
+            if (!Directory.Exists(savePath))
+            {
+                Directory.CreateDirectory(savePath);
+            }
+
+            using (var f = File.Create(string.Format("{0}/{1}", MapPath("~/Excels"), filename)))
+            {
+                workbook.Write(f);
+            }
+            Response.WriteFile(string.Format("{0}/{1}", MapPath("~/Excels"), filename));
+            Response.Flush();
+            Response.End();
+        }
+
     }
 }

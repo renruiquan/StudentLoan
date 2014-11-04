@@ -53,11 +53,9 @@
 
                             <asp:DropDownList runat="server" ID="ddlLoanCategory">
                                 <asp:ListItem Value="">选择分类</asp:ListItem>
-                                <asp:ListItem Value="1">因为爱情（恋爱贷款）</asp:ListItem>
-                                <asp:ListItem Value="2">游山玩水（旅游贷款）</asp:ListItem>
-                                <asp:ListItem Value="3">时尚达人（购物贷款）</asp:ListItem>
-                                <asp:ListItem Value="4">追求自我（娱乐贷款）</asp:ListItem>
-                                <asp:ListItem Value="5">急人所急（应急贷款）</asp:ListItem>
+                                <asp:ListItem Value="1">一般贷</asp:ListItem>
+                                <asp:ListItem Value="2">高额贷</asp:ListItem>
+                                <asp:ListItem Value="3">随时贷</asp:ListItem>
                             </asp:DropDownList>
 
                             <label class="first txt-green">查询类型：</label>
@@ -85,6 +83,7 @@
                             </asp:DropDownList>
 
                             <label><a class="btn-lit btn-middle btn-lit-top" href="javascript:void(0);" runat="server" onserverclick="btnSearch_Click"><span>搜索</span></a></label>
+                            <label><a class="btn-lit btn-middle btn-lit-top" href="javascript:void(0);" runat="server" id="btnExport" onserverclick="btnExport_ServerClick"><span>导出数据</span></a></label>
                         </div>
                     </div>
                 </div>
@@ -124,7 +123,7 @@
                                 <tr class="c">
                                     <td><%#Eval("LoanNo") %></td>
                                     <td><%#Eval("UserName") %></td>
-                                    <td><%#this.GetLoanCategoryName( (int)Eval("LoanCategory")) %></td>
+                                    <td><%#Eval("ProductName") %></td>
                                     <td><%#Convert.ToDecimal( Eval("LoanMoney")).ToString("C") %></td>
                                     <td><%#Convert.ToDecimal(Eval("AnnualFee")).ToString("P2") %></td>
                                     <td><%#Eval("CreateTime") %></td>

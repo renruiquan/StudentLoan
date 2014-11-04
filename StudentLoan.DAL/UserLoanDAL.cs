@@ -412,13 +412,25 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select LoanId,LoanNo,LoanTitle,LoanMoney,AnnualFee,ShouldRepayMoney,AlreadyAmortization,TotalAmortization,Status,AdminId,CreateTime,PassTime ");
+            commandText.Append(@" 	SELECT
+	                                    T.LoanNo,
+	                                    a.UserName,
+	                                    b.ProductName,
+	                                    T.LoanMoney,
+	                                    T.AnnualFee,
+	                                    T.CreateTime,
+	                                    T.ShouldRepayMoney,
+	                                    T.AlreadyAmortization,
+	                                    T.TotalAmortization,
+	                                    T.Status,
+	                                    c.AdminName,
+	                                    T.PassTime ");
 
-            commandText.Append("From sl_user_loan ");
+            commandText.Append("From sl_user_loan T,sl_users a,sl_product b,sl_admin c ");
 
             if (!string.IsNullOrEmpty(strWhere.Trim()))
             {
-                commandText.AppendFormat(" WHERE {0}", strWhere);
+                commandText.AppendFormat(" WHERE  T.UserId = a.UserId AND b.ProductId = t.ProductId AND t.AdminId = c.AdminId  and {0}", strWhere);
             }
 
             #endregion

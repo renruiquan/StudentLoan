@@ -69,5 +69,10 @@ namespace StudentLoan.Model
         /// 还款日期
         /// </summary>
         public DateTime RepaymentTime { get; set; }
+
+        /// <summary>
+        /// 管理员
+        /// </summary>
+        public string AdminName { get; set; }
     }
 }

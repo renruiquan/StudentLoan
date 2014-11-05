@@ -88,7 +88,7 @@
                         </div>
 
                         <div class="number">
-                            <p><%=this.UserEarningsModel.CreateTime.Month %>年<%=this.UserEarningsModel.CreateTime.Day %>日 收益：<strong><%=this.UserEarningsModel.Amount.Convert<double>().ToString("C") %></strong>元</p>
+                            <p><%=this.UserEarningsModel.CreateTime.Month %>月<%=this.UserEarningsModel.CreateTime.Day %>日 收益：<strong><%=this.UserEarningsModel.Amount.Convert<double>().ToString("C") %></strong>元</p>
 
                             <p>累计收入：<strong><%=this.UserTotalEarnings.Convert<double>().ToString("C") %></strong>元</p>
                         </div>

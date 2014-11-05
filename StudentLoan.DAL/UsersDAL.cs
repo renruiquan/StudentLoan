@@ -302,6 +302,36 @@ namespace StudentLoan.DAL
         /// <summary>
         /// 更新一条数据
         /// </summary>
+        public bool UpdateMobile(int userId, string mobile)
+        {
+            #region CommandText
+
+            StringBuilder commandText = new StringBuilder();
+
+            commandText.Append(" Update sl_users Set ");
+
+            commandText.Append(" Mobile = @Mobile");
+
+            commandText.Append(" Where UserId = @UserId ");
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@UserId", userId));
+
+            paramsList.Add(new SqlParameter("@Mobile", mobile));
+
+            #endregion
+
+            return base.ExecuteNonQuery(commandText.ToString(), paramsList.ToArray());
+        }
+
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
         public bool UpdateStatus(int userId)
         {
             #region CommandText

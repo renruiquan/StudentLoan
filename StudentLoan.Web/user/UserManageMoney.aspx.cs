@@ -136,7 +136,7 @@ namespace StudentLoan.Web.user
                     };
                     if (new UserManageMoneyBLL().Update(model))
                     {
-                        LogHelper.Default.Info("短信内容：" + new Message().Send(userModel.Telphone, string.Format("亲，你购买了理财产品{0},共消费了{1}元。【学子易贷】", this.SchemeModel.SchemeName, model.Amount)));
+                        LogHelper.Default.Info("短信内容：" +  Message.Send(userModel.Telphone, string.Format("亲，你购买了理财产品{0},共消费了{1}元。【学子易贷】", this.SchemeModel.SchemeName, model.Amount)));
                         this.artDialog("提示", "购买成功", "ManageMoneyList.aspx", true);
                     }
                     else

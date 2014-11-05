@@ -65,6 +65,11 @@ namespace StudentLoan.BLL
             return dal.Update(model);
         }
 
+        public bool UpdateMobile(int userId, string mobile)
+        {
+            return dal.UpdateMobile(userId, mobile);
+        }
+
         /// <summary>
         ///更新用户状态 
         /// </summary>

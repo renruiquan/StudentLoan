@@ -412,6 +412,7 @@
     <Content Include="Register.aspx" />
     <Content Include="RegProvision.aspx" />
     <Content Include="SchoolInfo.aspx" />
+    <Content Include="SmsTest.aspx" />
     <Content Include="TTTTTTTTTTTTTTTTTTTTT.aspx" />
     <Content Include="user\AccountLog.aspx" />
     <Content Include="user\ChargeLog.aspx" />
@@ -749,7 +750,17 @@
     <Compile Include="SchoolInfo.aspx.designer.cs">
       <DependentUpon>SchoolInfo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SmsTest.aspx.cs">
+      <DependentUpon>SmsTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SmsTest.aspx.designer.cs">
+      <DependentUpon>SmsTest.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Time_Task.cs" />
+    <Compile Include="tools\message_send.ashx.cs">
+      <DependentUpon>message_send.ashx</DependentUpon>
+    </Compile>
     <Compile Include="tools\validate_code.ashx.cs">
       <DependentUpon>validate_code.ashx</DependentUpon>
     </Compile>
@@ -982,6 +993,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Content Include="user\UserMain.Master" />
+    <Content Include="tools\message_send.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

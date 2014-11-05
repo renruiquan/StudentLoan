@@ -46,7 +46,7 @@ namespace StudentLoan.Web.Admin
                             int userId = this.Request<int>("UserId");
                             string userMobile = new UsersBLL().GetModel(userId).Mobile;
 
-                            string code = new Message().Send(userMobile, "亲，你的提现申请已受理，请注意查收！【学子易贷】");
+                            string code =  Message.Send(userMobile, "亲，你的提现申请已受理，请注意查收！【学子易贷】");
 
                             LogHelper.Default.Info("短信发送记录:" + code);
                         }

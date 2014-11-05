@@ -115,7 +115,7 @@ namespace StudentLoan.Web.user
 
                                 if (result)
                                 {
-                                    string code = new Message().Send(userModel.Telphone, string.Format("亲，你购买了理财产品{0},共消费了{1}元。【学子易贷】", userManageMoneyModel.SchemeName, userManageMoneyModel.Amount));
+                                    string code =  Message.Send(userModel.Telphone, string.Format("亲，你购买了理财产品{0},共消费了{1}元。【学子易贷】", userManageMoneyModel.SchemeName, userManageMoneyModel.Amount));
                                     LogHelper.Default.Info("短信内容：" + code);
 
                                     this.Alert("购买成功", "ManageMoneyList.aspx");

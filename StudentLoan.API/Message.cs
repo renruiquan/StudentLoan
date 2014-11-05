@@ -8,9 +8,9 @@ using StudentLoan.Common;
 
 namespace StudentLoan.API
 {
-    public class Message
+    public static class Message
     {
-        public string Send(string mobile, string content)
+        public static string Send(string mobile, string content)
         {
             try
             {
@@ -20,11 +20,12 @@ namespace StudentLoan.API
                 string uid = ConfigHelper.AppSettings<string>("SendMessageID");
                 string pwd = ConfigHelper.AppSettings<string>("SendMessageKey");
 
-                string Pass = string.Format("{0}{1}", pwd, uid).MD5(); //密码进行MD5加密
+                string Pass = string.Format("{0}{1}", pwd, uid).MD5().ToUpper(); //密码进行MD5加密
+                sbTemp.Append("uid=" + uid + "&pwd=" + Pass + "&mobile=" + mobile + "&content=" + content + "&encode=utf8");
 
-                sbTemp.Append("uid=" + uid + "&pwd=" + Pass + "&mobile=" + mobile + "&content=" + content);
+                byte[] bTemp = System.Text.Encoding.UTF8.GetBytes(sbTemp.ToString());
 
-                string postReturn = WebExtension.Post(sendurl, sbTemp.ToString());
+                string postReturn = WebExtension.Post(sendurl, bTemp);
 
                 return postReturn;
             }

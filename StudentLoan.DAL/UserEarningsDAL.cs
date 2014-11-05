@@ -232,7 +232,7 @@ namespace StudentLoan.DAL
 
             paramsList.Add(new SqlParameter("@UserId", userId));
 
-            return base.ExecuteScalar(commandText, paramsList.ToArray()).Convert<decimal>();
+            return base.ExecuteScalar(commandText, paramsList.ToArray()).Convert<decimal>(0);
         }
 
         /// <summary>

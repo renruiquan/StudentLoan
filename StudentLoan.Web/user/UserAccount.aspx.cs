@@ -18,7 +18,21 @@ namespace StudentLoan.Web.user
 
         public UserLoginLogEntityEx UserLoginLogModel { get { return new UserLoginLogBLL().GetModel(base.GetUserModel().UserId); } }
 
-        public UserEarningsEntityEx UserEarningsModel { get { return new UserEarningsBLL().GetModel(base.GetUserModel().UserId); } }
+        public UserEarningsEntityEx UserEarningsModel
+        {
+            get
+            {
+                UserEarningsEntityEx model = new UserEarningsBLL().GetModel(base.GetUserModel().UserId);
+                if (model == null)
+                {
+                    return new UserEarningsEntityEx();
+                }
+                else
+                {
+                    return model;
+                }
+            }
+        }
 
         public decimal UserTotalEarnings { get { return new UserEarningsBLL().GetTotalEarnings(base.GetUserModel().UserId); } }
 

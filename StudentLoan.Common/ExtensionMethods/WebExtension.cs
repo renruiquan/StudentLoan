@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentLoan.Common.Logging;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -127,6 +128,45 @@ namespace StudentLoan.Common
             return result;
         }
 
+        public static string Post(string requestUrl, byte[] data)
+        {
+            HttpWebRequest httpRequest;
+            HttpWebResponse httpResponse;
+
+            string strResult = string.Empty;
+            try
+            {
+                httpRequest = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(requestUrl);
+                httpRequest.Timeout = 5000;
+                httpRequest.Method = "POST";
+                httpRequest.ContentType = "application/x-www-form-urlencoded";
+                httpRequest.ContentLength = data.Length;
+
+                Stream objStream = httpRequest.GetRequestStream();
+                objStream.Write(data, 0, data.Length);
+                objStream.Close();
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Default.Error("发送POST数据失败" + ex.ToString());
+                return strResult;
+            }
+
+            //get response
+            try
+            {
+                httpResponse = (HttpWebResponse)httpRequest.GetResponse();
+                StreamReader srReader = new StreamReader(httpResponse.GetResponseStream(), Encoding.GetEncoding("GBK"));
+                strResult = srReader.ReadToEnd();
+                srReader.Close();
+                httpResponse.Close();
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Default.Error("接收POST数据失败" + ex.ToString());
+            }
+            return strResult;
+        }
 
         /// <summary>
         /// 上传文件

@@ -12,6 +12,12 @@
     <link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="/css/modules/admin/admin.css" />
 
+    <!-- bsie css -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/css/ie.css">
+    <!--[if lte IE 6]>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.ie6.min.css">
+    <![endif]-->
+
     <link href="/css/ui-dialog.css" rel="stylesheet" />
     <script src="/js/jquery-1.11.0.min.js"></script>
     <script src="/js/dialog-plus-min.js"></script>
@@ -83,7 +89,7 @@
                         <li>|</li>
                         <li><a href="javascript:;">免责条款</a></li>
                         <li>|</li>
-                         <li>工作时间：周一至周五 9:00-17:50</li>
+                        <li>工作时间：周一至周五 9:00-17:50</li>
                         <li>|</li>
                         <li>
                             <script type="text/javascript">

@@ -2,6 +2,7 @@
 
 
 <%@ Register Assembly="StudentLoan.Common" Namespace="StudentLoan.Common.WebControl" TagPrefix="StudentLoan" %>
+<%@ Import Namespace="StudentLoan.Common" %>
 
 <%@ Register Assembly="AspNetPager" Namespace="Wuqi.Webdiyer" TagPrefix="webdiyer" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -32,107 +33,140 @@
 
         <div class="cont clear-top">
 
-            <div class="item all-view">
+            <div class="item all-view-two">
 
-                <div class="all-left">
+                <div class="user-info">
+                    <div class="media">
+                        <a class="pull-left" href="#">
+                            <img src="<%=string.IsNullOrEmpty(this.UserModel.Avatar)==true?"../css/img/admin/balance.png":this.UserModel.Avatar %>" alt="" />
+                        </a>
 
+                        <div class="media-body">
+                            <h4 class="media-heading"><%=this.UserModel.TrueName %>同学 <span>，欢迎来到个人中心</span></h4>
 
-                    <div class="user-img">
+                            <p class="c-gray">
+                                <span>账户名：<%=this.UserModel.UserName %></span>
+                                <span>上次登录时间：2014.1027 14:50:37</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-                        <div class="img">
-                            <img width="300" height="236" src="<%=base.GetUserModel().Avatar %>" alt="" />
+                <div class="my-project">
+
+                    <div class="item balance">
+                        <div class="title">
+                            <h3>
+                                <i>
+                                    <img src="../css/img/admin/balance.png" alt="" />
+                                </i>
+                                账户余额
+                            </h3>
                         </div>
 
-                        <p class="name">
-                            <%=base.GetUserModel().UserName  %>
-                        </p>
+                        <div class="number">
+                            <strong><%=this.UserModel.Amount.Convert<double>().ToString("C") %></strong><span>元</span>
+                        </div>
+
+                        <div class="operation">
+                            <a class="btn btn-primary" href="../LoanList.aspx">贷款</a>
+                            <a class="btn btn-primary" href="../ManageMoneyNav.aspx">理财</a>
+                            <a class="btn btn-primary" href="Charge.aspx">充值</a>
+                            <a class="btn btn-primary" href="Withdraw.aspx">提现</a>
+                        </div>
 
                     </div>
 
-                    <p class="tc">
-                        <span id="loan" class="grade orange"><a href="../LoanList.aspx" class="cursor">贷款</a></span>
-                        <span id="managemoney" class="grade green"><a href="../ManageMoneyNav.aspx" class="cursor">理财</a></span>
+                    <div class="item diamond">
+                        <div class="title">
+                            <h3>
+                                <i>
+                                    <img src="../css/img/admin/balance2.png" alt="" />
+                                </i>
+                                聚宝盆
+                            </h3>
+                        </div>
 
-                    </p>
+                        <div class="number">
+                            <p><%=this.UserEarningsModel.CreateTime.Month %>年<%=this.UserEarningsModel.CreateTime.Day %>日 收益：<strong><%=this.UserEarningsModel.Amount.Convert<double>().ToString("C") %></strong>元</p>
+
+                            <p>累计收入：<strong><%=this.UserTotalEarnings.Convert<double>().ToString("C") %></strong>元</p>
+                        </div>
+
+                        <div class="operation">
+                            <a class="btn btn-primary" href="EarningsList.aspx">管理</a>
+                        </div>
+
+                    </div>
+
+                    <div class="item integral">
+                        <div class="title">
+                            <h3>
+                                <i>
+                                    <img src="../css/img/admin/balance3.png" alt="" />
+                                </i>
+                                学子易贷积分
+                            </h3>
+                        </div>
+
+                        <div class="number">
+                            <strong>58</strong><span>分</span>
+
+                            <p>(积分越高贷款金额越高，选择方式也越多）</p>
+                        </div>
+
+                        <div class="operation">
+                            <a class="btn btn-primary" href="UserAccountCert.aspx">完善资料</a>
+                        </div>
+
+                    </div>
+
+                    <div class="clear"></div>
 
                 </div>
 
-                <div class="all-right">
 
-                    <form class="bs-docs-example">
+                <div class="">
 
-                        <fieldset>
-                            <h3>1.累计信用积分情况</h3>
-                            <input class="span6" type="text" placeholder="0分">
-                            <span class="help-block">赶快完善资料</span>
-                        </fieldset>
-
-                        <fieldset>
-                            <h3>2.申请贷款金额</h3>
-                            <input class="span6" type="text" placeholder="00.00元">
-                        </fieldset>
-
-                        <p class="w460">
-                            <button class="mt10 btn btn-large btn-block btn-primary" type="button">点击提现</button>
-                        </p>
-
-                        <fieldset>
-                            <h3>3.申请理财金额</h3>
-                            <input class="span6" type="text" placeholder="00.00元">
-                        </fieldset>
-
-                        <p class="w460">
-                            <button class="mt10 btn btn-large btn-block btn-primary" type="button">点击充值</button>
-                        </p>
-
-
-                    </form>
-
-                    <div class="w460">
-
-                        <h3>4.借贷表</h3>
-
-                        <StudentLoan:RepeaterPlus ID="objRepeater" runat="server">
-                            <HeaderTemplate>
-                                <table class="table table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>借款时间</th>
-                                            <th>借款金额</th>
-                                            <th>还款日期</th>
-                                        </tr>
-                                    </thead>
-                            </HeaderTemplate>
-                            <EmptyDataTemplate>
-                                <table class="table table-bordered table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <td colspan="3">暂无数据</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </EmptyDataTemplate>
-                            <ItemTemplate>
+                    <StudentLoan:RepeaterPlus ID="objRepeater" runat="server">
+                        <HeaderTemplate>
+                            <table class="table table-bordered table-striped user-table">
+                                <caption>最近借款记录</caption>
+                                <thead>
+                                    <tr>
+                                        <th>借款时间</th>
+                                        <th>借款金额</th>
+                                        <th>还款日期</th>
+                                    </tr>
+                                </thead>
+                        </HeaderTemplate>
+                        <EmptyDataTemplate>
+                            <table class="table table-bordered table-striped">
                                 <tbody>
                                     <tr>
-                                        <td><%#((DateTime)Eval("CreateTime")).ToString("yyyy-MM-dd") %></td>
-                                        <td><%#Convert.ToDecimal( Eval("LoanMoney")).ToString("C") %></td>
-                                        <td><%#((DateTime)Eval("RepaymentTime")).ToString("yyyy-MM-dd")=="0001-01-01"?"完成还款":((DateTime)Eval("RepaymentTime")).ToString("yyyy-MM-dd") %></td>
+                                        <td colspan="3">暂无数据</td>
                                     </tr>
                                 </tbody>
-                            </ItemTemplate>
-                            <FooterTemplate>
-                                </table>
-                            </FooterTemplate>
+                            </table>
+                        </EmptyDataTemplate>
+                        <ItemTemplate>
+                            <tbody>
+                                <tr>
+                                    <td><%#((DateTime)Eval("CreateTime")).ToString("yyyy-MM-dd") %></td>
+                                    <td><%#Convert.ToDecimal( Eval("LoanMoney")).ToString("C") %></td>
+                                    <td><%#((DateTime)Eval("RepaymentTime")).ToString("yyyy-MM-dd")=="0001-01-01"?"完成还款":((DateTime)Eval("RepaymentTime")).ToString("yyyy-MM-dd") %></td>
+                                </tr>
+                            </tbody>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            </table>
+                        </FooterTemplate>
 
-                        </StudentLoan:RepeaterPlus>
+                    </StudentLoan:RepeaterPlus>
 
-                        <div class="pagination pagination-centered">
-                            <webdiyer:AspNetPager ID="objAspNetPager" PagingButtonLayoutType="UnorderedList" runat="server" PageSize="10" OnPageChanged="objAspNetPager_PageChanged" FirstPageText="首页" LastPageText="末页" NextPageText="下一页" PrevPageText="上一页" CustomInfoStyle="" CurrentPageButtonClass="active" AlwaysShow="True" PagingButtonSpacing="0px"></webdiyer:AspNetPager>
-                        </div>
-
+                    <div class="pagination pagination-centered">
+                        <webdiyer:AspNetPager ID="objAspNetPager" PagingButtonLayoutType="UnorderedList" runat="server" PageSize="10" OnPageChanged="objAspNetPager_PageChanged" FirstPageText="首页" LastPageText="末页" NextPageText="下一页" PrevPageText="上一页" CustomInfoStyle="" CurrentPageButtonClass="active" AlwaysShow="True" PagingButtonSpacing="0px"></webdiyer:AspNetPager>
                     </div>
-
 
                 </div>
 

@@ -4,7 +4,7 @@
 
 .into-bg {
 	width: 100%;
-	background: url('../../img/bg/into.jpg') no-repeat center 0;
+	background: url('../../img/bg/into.jpg') no-repeat center 0 #1e83d9;
 }
 .top-logo {
 	position: absolute;
@@ -32,9 +32,9 @@
 }
 .wrap-btn .btns .btn-box {
 	display: inline-block;
-	width: 336px;
-	height: 105px;
-	background: url('../../img/into_projection.png') no-repeat 36px 0;
+	width: 360px;
+	height: 110px;
+	background: url('../../img/into_projection.png') no-repeat 52px 0;
 }
 .wrap-btn .btns a {
 	display: inline-block;
@@ -43,7 +43,7 @@
 	height: 74px;
 	padding: 0 60px;
 	font: 36px/74px "microsoft yahei";
-	color: #dd928f;
+	color: #ed5a54;
 	border-radius: 37px;
 	background: url('../../img/rx.jpg') repeat-x;
 }
@@ -95,7 +95,7 @@
 }
 .into-dic .item p {
 	font: 14px/26px "microsoft yahei";
-	color: #738ba8;
+	color: #bbd2ec;
 }
 .into-dic .bg-gray {
 	display: inline-block;
@@ -149,4 +149,16 @@
 	-moz-transform: scale(1);
 	-o-transform: scale(1);
 	-ms-transform: scale(1);
+}
+
+.detail-text  {
+    clear: both;
+    color: #fff;
+    text-align: center;
+    height: 60px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #62a8e4;
+}
+.detail-text p {
+    font: 18px/60px "microsoft yahei";
 }

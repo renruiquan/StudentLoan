@@ -14,6 +14,15 @@ namespace StudentLoan.Web.user
 {
     public partial class UserAccount : BasePage
     {
+        public UsersEntityEx UserModel { get { return new UsersBLL().GetModel(base.GetUserModel().UserId); } }
+
+        public UserLoginLogEntityEx UserLoginLogModel { get { return new UserLoginLogBLL().GetModel(base.GetUserModel().UserId); } }
+
+        public UserEarningsEntityEx UserEarningsModel { get { return new UserEarningsBLL().GetModel(base.GetUserModel().UserId); } }
+
+        public decimal UserTotalEarnings { get { return new UserEarningsBLL().GetTotalEarnings(base.GetUserModel().UserId); } }
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

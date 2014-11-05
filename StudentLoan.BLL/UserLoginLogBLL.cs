@@ -69,9 +69,9 @@ namespace StudentLoan.BLL
         /// <summary>
         /// 获取一个实体
         /// </summary>
-        public UserLoginLogEntityEx GetModel(int LoginIP)
+        public UserLoginLogEntityEx GetModel(int userId)
         {
-            return dal.GetModel(LoginIP);
+            return dal.GetModel(userId);
         }
         
         

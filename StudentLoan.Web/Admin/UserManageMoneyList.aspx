@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserManageMoneyList.aspx.cs" Inherits="StudentLoan.Web.Admin.UserManageMoneyList" %>
+﻿ <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserManageMoneyList.aspx.cs" Inherits="StudentLoan.Web.Admin.UserManageMoneyList" %>
 
 
 <%@ Register Assembly="AspNetPager" Namespace="Wuqi.Webdiyer" TagPrefix="webdiyer" %>

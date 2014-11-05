@@ -174,13 +174,13 @@ namespace StudentLoan.DAL
         /// <summary>
         /// 获取一个实体
         /// </summary>
-        public UserLoginLogEntityEx GetModel(int Id)
+        public UserLoginLogEntityEx GetModel(int userId)
         {
             #region CommandText
             
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select Top 1 Id,UserId,UserName,Remark,CreateTime,LoginIP From sl_user_login_log Where Id = @Id ");
+            commandText.Append(" Select Top 1 Id,UserId,UserName,Remark,CreateTime,LoginIP From sl_user_login_log Where UserId = @UserId order by id desc  ");
             
             #endregion
             
@@ -188,7 +188,7 @@ namespace StudentLoan.DAL
             
             List<SqlParameter> paramsList = new List<SqlParameter>();
 
-            paramsList.Add(new SqlParameter("@Id", Id));
+            paramsList.Add(new SqlParameter("@UserId", userId));
  
             #endregion
             

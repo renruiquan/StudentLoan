@@ -12,6 +12,13 @@
     <link rel="stylesheet" type="text/css" href="../css/icomoon/icon.css" />
     <link rel="stylesheet" type="text/css" href="../css/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="../css/modules/admin/admin.css" />
+
+    <!-- bsie css -->
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap/css/ie.css" />
+    <!--[if lte IE 6]>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap/css/bootstrap.ie6.min.css">
+    <![endif]-->
+
     <link href="../css/ui-dialog.css" rel="stylesheet" />
     <script src="../js/jquery-1.11.0.min.js"></script>
     <script src="../js/dialog-plus-min.js"></script>

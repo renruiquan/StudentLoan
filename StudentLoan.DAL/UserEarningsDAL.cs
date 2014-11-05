@@ -195,13 +195,13 @@ namespace StudentLoan.DAL
         /// <summary>
         /// 获取一个实体
         /// </summary>
-        public UserEarningsEntityEx GetModel(int EarningsId)
+        public UserEarningsEntityEx GetModel(int userId)
         {
             #region CommandText
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select Top 1 EarningsId,UserId,ProductSchemeId,Amount,Type,Status,Remark,CreateTime From sl_user_earnings Where EarningsId = @EarningsId ");
+            commandText.Append(" Select Top 1 EarningsId,UserId,ProductSchemeId,Amount,Type,Status,Remark,CreateTime From sl_user_earnings Where UserId = @UserId order by EarningsId desc");
 
             #endregion
 
@@ -209,7 +209,7 @@ namespace StudentLoan.DAL
 
             List<SqlParameter> paramsList = new List<SqlParameter>();
 
-            paramsList.Add(new SqlParameter("@EarningsId", EarningsId));
+            paramsList.Add(new SqlParameter("@UserId", userId));
 
             #endregion
 

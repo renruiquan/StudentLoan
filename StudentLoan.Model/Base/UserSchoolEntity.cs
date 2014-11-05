@@ -19,6 +19,26 @@ namespace StudentLoan.Model.Base
             set { _userId = value; }
         }
 
+        private string _xuexinUsername;
+
+        /// <summary>
+        ///学信网账号
+        /// </summary>
+        public string XuexinUsername
+        {
+            get { return _xuexinUsername; }
+            set { _xuexinUsername = value; }
+        }
+        private string _xuexinPassword;
+
+        /// <summary>
+        ///学信网密码
+        /// </summary>
+        public string XuexinPassword
+        {
+            get { return _xuexinPassword; }
+            set { _xuexinPassword = value; }
+        }
         private string _schoolname;
 
         /// <summary>
@@ -96,12 +116,12 @@ namespace StudentLoan.Model.Base
             set { _branchSchool = value; }
         }
 
-        private int _yearOfAdmission;
+        private DateTime _yearOfAdmission;
 
         /// <summary>
         /// 入学年份
         /// </summary>
-        public int YearOfAdmission
+        public DateTime YearOfAdmission
         {
             get { return _yearOfAdmission; }
             set { _yearOfAdmission = value; }

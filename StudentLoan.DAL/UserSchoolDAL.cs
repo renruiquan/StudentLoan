@@ -51,12 +51,12 @@ namespace StudentLoan.DAL
             StringBuilder commandText = new StringBuilder();
 
             commandText.Append(" Insert Into sl_user_school( ");
-            
-            commandText.Append(" UserId,Education,Major,Class,SchoolId,SchoolAddress,BranchSchool,YearOfAdmission,SchoolSystem,Dormitory,CreateTime,Remark,Status) ");
+
+            commandText.Append(" UserId,xuexinUsername,xuexinPassword,Education,Major,Class,SchoolId,SchoolAddress,BranchSchool,YearOfAdmission,SchoolSystem,Dormitory,CreateTime,Remark,Status) ");
             
             commandText.Append(" Values ( ");
-            
-            commandText.Append(" @UserId,@Education,@Major,@Class,@SchoolId,@SchoolAddress,@BranchSchool,@YearOfAdmission,@SchoolSystem,@Dormitory,@CreateTime,@Remark,@Status) ");
+
+            commandText.Append(" @UserId,@xuexinUsername,@xuexinPassword,@Education,@Major,@Class,@SchoolId,@SchoolAddress,@BranchSchool,@YearOfAdmission,@SchoolSystem,@Dormitory,@CreateTime,@Remark,@Status) ");
 
             #endregion
             
@@ -69,6 +69,10 @@ namespace StudentLoan.DAL
             paramsList.Add(new SqlParameter("@Education", model.Education));
             
             paramsList.Add(new SqlParameter("@Major", model.Major));
+
+            paramsList.Add(new SqlParameter("@xuexinUsername", model.XuexinUsername));
+
+            paramsList.Add(new SqlParameter("@xuexinPassword", model.XuexinPassword));
             
             paramsList.Add(new SqlParameter("@Class", model.Class));
             
@@ -157,6 +161,10 @@ namespace StudentLoan.DAL
             commandText.Append(" UserId = @UserId, ");
             
             commandText.Append(" Education = @Education, ");
+
+            commandText.Append(" xuexinUsername = @xuexinUsername, ");
+
+            commandText.Append(" xuexinPassword = @xuexinPassword, "); 
             
             commandText.Append(" Major = @Major, ");
             
@@ -199,6 +207,10 @@ namespace StudentLoan.DAL
             paramsList.Add(new SqlParameter("@SchoolId", model.SchoolId));
             
             paramsList.Add(new SqlParameter("@SchoolAddress", model.SchoolAddress));
+
+            paramsList.Add(new SqlParameter("@xuexinUsername", model.XuexinUsername));
+
+            paramsList.Add(new SqlParameter("@xuexinPassword", model.XuexinPassword));
             
             paramsList.Add(new SqlParameter("@BranchSchool", model.BranchSchool));
             

@@ -198,7 +198,7 @@
                                         <label class="control-label">* 就读学校：</label>
 
                                         <div class="controls text-left">
-                                            <asp:TextBox ID="txtSchoolName" runat="server" class="span5" type="text" placeholder="请输入学校名称" />
+                                            <asp:TextBox ID="txtSchoolName" runat="server" class="span5" type="text" placeholder="请输入学校名称(与学生证上一致)" />
                                         </div>
                                     </div>
 
@@ -215,29 +215,10 @@
 
 
                                     <div class="control-group">
-                                        <label class="control-label">* 入学年份：</label>
+                                        <label class="control-label">* 入学日期：</label>
 
                                         <div class="controls text-left">
-                                           <asp:DropDownList runat="server" ID="ddlYearOfAdmission">
-                                                <asp:ListItem Value="0">请选择</asp:ListItem>
-                                                <asp:ListItem Value="2002">2002</asp:ListItem>
-                                                <asp:ListItem Value="2003">2003</asp:ListItem>
-                                               <asp:ListItem Value="2004">2004</asp:ListItem>
-                                               <asp:ListItem Value="2005">2005</asp:ListItem>
-                                               <asp:ListItem Value="2006">2006</asp:ListItem>
-                                               <asp:ListItem Value="2007">2007</asp:ListItem>
-                                               <asp:ListItem Value="2008">2008</asp:ListItem>
-                                               <asp:ListItem Value="2009">2009</asp:ListItem>
-                                               <asp:ListItem Value="2010">2010</asp:ListItem>
-                                               <asp:ListItem Value="2011">2011</asp:ListItem>
-                                               <asp:ListItem Value="2012">2012</asp:ListItem>
-                                               <asp:ListItem Value="2013">2013</asp:ListItem>
-                                               <asp:ListItem Value="2014">2014</asp:ListItem>
-                                               <asp:ListItem Value="2015">2015</asp:ListItem>
-                                               <asp:ListItem Value="2016">2016</asp:ListItem>
-                                               <asp:ListItem Value="2017">2017</asp:ListItem>
-                                               <asp:ListItem Value="2018">2018</asp:ListItem>
-                                            </asp:DropDownList>
+                                          <asp:TextBox ID="txtYearOfAdmission" runat="server" class="span2 datepickers" size="16" type="text" data-date-format="yyyy-mm-dd" placeholder="请选择" />
                                         </div>
                                     </div>
 

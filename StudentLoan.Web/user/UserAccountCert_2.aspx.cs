@@ -142,17 +142,17 @@ namespace StudentLoan.Web.user
             UsersEntityEx userModel = Usermodel();
             UserSchoolEntityEx userschoolModel = new UserSchoolEntityEx();
             //step2学校信息
-            string xuexin = txtXuexin.Text.Trim().HtmlEncode();
+            string xuexinusername = txtXuexin.Text.Trim().HtmlEncode();
             string xuexinpass = txtXuexin_Password.Text.Trim().HtmlEncode();
             string schoolname = txtSchoolName.Text.Trim().HtmlEncode();
             string schooladd = txtSchoolAdd.Text.Trim().HtmlEncode();
-            int yearofadmission = Convert.ToInt32(ddlYearOfAdmission.SelectedValue);
+            string yearofadmission = txtYearOfAdmission.Text.Trim().HtmlEncode();
             int schoolsystem = Convert.ToInt32(ddlSchoolSystem.SelectedValue);
             int education = Convert.ToInt32(ddlEducation.SelectedValue);
             string major = txtMajor.Text.Trim().HtmlEncode();
 
             //step3学校信息验证
-            if (string.IsNullOrEmpty(xuexin))
+            if (string.IsNullOrEmpty(xuexinusername))
             {
                 this.artDialog("错误", "学信网账号不能为空，请重新填写");
                 return;
@@ -172,9 +172,9 @@ namespace StudentLoan.Web.user
                 this.artDialog("错误", "学校地址不能为空，请重新填写");
                 return;
             }
-            if (yearofadmission==0)
+            if (string.IsNullOrEmpty(yearofadmission))
             {
-                this.artDialog("错误", "请选择入学年份");
+                this.artDialog("错误", "请选择入学日期");
                 return;
             }
             if (schoolsystem == 0)
@@ -205,8 +205,10 @@ namespace StudentLoan.Web.user
 
 
             userschoolModel.UserId = userModel.UserId;
+            userschoolModel.XuexinUsername = xuexinusername;
+            userschoolModel.XuexinPassword = xuexinpass;
             userschoolModel.SchoolAddress = schooladd;
-            userschoolModel.YearOfAdmission = yearofadmission;
+            userschoolModel.YearOfAdmission =Convert.ToDateTime(yearofadmission);
             userschoolModel.SchoolSystem = schoolsystem;
             userschoolModel.Education = education;
             userschoolModel.Major = major;

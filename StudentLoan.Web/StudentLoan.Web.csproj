@@ -85,6 +85,7 @@
     <Content Include="Admin\AdminRoleList.aspx" />
     <Content Include="Admin\ChangePassword.aspx" />
     <Content Include="Admin\ChargeList.aspx" />
+    <Content Include="Admin\CheckUserInfo.aspx" />
     <Content Include="Admin\css\admin.content.css" />
     <Content Include="Admin\css\admin.global.css" />
     <Content Include="Admin\css\admin.index.css" />
@@ -514,6 +515,13 @@
     <Compile Include="Admin\ChargeList.aspx.designer.cs">
       <DependentUpon>ChargeList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\CheckUserInfo.aspx.cs">
+      <DependentUpon>CheckUserInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\CheckUserInfo.aspx.designer.cs">
+      <DependentUpon>CheckUserInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -758,6 +766,9 @@
       <DependentUpon>SmsTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Time_Task.cs" />
+    <Compile Include="tools\delete_user_message.ashx.cs">
+      <DependentUpon>delete_user_message.ashx</DependentUpon>
+    </Compile>
     <Compile Include="tools\message_send.ashx.cs">
       <DependentUpon>message_send.ashx</DependentUpon>
     </Compile>
@@ -994,6 +1005,7 @@
     </None>
     <Content Include="user\UserMain.Master" />
     <Content Include="tools\message_send.ashx" />
+    <Content Include="tools\delete_user_message.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

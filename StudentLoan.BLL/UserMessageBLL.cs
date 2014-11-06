@@ -104,10 +104,8 @@ namespace StudentLoan.BLL
         /// <summary>
         /// 分页获取数据列表
         /// </summary>
-        public List<UserMessageEntityEx> GetListByPage(string strWhere, string orderby, int startIndex, int endIndex,ref int RecordCount)
+        public List<UserMessageEntityEx> GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
         {
-            RecordCount = this.GetRecordCount(strWhere); 
-            
             return dal.GetListByPage(strWhere,orderby,startIndex,endIndex);
         }
     }

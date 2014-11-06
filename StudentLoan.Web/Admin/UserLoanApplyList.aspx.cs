@@ -26,52 +26,6 @@ namespace StudentLoan.Web.Admin
 
                 if (!IsPostBack)
                 {
-                    string action = this.Request<string>("action");
-
-                    int loanId = this.Request<int>("loanid", 0);
-
-                    if (loanId > 0)
-                    {
-                        bool result = false;
-
-                        AdminEntityEx adminModel = Session[StudentLoanKeys.SESSION_ADMIN_INFO] as AdminEntityEx;
-
-                        UserLoanEntityEx userLoanModel = new UserLoanBLL().GetModel(loanId);
-
-                        switch (action)
-                        {
-                            case "pass":
-                                result = new UserLoanBLL().UpdateByAdmin(new UserLoanEntityEx()
-                                {
-                                    LoanId = loanId,
-                                    Status = 1,
-                                    AdminId = adminModel.AdminId,
-                                    LoanMoney = userLoanModel.LoanMoney,
-                                    UserId = userLoanModel.UserId,
-                                    TotalAmortization = userLoanModel.TotalAmortization,
-                                    AnnualFee = userLoanModel.AnnualFee,
-                                    ProductId = userLoanModel.ProductId
-                                });
-                                break;
-                            case "refuse":
-                                result = new UserLoanBLL().UpdateByAdmin(new UserLoanEntityEx()
-                                {
-                                    LoanId = loanId,
-                                    Status = 2,
-                                    AdminId = adminModel.AdminId,
-                                    LoanMoney = 0,
-                                    UserId = userLoanModel.UserId,
-                                    TotalAmortization = userLoanModel.TotalAmortization,
-                                    AnnualFee = userLoanModel.AnnualFee,
-                                    ProductId = userLoanModel.ProductId
-                                });
-                                break;
-                        }
-
-                        this.Alert(string.Format("操作:{0}", result == true ? "成功" : "失败"), "UserLoanApplyList.aspx");
-
-
-                    }
 
                     this.BindData();
                 }
@@ -239,25 +193,9 @@ namespace StudentLoan.Web.Admin
                 Literal objLiteral = e.Item.FindControl("objLiteral") as Literal;
 
                 StringBuilder objSB = new StringBuilder();
-                objSB.AppendFormat("<a href=\"UserLoanApplyList.aspx?action=check&loanid={0}\">审核资料</a> |", model.LoanId);
+                objSB.AppendFormat("<a href=\"CheckUserInfo.aspx?loanid={0}\">审核资料</a>", model.LoanId);
 
-                if (model.Status == 0)
-                {
-                    objSB.AppendFormat(" <a href=\"UserLoanApplyList.aspx?action=pass&loanid={0}\">放款</a> |", model.LoanId);
-                    objSB.AppendFormat(" <a href=\"UserLoanApplyList.aspx?action=refuse&loanid={0}\">拒绝</a> ", model.LoanId);
-
-                    objLiteral.Text = objSB.ToString().TrimEnd('|');
-                }
-                if (model.Status == 1)
-                {
-                    objLiteral.Text = objSB.ToString().TrimEnd('|');
-                }
-
-                if (model.Status == 2)
-                {
-                    objSB.AppendFormat(" <a href=\"UserLoanApplyList.aspx?action=pass&loanid={0}\">放款</a>", model.LoanId);
-                    objLiteral.Text = objSB.ToString().TrimEnd('|');
-                }
+                objLiteral.Text = objSB.ToString();
             }
         }
 

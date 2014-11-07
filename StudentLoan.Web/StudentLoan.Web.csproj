@@ -442,7 +442,6 @@
     <Content Include="user\UserLoanApply.aspx" />
     <Content Include="user\UserLoanList.aspx" />
     <Content Include="user\UserMessage.aspx" />
-    <Content Include="user\UserMessage_2.aspx" />
     <Content Include="user\Withdraw.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -977,13 +976,6 @@
     </Compile>
     <Compile Include="user\UserMessage.aspx.designer.cs">
       <DependentUpon>UserMessage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="user\UserMessage_2.aspx.cs">
-      <DependentUpon>UserMessage_2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="user\UserMessage_2.aspx.designer.cs">
-      <DependentUpon>UserMessage_2.aspx</DependentUpon>
     </Compile>
     <Compile Include="user\Withdraw.aspx.cs">
       <DependentUpon>Withdraw.aspx</DependentUpon>

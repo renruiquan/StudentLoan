@@ -38,7 +38,7 @@ namespace StudentLoan.DAL
 
             #endregion
 
-            return (int)base.ExecuteScalar(commandText.ToString()) > 0 ? true : false;
+            return (int)base.ExecuteScalar(commandText.ToString(),paramsList.ToArray()) > 0 ? true : false;
         }
 
 

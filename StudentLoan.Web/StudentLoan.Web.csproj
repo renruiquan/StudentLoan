@@ -237,6 +237,9 @@
     <Content Include="css\img\admin\about_map.png" />
     <Content Include="css\img\admin\about_telephone.png" />
     <Content Include="css\img\admin\about_us.jpg" />
+    <Content Include="css\img\admin\about_us_2.jpg" />
+    <Content Include="css\img\admin\about_us_3.jpg" />
+    <Content Include="css\img\admin\about_us_bottom.jpg" />
     <Content Include="css\img\admin\at_any_time.jpg" />
     <Content Include="css\img\admin\at_any_time.png" />
     <Content Include="css\img\admin\balance.png" />
@@ -294,6 +297,9 @@
     <Content Include="css\img\admin\regina_1_outdated.png" />
     <Content Include="css\img\admin\regina_2.png" />
     <Content Include="css\img\admin\regina_2_outdated.png" />
+    <Content Include="css\img\admin\safety_2.jpg" />
+    <Content Include="css\img\admin\safety_3.jpg" />
+    <Content Include="css\img\admin\safety_4.jpg" />
     <Content Include="css\img\admin\search_result.jpg" />
     <Content Include="css\img\admin\search_result_ex.jpg" />
     <Content Include="css\img\admin\service.png" />
@@ -410,6 +416,7 @@
     <Content Include="login.aspx" />
     <Content Include="MasterTest.aspx" />
     <Content Include="ManageMoneyNav.aspx" />
+    <Content Include="Question.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="RegProvision.aspx" />
     <Content Include="SchoolInfo.aspx" />
@@ -735,6 +742,13 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Question.aspx.cs">
+      <DependentUpon>Question.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Question.aspx.designer.cs">
+      <DependentUpon>Question.aspx</DependentUpon>
     </Compile>
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>

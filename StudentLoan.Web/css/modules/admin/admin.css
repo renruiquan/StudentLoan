@@ -3,1444 +3,1180 @@
  * Created by Administrator on 2014/10/2.
  * 后台相关的样式
  */
+
 body {
-    background: #f2f2f2;
+	background: #f2f2f2;
 }
-
 .wrapper {
-    clear: both;
-    max-width: 1200px;
-    margin: 0 auto;
+	clear: both;
+	max-width: 1200px;
+	margin: 0 auto;
 }
-
 .line {
-    border: 0;
-    height: 1px;
-    background: #d8d8d8;
-    margin: 40px 0;
+	border: 0;
+	height: 1px;
+	background: #d8d8d8;
+	margin: 40px 0;
 }
-
 .top {
-    height: 64px;
-    width: 100%;
-    background: #0061cc;
+	height: 64px;
+	width: 100%;
+	background: #0061cc;
 }
-
 .top .logo {
-    width: 110px;
-    height: 44px;
-    float: left;
-    overflow: hidden;
+	width: 110px;
+	height: 44px;
+	float: left;
+	overflow: hidden;
 }
-
 .top .menu {
-    font: normal 16px/64px "microsoft yahei";
+	font: normal 16px/64px "microsoft yahei";
 }
-
 .top .menu .active {
-    padding: 0;
-    background: none;
+	padding: 0;
+	background: none;
 }
-
 .top .menu {
-    padding: 0;
-    height: 64px;
-    margin: 0;
-    display: inline-block;
-    position: relative;
+	padding: 0;
+	height: 64px;
+	margin: 0;
+	display: inline-block;
+	position: relative;
 }
-
 .top .menu .nav {
-    height: 64px;
-    line-height: 64px;
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    font-size: 16px;
-    float: left;
+	height: 64px;
+	line-height: 64px;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	font-size: 16px;
+	float: left;
 }
-
 .top .menu .nav a {
-    padding: 0 20px;
-    color: #fff;
-    height: 64px;
-    font: normal 16px/64px "microsoft yahei";
+	padding: 0 20px;
+	color: #fff;
+	height: 64px;
+	font: normal 16px/64px "microsoft yahei";
 }
-
-.top .menu .nav:hover, .top .menu .active {
-    background-color: #0b4e98;
-    text-decoration: none;
+.top .menu .nav:hover,
+.top .menu .active {
+	background-color: #0b4e98;
+	text-decoration: none;
 }
-
-.top .menu .nav:hover > a, .top .menu .active > a {
-    height: 64px;
-    display: inline-block;
-    color: #fff;
-    text-decoration: none;
+.top .menu .nav:hover > a,
+.top .menu .active > a {
+	height: 64px;
+	display: inline-block;
+	color: #fff;
+	text-decoration: none;
 }
-
 .top .user-icon {
-    height: 64px;
-    text-align: center;
-    float: right;
-    padding: 0 20px;
-    background: #0a5bb6;
-    overflow: hidden;
+	height: 64px;
+	text-align: center;
+	float: right;
+	padding: 0 20px;
+	background: #0a5bb6;
+	overflow: hidden;
 }
-
 .top .user-icon p {
-    clear: both;
-    color: #fff;
-    margin-bottom: 4px;
+	clear: both;
+	color: #fff;
+	margin-bottom: 4px;
 }
-
 .top .user-icon .icon {
-    display: inline-block;
-    height: 30px;
-    width: 30px;
-    margin: 5px 0 4px 0;
-    background: #fff;
-    border-radius: 50%;
-    overflow: hidden;
+	display: inline-block;
+	height: 30px;
+	width: 30px;
+	margin: 5px 0 4px 0;
+	background: #fff;
+	border-radius: 50%;
+	overflow: hidden;
 }
-
 .top .user-icon .icon img {
-    height: 30px;
-    width: 30px;
+	height: 30px;
+	width: 30px;
 }
-
 .container-wrap {
-    clear: both;
-    margin: 0 auto 20px;
-    overflow: hidden;
+	clear: both;
+	margin: 0 auto 20px;
+	overflow: hidden;
 }
-
 .container-wrap .menu {
-    width: 220px;
-    min-height: 786px;
-    padding: 20px 0;
-    margin-right: 20px;
-    float: left;
-    background: #fff;
-    border: 1px solid #d8d8d8;
-    border-radius: 5px;
+	width: 220px;
+	min-height: 786px;
+	padding: 20px 0;
+	margin-right: 20px;
+	float: left;
+	background: #fff;
+	border: 1px solid #d8d8d8;
+	border-radius: 5px;
 }
 .container-wrap .menu h2,
 .container-wrap .menu ul li a {
-    text-align: left;
-    padding: 0 0 0 20px;
+	text-align: left;
+	padding: 0 0 0 20px;
 }
-
 .container-wrap .menu h2 {
-    color: #0061cc;
-    background: #eee;
-    font: normal 18px/44px "microsoft yahei";
+	color: #0061cc;
+	background: #eee;
+	font: normal 18px/44px "microsoft yahei";
 }
-
-
 .container-wrap .menu ul {
-    margin: 0;
+	margin: 0;
 }
-
 .container-wrap .menu ul li {
-    height: 33px;
-    overflow: hidden;
+	height: 33px;
+	overflow: hidden;
 }
-
 .container-wrap .menu ul li a {
-    display: block;
-    width: 100%;
-    height: 33px;
-    vertical-align: middle;
-    font: 14px/33px "microsoft yahei";
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -ms-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
+	display: block;
+	width: 100%;
+	height: 33px;
+	vertical-align: middle;
+	font: 14px/33px "microsoft yahei";
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
 }
-
 .container-wrap .menu ul li a i {
-    margin: 8px 8px 0px 8px;
+	margin: 8px 8px 0px 8px;
 }
-
 .container-wrap .menu ul .active,
 .container-wrap .menu ul li a:hover {
-    text-decoration: none;
-    color: #fff;
-    background: #0061cc;
+	text-decoration: none;
+	color: #fff;
+	background: #0061cc;
 }
-
 .container-wrap .menu ul .active i,
 .container-wrap .menu ul li a:hover i {
-    color: #fff;
+	color: #fff;
 }
-
 .container-wrap .menu ul .active {
-    cursor: default;
+	cursor: default;
 }
-
 .tabs {
-    clear: both;
-    height: 48px;
-    background: #f1f1f1;
-    border: 1px solid #d8d8d8;
+	clear: both;
+	height: 48px;
+	background: #f1f1f1;
+	border: 1px solid #d8d8d8;
 }
-
 .tabs ul {
-    width: 100%;
-    margin: 0;
+	width: 100%;
+	margin: 0;
 }
-
 .tabs ul li {
-    height: 48px;
-    float: left;
-    background: #fff;
-    border-right: 1px solid #d8d8d8;
-
+	height: 48px;
+	float: left;
+	background: #fff;
+	border-right: 1px solid #d8d8d8;
 }
-
 .tabs ul li a {
-    color: #616161;
-    background: #f1f1f1;
-    height: 48px;
-    padding: 0 30px;
-    font: 16px/48px "microsoft yahei";
+	color: #616161;
+	background: #f1f1f1;
+	height: 48px;
+	padding: 0 30px;
+	font: 16px/48px "microsoft yahei";
 }
-
 .tabs ul .active a,
 .tabs ul li a:hover {
-    text-decoration: none;
+	text-decoration: none;
 }
-
 .tabs ul .active a {
-    height: 54px;
-    color: #0061cc;
-    background: #fff;
-    cursor: default;
+	height: 54px;
+	color: #0061cc;
+	background: #fff;
+	cursor: default;
 }
-
 .content {
-    float: left;
-    width: 940px;
+	float: left;
+	width: 940px;
 }
-
 .content .cont {
-    clear: both;
-    padding: 30px;
-    min-height: 716px;
-    background: #fff;
-    margin-top: -2px;
-    border: 1px solid #d8d8d8;
-    border-radius: 0 0 5px 5px;
+	clear: both;
+	padding: 30px;
+	min-height: 716px;
+	background: #fff;
+	margin-top: -2px;
+	border: 1px solid #d8d8d8;
+	border-radius: 0 0 5px 5px;
 }
-
 .content .item {
-    clear: both;
+	clear: both;
 }
-
 .content .item h3 {
-    margin: 20px 0;
-    font: 18px/30px "microsoft yahei";
+	margin: 20px 0;
+	font: 18px/30px "microsoft yahei";
 }
-
 .content .item table {
-    width: 100%;
-    border-radius: 5px;
+	width: 100%;
+	border-radius: 5px;
 }
-
 .content .item table caption,
 .content .item th,
 .content .item td {
-    min-height: 44px;
-    vertical-align: middle;
-    text-align: center;
-    font: 16px/44px "microsoft yahei";
+	min-height: 44px;
+	vertical-align: middle;
+	text-align: center;
+	font: 16px/44px "microsoft yahei";
 }
-
 .content .item table thead th {
-    padding: 10px 0;
+	padding: 10px 0;
 }
-
 .content .item table thead {
-    border-bottom: none;
-    background: #f1f1f1;
+	border-bottom: none;
+	background: #f1f1f1;
 }
-
 .text-right {
-    text-align: right !important;
+	text-align: right !important;
 }
-
 .content a {
-    color: #0061cc;
+	color: #0061cc;
 }
-
 .big-num {
-    color: #0061cc;
-    font-size: 20px;
+	color: #0061cc;
+	font-size: 20px;
 }
-
 .border-radius {
-    border: 1px solid #d8d8d8;
-    border-radius: 5px;
+	border: 1px solid #d8d8d8;
+	border-radius: 5px;
 }
-
 .grade {
-    display: inline-block;
-    width: 45px;
-    height: 45px;
-    line-height: 45px;
-    text-align: center;
-    color: #fff;
-    margin: 10px;
-    border-radius: 50%;
+	display: inline-block;
+	width: 45px;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	color: #fff;
+	margin: 10px;
+	border-radius: 50%;
 }
-
 .blue {
-    background: #0061cc;
+	background: #0061cc;
 }
-
 .green {
-    background: #48cc00;
+	background: #48cc00;
 }
-
 .green-two {
-    background: #00cbad;
+	background: #00cbad;
 }
-
 .brown {
-    background: #cdc000;
+	background: #cdc000;
 }
-
 .orange {
-    background: #fb8509;
+	background: #fb8509;
 }
-
 .red {
-    background: #df5b4c;
+	background: #df5b4c;
 }
-
 .pink {
-    background: #e44fff;
+	background: #e44fff;
 }
-
 .purple {
-    background: #a582f8;
+	background: #a582f8;
 }
-
 .green-three {
-    background: #ec4512 !important;
+	background: #ec4512 !important;
 }
-
 .c-white {
-    color: #fff !important;
+	color: #fff !important;
 }
-
 .content .friend-cont {
-    padding: 0;
-    margin: 0;
-    background: #ff6a3c;
+	padding: 0;
+	margin: 0;
+	background: #bdf3ff;
 }
-
 .content .friend-cont h3 {
-    background: #ec4512;
-    margin: 0;
-    padding: 0;
-    line-height: 60px;
+	background: #0061cc;
+	margin: 0;
+	padding: 0;
+	color: #fff;
+	line-height: 60px;
 }
-
 .friend-bg {
-    min-height: 900px;
-    background: url("../../img/admin/friend.jpg") no-repeat center bottom;
+	height: 900px;
+	background: url("../../img/admin/friend.jpg") no-repeat center bottom;
 }
-
 .friend-text {
-    margin-top: 100px;
-    text-align: center;
-    color: #fff;
+	margin-top: 100px;
+	text-align: center;
 }
-
 .footer {
-    clear: both;
-    overflow: hidden;
-    padding: 20px 0;
-    color: #9e9fa3;
-    background: #434449;
+	clear: both;
+	overflow: hidden;
+	padding: 20px 0;
+	color: #9e9fa3;
+	background: #434449;
 }
-
 .link {
-    overflow: hidden;
-    padding: 15px 0;
-    border-bottom: 1px solid #9e9fa3;
+	overflow: hidden;
+	padding: 15px 0;
+	border-bottom: 1px solid #9e9fa3;
 }
-
 .link ul {
-    margin: 0;
+	margin: 0;
 }
-
 .link ul li {
-    float: left;
+	float: left;
 }
-
 .link a {
-    padding: 0 10px;
-    color: #9e9fa3;
+	padding: 0 10px;
+	color: #9e9fa3;
 }
-
 .copyright {
-    float: left;
-    margin-top: 5px;
+	float: left;
+	margin-top: 5px;
 }
-
 .copyright ul li {
-    float: left;
-    padding: 0 10px;
+	float: left;
+	padding: 0 10px;
 }
-
 .copyright a {
-    color: #9e9fa3;
-    font: 14px "microsoft yahei";
+	color: #9e9fa3;
+	font: 14px "microsoft yahei";
 }
-
 .contact {
-    margin-top: 20px;
-    float: right;
-    text-align: right;
+	margin-top: 20px;
+	float: right;
+	text-align: right;
 }
-
 .contact span {
-    font: 30px/40px "microsoft yahei";
+	font: 30px/40px "microsoft yahei";
 }
-
 .input-large {
-    height: 30px !important;
-    line-height: 30px !important;
+	height: 30px !important;
+	line-height: 30px !important;
 }
-
 .select-bank .bank {
-    position: relative;
-    float: left;
-    display: inline-block;
-    width: 150px;
-    height: 50px;
-    line-height: 50px;
-    margin: 0 20px 20px 0;
-    text-align: center;
-    overflow: hidden;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-
+	position: relative;
+	float: left;
+	display: inline-block;
+	width: 150px;
+	height: 50px;
+	line-height: 50px;
+	margin: 0 20px 20px 0;
+	text-align: center;
+	overflow: hidden;
+	border: 2px solid #ddd;
+	border-radius: 5px;
 }
-
 .select-bank .bank input {
-    position: absolute;
-    top: -20px;
-    left: 0;
-    overflow: hidden;
-
+	position: absolute;
+	top: -20px;
+	left: 0;
+	overflow: hidden;
 }
-
 .select-bank .bank:hover,
 .select-bank .active {
-    border-color: #0061cc;
+	border-color: #0061cc;
 }
-
 .btn:hover,
 .btn {
-    color: #fff !important;
-    font-family: "microsoft yahei";
+	color: #fff !important;
+	font-family: "microsoft yahei";
 }
-
-.all-view {
+.all-view {} .all-left {
+	float: left;
+	width: 236px;
+	margin: 30px 50px 30px 30px;
 }
-
-.all-left {
-    float: left;
-    width: 236px;
-    margin: 30px 50px 30px 30px;
-
-}
-
 .user-img {
-    width: 236px;
-    height: 310px;
-    overflow: hidden;
-    position: relative;
+	width: 236px;
+	height: 310px;
+	overflow: hidden;
+	position: relative;
 }
-
 .user-img .img img,
 .user-img .img {
-    width: 236px;
-    height: 300px;
+	width: 236px;
+	height: 300px;
 }
-
 .user-img .name {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: #fa4a33;
-    text-align: center;
-    color: #fff;
-    font: 18px/44px "microsoft yahei";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background: #fa4a33;
+	text-align: center;
+	color: #fff;
+	font: 18px/44px "microsoft yahei";
 }
-
 .all-right {
-    float: left;
-    width: 480px;
+	float: left;
+	width: 480px;
 }
-
 .head-icon {
-    display: inline-block;
-    width: 26px;
-    height: 26px;
+	display: inline-block;
+	width: 26px;
+	height: 26px;
 }
-
 .lock {
-    background: url("../../img/admin/lock.jpg") no-repeat;
+	background: url("../../img/admin/lock.jpg") no-repeat;
 }
-
 .dollar {
-    background: url("../../img/admin/dollar.jpg") no-repeat;
+	background: url("../../img/admin/dollar.jpg") no-repeat;
 }
-
 .refresh {
-    background: url("../../img/admin/refresh.jpg") no-repeat;
+	background: url("../../img/admin/refresh.jpg") no-repeat;
 }
-
-.rows-3 {
-
+.rows-3 {} .rows-3 div {
+	display: inline-block;
+	width: 33%;
 }
-
-.rows-3 div {
-    display: inline-block;
-    width: 33%;
-}
-
 .rows-3 div h4 {
-    font-weight: normal;
+	font-weight: normal;
 }
-
 .bg-rb {
-    position: relative;
-    padding: 80px 100px;
-    background: #fff;
+	position: relative;
+	padding: 80px 100px;
+	background: #fff;
 }
-
 .bg-rb .rb {
-    position: absolute;
-    right: -9px;
-    bottom: -1px;
-    width: 183px;
-    height: 181px;
-    background: url("../../img/admin/writer_from.jpg") no-repeat right bottom #fff;
+	position: absolute;
+	right: -9px;
+	bottom: -1px;
+	width: 183px;
+	height: 181px;
+	background: url("../../img/admin/writer_from.jpg") no-repeat right bottom #fff;
 }
-
 /*贷款分类*/
+
 .class-of {
-    float: left;
-    padding: 120px 0 120px 120px;
-    width: 1020px;
+	float: left;
+	padding: 120px 0 120px 120px;
+	width: 1020px;
 }
-
 .class-of .ima {
-    width: 182px;
-    height: 182px;
-    float: left;
-    margin: 0 30px 20px;
+	width: 182px;
+	height: 182px;
+	float: left;
+	margin: 0 30px 20px;
 }
-
 .generic,
 .diamond,
 .at-any-time {
-    width: 240px;
-    margin-right: 100px;
-    float: left;
-    text-align: center;
+	width: 240px;
+	margin-right: 100px;
+	float: left;
+	text-align: center;
 }
-
 .generic .ima {
-    background: url("../../img/admin/generic.png") no-repeat;
+	background: url("../../img/admin/generic.png") no-repeat;
 }
-
 .diamond .ima {
-    background: url("../../img/admin/diamond.png") no-repeat;
+	background: url("../../img/admin/diamond.png") no-repeat;
 }
-
 .at-any-time .ima {
-    background: url("../../img/admin/at_any_time.png") no-repeat;
+	background: url("../../img/admin/at_any_time.png") no-repeat;
 }
-
 .class-of h2 {
-    color: #3d3d3d;
-    font: normal 32px/46px "microsoft yahei";
-    clear: both;
+	color: #3d3d3d;
+	font: normal 32px/46px "microsoft yahei";
+	clear: both;
 }
-
 .class-of h4 {
-    color: #0060cc;
-    font-weight: normal;
+	color: #0060cc;
+	font-weight: normal;
 }
-
 .class-of .c-gray {
-    color: #808080;
+	color: #808080;
 }
-
 .class-of .money {
-    position: relative;
-    margin: 20px 0;
+	position: relative;
+	margin: 20px 0;
 }
-
 .class-of .dollar {
-    position: absolute;
-    right: 0;
-    top: -10px;
-    background: none;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    background: #0060cc;
-    color: #fff;
-    border-radius: 50%;
-    font-size: 18px;
+	position: absolute;
+	right: 0;
+	top: -10px;
+	background: none;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	background: #0060cc;
+	color: #fff;
+	border-radius: 50%;
+	font-size: 18px;
 }
-
 .class-of .money h2 {
-    color: #fff;
-    letter-spacing: -2px;
-    font: normal 34px/60px "microsoft yahei";
+	color: #fff;
+	letter-spacing: -2px;
+	font: normal 34px/60px "microsoft yahei";
 }
-
 .class-of .txt {
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 }
-
 .less-to-multi,
 .money-drawing,
 .top-full {
-    clear: both;
-    margin: 0;
-    padding: 0;
-    float: left;
-    width: 100%;
-    height: 320px;
-    overflow: hidden;
+	clear: both;
+	margin: 0;
+	padding: 0;
+	float: left;
+	width: 100%;
+	height: 320px;
+	overflow: hidden;
 }
-
 .less-to-multi {
-    background: #ffe9de;
+	background: #ffe9de;
 }
-
 .money-drawing {
-    background: #c9fffd;
+	background: #c9fffd;
 }
-
 .top-full {
-    background: #c6fdca;
+	background: #c6fdca;
 }
-
 .class-shadow,
 .shadow-text,
 .cornucopia .shadow {
-    width: 236px;
-    height: 236px;
-    float: left;
-    margin: 65px 40px 65px 0;
-    background: url("../../img/admin/money_drawing_shadow.png") no-repeat 20px 25px;
+	width: 236px;
+	height: 236px;
+	float: left;
+	margin: 65px 40px 65px 0;
+	background: url("../../img/admin/money_drawing_shadow.png") no-repeat 20px 25px;
 }
-
 .shadow-text {
-    background: none;
+	background: none;
 }
-
 .class-shadow {
-    width: 256px;
-    height: 256px;
-    margin: 0 40px 0 0;
-    background-position: 47px 22px;
+	width: 256px;
+	height: 256px;
+	margin: 0 40px 0 0;
+	background-position: 47px 22px;
 }
-
 .cornucopia .ima {
-    width: 180px;
-    height: 180px;
-    float: left;
+	width: 180px;
+	height: 180px;
+	float: left;
 }
-
 .less-to-multi .ima {
-    background: url("../../img/admin/less_to_multi.png") no-repeat;
+	background: url("../../img/admin/less_to_multi.png") no-repeat;
 }
-
 .money-drawing .ima {
-    background: url("../../img/admin/money_drawing.png") no-repeat;
+	background: url("../../img/admin/money_drawing.png") no-repeat;
 }
-
 .top-full .ima {
-    background: url("../../img/admin/top_full.png") no-repeat;
+	background: url("../../img/admin/top_full.png") no-repeat;
 }
-
 .cornucopia h3 {
-    font-weight: normal;
+	font-weight: normal;
 }
-
 .cornucopia h3 span {
-    color: #939393;
+	color: #939393;
 }
-
 .cornucopia .b-group {
-    width: 100%;
-    overflow: hidden;
-    padding-left: 1px;
-    color: #898989;
+	width: 100%;
+	overflow: hidden;
+	padding-left: 1px;
+	color: #898989;
 }
-
 .cornucopia .b-group span {
-
-    display: inline-block;
-    background: #fff;
-    border: 1px solid #ccc;
-    height: 40px;
-    line-height: 40px;
-    width: 170px;
-    float: left;
-    margin-left: -1px;
-    font: normal 14px/40px "microsoft yahei";
-    text-align: center;
-
+	display: inline-block;
+	background: #fff;
+	border: 1px solid #ccc;
+	height: 40px;
+	line-height: 40px;
+	width: 170px;
+	float: left;
+	margin-left: -1px;
+	font: normal 14px/40px "microsoft yahei";
+	text-align: center;
 }
-
 .cornucopia .disc {
-    width: 700px;
-    float: left;
-    margin: 60px 0 20px 0;
+	width: 700px;
+	float: left;
+	margin: 60px 0 20px 0;
 }
-
 .cornucopia .invest {
-    float: left;
-    margin: 121px 0 0 40px;
+	float: left;
+	margin: 121px 0 0 40px;
 }
-
 .mb0 {
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
-
 .login {
-    float: left;
-    height: 1220px;
-    width: 100%;
-    background: url("../../img/bg/login.jpg") no-repeat center 0;
+	float: left;
+	height: 1220px;
+	width: 100%;
+	background: url("../../img/bg/login.jpg") no-repeat center 0;
 }
-
 .login-form {
-    width: 458px;
-    margin: 50px auto;
+	width: 458px;
+	margin: 50px auto;
 }
-
 .dark-gray:hover,
 .dark-gray {
-    color: #333 !important;
+	color: #333 !important;
 }
-
 .login-form h2 {
-    color: #0060cc;
-    text-align: center;
-    font: normal 22px/30px "microsoft yahei";
+	color: #0060cc;
+	text-align: center;
+	font: normal 22px/30px "microsoft yahei";
 }
-
 .login-form p {
-    color: #fff;
-    text-align: center;
+	color: #fff;
+	text-align: center;
 }
-
 .login-form .check-code {
-    position: relative;
+	position: relative;
 }
-
 .login-form .check-code .check-a {
-    position: absolute;
-    display: inline-block;
-    height: 38px;
-    width: 100px;
-    top: 0;
-    right: 0;
-    overflow: hidden;
-    background: #f5f5f5;
-    border: 1px solid #d9d9d9;
-    border-left: none;
-    border-radius: 0 5px 5px 0;
+	position: absolute;
+	display: inline-block;
+	height: 38px;
+	width: 100px;
+	top: 0;
+	right: 0;
+	overflow: hidden;
+	background: #f5f5f5;
+	border: 1px solid #d9d9d9;
+	border-left: none;
+	border-radius: 0 5px 5px 0;
 }
-
 .clear-top {
-    margin-top: 0 !important;
-    min-height: 765px !important;
+	margin-top: 0 !important;
+	min-height: 765px !important;
 }
-
 .article h3 {
-    color: #0061cc;
-    font-weight: normal;
+	color: #0061cc;
+	font-weight: normal;
 }
-
 .article p {
-    font: normal 14px/22px "microsoft yahei";
+	font: normal 14px/22px "microsoft yahei";
 }
-
 .bg-cyan {
-    background: #9df0ff;
+	background: #9df0ff;
 }
-
 .wbb {
-    width: 100%;
+	width: 100%;
 }
-
 .register {
-    float: left;
-    width: 100%;
-    text-align: center;
-    background: #f2f2f2;
+	float: left;
+	width: 100%;
+	text-align: center;
+	background: #f2f2f2;
 }
-
 .register-form {
-    width: 900px;
-    margin: 60px auto;
+	width: 900px;
+	margin: 60px auto;
 }
-
 .reg-step {
-    height: 180px;
-    width: 100%;
-    float: left;
+	height: 180px;
+	width: 100%;
+	float: left;
 }
-
 .reg-step .step-right,
 .reg-step .step-left {
-    float: left;
-    width: 130px;
+	float: left;
+	width: 130px;
 }
-
 .reg-step .step-right {
-    float: right;
+	float: right;
 }
-
 .reg-step .step-center {
-    float: left;
-    width: 620px;
-    margin: 0 10px;
+	float: left;
+	width: 620px;
+	margin: 0 10px;
 }
-
 .reg-step .step-center .line {
-    margin-top: 80px;
+	margin-top: 80px;
 }
-
 .reg-step .step-right .icon,
 .reg-step .step-left .icon {
-    float: left;
-    width: 130px;
-    height: 130px;
-    margin: 0;
-    text-align: center;
-    background: url("../../img/admin/regina_1.png") no-repeat center center;
+	float: left;
+	width: 130px;
+	height: 130px;
+	margin: 0;
+	text-align: center;
+	background: url("../../img/admin/regina_1.png") no-repeat center center;
 }
-
 .reg-step .step-right .icon {
-    background: url("../../img/admin/regina_2.png") no-repeat center center;
+	background: url("../../img/admin/regina_2.png") no-repeat center center;
 }
-
 .reg-step .left-outdated .icon {
-    background: url("../../img/admin/regina_1_outdated.png") no-repeat center center;
+	background: url("../../img/admin/regina_1_outdated.png") no-repeat center center;
 }
-
 .reg-step .right-outdated .icon {
-    background: url("../../img/admin/regina_2_outdated.png") no-repeat center center;
+	background: url("../../img/admin/regina_2_outdated.png") no-repeat center center;
 }
-
 .reg-step .icon h4 {
-    margin-top: 80px;
-    color: #fff;
+	margin-top: 80px;
+	color: #fff;
 }
-
 .step-wrap {
-    margin: 0;
-    background: url("../../img/bg/step_rx.jpg") repeat-x 0 0 #0061cc;
+	margin: 0;
+	background: url("../../img/bg/step_rx.jpg") repeat-x 0 0 #0061cc;
 }
-
 .head-info {
-    position: relative;
-    height: 700px;
+	position: relative;
+	height: 700px;
 }
-
 .step-one {
-    background: url("../../img/bg/step1.jpg") no-repeat center 0;
+	background: url("../../img/bg/step1.jpg") no-repeat center 0;
 }
-
 .step-two {
-    background: url("../../img/bg/step2.jpg") no-repeat center 0;
+	background: url("../../img/bg/step2.jpg") no-repeat center 0;
 }
-
 .step-three {
-    background: url("../../img/bg/step3.jpg") no-repeat center 0;
+	background: url("../../img/bg/step3.jpg") no-repeat center 0;
 }
-
 .step-four {
-    background: url("../../img/bg/step4.jpg") no-repeat center 0;
+	background: url("../../img/bg/step4.jpg") no-repeat center 0;
 }
-
 .num-wrap {
-    position: absolute;
-    top: 60px;
-    left: 200px;
-    text-align: center;
-    width: 250px;
-
+	position: absolute;
+	top: 60px;
+	left: 200px;
+	text-align: center;
+	width: 250px;
 }
-
 .num-wrap h3 {
-    color: #233758;
-    font: normal 16px/34px "microsoft yahei";
+	color: #233758;
+	font: normal 16px/34px "microsoft yahei";
 }
-
 .num-wrap h3,
 .num-wrap h2 {
-    margin: 0 0 5px 0;
+	margin: 0 0 5px 0;
 }
-
 .num-wrap .click-sent,
 .num-wrap .num-red {
-    color: #fa4a33;
+	color: #fa4a33;
 }
-
 .num-wrap .click-sent {
-    font: 700 20px/34px "microsoft yahei";
+	font: 700 20px/34px "microsoft yahei";
 }
-
 .num-wrap .border-rb5 {
-    border-radius: 20px;
-    padding: 0 30px;
-    height: 30px;
-    line-height: 30px;
+	border-radius: 20px;
+	padding: 0 30px;
+	height: 30px;
+	line-height: 30px;
 }
-
 .step-top {
-    background: #ddfdff;
+	background: #ddfdff;
 }
-
 .step-top .user-icon p,
 .step-top .menu .nav a {
-    color: #0060cc;
+	color: #0060cc;
 }
-
-.step-top .menu .nav:hover a, .step-top .menu .active a {
-    color: #fff;
+.step-top .menu .nav:hover a,
+.step-top .menu .active a {
+	color: #fff;
 }
-
 .step-top .user-icon {
-    background: #ddfdff;
+	background: #ddfdff;
 }
-
 .right-info {
-    position: absolute;
-    right: 0;
-    top: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
 }
-
 .right-info .logo {
-
-    text-align: right;
-    margin: 20px 0;
+	text-align: right;
+	margin: 20px 0;
 }
-
 .blue-bg {
-    background: #9ce0ff;
-    padding: 5px;
-    float: right;
-    clear: both;
-    margin-bottom: 10px;
+	background: #9ce0ff;
+	padding: 5px;
+	float: right;
+	clear: both;
+	margin-bottom: 10px;
 }
-
 .blue-title {
-    background: #fff;
-    height: 34px;
-    line-height: 34px;
-    text-align: left;
+	background: #fff;
+	height: 34px;
+	line-height: 34px;
+	text-align: left;
 }
-
 .made-loans {
-    padding-right: 10px;
+	padding-right: 10px;
 }
-
 .made-loans span {
-    float: left;
-    margin-right: 10px;
+	float: left;
+	margin-right: 10px;
 }
-
 .made-loans h3 {
-    float: left;
-    margin: 0;
-    padding: 0;
-    color: #1e4066;
-    font: normal 20px/34px "microsoft yahei";
+	float: left;
+	margin: 0;
+	padding: 0;
+	color: #1e4066;
+	font: normal 20px/34px "microsoft yahei";
 }
-
 .blue-bg .person .blue-title {
-    background: #0060cc;
-    color: #fff;
-    padding: 0 10px;
+	background: #0060cc;
+	color: #fff;
+	padding: 0 10px;
 }
-
 .blue-bg .person h4 {
-    float: left;
-    margin: 0;
-    padding: 0;
-    font: normal 16px/34px "microsoft yahei";
+	float: left;
+	margin: 0;
+	padding: 0;
+	font: normal 16px/34px "microsoft yahei";
 }
-
 .blue-bg .person .info-txt {
-    float: right;
-    font: normal 12px/34px "microsoft yahei";
+	float: right;
+	font: normal 12px/34px "microsoft yahei";
 }
-
 .blue-bg .person .cont {
-    background: #fff;
-    padding: 20px;
+	background: #fff;
+	padding: 20px;
 }
-
 .right-items {
-    float: right;
-    clear: both;
+	float: right;
+	clear: both;
 }
-
 .right-items h4 {
-    color: #20416c;
-    float: left;
-    margin: 0;
-    padding: 0 10px;
-    font: 700 15px/40px "microsoft yahei";
+	color: #20416c;
+	float: left;
+	margin: 0;
+	padding: 0 10px;
+	font: 700 15px/40px "microsoft yahei";
 }
-
 .right-items .blue-bg {
-    clear: none;
+	clear: none;
 }
-
 .right-items .blue-bg .blue-title {
-    width: 200px;
-    text-align: center;
-
+	width: 200px;
+	text-align: center;
 }
-
 .blue-bg .person .list ul {
-    margin: 0;
+	margin: 0;
 }
-
 .step-icons {
-    clear: both;
-    height: 150px;
-    color: #fff;
-    text-align: center;
+	clear: both;
+	height: 150px;
+	color: #fff;
+	text-align: center;
 }
-
 .step-icons .icon-item {
-    display: inline-block;
-    width: 120px;
-    margin: 0;
+	display: inline-block;
+	width: 120px;
+	margin: 0;
 }
-
 .step-icons .icon-item .icon {
-    display: inline-block;
-    width: 80px;
-    height: 60px;
+	display: inline-block;
+	width: 80px;
+	height: 60px;
 }
-
 .step-icons .icon-item .lover {
-    background: url("../../img/admin/lover.png") no-repeat center center;
+	background: url("../../img/admin/lover.png") no-repeat center center;
 }
-
 .step-icons .icon-item .travel {
-    background: url("../../img/admin/travel.png") no-repeat center center;
+	background: url("../../img/admin/travel.png") no-repeat center center;
 }
-
 .step-icons .icon-item .fashion {
-    background: url("../../img/admin/fashion.png") no-repeat center center;
+	background: url("../../img/admin/fashion.png") no-repeat center center;
 }
-
 .step-icons .icon-item .myself {
-    background: url("../../img/admin/myself.png") no-repeat center center;
+	background: url("../../img/admin/myself.png") no-repeat center center;
 }
-
 .step-icons .icon-item .help {
-    background: url("../../img/admin/help.png") no-repeat center center;
+	background: url("../../img/admin/help.png") no-repeat center center;
 }
-
 .step-icons .icon-item h3 {
-    font: normal 20px/20px "microsoft yahei";
+	font: normal 20px/20px "microsoft yahei";
 }
-
 .step-icons .icon-item p {
-    font: normal 16px/16px "microsoft yahei";
+	font: normal 16px/16px "microsoft yahei";
 }
-
 .foot-txt {
-    text-align: center;
-    color: #fff;
-    margin: 20px 0;
+	text-align: center;
+	color: #fff;
+	margin: 20px 0;
 }
-
 .foot-txt .max {
-    font: normal 40px/60px "microsoft yahei";
+	font: normal 40px/60px "microsoft yahei";
 }
-
 .foot-thin {
-    font-weight: normal;
+	font-weight: normal;
 }
-
 .select-bank-cards {
-    clear: both;
-    display: block;
-    padding: 10px;
-    margin-bottom: 10px;
-    cursor: pointer;
+	clear: both;
+	display: block;
+	padding: 10px;
+	margin-bottom: 10px;
+	cursor: pointer;
 }
-
 .select-bank-cards-active,
 .select-bank-cards:hover {
-    border-color: #0060cc;
+	border-color: #0060cc;
 }
-
 .select-bank-cards input {
-    margin: 0 5px;
+	margin: 0 5px;
 }
-
 .select-bank-cards .bank-name {
-    margin: 0 5px;
-    display: inline-block;
-    width: 300px;
+	margin: 0 5px;
+	display: inline-block;
+	width: 300px;
 }
-
 .select-bank-cards .bank-name i {
-    display: inline-block;
+	display: inline-block;
 }
-
 .td-text-center th,
 .td-text-center td {
-    text-align: center;
+	text-align: center;
 }
-
 .empty-txt {
-    display: inline-block;
-    width: 115px;
+	display: inline-block;
+	width: 115px;
 }
-
 .content .about-us-bg {
-    padding-bottom: 300px;
-    background: url("../../img/admin/about_us.jpg") no-repeat center bottom #fff;
+	padding-bottom: 300px;
+	background: url("../../img/admin/about_us.jpg") no-repeat center bottom #fff;
 }
-
 .writer-form {
-    padding: 100px 0 500px 0;
-    margin-bottom: 0;
-    background: url("../../img/admin/write_form.png") repeat-x center bottom #aad2ff;
+	padding: 100px 0 500px 0;
+	margin-bottom: 0;
+	background: url("../../img/admin/write_form.png") repeat-x center bottom #aad2ff;
 }
-
 .w-top-bg {
-    color: #fff;
-    background: url("../../img/admin/write_title_bg.jpg") repeat-x center bottom #ff5c23;
+	color: #fff;
+	background: url("../../img/admin/write_title_bg.jpg") repeat-x center bottom #ff5c23;
 }
-
 .bg-rb .rb2 {
-    right: -2px;
-    background: url("../../img/admin/writer_from2.jpg") no-repeat right bottom #aad2ff;
+	right: -2px;
+	background: url("../../img/admin/writer_from2.jpg") no-repeat right bottom #aad2ff;
 }
-
 .borrow-money-detail {
-    margin: 50px 0;
-    float: left;
-    width: 100%;
+	margin: 50px 0;
+	float: left;
+	width: 100%;
 }
-
 .borrow-money-detail .title {
-    text-align: center;
+	text-align: center;
 }
-
 .borrow-money-detail .title h1 {
-    font-weight: normal;
+	font-weight: normal;
 }
-
 .borrow-money-detail .title p {
-    line-height: 50px;
+	line-height: 50px;
 }
-
 .borrow-money-detail .project-wrap {
-    width: 105%;
-    margin: 20px 0;
-    clear: both;
-    overflow: hidden;
+	width: 105%;
+	margin: 20px 0;
+	clear: both;
+	overflow: hidden;
 }
-
 .borrow-money-detail .project-wrap .item {
-    width: 380px;
-    margin-right: 25px;
-    float: left;
-    border: 1px solid #fff;
+	width: 380px;
+	margin-right: 25px;
+	float: left;
+	border: 1px solid #fff;
 }
-
 .borrow-money-detail .project-wrap .item .title {
-    color: #fff;
-    line-height: 60px;
-    margin-top: 0;
+	color: #fff;
+	line-height: 60px;
+	margin-top: 0;
 }
-
 .borrow-money-detail .project-wrap .item h4 {
-    font-weight: normal;
-    color: #b7b6b6;
-    clear: both;
-    margin: 20px 0;
+	font-weight: normal;
+	color: #b7b6b6;
+	clear: both;
+	margin: 20px 0;
 }
-
 .borrow-money-detail .project-wrap .item .limit {
-    overflow: hidden;
-    margin-bottom: 20px;
-    min-height: 120px;
+	overflow: hidden;
+	margin-bottom: 20px;
+	min-height: 120px;
 }
-
 .borrow-money-detail .project-wrap .item .limit .left {
-    float: left;
-    width: 160px;
+	float: left;
+	width: 160px;
 }
-
 .borrow-money-detail .project-wrap .item .limit .right {
-    float: right;
-    width: 160px;
+	float: right;
+	width: 160px;
 }
-
 .borrow-money-detail .project-wrap .item .condition {
-    background: #fff;
-    min-height: 125px;
-    padding: 20px;
-    border-top: 1px solid #fff;
-    border-bottom: 1px solid #fff;
-
+	background: #fff;
+	min-height: 125px;
+	padding: 20px;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
 }
-
 .borrow-money-detail .project-wrap .item .limit span {
-    font-size: 30px;
+	font-size: 30px;
 }
-
 .borrow-money-detail .project-wrap .item .cont {
-    margin: 20px;
+	margin: 20px;
 }
-
 .borrow-money-detail .project-wrap .item .adv {
-    text-align: center;
+	text-align: center;
 }
-
 .borrow-money-detail .project-wrap .item .adv span {
-    display: inline-block;
-    margin: 10px;
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
-    border-radius: 50%;
-    font-size: 24px;
-    color: #fff;
-    text-align: center;
+	display: inline-block;
+	margin: 10px;
+	width: 80px;
+	height: 80px;
+	line-height: 80px;
+	border-radius: 50%;
+	font-size: 24px;
+	color: #fff;
+	text-align: center;
 }
-
 /*绿色*/
-.borrow-money-detail .project-wrap .green {
-    background: #ecffe2;
-}
 
+.borrow-money-detail .project-wrap .green {
+	background: #ecffe2;
+}
 .borrow-money-detail .project-wrap .green .adv span,
 .borrow-money-detail .project-wrap .green .title {
-    background: #55c71d;
+	background: #55c71d;
 }
-
 .borrow-money-detail .project-wrap .green .condition,
 .borrow-money-detail .project-wrap .green .limit span {
-    color: #55c71d;
-
+	color: #55c71d;
 }
-
 .borrow-money-detail .project-wrap .green,
 .borrow-money-detail .project-wrap .green .condition {
-    border-color: #cdfdb4;
+	border-color: #cdfdb4;
 }
-
 /*橙色*/
-.borrow-money-detail .project-wrap .orange {
-    background: #fff4e3;
-}
 
+.borrow-money-detail .project-wrap .orange {
+	background: #fff4e3;
+}
 .borrow-money-detail .project-wrap .orange .adv span,
 .borrow-money-detail .project-wrap .orange .title {
-    background: #fe6029;
+	background: #fe6029;
 }
-
 .borrow-money-detail .project-wrap .orange .condition,
 .borrow-money-detail .project-wrap .orange .limit span {
-    color: #fe6029;
-
+	color: #fe6029;
 }
-
 .borrow-money-detail .project-wrap .orange,
 .borrow-money-detail .project-wrap .orange .condition {
-    border-color: #ffd799;
+	border-color: #ffd799;
 }
-
 /*蓝色*/
 
 .borrow-money-detail .project-wrap .blue {
-    background: #dbe5ff;
+	background: #dbe5ff;
 }
-
 .borrow-money-detail .project-wrap .blue .adv span,
 .borrow-money-detail .project-wrap .blue .title {
-    background: #4777f1;
+	background: #4777f1;
 }
-
 .borrow-money-detail .project-wrap .blue .condition,
 .borrow-money-detail .project-wrap .blue .limit span {
-    color: #4777f1;
-
+	color: #4777f1;
 }
-
 .borrow-money-detail .project-wrap .blue,
 .borrow-money-detail .project-wrap .blue .condition {
-    border-color: #afc5fb;
+	border-color: #afc5fb;
 }
-
 .borrow-money-table {
-    width: 100%;
+	width: 100%;
 }
-
 .borrow-money-table th,
 .borrow-money-table td {
-    line-height: 60px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    padding: 0 20px;
-    background: #f2f2f2;
+	line-height: 60px;
+	font-size: 14px;
+	border: 1px solid #ccc;
+	padding: 0 20px;
+	background: #f2f2f2;
 }
-
 .borrow-money-table th {
-    text-align: center;
-    background: #e4e4e4;
+	text-align: center;
+	background: #e4e4e4;
 }
-
-.all-view-two {
-
+.all-view-two {} .all-view-two .user-info {
+	border: 1px solid #ccc;
+	padding: 10px;
 }
-
-.all-view-two .user-info {
-    border: 1px solid #ccc;
-    padding: 10px;
-}
-
 .all-view-two .user-info .pull-left {
-    display: inline-block;
-    width: 120px;
-    height: 120px;
-    overflow: hidden;
-    border-radius: 50%;
-
+	display: inline-block;
+	width: 120px;
+	height: 120px;
+	overflow: hidden;
+	border-radius: 50%;
 }
-
 .all-view-two .user-info .media-body {
-    margin-top: 40px;
+	margin-top: 40px;
 }
-
 .all-view-two .my-project {
-    clear: both;
-    margin: 20px 0;
-    width: 900px;
-
+	clear: both;
+	margin: 20px 0;
+	width: 900px;
 }
-
 .all-view-two .my-project .item {
-    float: left;
-    clear: none;
-    border: 1px solid #ccc;
-    width: 280px;
-    margin-right: 16px;
-    text-align: center;
-
+	float: left;
+	clear: none;
+	border: 1px solid #ccc;
+	width: 280px;
+	margin-right: 16px;
+	text-align: center;
 }
-
 .all-view-two .my-project .item .title h3,
 .all-view-two .my-project .item .title {
-    height: 130px;
-    line-height: 130px;
-    margin: 0;
-
+	height: 130px;
+	line-height: 130px;
+	margin: 0;
 }
-
 .all-view-two .my-project .item .number {
-    margin: 20px 0;
-    height: 120px;
+	margin: 20px 0;
+	height: 120px;
 }
-
 .all-view-two .my-project .item .number strong {
-    font: normal 30px/60px "microsoft yahei";
+	font: normal 30px/60px "microsoft yahei";
 }
-
 .all-view-two .my-project .item .operation {
-    padding: 20px 0;
+	padding: 20px 0;
 }
-
 .all-view-two .my-project .balance {
-    background: #edfdf3;
+	background: #edfdf3;
 }
-
 .all-view-two .my-project .balance .title {
-    background: #cafee0;
+	background: #cafee0;
 }
-
 .all-view-two .my-project .balance .title,
 .all-view-two .my-project .balance .number {
-    color: #0d7a3b;
+	color: #0d7a3b;
 }
-
 .all-view-two .my-project .diamond {
-    background: #eafffd;
+	background: #eafffd;
 }
-
 .all-view-two .my-project .diamond .title {
-    background: #c2fdf8;
+	background: #c2fdf8;
 }
-
 .all-view-two .my-project .diamond .title,
 .all-view-two .my-project .diamond .number {
-    color: #1e8d81;
+	color: #1e8d81;
 }
-
 .all-view-two .my-project .integral {
-    background: #f6e8ff;
+	background: #f6e8ff;
 }
-
 .all-view-two .my-project .integral .title {
-    background: #eacdfc;
+	background: #eacdfc;
 }
-
 .all-view-two .my-project .integral .title,
 .all-view-two .my-project .integral .number {
-    color: #894fb8;
+	color: #894fb8;
 }
-
 .content .item .user-table caption {
-    color: #0060cc;
-    background: #ededed;
-    border: 1px solid #ddd;
-    border-bottom: none;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    font: 26px/60px "microsoft yahei";
+	color: #0060cc;
+	background: #ededed;
+	border: 1px solid #ddd;
+	border-bottom: none;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	font: 26px/60px "microsoft yahei";
 }
 .question p {
-    padding-left: 20px;
+	padding-left: 20px;
 }
 .question .ask {
-   background: #eee;
-    line-height: 40px;
-    height: 40px;
-    border-radius: 20px;
-    cursor: pointer;
+	background: #eee;
+	line-height: 40px;
+	height: 40px;
+	border-radius: 20px;
+	cursor: pointer;
 }
 .question .ask:hover {
-    background: #a6e1ff;
+	background: #a6e1ff;
 }
+
+.content .raq-bg {
+	background: #88c0fd;
+}
+

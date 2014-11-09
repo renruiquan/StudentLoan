@@ -142,6 +142,7 @@
 }
 .into-dic .bg-gray:hover {
 	opacity: 1;
+	text-decoration: none;
 }
 .into-dic .bg-gray:hover .add-btn {
 	transform: scale(1);

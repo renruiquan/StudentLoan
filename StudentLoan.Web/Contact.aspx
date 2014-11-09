@@ -21,6 +21,7 @@
                         <li><a href="Introduction.aspx"><i class="ico-params"></i>公司简介</a></li>
                         <li><a class="active" href="javascript:;"><i class="ico-note"></i>联系我们</a></li>
                         <li><a href="Culture.aspx"><i class="ico-wallet"></i>企业文化</a></li>
+                        <li><a href="Question.aspx"><i class="ico-wallet"></i>常见问题</a></li>
                     </ul>
                 </div>
             </div>
@@ -29,29 +30,63 @@
                 <div class="cont clear-top">
 
                     <div class="article">
-                        <h3>公司总部</h3>
 
-                        <p>地址：上海市徐汇区肇嘉浜路1033号徐家汇国际大厦19-20层</p>
-                        <p>邮编：200030</p>
+                        <div class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object" src="../css/img/admin/about_map.png" width="130" height="130" />
+                            </a>
 
-                        <h3>江苏财富中心</h3>
-                        <p>地址：江苏省宿迁市宿城开发区生产力中心C座</p>
-                        <p>邮编：223800</p>
-                        <p>电话：0527-88802678</p>
+                            <div class="media-body">
+                                <h3>财富中心</h3>
 
-                        <h3>客服电话</h3>
-                        <p>如果您在访问学子易贷（UTL)的过程中有任何疑问请您与学子易贷（UTL)客服人员联系</p>
-                        <p>客服电话：0527-88802678（09.00-17:30）</p>
+                                <p>地址：苏宿工业园区生产力中心电商产业园C座</p>
 
-                        <h3>媒体采访</h3>
-                        <p>
-                            如果有媒体采访需求，请将您的媒体名称、采访提问、联系方式发送邮件至：<br>
-                            <a href="mailto:2419451636@qq.com">2419451636@qq.com</a>我们会尽快与您联系。
-                        </p>
+                                <p>邮编：223800</p>
+                            </div>
+                        </div>
 
-                        <h3>商务合作</h3>
-                        <p>如果贵公司希望与我们建立商务合作关系，形成优势互补，请将合作意向进行简要描述并发送邮件至：</p>
-                        <p><a href="mailto:2419451636@qq.com">2419451636@qq.com</a>我们会尽快与您联系。</p>
+                        <div class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object" src="../css/img/admin/about_telephone.png" width="130"
+                                    height="130" />
+                            </a>
+
+                            <div class="media-body">
+                                <h3>客服电话</h3>
+
+                                <p>如果您在访问学子易贷（UTL)的过程中有任何疑问请您与学子易贷（UTL)客服人员联系。</p>
+
+                                <p>联系电话：0527-88802678（09:00-17:30）</p>
+                            </div>
+                        </div>
+
+                        <div class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object" src="../css/img/admin/about_fax.png" width="130" height="130" />
+                            </a>
+
+                            <div class="media-body">
+                                <h3>传真（Fax)</h3>
+
+                                <p>如果您在访问学子易贷（UTL)的过程中有任何疑问请您与学子易贷（UTL)客服人员联系。</p>
+
+                                <p>联系传真：0527-88802678（09:00-17:30）</p>
+                            </div>
+                        </div>
+
+                        <div class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object" src="../css/img/admin/about_email.png" width="130" height="130" />
+                            </a>
+
+                            <div class="media-body">
+                                <h3>业务合作</h3>
+
+                                <p>如果贵公司希望与我们建立商务合作关系，形成优势互补，请将合作意向进行简要描述并发送邮件至：</p>
+
+                                <p>2419451636@qq.com 我们会尽快与您联系</p>
+                            </div>
+                        </div>
 
                     </div>
                 </div>

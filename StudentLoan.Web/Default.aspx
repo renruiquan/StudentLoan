@@ -47,7 +47,9 @@
 						<a class="apply-btn" href="Register.aspx">注  册</a>
 					</span>
 				</div>
-
+                  <div class="detail-text">
+                    <p>学子易贷将陪伴你喜怒哀乐... 美好大学生活，从这里开启......</p>
+                </div>
 				<div class="into-dic">
 
 					<div class="item">
@@ -61,7 +63,7 @@
 							</span>
 						</div>
 						<h1 class="animated fadeInDown">高效</h1>
-						<p class="animated fadeInUp">快速高效的贷款审核机制。学生符合基本条件即可申请成功</p>
+						<p class="animated fadeInUp">便捷高效的贷款审核机制，符合条件即可放款。</p>
 					</div>
 
 					<div class="item line"></div>
@@ -77,7 +79,7 @@
 							</span>
 						</div>
 						<h1 class="animated fadeInDown">安全</h1>
-						<p class="animated fadeInUp">专业团队确保网站安全运作同时保护客户的数据和资金安全</p>
+						<p class="animated fadeInUp">专业的运作团队，确保客户数据与资金安全。</p>
 					</div>
 
 					<div class="item line"></div>
@@ -93,7 +95,7 @@
 							</span>
 						</div>
 						<h1 class="animated fadeInDown">保密</h1>
-						<p class="animated fadeInUp">以完善制度保护隐私，无需担心个人资料外泄</p>
+						<p class="animated fadeInUp">完善的保密制度，竭尽全力保护客户个人隐私。</p>
 					</div>
 
 					<div class="clear"></div>

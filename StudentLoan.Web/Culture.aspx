@@ -18,13 +18,15 @@
                 <div class="item">
                     <h2>关于我们</h2>
                     <ul>
-                         <li><a href="About.aspx"><i class="ico-note"></i>保障</a></li>
+                        <li><a href="About.aspx"><i class="ico-note"></i>保障</a></li>
                         <li><a href="Introduction.aspx"><i class="ico-params"></i>公司简介</a></li>
                         <li><a href="Contact.aspx"><i class="ico-note"></i>联系我们</a></li>
                         <li><a class="active" href="javascript:;"><i class="ico-wallet"></i>企业文化</a></li>
+                        <li><a href="Question.aspx"><i class="ico-wallet"></i>常见问题</a></li>
                     </ul>
                 </div>
             </div>
+
             <div class="content">
 
                 <div class="cont clear-top about-us-bg">
@@ -80,7 +82,7 @@
 
                         <div class="media">
                             <a class="pull-left" href="#">
-                                <img class="media-object" src="../css/img/admin/knocked_active.png" width="180" height="180" />
+                                <img class="media-object" src="../css/img/admin/service.png" width="180" height="180" />
                             </a>
                             <div class="media-body">
                                 <h3>学子易贷愿景</h3>
@@ -94,7 +96,6 @@
                 </div>
 
             </div>
-
         </div>
     </div>
 </asp:Content>

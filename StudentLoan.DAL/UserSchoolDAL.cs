@@ -26,7 +26,7 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append("Select UserID From sl_user_school Where UserID = "+userid+"");
+            commandText.Append("Select UserID From sl_user_school Where UserID = @UserID");
 
             #endregion
 
@@ -38,7 +38,7 @@ namespace StudentLoan.DAL
 
             #endregion
 
-            return (int)base.ExecuteScalar(commandText.ToString()) > 0 ? true : false;
+            return (int)base.ExecuteScalar(commandText.ToString(),paramsList.ToArray()) > 0 ? true : false;
         }
        
         /// <summary>
@@ -52,11 +52,11 @@ namespace StudentLoan.DAL
 
             commandText.Append(" Insert Into sl_user_school( ");
 
-            commandText.Append(" UserId,xuexinUsername,xuexinPassword,Education,Major,Class,SchoolId,SchoolAddress,BranchSchool,YearOfAdmission,SchoolSystem,Dormitory,CreateTime,Remark,Status) ");
+            commandText.Append(" UserId,xuexinUsername,xuexinPassword,SchoolName,Education,Major,Class,SchoolId,SchoolAddress,BranchSchool,YearOfAdmission,SchoolSystem,Dormitory,CreateTime,Remark,Status) ");
             
             commandText.Append(" Values ( ");
 
-            commandText.Append(" @UserId,@xuexinUsername,@xuexinPassword,@Education,@Major,@Class,@SchoolId,@SchoolAddress,@BranchSchool,@YearOfAdmission,@SchoolSystem,@Dormitory,@CreateTime,@Remark,@Status) ");
+            commandText.Append(" @UserId,@xuexinUsername,@xuexinPassword,@SchoolName,@Education,@Major,@Class,@SchoolId,@SchoolAddress,@BranchSchool,@YearOfAdmission,@SchoolSystem,@Dormitory,@CreateTime,@Remark,@Status) ");
 
             #endregion
             
@@ -73,7 +73,9 @@ namespace StudentLoan.DAL
             paramsList.Add(new SqlParameter("@xuexinUsername", model.XuexinUsername));
 
             paramsList.Add(new SqlParameter("@xuexinPassword", model.XuexinPassword));
-            
+
+            paramsList.Add(new SqlParameter("@SchoolName",model.SchoolName));
+
             paramsList.Add(new SqlParameter("@Class", model.Class));
             
             paramsList.Add(new SqlParameter("@SchoolId", model.SchoolId));
@@ -158,8 +160,6 @@ namespace StudentLoan.DAL
 
             commandText.Append(" Update sl_user_school Set ");  
             
-            commandText.Append(" UserId = @UserId, ");
-            
             commandText.Append(" Education = @Education, ");
 
             commandText.Append(" xuexinUsername = @xuexinUsername, ");
@@ -167,8 +167,7 @@ namespace StudentLoan.DAL
             commandText.Append(" xuexinPassword = @xuexinPassword, "); 
             
             commandText.Append(" Major = @Major, ");
-            
-            commandText.Append(" Class = @Class, ");
+          
             
             commandText.Append(" SchoolId = @SchoolId, ");
             
@@ -188,7 +187,7 @@ namespace StudentLoan.DAL
             
             commandText.Append(" Status = @Status ");
             
-            commandText.Append(" Where  = @ ");
+            commandText.Append(" Where  UserId= @UserId ");
 
             #endregion
             
@@ -241,7 +240,7 @@ namespace StudentLoan.DAL
             
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select Top 1 UserId,Education,Major,Class,SchoolId,SchoolAddress,BranchSchool,YearOfAdmission,SchoolSystem,Dormitory,CreateTime,Remark,Status From sl_user_school Where  userId= @userId ");
+            commandText.Append(" Select Top 1 UserId,Education,Major,Class,SchoolId,SchoolName,SchoolAddress,BranchSchool,YearOfAdmission,SchoolSystem,Dormitory,CreateTime,Remark,Status From sl_user_school Where  userId= @userId ");
             
             #endregion
             

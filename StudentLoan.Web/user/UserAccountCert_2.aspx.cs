@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
@@ -31,8 +32,15 @@ namespace StudentLoan.Web.user
                     objAnchor.Attributes.Add("class", "active");
                 }
 
-                #endregion               
+                #endregion
+
                 IsWritten();
+
+                this.BindSchoolList();
+
+                this.BindUserSchool();
+
+                this.BindUserRelationship();
             }
         }
         //判断是否已经完善过信息
@@ -41,14 +49,14 @@ namespace StudentLoan.Web.user
             UsersEntityEx userModel = Usermodel();
             if (!string.IsNullOrEmpty(userModel.TrueName))
             {
-                    this.txtTruename.Attributes.Add("ReadOnly", "true");
-                    this.txtIdentityCard.Attributes.Add("ReadOnly", "true");
-                    txtBirthday.Text = userModel.Birthday.ToString();
-                    txtIdentityCard.Text = userModel.IdentityCard;
-                    txtMobile.Text = userModel.Mobile;
-                    txtTruename.Text = userModel.TrueName;
-                    ddlGender.SelectedValue = userModel.Gender;
-                    ddlNation.SelectedValue = userModel.Nation;
+                this.txtTruename.Attributes.Add("ReadOnly", "true");
+                this.txtIdentityCard.Attributes.Add("ReadOnly", "true");
+                txtBirthday.Text = userModel.Birthday.ToString("yyyy-MM-dd");
+                txtIdentityCard.Text = userModel.IdentityCard;
+                txtMobile.Text = userModel.Mobile;
+                txtTruename.Text = userModel.TrueName;
+                ddlGender.SelectedValue = userModel.Gender;
+                ddlNation.SelectedValue = userModel.Nation;
             }
             else
             {
@@ -57,14 +65,14 @@ namespace StudentLoan.Web.user
         }
         //获取用户Model
         protected UsersEntityEx Usermodel()
-        { 
+        {
             UsersEntityEx userModel = base.GetUserModel();
             return userModel;
         }
         //保存基本信息一
         protected void btnSaveStepOne_ServerClick(object sender, EventArgs e)
         {
-            UsersEntityEx userModel = Usermodel();    
+            UsersEntityEx userModel = Usermodel();
             //step1个人基本信息字段                  
             string truename = txtTruename.Text.Trim().HtmlEncode();
             string identityCard = txtIdentityCard.Text.Trim().HtmlEncode();
@@ -73,7 +81,7 @@ namespace StudentLoan.Web.user
             string nation = ddlNation.SelectedValue;
             string birthday = txtBirthday.Text.Trim().HtmlEncode();
 
-           
+
 
             //step1个人基本信息验证
             if (string.IsNullOrEmpty(truename))
@@ -116,13 +124,13 @@ namespace StudentLoan.Web.user
             {
                 Session[StudentLoanKeys.SESSION_USER_LOGIN_SUM] = Convert.ToInt32(Session[StudentLoanKeys.SESSION_USER_LOGIN_SUM]) + 1;
             }
-           
+
             userModel.TrueName = truename;
             userModel.Mobile = mobile;
             userModel.IdentityCard = identityCard;
             userModel.Gender = gender;
             userModel.Nation = nation;
-            userModel.Birthday =Convert.ToDateTime(birthday);
+            userModel.Birthday = Convert.ToDateTime(birthday);
 
             bool result = new UsersBLL().Update(userModel);
             if (result)
@@ -208,7 +216,7 @@ namespace StudentLoan.Web.user
             userschoolModel.XuexinUsername = xuexinusername;
             userschoolModel.XuexinPassword = xuexinpass;
             userschoolModel.SchoolAddress = schooladd;
-            userschoolModel.YearOfAdmission =Convert.ToDateTime(yearofadmission);
+            userschoolModel.YearOfAdmission = Convert.ToDateTime(yearofadmission);
             userschoolModel.SchoolSystem = schoolsystem;
             userschoolModel.Education = education;
             userschoolModel.Major = major;
@@ -216,8 +224,8 @@ namespace StudentLoan.Web.user
             userschoolModel.CreateTime = DateTime.Now;
 
             //判断用户的学校信息是否存在
-            //bool result=new UserSchoolBLL().Exists(userModel.UserId);
-            bool result = false;
+            bool result = new UserSchoolBLL().Exists(userModel.UserId);
+
             if (result)
             {
                 result = new UserSchoolBLL().Update(userschoolModel);
@@ -256,14 +264,14 @@ namespace StudentLoan.Web.user
 
             if (string.IsNullOrEmpty(relativename) || string.IsNullOrEmpty(relativeprofession) || string.IsNullOrEmpty(relativetype) || string.IsNullOrEmpty(relativemobile))
             {
-                this.artDialog("提示","请将亲属信息填写完整");
+                this.artDialog("提示", "请将亲属信息填写完整");
                 return;
             }
 
             string matename = txtMateName.Text.Trim().HtmlEncode();
             string matemobile = txtMateMobile.Text.Trim().HtmlEncode();
 
-            if (string.IsNullOrEmpty(matename) || string.IsNullOrEmpty(matename) )
+            if (string.IsNullOrEmpty(matename) || string.IsNullOrEmpty(matename))
             {
                 this.artDialog("提示", "请将同学(同室)信息填写完整");
                 return;
@@ -289,7 +297,7 @@ namespace StudentLoan.Web.user
             //bool result = new UserRelationshipBLL().Exists(userModel.UserId,relativename,1);
             bool result = false;
             if (result)
-            {                
+            {
                 result = new UserRelationshipBLL().Update(userrelationshipmodel);
                 if (result)
                 {
@@ -384,6 +392,74 @@ namespace StudentLoan.Web.user
                 {
                     this.artDialog("提示", "保存失败，请检查填写的信息是否正确");
                 }
+            }
+        }
+
+        public void BindSchoolList()
+        {
+            List<BaseSchoolEntityEx> schoolList = new BaseSchoolBLL().GetList(" 1=1 and Status = 1");
+
+            StringBuilder objSB = new StringBuilder();
+
+            objSB.Append("[");
+
+            foreach (BaseSchoolEntityEx item in schoolList)
+            {
+                objSB.AppendFormat("\"{0}\",", item.SchoolName);
+            }
+            this.txtSchoolName.Attributes.Add("data-source", objSB.ToString().TrimEnd(',') + "]");
+        }
+
+
+        public void BindUserSchool()
+        {
+            UserSchoolEntityEx model = new UserSchoolBLL().GetModel(base.GetUserModel().UserId);
+
+            if (model != null)
+            {
+                this.txtXuexin.Text = model.XuexinUsername;
+                this.txtXuexin_Password.Text = model.XuexinPassword;
+                this.txtSchoolName.Text = model.SchoolName;
+                this.txtSchoolAdd.Text = model.SchoolAddress;
+                this.txtYearOfAdmission.Text = model.YearOfAdmission.ToString("yyyy-MM-dd");
+                this.ddlSchoolSystem.SelectedValue = model.SchoolSystem.ToString();
+                this.ddlEducation.SelectedValue = model.Education.ToString();
+                this.txtMajor.Text = model.Major;
+
+            }
+        }
+
+        public void BindUserRelationship()
+        {
+            List<UserRelationshipEntityEx> list = new UserRelationshipBLL().GetList(string.Format(" 1=1 and UserId = {0}", base.GetUserModel().UserId));
+
+            if (list == null)
+            {
+                return;
+            }
+
+            UserRelationshipEntityEx familyModel = list.Where(s => s.Type == 1).First();
+            UserRelationshipEntityEx studentModel = list.Where(s => s.Type == 2).First();
+            UserRelationshipEntityEx friendModel = list.Where(s => s.Type == 3).First();
+
+            if (familyModel != null)
+            {
+                this.txtRelativeName.Text = familyModel.Name;
+                this.txtRelationtype.Text = familyModel.Relationship;
+                this.txtRelativeMobile.Text = familyModel.Mobile;
+                this.txtRelativeProfession.Text = familyModel.Profession;
+            }
+
+            if (studentModel != null)
+            {
+                this.txtMateName.Text = studentModel.Name;
+                this.txtMateMobile.Text = studentModel.Mobile;
+            }
+
+            if (friendModel != null)
+            {
+                this.txtFriendName.Text = friendModel.Name;
+                this.txtFriendMobile.Text = friendModel.Mobile;
             }
         }
     }

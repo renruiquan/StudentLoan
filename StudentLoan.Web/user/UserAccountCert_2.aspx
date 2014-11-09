@@ -3,9 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../css/datepicker.css" rel="stylesheet" />
     <script src="../js/bootstrap-datepicker.js"></script>
+    <script src="../css/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('.datepickers').datepicker();
+            $("#demo1").typeahead();
         });
     </script>
 </asp:Content>
@@ -131,7 +133,7 @@
                                                 <asp:ListItem Text="壮族" Value="壮族"></asp:ListItem>
                                             </asp:DropDownList>
                                         </div>
-                                    </div>
+                                   </div>
                                     <div class="control-group">
                                         <label class="control-label"><span class="c-red">*</span> 出生日期：</label>
 
@@ -182,7 +184,7 @@
                                         <label class="control-label">* 账号：</label>
 
                                         <div class="controls text-left">
-                                            <asp:TextBox ID="txtXuexin" runat="server" class="span5" type="text" placeholder="请输入学信网账号" />                                            
+                                            <asp:TextBox ID="txtXuexin" runat="server" class="span5" type="text" placeholder="请输入学信网账号" />
                                         </div>
                                     </div>
 
@@ -190,7 +192,7 @@
                                         <label class="control-label">* 密码：</label>
 
                                         <div class="controls text-left">
-                                            <asp:TextBox ID="txtXuexin_Password" runat="server" class="span5" type="password" placeholder="请输入学信网密码" />                                            
+                                            <asp:TextBox ID="txtXuexin_Password" runat="server" class="span5" type="password" placeholder="请输入学信网密码" />
                                         </div>
                                     </div>
 
@@ -198,11 +200,11 @@
                                         <label class="control-label">* 就读学校：</label>
 
                                         <div class="controls text-left">
-                                            <asp:TextBox ID="txtSchoolName" runat="server" class="span5" type="text" placeholder="请输入学校名称(与学生证上一致)" />
+                                            <asp:TextBox ID="txtSchoolName" autocomplete="off"   data-provide="typeahead" data-items="10"  runat="server" class="span5" type="text" placeholder="请输入学校名称(与学生证上一致)" />
                                         </div>
                                     </div>
 
-                                   
+
 
 
                                     <div class="control-group">
@@ -218,7 +220,7 @@
                                         <label class="control-label">* 入学日期：</label>
 
                                         <div class="controls text-left">
-                                          <asp:TextBox ID="txtYearOfAdmission" runat="server" class="span2 datepickers" size="16" type="text" data-date-format="yyyy-mm-dd" placeholder="请选择" />
+                                            <asp:TextBox ID="txtYearOfAdmission" runat="server" class="span2 datepickers" size="16" type="text" data-date-format="yyyy-mm-dd" placeholder="请选择" />
                                         </div>
                                     </div>
 
@@ -234,7 +236,7 @@
                                                 <asp:ListItem Value="6">6年制</asp:ListItem>
                                                 <asp:ListItem Value="7">7年制</asp:ListItem>
                                                 <asp:ListItem Value="8">8年制</asp:ListItem>
-                                                </asp:DropDownList>
+                                            </asp:DropDownList>
                                         </div>
                                     </div>
 
@@ -242,19 +244,19 @@
                                         <label class="control-label">* 学历：</label>
 
                                         <div class="controls text-left">
-                                             <asp:DropDownList runat="server" ID="ddlEducation">
-                                                 <asp:ListItem Value="0">请选择</asp:ListItem>
+                                            <asp:DropDownList runat="server" ID="ddlEducation">
+                                                <asp:ListItem Value="0">请选择</asp:ListItem>
                                                 <asp:ListItem Value="1">专科</asp:ListItem>
                                                 <asp:ListItem Value="2">本科</asp:ListItem>
                                                 <asp:ListItem Value="3">硕士（研究生）</asp:ListItem>
                                                 <asp:ListItem Value="4">博士</asp:ListItem>
                                                 <asp:ListItem Value="5">博士后</asp:ListItem>
                                                 <asp:ListItem Value="6">其他</asp:ListItem>
-                                                </asp:DropDownList>
+                                            </asp:DropDownList>
                                         </div>
                                     </div>
 
-                                  
+
 
 
                                     <div class="control-group">
@@ -264,8 +266,8 @@
                                             <asp:TextBox ID="txtMajor" runat="server" class="span5" type="text" placeholder="请输入专业名称" />
                                         </div>
                                     </div>
-                                    
-                                    
+
+
                                     <div class="control-group">
                                         <div class="controls text-left">
                                             <p class="w400">
@@ -329,8 +331,8 @@
                                             <asp:TextBox ID="txtRelativeProfession" runat="server" class="span5" type="text" placeholder="请输入亲属职业" />
                                         </div>
                                     </div>
-                                    
-                                   
+
+
                                     <h3 class="text-left pl20">2.同学（同室）</h3>
                                     <div class="control-group">
                                         <label class="control-label">* 姓名：</label>
@@ -360,7 +362,7 @@
                                         <div class="controls text-left">
                                             <asp:TextBox ID="txtFriendMobile" runat="server" class="span5" type="text" placeholder="请输入朋友手机号码" />
                                         </div>
-                                    </div>                                    
+                                    </div>
 
                                     <div class="control-group">
                                         <div class="controls text-left">

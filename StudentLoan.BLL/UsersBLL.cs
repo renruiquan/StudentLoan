@@ -65,6 +65,16 @@ namespace StudentLoan.BLL
             return dal.Update(model);
         }
 
+        /// <summary>
+        /// 更新用户头像
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public bool UpdateAvatar(UsersEntityEx model)
+        {
+            return dal.UpdateAvatar(model);
+        }
+
         public bool UpdateMobile(int userId, string mobile)
         {
             return dal.UpdateMobile(userId, mobile);

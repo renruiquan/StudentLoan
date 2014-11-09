@@ -68,6 +68,7 @@
                         <h2>账户信息</h2>
                         <ul>
                             <li><a id="UserAccount" runat="server" href="UserAccount.aspx"><i class="ico-eye"></i>账户总览</a></li>
+                            <li><a id="AvatarUpload" runat="server" href="AvatarUpload.aspx"><i class="ico-user"></i>头像编辑</a></li>
                             <li><a id="UserAccountCert" runat="server" href="UserAccountCert.aspx"><i class="ico-star"></i>账户认证</a></li>
                             <li><a id="Charge" runat="server" href="Charge.aspx"><i class="ico-news"></i>充值提现/账户日志</a></li>
                         </ul>

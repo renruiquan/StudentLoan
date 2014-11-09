@@ -158,14 +158,7 @@
                                     </div>
 
                                 </td>
-                                <td class="w260" style="vertical-align: top">
-                                    <div class="m10">
-                                        <img src="../css/img/admin/user_icon.jpg" alt="" />
-                                        <button class="mt10 btn btn-block btn-primary" type="button">
-                                            上传头像
-                                        </button>
-                                    </div>
-                                </td>
+                              
                             </tr>
                         </tbody>
                     </table>

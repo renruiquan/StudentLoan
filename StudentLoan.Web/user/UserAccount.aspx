@@ -37,7 +37,7 @@
 
                 <div class="user-info">
                     <div class="media">
-                        <a class="pull-left" href="#">
+                        <a class="pull-left" href="AvatarUpload.aspx">
                             <img src="<%=string.IsNullOrEmpty(this.UserModel.Avatar)==true?"../css/img/admin/balance.png":this.UserModel.Avatar %>" alt="" />
                         </a>
 
@@ -46,7 +46,7 @@
 
                             <p class="c-gray">
                                 <span>账户名：<%=this.UserModel.UserName %></span>
-                                <span>上次登录时间：2014.1027 14:50:37</span>
+                                <span>上次登录时间：<%=this.UserLoginLogModel.CreateTime.ToString("yyyy-MM-dd HH:mm:ss") %></span>
                             </p>
                         </div>
                     </div>

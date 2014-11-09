@@ -299,6 +299,34 @@ namespace StudentLoan.DAL
             return base.ExecuteNonQuery(commandText.ToString(), paramsList.ToArray());
         }
 
+        public bool UpdateAvatar(UsersEntityEx model)
+        {
+            #region CommandText
+
+            StringBuilder commandText = new StringBuilder();
+
+            commandText.Append(" Update sl_users Set ");
+
+            commandText.Append(" Avatar = @Avatar ");
+
+            commandText.Append(" Where UserId = @UserId ");
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@UserId", model.UserId));
+
+            paramsList.Add(new SqlParameter("@Avatar", model.Avatar));
+
+
+            #endregion
+
+            return base.ExecuteNonQuery(commandText.ToString(), paramsList.ToArray());
+        }
+
         /// <summary>
         /// 更新一条数据
         /// </summary>

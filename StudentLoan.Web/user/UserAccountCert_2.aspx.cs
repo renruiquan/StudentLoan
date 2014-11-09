@@ -433,7 +433,7 @@ namespace StudentLoan.Web.user
         {
             List<UserRelationshipEntityEx> list = new UserRelationshipBLL().GetList(string.Format(" 1=1 and UserId = {0}", base.GetUserModel().UserId));
 
-            if (list == null)
+            if (list == null || list.Count == 0)
             {
                 return;
             }

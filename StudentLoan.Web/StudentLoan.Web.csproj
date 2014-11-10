@@ -401,6 +401,7 @@
     <Content Include="img\glyphicons-halflings-white.png" />
     <Content Include="img\glyphicons-halflings.png" />
     <Content Include="Introduction.aspx" />
+    <Content Include="js\jquery.uploadify.js" />
     <Content Include="js\birthday.js" />
     <Content Include="js\bootstrap-datepicker.js" />
     <Content Include="js\bootstrap.js" />
@@ -431,6 +432,7 @@
     <Content Include="js\swfobject.js" />
     <Content Include="SmsTest.aspx" />
     <Content Include="TTTTTTTTTTTTTTTTTTTTT.aspx" />
+    <Content Include="uploadify.swf" />
     <Content Include="user\AccountLog.aspx" />
     <Content Include="user\AvatarUpload.aspx" />
     <Content Include="user\ChargeLog.aspx" />
@@ -798,6 +800,9 @@
     <Compile Include="tools\upload_avatar.ashx.cs">
       <DependentUpon>upload_avatar.ashx</DependentUpon>
     </Compile>
+    <Compile Include="tools\upload_cert.ashx.cs">
+      <DependentUpon>upload_cert.ashx</DependentUpon>
+    </Compile>
     <Compile Include="tools\validate_code.ashx.cs">
       <DependentUpon>validate_code.ashx</DependentUpon>
     </Compile>
@@ -1033,6 +1038,7 @@
     <Content Include="tools\message_send.ashx" />
     <Content Include="tools\delete_user_message.ashx" />
     <Content Include="tools\upload_avatar.ashx" />
+    <Content Include="tools\upload_cert.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

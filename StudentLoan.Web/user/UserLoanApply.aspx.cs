@@ -71,6 +71,7 @@ namespace StudentLoan.Web.user
                 this.ddlTotalAmortization.Items.Add(new ListItem("3个月", "3"));
                 this.ddlTotalAmortization.Items.Add(new ListItem("4个月", "4"));
                 this.ddlTotalAmortization.Items.Add(new ListItem("5个月", "5"));
+                this.ddlTotalAmortization.Items.Add(new ListItem("6个月", "6"));
             }
             else if (this.ProductId == 3)
             {

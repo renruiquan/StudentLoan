@@ -1,6 +1,42 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user/UserMain.Master" AutoEventWireup="true" CodeBehind="UserAccountCert_3.aspx.cs" Inherits="StudentLoan.Web.user.UserAccountCert_3" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>账户信息 - 必要信用认证</title>
+    <script src="../js/jquery.uploadify.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var target = $(".uploadify-button");
+            target.each(function () {
+                var typeId = $(this).attr("typeId");
+                var _for = $(this).attr("for");
+                $(this).uploadify({
+                    swf: '../uploadify.swf',
+                    uploader: '../tools/upload_cert.ashx?type=' + typeId + '&userId=<%=base.GetUserModel().UserId%>',
+                    width: 212,
+                    buttonText: "上传并预览",
+                    fileTypeExts: '*.gif; *.jpg;*.jpeg; *.png',
+                    fileSizeLimit: '500KB',
+                    buttonClass: 'btn mt5 btn-primary',
+                    onUploadSuccess: function (file, data, response) {
+
+                        var json_data = $.parseJSON(data);
+                        if (json_data.result == "true") {
+                            $("#" + _for).attr("src", json_data.url);
+                        } else {
+                            alert("上传失败");
+                        }
+
+                    }
+                });
+            });
+
+        });
+    </script>
+    <style type="text/css">
+        .uploadify-queue-item {
+            display: none;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="content">
@@ -35,8 +71,8 @@
                             <td>手持身份证照片</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <img src="../css/img/admin/identity_default.jpg" alt="" />
-                                    <button class="mt10 btn btn-block btn-primary" type="button">上传并预览</button>
+                                    <img id="imgIdentityCard" style="width: 237px; height: 168px;" src="../css/img/admin/identity_default.jpg" alt="" />
+                                    <input id="identity_card" typeId="0" for="imgIdentityCard" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
                             <td class="w260" style="vertical-align: top;">
@@ -56,8 +92,8 @@
                             <td>身份证正面</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <img src="../css/img/admin/identity_front.jpg" alt="" />
-                                    <button class="mt10 btn btn-block btn-primary" type="button">上传并预览</button>
+                                    <img id="imgIdentityCard2" style="width: 237px; height: 168px;" src="../css/img/admin/identity_front.jpg" alt="" />
+                                    <input id="identity_card2" typeId="1" for="imgIdentityCard2" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
                             <td class="w260" style="vertical-align: top;">
@@ -93,8 +129,8 @@
                             <td>学生证正面</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <img src="../css/img/admin/student_front.jpg" alt="" />
-                                    <button class="mt10 btn btn-block btn-primary" type="button">上传并预览</button>
+                                    <img id="imgStudentId_1" style="width: 237px; height: 168px;" src="../css/img/admin/student_front.jpg" alt="" />
+                                    <input id="studentId_1" typeId="2" for="imgStudentId_1" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
                             <td class="w260" style="vertical-align: top;">
@@ -110,8 +146,8 @@
                             <td>学生证内容</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <img src="../css/img/admin/student_content.jpg" alt="" />
-                                    <button class="mt10 btn btn-block btn-primary" type="button">上传并预览</button>
+                                    <img id="imgStudentId_2" style="width: 237px; height: 168px;" src="../css/img/admin/student_content.jpg" alt="" />
+                                    <input id="studentId_2" typeId="3" for="imgStudentId_2" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
                             <td class="w260" style="vertical-align: top;">

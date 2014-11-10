@@ -30,12 +30,12 @@ namespace StudentLoan.Model.Base
             set { _userId = value; }
         }
 
-        private byte _type;
+        private int _type;
 
         /// <summary>
         /// 信息类型 0=基本信息，1=必要信用认证，2=可选信用认证，3=学子易贷记录
         /// </summary>
-        public byte Type
+        public int Type
         {
             get { return _type; }
             set { _type = value; }

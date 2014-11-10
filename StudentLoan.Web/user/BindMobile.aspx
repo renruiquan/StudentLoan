@@ -16,6 +16,8 @@
                     if (status != "success") {
                         alert("短信发送失败");
                         return;
+                    } else {
+                        alert(data);
                     }
                 });
             }
@@ -58,7 +60,8 @@
                         <label class="control-label"></label>
                         <div class="controls">
                             <p>
-                                <asp:Literal ID="objLiteral" runat="server"></asp:Literal></p>
+                                <asp:Literal ID="objLiteral" runat="server"></asp:Literal>
+                            </p>
 
                         </div>
                     </div>

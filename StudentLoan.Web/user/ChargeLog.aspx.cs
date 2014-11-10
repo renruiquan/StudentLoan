@@ -151,7 +151,7 @@ namespace StudentLoan.Web.user
                                                     channelModel.AppId, model.ChargeMoney, model.Ext5, channelModel.AppKey,
                                                     model.ProductName, model.OrderNo, model.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"));
 
-                Response.Redirect(string.Format("http://{0}:8000/channel/dinpay.aspx?{1}", Request.Url.Authority, postString));
+                Response.Redirect(string.Format("http://{0}/channel/dinpay.aspx?{1}", Request.Url.Authority, postString));
             }
             else if (channelModel.ChannelFlag.ToLower() == "alipay")
             {

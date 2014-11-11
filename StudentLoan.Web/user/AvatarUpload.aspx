@@ -9,7 +9,6 @@
     <div class="content">
         <div class="cont clear-top">
             <div style="width: 630px; margin: 0 auto;">
-
                 <div>
                     <p id="swfContainer">
                     </p>

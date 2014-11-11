@@ -71,8 +71,8 @@
                             <td>手持身份证照片</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <img id="imgIdentityCard" style="width: 237px; height: 168px;" src="../css/img/admin/identity_default.jpg" alt="" />
-                                    <input id="identity_card" typeId="0" for="imgIdentityCard" name="fileData" type="file" class="uploadify-button" />
+                                    <img id="imgIdentityCard" style="width: 237px; height: 168px;" src='<%=this.IdentityCard_1==null?"../css/img/admin/identity_default.jpg":this.IdentityCard_1.Images %>' alt="" />
+                                    <input id="identity_card" typeid="0" for="imgIdentityCard" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
                             <td class="w260" style="vertical-align: top;">
@@ -92,8 +92,8 @@
                             <td>身份证正面</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <img id="imgIdentityCard2" style="width: 237px; height: 168px;" src="../css/img/admin/identity_front.jpg" alt="" />
-                                    <input id="identity_card2" typeId="1" for="imgIdentityCard2" name="fileData" type="file" class="uploadify-button" />
+                                    <img id="imgIdentityCard2" style="width: 237px; height: 168px;" src='<%=this.IdentityCard_2==null?"../css/img/admin/identity_front.jpg":this.IdentityCard_2.Images %>' alt="" />
+                                    <input id="identity_card2" typeid="1" for="imgIdentityCard2" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
                             <td class="w260" style="vertical-align: top;">
@@ -129,8 +129,8 @@
                             <td>学生证正面</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <img id="imgStudentId_1" style="width: 237px; height: 168px;" src="../css/img/admin/student_front.jpg" alt="" />
-                                    <input id="studentId_1" typeId="2" for="imgStudentId_1" name="fileData" type="file" class="uploadify-button" />
+                                    <img id="imgStudentId_1" style="width: 237px; height: 168px;" src='<%=this.StudentId_1==null?"../css/img/admin/student_front.jpg":this.StudentId_1.Images %>' alt="" />
+                                    <input id="studentId_1" typeid="2" for="imgStudentId_1" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
                             <td class="w260" style="vertical-align: top;">
@@ -146,8 +146,8 @@
                             <td>学生证内容</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <img id="imgStudentId_2" style="width: 237px; height: 168px;" src="../css/img/admin/student_content.jpg" alt="" />
-                                    <input id="studentId_2" typeId="3" for="imgStudentId_2" name="fileData" type="file" class="uploadify-button" />
+                                    <img id="imgStudentId_2" style="width: 237px; height: 168px;" src='<%=this.StudentId_2==null?"../css/img/admin/student_content.jpg":this.StudentId_2.Images %>' alt="" />
+                                    <input id="studentId_2" typeid="3" for="imgStudentId_2" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
                             <td class="w260" style="vertical-align: top;">

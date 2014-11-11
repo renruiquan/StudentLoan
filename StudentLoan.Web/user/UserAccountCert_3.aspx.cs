@@ -6,11 +6,21 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using StudentLoan.Model;
+using StudentLoan.Common;
+using StudentLoan.BLL;
 
 namespace StudentLoan.Web.user
 {
     public partial class UserAccountCert_3 : BasePage
     {
+        public UserCertificationEntityEx IdentityCard_1 { get; set; }
+        public UserCertificationEntityEx IdentityCard_2 { get; set; }
+
+        public UserCertificationEntityEx StudentId_1 { get; set; }
+        public UserCertificationEntityEx StudentId_2 { get; set; }
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -29,6 +39,23 @@ namespace StudentLoan.Web.user
                 }
 
                 #endregion
+
+                this.BindData();
+            }
+        }
+
+        public void BindData()
+        {
+            List<UserCertificationEntityEx> sourceList = new UserCertificationBLL().GetList(string.Format(" 1=1 and UserId = {0}", base.GetUserModel().UserId));
+
+            if (sourceList != null)
+            {
+                IdentityCard_1 = sourceList.Where(s => s.Type == 0).First();
+                IdentityCard_2 = sourceList.Where(s => s.Type == 1).First();
+
+                StudentId_1 = sourceList.Where(s => s.Type == 2).First();
+                StudentId_2 = sourceList.Where(s => s.Type == 3).First();
+
             }
         }
     }

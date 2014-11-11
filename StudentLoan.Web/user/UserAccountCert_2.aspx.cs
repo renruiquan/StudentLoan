@@ -231,6 +231,8 @@ namespace StudentLoan.Web.user
                 result = new UserSchoolBLL().Update(userschoolModel);
                 if (result)
                 {
+                    new UsersBLL().UpdatePoint(userModel.UserId, 10);
+
                     this.artDialog("提示", "保存成功！请继续填写其他信息");
                 }
                 else
@@ -301,6 +303,8 @@ namespace StudentLoan.Web.user
                 result = new UserRelationshipBLL().Update(userrelationshipmodel);
                 if (result)
                 {
+                    new UsersBLL().UpdatePoint(userModel.UserId, 10);
+
                     this.artDialog("提示", "保存成功！");
                 }
                 else

@@ -42,7 +42,7 @@ namespace StudentLoan.Model.Base
         private string _schoolname;
 
         /// <summary>
-        /// 专业(系)
+        /// 学校名称
         /// </summary>
         public string SchoolName
         {

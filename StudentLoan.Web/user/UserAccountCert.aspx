@@ -72,7 +72,7 @@
                 <h3>注：信用额度最高为100，基本信息完成后，信用分数为60，当前状态显示未完成时，完成一个加5分；</h3>
 
                 <table class="table table-bordered">
-                    <caption>信用总分：<span class="big-num">20</span>分</caption>
+                    <caption>信用总分：<span class="big-num"><%=this.TotalPoint %></span>分</caption>
                     <thead>
                         <tr>
                             <th></th>
@@ -88,10 +88,28 @@
                                 <p>个人详细信息（10分）</p>
                             </td>
                             <td>
-                                <p>已完成</p>
+                                <p>
+                                    <%
+                                        if (!string.IsNullOrEmpty(this.UserModel.TrueName) && !string.IsNullOrEmpty(this.UserModel.IdentityCard) && !string.IsNullOrEmpty(this.UserModel.Mobile)
+                                            && !string.IsNullOrEmpty(this.UserModel.Gender) && !string.IsNullOrEmpty(this.UserModel.Nation) && (this.UserModel.Birthday != null || this.UserModel.Birthday != default(DateTime)))
+                                        {
+                                    %>
+                                   已完成 
+                                    <%
+                                        }
+                                        else
+                                        {
+                                    %>
+                                    <a href="UserAccountCert_2.aspx">未完成</a>
+                                    <%
+                                        }
+                                    %>
+                                </p>
                             </td>
                             <td rowspan="3">
-                                <p><span class="big-num">30</span>分</p>
+                                <p>
+                                    <span class="big-num"><%=this.BasePoint%></span>分
+                                </p>
                             </td>
                         </tr>
                         <tr>
@@ -99,7 +117,28 @@
                                 <p>学校信息（10分）</p>
                             </td>
                             <td>
-                                <p><a href="javascript:;">未完成</a></p>
+                                <p>
+                                    <% if (this.UserSchoolModel == null)
+                                       {
+                                    %>
+                                    <a href="UserAccountCert_2.aspx">未完成</a>
+                                    <%
+                                       }
+                                       else if (!string.IsNullOrEmpty(this.UserSchoolModel.XuexinUsername) && !string.IsNullOrEmpty(this.UserSchoolModel.XuexinPassword) && !string.IsNullOrEmpty(this.UserSchoolModel.SchoolName)
+                                                && !string.IsNullOrEmpty(this.UserSchoolModel.SchoolAddress) && (this.UserSchoolModel.YearOfAdmission != null || this.UserSchoolModel.YearOfAdmission != default(DateTime))
+                                                && this.UserSchoolModel.SchoolSystem > 0 && this.UserSchoolModel.Education > 0 && !string.IsNullOrEmpty(this.UserSchoolModel.Major))
+                                       {
+                                    %>
+                                    已完成
+                                    <%
+                                       }
+                                       else
+                                       {
+                                    %>
+                                    <a href="UserAccountCert_2.aspx">未完成</a>
+                                    <%
+                                       } %>
+                                </p>
                             </td>
                         </tr>
                         <tr>
@@ -107,7 +146,31 @@
                                 <p>家属与同学信息（10分）</p>
                             </td>
                             <td>
-                                <p><a href="javascript:;">未完成</a></p>
+                                <p>
+                                    <%
+                                        if (this.FamilyModel == null || this.StudentModel == null || this.FriendModel == null)
+                                        {
+                                    %>
+                                    <a href="UserAccountCert_2.aspx">未完成</a>
+                                    <%
+                                        }
+                                        else if (!string.IsNullOrEmpty(this.FamilyModel.Name) && !string.IsNullOrEmpty(this.FamilyModel.Relationship) &&
+                                                 !string.IsNullOrEmpty(this.FamilyModel.Mobile) && !string.IsNullOrEmpty(this.FamilyModel.Profession) &&
+                                                 !string.IsNullOrEmpty(this.StudentModel.Name) && !string.IsNullOrEmpty(this.StudentModel.Mobile) &&
+                                                 !string.IsNullOrEmpty(this.FriendModel.Name) && !string.IsNullOrEmpty(this.FriendModel.Mobile))
+                                        {
+                                    %>
+                                    已完成
+                                    <% 
+                                        }
+                                        else
+                                        {
+                                    %>
+                                    <a href="UserAccountCert_2.aspx">未完成</a>
+                                    <%
+                                        }
+                                    %>
+                                </p>
                             </td>
                         </tr>
 
@@ -117,10 +180,25 @@
                                 <p>身份证认证（15分）</p>
                             </td>
                             <td>
-                                <p><a href="javascript:;">未完成</a></p>
+                                <p>
+                                    <% 
+                                        if (this.IdentityCard_2 == null)
+                                        {
+                                    %>
+                                    <a href="UserAccountCert_3.aspx">未完成</a>
+                                    <%
+                                        }
+                                        else
+                                        {
+                                    %>
+                                    已完成
+                                    <%
+                                        }
+                                    %>
+                                </p>
                             </td>
                             <td rowspan="2">
-                                <p><span class="big-num">0</span>分</p>
+                                <p><span class="big-num"><%=this.MustPoint %></span>分</p>
                             </td>
                         </tr>
                         <tr>
@@ -128,7 +206,22 @@
                                 <p>学生证认证（15分）</p>
                             </td>
                             <td>
-                                <p><a href="javascript:;">未完成</a></p>
+                                <p>
+                                    <% 
+                                        if (this.StudentId2 == null)
+                                        {
+                                    %>
+                                    <a href="UserAccountCert_3.aspx">未完成</a>
+                                    <%
+                                        }
+                                        else
+                                        {
+                                    %>
+                                    已完成
+                                    <%
+                                        }
+                                    %>
+                                </p>
                             </td>
                         </tr>
 
@@ -139,10 +232,25 @@
                                 <p>学信网截图（2分）</p>
                             </td>
                             <td>
-                                <p><a href="javascript:;">未完成</a></p>
+                                <p>
+                                    <% 
+                                        if (this.XueXin == null)
+                                        {
+                                    %>
+                                    <a href="UserAccountCert_4.aspx">未完成</a>
+                                    <%
+                                        }
+                                        else
+                                        {
+                                    %>
+                                    已完成
+                                    <%
+                                        }
+                                    %>
+                                </p>
                             </td>
-                            <td rowspan="11">
-                                <p><span class="big-num">0</span>分</p>
+                            <td rowspan="10">
+                                <p><span class="big-num"><%=this.OptionalPoint %></span>分</p>
 
                                 <p>（总分满70分即可享受高额贷款服务）</p>
                             </td>
@@ -153,7 +261,22 @@
                                 <p>银行卡流水认证（1分）</p>
                             </td>
                             <td>
-                                <p><a href="javascript:;">未完成</a></p>
+                                <p>
+                                    <% 
+                                        if (this.Bank == null)
+                                        {
+                                    %>
+                                    <a href="UserAccountCert_4.aspx">未完成</a>
+                                    <%
+                                        }
+                                        else
+                                        {
+                                    %>
+                                    已完成
+                                    <%
+                                        }
+                                    %>
+                                </p>
                             </td>
                         </tr>
                         <tr>
@@ -161,7 +284,22 @@
                                 <p>支付宝流水帐单（1分）</p>
                             </td>
                             <td>
-                                <p><a href="javascript:;">未完成</a></p>
+                                <p>
+                                    <% 
+                                        if (this.Alipay == null)
+                                        {
+                                    %>
+                                    <a href="UserAccountCert_4.aspx">未完成</a>
+                                    <%
+                                        }
+                                        else
+                                        {
+                                    %>
+                                    已完成
+                                    <%
+                                        }
+                                    %>
+                                </p>
                             </td>
                         </tr>
 
@@ -170,7 +308,22 @@
                                 <p>手机通话记录清单（1分）</p>
                             </td>
                             <td>
-                                <p><a href="javascript:;">未完成</a></p>
+                                <p>
+                                    <% 
+                                        if (this.Mobile == null)
+                                        {
+                                    %>
+                                    <a href="UserAccountCert_4.aspx">未完成</a>
+                                    <%
+                                        }
+                                        else
+                                        {
+                                    %>
+                                    已完成
+                                    <%
+                                        }
+                                    %>
+                                </p>
                             </td>
                         </tr>
                         <tr>
@@ -178,7 +331,22 @@
                                 <p>家长身份认证（2分）</p>
                             </td>
                             <td>
-                                <p><a href="javascript:;">未完成</a></p>
+                                <p>
+                                    <% 
+                                        if (this.Parents1 == null)
+                                        {
+                                    %>
+                                    <a href="UserAccountCert_4.aspx">未完成</a>
+                                    <%
+                                        }
+                                        else
+                                        {
+                                    %>
+                                    已完成
+                                    <%
+                                        }
+                                    %>
+                                </p>
                             </td>
                         </tr>
                         <tr>
@@ -186,7 +354,22 @@
                                 <p>室友学生证（2分）</p>
                             </td>
                             <td>
-                                <p><a href="javascript:;">未完成</a></p>
+                                <p>
+                                    <% 
+                                        if (this.RoommateStudentId2 == null)
+                                        {
+                                    %>
+                                    <a href="UserAccountCert_4.aspx">未完成</a>
+                                    <%
+                                        }
+                                        else
+                                        {
+                                    %>
+                                    已完成
+                                    <%
+                                        }
+                                    %>
+                                </p>
                             </td>
                         </tr>
                         <tr>
@@ -194,7 +377,22 @@
                                 <p>室友身份证（2分）</p>
                             </td>
                             <td>
-                                <p><a href="javascript:;">未完成</a></p>
+                                <p>
+                                    <% 
+                                        if (this.RoommateIdentityCard2 == null)
+                                        {
+                                    %>
+                                    <a href="UserAccountCert_4.aspx">未完成</a>
+                                    <%
+                                        }
+                                        else
+                                        {
+                                    %>
+                                    已完成
+                                    <%
+                                        }
+                                    %>
+                                </p>
                             </td>
                         </tr>
                         <tr>
@@ -202,7 +400,22 @@
                                 <p>自己和家人的户口本（2分）</p>
                             </td>
                             <td>
-                                <p><a href="javascript:;">未完成</a></p>
+                                <p>
+                                    <% 
+                                        if (this.Residencebooklet == null)
+                                        {
+                                    %>
+                                    <a href="UserAccountCert_4.aspx">未完成</a>
+                                    <%
+                                        }
+                                        else
+                                        {
+                                    %>
+                                    已完成
+                                    <%
+                                        }
+                                    %>
+                                </p>
                             </td>
                         </tr>
                         <tr>
@@ -210,7 +423,22 @@
                                 <p>本人驾驶执照（1分）</p>
                             </td>
                             <td>
-                                <p><a href="javascript:;">未完成</a></p>
+                                <p>
+                                    <% 
+                                        if (this.DriversLicense == null)
+                                        {
+                                    %>
+                                    <a href="UserAccountCert_4.aspx">未完成</a>
+                                    <%
+                                        }
+                                        else
+                                        {
+                                    %>
+                                    已完成
+                                    <%
+                                        }
+                                    %>
+                                </p>
                             </td>
                         </tr>
 
@@ -219,40 +447,50 @@
                                 <p>在校获奖证明（5分）</p>
                             </td>
                             <td>
-                                <p><a href="javascript:;">未完成</a></p>
+                                <p>
+                                    <% 
+                                        if (this.Awards == null)
+                                        {
+                                    %>
+                                    <a href="UserAccountCert_4.aspx">未完成</a>
+                                    <%
+                                        }
+                                        else
+                                        {
+                                    %>
+                                    已完成
+                                    <%
+                                        }
+                                    %>
+                                </p>
                             </td>
                         </tr>
 
                         <tr>
-                            <td rowspan="11">学子贷款记录</td>
+                            <td rowspan="10">学子贷款记录</td>
                             <td>
-                                <p>还清笔数（+1分/笔，加分间隔一天）</p>
+                                <p>还清笔数（+1分/笔）</p>
                             </td>
+                            <td></td>
                             <td>
-                                <p><a href="javascript:;">未完成</a></p>
+                                <p><span class="big-num"><%=this.UserLoanPoint %></span>分</p>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <p>逾期5天以上扣一分</p>
                             </td>
-                            <td>
-                                <p><a href="javascript:;">未完成</a></p>
-                            </td>
-                            <td>
-                                <p><span class="big-num">0</span>分</p>
+                            <td></td>
+                            <td rowspan="2">
+                                <p><span class="big-num"><%=this.BreakContractUserLoan %></span>分</p>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <p>逾期5天以上逾期费用100/月</p>
                             </td>
-                            <td>
-                                <p><a href="javascript:;">未完成</a></p>
-                            </td>
-                            <td>
-                                <p><span class="big-num">0</span>分</p>
-                            </td>
+                            <td></td>
+
                         </tr>
                     </tbody>
                 </table>

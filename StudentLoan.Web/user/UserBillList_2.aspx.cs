@@ -168,17 +168,25 @@ namespace StudentLoan.Web.user
                     userRepaymentModel.BreakContract = (0.005 * overdueDay * Convert.ToDouble(userLoanModel.LoanMoney)).Convert<decimal>();
                     userRepaymentModel.RepaymentMoney = repaymentMoney + userRepaymentModel.BreakContract;
                     userRepaymentModel.Status = 2;
+
+                    //逾期5天以上积分扣除1分
+                    new UsersBLL().UpdatePoint(userLoanModel.UserId, -1);
                 }
                 else
                 {
                     userRepaymentModel.BreakContract = 0;
                     userRepaymentModel.RepaymentMoney = repaymentMoney;
                     userRepaymentModel.Status = 1;
+
+                    //正常还款积分加1分
+                    new UsersBLL().UpdatePoint(userLoanModel.UserId, 1);
                 }
 
                 //从用户账户中扣除金额并更新还款期数，以及还款详情
 
                 bool result = new UserRepaymentBLL().Update(userRepaymentModel, userLoanModel);
+
+
 
                 return result;
             }

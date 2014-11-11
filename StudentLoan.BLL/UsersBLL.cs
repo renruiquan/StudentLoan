@@ -56,6 +56,16 @@ namespace StudentLoan.BLL
             return dal.DeleteList(UsersIDList);
         }
 
+        /// <summary>
+        /// 更新用户积分
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="point"></param>
+        /// <returns></returns>
+        public bool UpdatePoint(int userId, int point)
+        {
+            return dal.UpdatePoint(userId, point);
+        }
 
         /// <summary>
         /// 更新一条数据

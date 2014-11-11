@@ -38,7 +38,7 @@ namespace StudentLoan.DAL
 
             #endregion
 
-            return (int)base.ExecuteScalar(commandText.ToString(),paramsList.ToArray()) > 0 ? true : false;
+            return (int)base.ExecuteScalar(commandText.ToString(), paramsList.ToArray()) > 0 ? true : false;
         }
 
 
@@ -214,7 +214,7 @@ namespace StudentLoan.DAL
 
             commandText.Append(" Amount = @Amount, ");
 
-            commandText.Append(" Point = @Point, ");
+            commandText.Append(" Point +=10, ");
 
             commandText.Append(" Exp = @Exp, ");
 
@@ -282,8 +282,6 @@ namespace StudentLoan.DAL
 
             paramsList.Add(new SqlParameter("@Amount", model.Amount));
 
-            paramsList.Add(new SqlParameter("@Point", model.Point));
-
             paramsList.Add(new SqlParameter("@Exp", model.Exp));
 
             paramsList.Add(new SqlParameter("@Status", model.Status));
@@ -297,6 +295,23 @@ namespace StudentLoan.DAL
             #endregion
 
             return base.ExecuteNonQuery(commandText.ToString(), paramsList.ToArray());
+        }
+
+        /// <summary>
+        /// 更新用户积分
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="point"></param>
+        /// <returns></returns>
+        public bool UpdatePoint(int userId, int point)
+        {
+            string commandText = @"Update sl_users set Point+=@Point where UserId = @UserId";
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+            paramsList.Add(new SqlParameter("@UserId", userId));
+            paramsList.Add(new SqlParameter("@Point", point));
+
+            return base.ExecuteNonQuery(commandText, paramsList.ToArray());
         }
 
         public bool UpdateAvatar(UsersEntityEx model)

@@ -240,7 +240,7 @@ namespace StudentLoan.DAL
             
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select Top 1 UserId,Education,Major,Class,SchoolId,SchoolName,SchoolAddress,BranchSchool,YearOfAdmission,SchoolSystem,Dormitory,CreateTime,Remark,Status From sl_user_school Where  userId= @userId ");
+            commandText.Append(" Select Top 1 XuexinUserName,XuexinPassword, UserId,Education,Major,Class,SchoolId,SchoolName,SchoolAddress,BranchSchool,YearOfAdmission,SchoolSystem,Dormitory,CreateTime,Remark,Status From sl_user_school Where  userId= @userId ");
             
             #endregion
             

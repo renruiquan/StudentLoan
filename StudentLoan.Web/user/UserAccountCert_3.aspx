@@ -72,7 +72,7 @@
                             <td class="w260">
                                 <div class="m10">
                                     <img id="imgIdentityCard" style="width: 237px; height: 168px;" src='<%=this.IdentityCard_1==null?"../css/img/admin/identity_default.jpg":this.IdentityCard_1.Images %>' alt="" />
-                                    <input id="identity_card" typeid="0" for="imgIdentityCard" name="fileData" type="file" class="uploadify-button" />
+                                    <input id="btnUploadIdentityCard_1" typeid="0" for="imgIdentityCard" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
                             <td class="w260" style="vertical-align: top;">
@@ -93,7 +93,7 @@
                             <td class="w260">
                                 <div class="m10">
                                     <img id="imgIdentityCard2" style="width: 237px; height: 168px;" src='<%=this.IdentityCard_2==null?"../css/img/admin/identity_front.jpg":this.IdentityCard_2.Images %>' alt="" />
-                                    <input id="identity_card2" typeid="1" for="imgIdentityCard2" name="fileData" type="file" class="uploadify-button" />
+                                    <input id="btnUploadIdentityCard_2" typeid="1" for="imgIdentityCard2" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
                             <td class="w260" style="vertical-align: top;">
@@ -130,7 +130,7 @@
                             <td class="w260">
                                 <div class="m10">
                                     <img id="imgStudentId_1" style="width: 237px; height: 168px;" src='<%=this.StudentId_1==null?"../css/img/admin/student_front.jpg":this.StudentId_1.Images %>' alt="" />
-                                    <input id="studentId_1" typeid="2" for="imgStudentId_1" name="fileData" type="file" class="uploadify-button" />
+                                    <input id="btnUploadStudentId_1" typeid="2" for="imgStudentId_1" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
                             <td class="w260" style="vertical-align: top;">
@@ -147,7 +147,7 @@
                             <td class="w260">
                                 <div class="m10">
                                     <img id="imgStudentId_2" style="width: 237px; height: 168px;" src='<%=this.StudentId_2==null?"../css/img/admin/student_content.jpg":this.StudentId_2.Images %>' alt="" />
-                                    <input id="studentId_2" typeid="3" for="imgStudentId_2" name="fileData" type="file" class="uploadify-button" />
+                                    <input id="btnUploadStudentId_2" typeid="3" for="imgStudentId_2" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
                             <td class="w260" style="vertical-align: top;">
@@ -169,10 +169,6 @@
                     <p class="text-center">
                         警告：请确保您填写的资料真实有效，所有资料将会严格保密。一旦发现资料有虚假，
                             将会影响您在学子易贷的信用，对以后借款造成影响
-                    </p>
-
-                    <p class="w400 ptb20 text-center">
-                        <button class="mt10 btn btn-large btn-block btn-primary" type="button">保存并继续</button>
                     </p>
                 </div>
 

@@ -110,7 +110,7 @@
                         </div>
 
                         <div class="number">
-                            <strong>58</strong><span>分</span>
+                            <strong><%=base.UserModel.Point %></strong><span>分</span>
 
                             <p>(积分越高贷款金额越高，选择方式也越多）</p>
                         </div>

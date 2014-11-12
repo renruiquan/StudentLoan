@@ -16,7 +16,10 @@ namespace StudentLoan.Web
         {
             if (!IsPostBack)
             {
-               
+                if (Session[StudentLoanKeys.SESSION_USER_INFO] != null)
+                {
+                    Response.Redirect("/user/UserAccount.aspx");
+                }
             }
         }
 

@@ -2,6 +2,17 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>个人信息 - 邀请好友</title>
+    <script src="../js/ZeroClipboard.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btnCopy").on("click", function () {
+                var clip = new ZeroClipboard.Client();
+                clip.setHandCursor(true);
+                clip.setText($(this).text());
+                clip.glue('button');
+            });
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="content">
@@ -25,7 +36,7 @@
                     <div class="clear mt50"></div>
 
                     <p class="w300 auto">
-                        <button class="mt10 btn btn-large btn-block btn-primary" type="button">复制网址</button>
+                        <button id="btnCopy" class="mt10 btn btn-large btn-block btn-primary" type="button">复制网址</button>
                     </p>
 
                     <div class="clear mt50"></div>

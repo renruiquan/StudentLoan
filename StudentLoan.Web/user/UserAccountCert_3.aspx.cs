@@ -48,7 +48,7 @@ namespace StudentLoan.Web.user
         {
             List<UserCertificationEntityEx> sourceList = new UserCertificationBLL().GetList(string.Format(" 1=1 and UserId = {0}", base.GetUserModel().UserId));
 
-            if (sourceList != null)
+            if (sourceList != null && sourceList.Count > 0)
             {
                 IdentityCard_1 = sourceList.Where(s => s.Type == 0).First();
                 IdentityCard_2 = sourceList.Where(s => s.Type == 1).First();

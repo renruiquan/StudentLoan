@@ -18,13 +18,23 @@ namespace StudentLoan.Web.Admin
     {
         public int LoanId { get { return this.Request<int>("loanid"); } }
 
+        public UserLoanEntityEx UserLoanModel { get { return new UserLoanBLL().GetModel(this.LoanId); } }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 if (this.LoanId > 0)
                 {
-                    this.BindData();
+                    this.BindBaseCert();
+
+                    this.BindUserSchool();
+
+                    this.BindUserRelationship();
+
+                    this.BindUserMustCert();
+
+                    this.BindUserOptionalCert();
                 }
                 else
                 {
@@ -33,46 +43,209 @@ namespace StudentLoan.Web.Admin
             }
         }
 
-        protected void btnSearch_Click(object sender, EventArgs e)
+
+        /// <summary>
+        /// 绑定个人资料数据
+        /// </summary>
+        protected void BindBaseCert()
         {
-            this.BindData();
+            UsersEntityEx userModel = new UsersBLL().GetModel(this.UserLoanModel.UserId);
+
+            if (userModel != null)
+            {
+                this.lblTrueName.Text = userModel.TrueName;
+                this.lblIdentityCard.Text = userModel.IdentityCard;
+                this.lblUserMobile.Text = userModel.Mobile;
+                this.lblGender.Text = userModel.Gender;
+                this.lblNation.Text = userModel.Nation;
+                this.lblBirthday.Text = userModel.Birthday.ToString("yyyy-MM-dd");
+            }
         }
 
         /// <summary>
-        /// 绑定数据
+        /// 绑定学校信息
         /// </summary>
-        protected void BindData()
+        protected void BindUserSchool()
         {
+            UserSchoolEntityEx model = new UserSchoolBLL().GetModel(this.UserLoanModel.UserId);
 
-            string strWhere = " 1=1 ";
-
-
-
-            #region 计算分页数据
-
-            int startIndex = objAspNetPager.CurrentPageIndex * objAspNetPager.PageSize - objAspNetPager.PageSize + 1;
-            int endIndex = objAspNetPager.StartRecordIndex + objAspNetPager.PageSize - 1;
-
-            #endregion
-
-            List<UserLoanEntityEx> sourceList = new UserLoanBLL().GetListByPage(strWhere, " CreateTime Desc ", startIndex, endIndex);
-            this.objAspNetPager.RecordCount = new UserLoanBLL().GetRecordCount(strWhere);
-
-            //如果查询的结束索引大于数据总条数，当前页为最后一页，并重新绑定分页数据
-            if (endIndex > this.objAspNetPager.RecordCount)
+            if (model != null)
             {
-                this.objAspNetPager.CurrentPageIndex = this.objAspNetPager.RecordCount / this.objAspNetPager.CurrentPageIndex + 1;
+                this.lblXueXinUserName.Text = model.XuexinUsername;
+                this.lblXueXinPassword.Text = model.XuexinPassword;
+                this.lblSchoolName.Text = model.SchoolName;
+                this.lblSchoolAddress.Text = model.SchoolAddress;
+                this.lblYearOfAdmission.Text = model.YearOfAdmission.ToString("yyyy-MM-dd");
+                this.lblSchoolSystem.Text = model.SchoolSystem.ToString();
+                this.lblEducation.Text = this.GetEducationName(model.Education);
+                this.lblMajor.Text = model.Major;
+
             }
-
-
-            objRepeater.DataSource = sourceList;
-            objRepeater.DataBind();
-
         }
 
-        protected void objAspNetPager_PageChanged(object sender, EventArgs e)
+        /// <summary>
+        /// 绑定用户联系人认证信息
+        /// </summary>
+        public void BindUserRelationship()
         {
-            this.BindData();
+            List<UserRelationshipEntityEx> list = new UserRelationshipBLL().GetList(string.Format(" 1=1 and UserId = {0}", this.UserLoanModel.UserId));
+
+            if (list == null || list.Count == 0)
+            {
+                return;
+            }
+
+            UserRelationshipEntityEx familyModel = list.Where(s => s.Type == 1).First();
+            UserRelationshipEntityEx studentModel = list.Where(s => s.Type == 2).First();
+            UserRelationshipEntityEx friendModel = list.Where(s => s.Type == 3).First();
+
+            if (familyModel != null)
+            {
+                this.lblFamilyName.Text = familyModel.Name;
+                this.lblRelationship.Text = familyModel.Relationship;
+                this.lblFamilyMobile.Text = familyModel.Mobile;
+                this.lblProfession.Text = familyModel.Profession;
+            }
+
+            if (studentModel != null)
+            {
+                this.lblStudentName.Text = studentModel.Name;
+                this.lblStudentMobile.Text = studentModel.Mobile;
+            }
+
+            if (friendModel != null)
+            {
+                this.lblFriendName.Text = friendModel.Name;
+                this.lblFriendMobile.Text = friendModel.Mobile;
+            }
+        }
+
+        /// <summary>
+        /// 绑定用户必要认证信息
+        /// </summary>
+        public void BindUserMustCert()
+        {
+            List<UserCertificationEntityEx> sourceList = new UserCertificationBLL().GetList(string.Format(" 1=1 and UserId = {0}", this.UserLoanModel.UserId));
+
+            if (sourceList != null && sourceList.Count > 0)
+            {
+                var identityCard1 = sourceList.Where(s => s.Type == 0).First();
+                var identityCard2 = sourceList.Where(s => s.Type == 1).First();
+                var studentId1 = sourceList.Where(s => s.Type == 2).First();
+                var studentId2 = sourceList.Where(s => s.Type == 3).First();
+
+                if (identityCard1 != null)
+                {
+                    this.imgIdentityCard1.ImageUrl = identityCard1.Images;
+                    this.imgIdentityCard1.Attributes.Add("onclick", string.Format("return window.open('{0}')", identityCard1.Images));
+                }
+                if (identityCard2 != null)
+                {
+                    this.imgIdentityCard2.ImageUrl = identityCard2.Images;
+                    this.imgIdentityCard2.Attributes.Add("onclick", string.Format("return window.open('{0}')", identityCard2.Images));
+                }
+                if (studentId1 != null)
+                {
+                    this.imgStudentId1.ImageUrl = studentId1.Images;
+                    this.imgStudentId1.Attributes.Add("onclick", string.Format("return window.open('{0}')", studentId1.Images));
+                }
+                if (studentId2 != null)
+                {
+                    this.imgStudentId2.ImageUrl = studentId2.Images;
+                    this.imgStudentId2.Attributes.Add("onclick", string.Format("return window.open('{0}')", studentId2.Images));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 绑定用户可选认证信息
+        /// </summary>
+        public void BindUserOptionalCert()
+        {
+            List<UserCertificationEntityEx> sourceList = new UserCertificationBLL().GetList(string.Format(" 1=1 and UserId = {0}", this.UserLoanModel.UserId));
+
+            if (sourceList != null && sourceList.Count > 0)
+            {
+                var XueXin = sourceList.Where(s => s.Type == 4).First();
+                var Bank = sourceList.Where(s => s.Type == 5).First();
+                var Alipay = sourceList.Where(s => s.Type == 6).First();
+                var Mobile = sourceList.Where(s => s.Type == 7).First();
+                var Parents1 = sourceList.Where(s => s.Type == 8).First();
+                var Parents2 = sourceList.Where(s => s.Type == 9).First();
+                var Roommate1 = sourceList.Where(s => s.Type == 10).First();
+                var Roommate2 = sourceList.Where(s => s.Type == 11).First();
+                var StudentId1 = sourceList.Where(s => s.Type == 12).First();
+                var StudentId2 = sourceList.Where(s => s.Type == 13).First();
+                var Residencebooklet = sourceList.Where(s => s.Type == 14).First();
+                var DriversLicense = sourceList.Where(s => s.Type == 15).First();
+                var Awards = sourceList.Where(s => s.Type == 16).First();
+
+                if (XueXin != null)
+                {
+                    this.imgXueXin.ImageUrl = XueXin.Images;
+                    this.imgXueXin.Attributes.Add("onclick", string.Format("return window.open('{0}')", XueXin.Images));
+                }
+                if (Bank != null)
+                {
+                    this.imgBank.ImageUrl = Bank.Images;
+                    this.imgBank.Attributes.Add("onclick", string.Format("return window.open('{0}')", Bank.Images));
+                }
+                if (Alipay != null)
+                {
+                    this.imgAlipay.ImageUrl = Alipay.Images;
+                    this.imgAlipay.Attributes.Add("onclick", string.Format("return window.open('{0}')", Alipay.Images));
+                }
+                if (Mobile != null)
+                {
+                    this.imgMobile.ImageUrl = Mobile.Images;
+                    this.imgMobile.Attributes.Add("onclick", string.Format("return window.open('{0}')", Mobile.Images));
+                }
+                if (Parents1 != null)
+                {
+                    this.imgParents1.ImageUrl = Parents1.Images;
+                    this.imgParents1.Attributes.Add("onclick", string.Format("return window.open('{0}')", Parents1.Images));
+                }
+                if (Parents2 != null)
+                {
+                    this.imgParents2.ImageUrl = Parents2.Images;
+                    this.imgParents2.Attributes.Add("onclick", string.Format("return window.open('{0}')", Parents2.Images));
+                }
+                if (Roommate1 != null)
+                {
+                    this.imgRoommateIdentityCard1.ImageUrl = Roommate1.Images;
+                    this.imgRoommateIdentityCard1.Attributes.Add("onclick", string.Format("return window.open('{0}')", Roommate1.Images));
+                }
+                if (Roommate2 != null)
+                {
+                    this.imgRoommateIdentityCard2.ImageUrl = Roommate2.Images;
+                    this.imgRoommateIdentityCard2.Attributes.Add("onclick", string.Format("return window.open('{0}')", Roommate2.Images));
+                }
+                if (StudentId1 != null)
+                {
+                    this.imgRoommateStudentId1.ImageUrl = StudentId1.Images;
+                    this.imgRoommateStudentId1.Attributes.Add("onclick", string.Format("return window.open('{0}')", StudentId1.Images));
+                }
+                if (StudentId2 != null)
+                {
+                    this.imgRoommateStudentId2.ImageUrl = StudentId2.Images;
+                    this.imgRoommateStudentId2.Attributes.Add("onclick", string.Format("return window.open('{0}')", StudentId2.Images));
+                }
+                if (Residencebooklet != null)
+                {
+                    this.imgResidencebooklet.ImageUrl = Residencebooklet.Images;
+                    this.imgResidencebooklet.Attributes.Add("onclick", string.Format("return window.open('{0}')", Residencebooklet.Images));
+                }
+                if (DriversLicense != null)
+                {
+                    this.imgDriversLicense.ImageUrl = DriversLicense.Images;
+                    this.imgDriversLicense.Attributes.Add("onclick", string.Format("return window.open('{0}')", DriversLicense.Images));
+                }
+                if (Awards != null)
+                {
+                    this.imgAwards.ImageUrl = Awards.Images;
+                    this.imgAwards.Attributes.Add("onclick", string.Format("return window.open('{0}')", Awards.Images));
+                }
+            }
         }
 
         /// <summary>
@@ -80,26 +253,29 @@ namespace StudentLoan.Web.Admin
         /// </summary>
         /// <param name="loanCategory"></param>
         /// <returns></returns>
-        public string GetLoanCategoryName(int loanCategory)
+        public string GetEducationName(int id)
         {
             string result = string.Empty;
 
-            switch (loanCategory)
+            switch (id)
             {
                 case 1:
-                    result = "因为爱情（恋爱贷款）";
+                    result = "专科";
                     break;
                 case 2:
-                    result = "游山玩水（旅游贷款）";
+                    result = "本科";
                     break;
                 case 3:
-                    result = "时尚达人（购物贷款）";
+                    result = "硕士（研究生）";
                     break;
                 case 4:
-                    result = "追求自我（娱乐贷款）";
+                    result = "博士";
                     break;
                 case 5:
-                    result = "急人所急（应急贷款）";
+                    result = "博士后";
+                    break;
+                case 6:
+                    result = "其他";
                     break;
             }
 

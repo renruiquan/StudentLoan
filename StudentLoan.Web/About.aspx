@@ -25,6 +25,7 @@
                     </ul>
                 </div>
             </div>
+
             <div class="content">
 
                 <div class="cont clear-top">
@@ -76,4 +77,7 @@
                 </div>
 
             </div>
+
+        </div>
+    </div>
 </asp:Content>

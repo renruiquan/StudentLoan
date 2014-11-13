@@ -73,19 +73,19 @@ namespace StudentLoan.Web.user
 
             if (sourceList != null && sourceList.Count > 0)
             {
-                this.XueXin = sourceList.SingleOrDefault(s => s.Type == 4);
-                this.Bank = sourceList.SingleOrDefault(s => s.Type == 5);
-                this.Alipay = sourceList.SingleOrDefault(s => s.Type == 6);
-                this.Mobile = sourceList.SingleOrDefault(s => s.Type == 7);
-                this.Parents1 = sourceList.SingleOrDefault(s => s.Type == 8);
-                this.Parents2 = sourceList.SingleOrDefault(s => s.Type == 9);
-                this.Roommate1 = sourceList.SingleOrDefault(s => s.Type == 10);
-                this.Roommate2 = sourceList.SingleOrDefault(s => s.Type == 11);
-                this.StudentId1 = sourceList.SingleOrDefault(s => s.Type == 12);
-                this.StudentId2 = sourceList.SingleOrDefault(s => s.Type == 13);
-                this.Residencebooklet = sourceList.SingleOrDefault(s => s.Type == 14);
-                this.DriversLicense = sourceList.SingleOrDefault(s => s.Type == 15);
-                this.Awards = sourceList.SingleOrDefault(s => s.Type == 16);
+                this.XueXin = sourceList.FirstOrDefault(s => s.Type == 4);
+                this.Bank = sourceList.FirstOrDefault(s => s.Type == 5);
+                this.Alipay = sourceList.FirstOrDefault(s => s.Type == 6);
+                this.Mobile = sourceList.FirstOrDefault(s => s.Type == 7);
+                this.Parents1 = sourceList.FirstOrDefault(s => s.Type == 8);
+                this.Parents2 = sourceList.FirstOrDefault(s => s.Type == 9);
+                this.Roommate1 = sourceList.FirstOrDefault(s => s.Type == 10);
+                this.Roommate2 = sourceList.FirstOrDefault(s => s.Type == 11);
+                this.StudentId1 = sourceList.FirstOrDefault(s => s.Type == 12);
+                this.StudentId2 = sourceList.FirstOrDefault(s => s.Type == 13);
+                this.Residencebooklet = sourceList.FirstOrDefault(s => s.Type == 14);
+                this.DriversLicense = sourceList.FirstOrDefault(s => s.Type == 15);
+                this.Awards = sourceList.FirstOrDefault(s => s.Type == 16);
             }
         }
     }

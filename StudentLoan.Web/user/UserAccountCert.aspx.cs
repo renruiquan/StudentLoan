@@ -220,23 +220,23 @@ namespace StudentLoan.Web.user
 
             if (sourceList != null && sourceList.Count > 0)
             {
-                this.IdentityCard_1 = sourceList.SingleOrDefault(s => s.Type == 0);
-                this.IdentityCard_2 = sourceList.SingleOrDefault(s => s.Type == 1);
-                this.StudentId1 = sourceList.SingleOrDefault(s => s.Type == 2);
-                this.StudentId2 = sourceList.SingleOrDefault(s => s.Type == 3);
-                this.XueXin = sourceList.SingleOrDefault(s => s.Type == 4);
-                this.Bank = sourceList.SingleOrDefault(s => s.Type == 5);
-                this.Alipay = sourceList.SingleOrDefault(s => s.Type == 6);
-                this.Mobile = sourceList.SingleOrDefault(s => s.Type == 7);
-                this.Parents1 = sourceList.SingleOrDefault(s => s.Type == 8);
-                this.Parents2 = sourceList.SingleOrDefault(s => s.Type == 9);
-                this.RoommateIdentityCard1 = sourceList.SingleOrDefault(s => s.Type == 10);
-                this.RoommateIdentityCard2 = sourceList.SingleOrDefault(s => s.Type == 11);
-                this.RoommateStudentId1 = sourceList.SingleOrDefault(s => s.Type == 12);
-                this.RoommateStudentId2 = sourceList.SingleOrDefault(s => s.Type == 13);
-                this.Residencebooklet = sourceList.SingleOrDefault(s => s.Type == 14);
-                this.DriversLicense = sourceList.SingleOrDefault(s => s.Type == 15);
-                this.Awards = sourceList.SingleOrDefault(s => s.Type == 16);
+                this.IdentityCard_1 = sourceList.FirstOrDefault(s => s.Type == 0);
+                this.IdentityCard_2 = sourceList.FirstOrDefault(s => s.Type == 1);
+                this.StudentId1 = sourceList.FirstOrDefault(s => s.Type == 2);
+                this.StudentId2 = sourceList.FirstOrDefault(s => s.Type == 3);
+                this.XueXin = sourceList.FirstOrDefault(s => s.Type == 4);
+                this.Bank = sourceList.FirstOrDefault(s => s.Type == 5);
+                this.Alipay = sourceList.FirstOrDefault(s => s.Type == 6);
+                this.Mobile = sourceList.FirstOrDefault(s => s.Type == 7);
+                this.Parents1 = sourceList.FirstOrDefault(s => s.Type == 8);
+                this.Parents2 = sourceList.FirstOrDefault(s => s.Type == 9);
+                this.RoommateIdentityCard1 = sourceList.FirstOrDefault(s => s.Type == 10);
+                this.RoommateIdentityCard2 = sourceList.FirstOrDefault(s => s.Type == 11);
+                this.RoommateStudentId1 = sourceList.FirstOrDefault(s => s.Type == 12);
+                this.RoommateStudentId2 = sourceList.FirstOrDefault(s => s.Type == 13);
+                this.Residencebooklet = sourceList.FirstOrDefault(s => s.Type == 14);
+                this.DriversLicense = sourceList.FirstOrDefault(s => s.Type == 15);
+                this.Awards = sourceList.FirstOrDefault(s => s.Type == 16);
             }
         }
 
@@ -245,9 +245,9 @@ namespace StudentLoan.Web.user
             List<UserRelationshipEntityEx> list = new UserRelationshipBLL().GetList(string.Format(" 1=1 and UserId = {0}", base.GetUserModel().UserId));
             if (list != null && list.Count > 0)
             {
-                FamilyModel = list.SingleOrDefault(s => s.Type == 1);
-                StudentModel = list.SingleOrDefault(s => s.Type == 2);
-                FriendModel = list.SingleOrDefault(s => s.Type == 3);
+                FamilyModel = list.FirstOrDefault(s => s.Type == 1);
+                StudentModel = list.FirstOrDefault(s => s.Type == 2);
+                FriendModel = list.FirstOrDefault(s => s.Type == 3);
             }
         }
 

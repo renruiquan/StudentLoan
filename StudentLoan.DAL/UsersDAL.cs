@@ -38,7 +38,7 @@ namespace StudentLoan.DAL
 
             #endregion
 
-            using (SqlDataReader objReader = SqlHelper.ExecuteReader(base.ConnectionString, CommandType.Text, commandText.ToString(),paramsList.ToArray()))
+            using (SqlDataReader objReader = SqlHelper.ExecuteReader(base.ConnectionString, CommandType.Text, commandText.ToString(), paramsList.ToArray()))
             {
                 return objReader.HasRows;
             }
@@ -217,7 +217,7 @@ namespace StudentLoan.DAL
 
             commandText.Append(" Amount = @Amount, ");
 
-            commandText.Append(" Point +=10, ");
+            commandText.Append(" Point = @Point, ");
 
             commandText.Append(" Exp = @Exp, ");
 
@@ -284,6 +284,8 @@ namespace StudentLoan.DAL
             paramsList.Add(new SqlParameter("@SafeAnswer", model.SafeAnswer));
 
             paramsList.Add(new SqlParameter("@Amount", model.Amount));
+
+            paramsList.Add(new SqlParameter("@Point", model.Point));
 
             paramsList.Add(new SqlParameter("@Exp", model.Exp));
 

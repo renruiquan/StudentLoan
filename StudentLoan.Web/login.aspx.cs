@@ -82,7 +82,7 @@ namespace StudentLoan.Web
             this.WriteCookie("SLRememberName", model.UserName, 14400);
             this.WriteCookie("UserName", "StudentLoan", model.UserName);
             this.WriteCookie("UserPwd", "StudentLoan", model.Password);
-            Response.Redirect("/user/UserAccount.aspx");
+            Response.Redirect("/IvoryTower.aspx");
 
             return;
         }

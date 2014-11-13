@@ -86,6 +86,15 @@ namespace StudentLoan.BLL
 
 
         /// <summary>
+        /// 获取总借款人数
+        /// </summary>
+        /// <returns></returns>
+        public long GetLoanTotalCount()
+        {
+            return dal.GetLoanTotalCount();
+        }
+
+        /// <summary>
         /// 统计逾期的用户借款数据
         /// </summary>
         /// <returns></returns>
@@ -103,8 +112,17 @@ namespace StudentLoan.BLL
             return dal.GetStatNormalUserLoan(userId);
         }
 
+        /// <summary>
+        /// 获取借款公告
+        /// </summary>
+        /// <returns></returns>
+        public List<UserLoanEntityEx> GetLoanAnnouncement()
+        {
+            return dal.GetLoanAnnouncement();
+        }
 
-         /// <summary>
+
+        /// <summary>
         /// 获取账户信息中的贷款数据列表
         /// </summary>
         /// <param name="userId"></param>

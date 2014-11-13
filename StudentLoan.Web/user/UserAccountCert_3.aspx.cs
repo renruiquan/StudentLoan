@@ -50,11 +50,11 @@ namespace StudentLoan.Web.user
 
             if (sourceList != null && sourceList.Count > 0)
             {
-                IdentityCard_1 = sourceList.SingleOrDefault(s => s.Type == 0);
-                IdentityCard_2 = sourceList.SingleOrDefault(s => s.Type == 1);
+                IdentityCard_1 = sourceList.FirstOrDefault(s => s.Type == 0);
+                IdentityCard_2 = sourceList.FirstOrDefault(s => s.Type == 1);
 
-                StudentId_1 = sourceList.SingleOrDefault(s => s.Type == 2);
-                StudentId_2 = sourceList.SingleOrDefault(s => s.Type == 3);
+                StudentId_1 = sourceList.FirstOrDefault(s => s.Type == 2);
+                StudentId_2 = sourceList.FirstOrDefault(s => s.Type == 3);
 
             }
         }

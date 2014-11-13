@@ -20,13 +20,13 @@ namespace StudentLoan.DAL
         /// <summary>
         /// 是否存在该记录
         /// </summary>
-        public bool Exists(int userId, string name, int type)
+        public bool Exists(int userId, int type)
         {
             #region CommandText
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append("Select UserId,Name,Relationship,Type From sl_user_relationship Where UserId = @UserId and Name = @Name and Type = @Type");
+            commandText.Append("Select UserId,Name,Relationship,Type From sl_user_relationship Where UserId = @UserId and Type = @Type");
 
             #endregion
 
@@ -36,13 +36,14 @@ namespace StudentLoan.DAL
 
             paramsList.Add(new SqlParameter("@UserId", userId));
 
-            paramsList.Add(new SqlParameter("@Name", name));
-
             paramsList.Add(new SqlParameter("@Type", type));
 
             #endregion
 
-            return (int)base.ExecuteScalar(commandText.ToString()) > 0 ? true : false;
+            using (SqlDataReader objReader = SqlHelper.ExecuteReader(base.ConnectionString, CommandType.Text, commandText.ToString(), paramsList.ToArray()))
+            {
+                return objReader.HasRows;
+            }
         }
 
 
@@ -154,25 +155,15 @@ namespace StudentLoan.DAL
 
             commandText.Append(" Update sl_user_relationship Set ");
 
-            commandText.Append(" UserId = @UserId, ");
-
             commandText.Append(" Name = @Name, ");
 
             commandText.Append(" Relationship = @Relationship, ");
 
             commandText.Append(" Mobile = @Mobile, ");
 
-            commandText.Append(" Profession = @Profession, ");
+            commandText.Append(" Profession = @Profession ");
 
-            commandText.Append(" Address = @Address, ");
-
-            commandText.Append(" Type = @Type, ");
-
-            commandText.Append(" Remark = @Remark, ");
-
-            commandText.Append(" CreateTime = @CreateTime ");
-
-            commandText.Append(" Where  = @ ");
+            commandText.Append(" Where  UserId = @UserId and Type = @Type ");
 
             #endregion
 
@@ -190,13 +181,9 @@ namespace StudentLoan.DAL
 
             paramsList.Add(new SqlParameter("@Profession", model.Profession));
 
-            paramsList.Add(new SqlParameter("@Address", model.Address));
-
             paramsList.Add(new SqlParameter("@Type", model.Type));
 
-            paramsList.Add(new SqlParameter("@Remark", model.Remark));
-
-            paramsList.Add(new SqlParameter("@CreateTime", model.CreateTime));
+          
 
             #endregion
 

@@ -74,5 +74,10 @@ namespace StudentLoan.Model
         /// 管理员
         /// </summary>
         public string AdminName { get; set; }
+
+        /// <summary>
+        /// 学校名称
+        /// </summary>
+        public string SchoolName { get; set; }
     }
 }

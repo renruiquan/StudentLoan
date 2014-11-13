@@ -401,6 +401,7 @@
     <Content Include="img\glyphicons-halflings-white.png" />
     <Content Include="img\glyphicons-halflings.png" />
     <Content Include="Introduction.aspx" />
+    <Content Include="IvoryTower.aspx" />
     <Content Include="js\jquery.uploadify.js" />
     <Content Include="js\birthday.js" />
     <Content Include="js\bootstrap-datepicker.js" />
@@ -713,6 +714,13 @@
     </Compile>
     <Compile Include="Introduction.aspx.designer.cs">
       <DependentUpon>Introduction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IvoryTower.aspx.cs">
+      <DependentUpon>IvoryTower.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IvoryTower.aspx.designer.cs">
+      <DependentUpon>IvoryTower.aspx</DependentUpon>
     </Compile>
     <Compile Include="LoanList.aspx.cs">
       <DependentUpon>LoanList.aspx</DependentUpon>

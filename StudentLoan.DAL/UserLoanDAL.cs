@@ -38,7 +38,10 @@ namespace StudentLoan.DAL
 
             #endregion
 
-            return (int)base.ExecuteScalar(commandText.ToString()) > 0 ? true : false;
+            using (SqlDataReader objReader = SqlHelper.ExecuteReader(base.ConnectionString, CommandType.Text, commandText.ToString(), paramsList.ToArray()))
+            {
+                return objReader.HasRows;
+            }
         }
 
 
@@ -294,6 +297,17 @@ namespace StudentLoan.DAL
         }
 
         /// <summary>
+        /// 获取总借款人数
+        /// </summary>
+        /// <returns></returns>
+        public long GetLoanTotalCount()
+        {
+            string commandText = @"select count(DISTINCT UserId) from sl_user_loan";
+
+            return base.ExecuteScalar(commandText).Convert<long>();
+        }
+
+        /// <summary>
         /// 获取账户信息中的贷款数据列表
         /// </summary>
         /// <param name="userId"></param>
@@ -330,6 +344,27 @@ namespace StudentLoan.DAL
             #endregion
 
             using (SqlDataReader objReader = SqlHelper.ExecuteReader(base.ConnectionString, CommandType.Text, commandText, paramsList.ToArray()))
+            {
+                return objReader.ReaderToList<UserLoanEntityEx>() as List<UserLoanEntityEx>;
+            }
+        }
+
+
+        /// <summary>
+        /// 获取借款公告
+        /// </summary>
+        /// <returns></returns>
+        public List<UserLoanEntityEx> GetLoanAnnouncement()
+        {
+            string commandText = @"SELECT TOP 5
+	                                        a.LoanMoney,
+	                                        b.SchoolName
+                                        FROM	sl_user_loan a,
+		                                        sl_user_school b
+                                        WHERE a.UserId = b.UserId
+                                        ORDER BY a.CreateTime DESC";
+
+            using (SqlDataReader objReader = SqlHelper.ExecuteReader(base.ConnectionString, CommandType.Text, commandText))
             {
                 return objReader.ReaderToList<UserLoanEntityEx>() as List<UserLoanEntityEx>;
             }

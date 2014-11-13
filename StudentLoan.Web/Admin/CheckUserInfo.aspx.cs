@@ -94,9 +94,9 @@ namespace StudentLoan.Web.Admin
 
             if (list != null && list.Count > 0)
             {
-                UserRelationshipEntityEx familyModel = list.SingleOrDefault(s => s.Type == 1);
-                UserRelationshipEntityEx studentModel = list.SingleOrDefault(s => s.Type == 2);
-                UserRelationshipEntityEx friendModel = list.SingleOrDefault(s => s.Type == 3);
+                UserRelationshipEntityEx familyModel = list.FirstOrDefault(s => s.Type == 1);
+                UserRelationshipEntityEx studentModel = list.FirstOrDefault(s => s.Type == 2);
+                UserRelationshipEntityEx friendModel = list.FirstOrDefault(s => s.Type == 3);
 
                 if (familyModel != null)
                 {
@@ -129,10 +129,10 @@ namespace StudentLoan.Web.Admin
 
             if (sourceList != null && sourceList.Count > 0)
             {
-                var identityCard1 = sourceList.SingleOrDefault(s => s.Type == 0);
-                var identityCard2 = sourceList.SingleOrDefault(s => s.Type == 1);
-                var studentId1 = sourceList.SingleOrDefault(s => s.Type == 2);
-                var studentId2 = sourceList.SingleOrDefault(s => s.Type == 3);
+                var identityCard1 = sourceList.FirstOrDefault(s => s.Type == 0);
+                var identityCard2 = sourceList.FirstOrDefault(s => s.Type == 1);
+                var studentId1 = sourceList.FirstOrDefault(s => s.Type == 2);
+                var studentId2 = sourceList.FirstOrDefault(s => s.Type == 3);
 
                 if (identityCard1 != null)
                 {
@@ -166,19 +166,19 @@ namespace StudentLoan.Web.Admin
 
             if (sourceList != null && sourceList.Count > 0)
             {
-                var XueXin = sourceList.SingleOrDefault(s => s.Type == 4);
-                var Bank = sourceList.SingleOrDefault(s => s.Type == 5);
-                var Alipay = sourceList.SingleOrDefault(s => s.Type == 6);
-                var Mobile = sourceList.SingleOrDefault(s => s.Type == 7);
-                var Parents1 = sourceList.SingleOrDefault(s => s.Type == 8);
-                var Parents2 = sourceList.SingleOrDefault(s => s.Type == 9);
-                var Roommate1 = sourceList.SingleOrDefault(s => s.Type == 10);
-                var Roommate2 = sourceList.SingleOrDefault(s => s.Type == 11);
-                var StudentId1 = sourceList.SingleOrDefault(s => s.Type == 12);
-                var StudentId2 = sourceList.SingleOrDefault(s => s.Type == 13);
-                var Residencebooklet = sourceList.SingleOrDefault(s => s.Type == 14);
-                var DriversLicense = sourceList.SingleOrDefault(s => s.Type == 15);
-                var Awards = sourceList.SingleOrDefault(s => s.Type == 16);
+                var XueXin = sourceList.FirstOrDefault(s => s.Type == 4);
+                var Bank = sourceList.FirstOrDefault(s => s.Type == 5);
+                var Alipay = sourceList.FirstOrDefault(s => s.Type == 6);
+                var Mobile = sourceList.FirstOrDefault(s => s.Type == 7);
+                var Parents1 = sourceList.FirstOrDefault(s => s.Type == 8);
+                var Parents2 = sourceList.FirstOrDefault(s => s.Type == 9);
+                var Roommate1 = sourceList.FirstOrDefault(s => s.Type == 10);
+                var Roommate2 = sourceList.FirstOrDefault(s => s.Type == 11);
+                var StudentId1 = sourceList.FirstOrDefault(s => s.Type == 12);
+                var StudentId2 = sourceList.FirstOrDefault(s => s.Type == 13);
+                var Residencebooklet = sourceList.FirstOrDefault(s => s.Type == 14);
+                var DriversLicense = sourceList.FirstOrDefault(s => s.Type == 15);
+                var Awards = sourceList.FirstOrDefault(s => s.Type == 16);
 
                 if (XueXin != null)
                 {

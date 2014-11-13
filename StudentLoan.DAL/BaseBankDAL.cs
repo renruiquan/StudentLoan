@@ -37,8 +37,11 @@ namespace StudentLoan.DAL
             paramsList.Add(new SqlParameter("@BankId", BankId));
  
             #endregion
-           
-            return (int)base.ExecuteScalar(commandText.ToString()) > 0 ? true : false;
+
+            using (SqlDataReader objReader = SqlHelper.ExecuteReader(base.ConnectionString, CommandType.Text, commandText.ToString(), paramsList.ToArray()))
+            {
+                return objReader.HasRows;
+            }
         }
         
         

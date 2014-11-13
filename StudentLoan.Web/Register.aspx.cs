@@ -26,7 +26,7 @@ namespace StudentLoan.Web
             string userDist = this.Request<string>("ddlDist").HtmlEncode();
             string userAddress = txtAddress.Text.Trim().HtmlEncode();
             string userDrawMoneyPassword = txtDrawMoneyPassword.Text.Trim().HtmlEncode();
-
+            string validateCode = txtValidateCode.Text.Trim().HtmlEncode();
 
             if (string.IsNullOrEmpty(userName))
             {
@@ -39,7 +39,7 @@ namespace StudentLoan.Web
                 this.artDialog("错误", "密码不能空为，请重新填写");
                 return;
             }
-        
+
             if (string.IsNullOrEmpty(userEmail))
             {
                 this.artDialog("错误", "邮箱地址不能为空，请重新填写");
@@ -50,7 +50,7 @@ namespace StudentLoan.Web
             {
                 this.artDialog("错误", "确认密码不能为空，请重新填写");
                 return;
-            }          
+            }
             if (string.IsNullOrEmpty(userAddress))
             {
                 this.artDialog("错误", "家庭地址不能为空，请重新填写");
@@ -77,11 +77,25 @@ namespace StudentLoan.Web
                 this.artDialog("错误", "两次密码不同");
                 return;
             }
+            if (string.IsNullOrEmpty(validateCode))
+            {
+                this.artDialog("错误", "验证码不能为空");
+                return;
+            }
+            if (validateCode.ToLower() != Session[StudentLoanKeys.SESSION_CODE].ToString().ToLower())
+            {
+                this.artDialog("错误", "验证码不正确");
+                return;
+            }
+
             if (!ckbAgreement.Checked)
             {
                 this.artDialog("错误", "尚未同意学子易贷协议");
                 return;
             }
+
+
+
             if (Session[StudentLoanKeys.SESSION_USER_LOGIN_SUM] == null)
             {
                 Session[StudentLoanKeys.SESSION_USER_LOGIN_SUM] = 1;
@@ -119,6 +133,8 @@ namespace StudentLoan.Web
 
             if (result)
             {
+                model = new UsersBLL().GetModel(new UsersBLL().GetUserId(model.UserName));
+
                 Session[StudentLoanKeys.SESSION_USER_INFO] = model;
                 Session.Timeout = 45;
 

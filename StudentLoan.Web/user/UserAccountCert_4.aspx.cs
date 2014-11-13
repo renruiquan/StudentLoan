@@ -71,21 +71,21 @@ namespace StudentLoan.Web.user
         {
             List<UserCertificationEntityEx> sourceList = new UserCertificationBLL().GetList(string.Format(" 1=1 and UserId = {0}", base.GetUserModel().UserId));
 
-            if (sourceList != null)
+            if (sourceList != null && sourceList.Count > 0)
             {
-                this.XueXin = sourceList.Where(s => s.Type == 4).First();
-                this.Bank = sourceList.Where(s => s.Type == 5).First();
-                this.Alipay = sourceList.Where(s => s.Type == 6).First();
-                this.Mobile = sourceList.Where(s => s.Type == 7).First();
-                this.Parents1 = sourceList.Where(s => s.Type == 8).First();
-                this.Parents2 = sourceList.Where(s => s.Type == 9).First();
-                this.Roommate1 = sourceList.Where(s => s.Type == 10).First();
-                this.Roommate2 = sourceList.Where(s => s.Type == 11).First();
-                this.StudentId1 = sourceList.Where(s => s.Type == 12).First();
-                this.StudentId2 = sourceList.Where(s => s.Type == 13).First();
-                this.Residencebooklet = sourceList.Where(s => s.Type == 14).First();
-                this.DriversLicense = sourceList.Where(s => s.Type == 15).First();
-                this.Awards = sourceList.Where(s => s.Type == 16).First();
+                this.XueXin = sourceList.SingleOrDefault(s => s.Type == 4);
+                this.Bank = sourceList.SingleOrDefault(s => s.Type == 5);
+                this.Alipay = sourceList.SingleOrDefault(s => s.Type == 6);
+                this.Mobile = sourceList.SingleOrDefault(s => s.Type == 7);
+                this.Parents1 = sourceList.SingleOrDefault(s => s.Type == 8);
+                this.Parents2 = sourceList.SingleOrDefault(s => s.Type == 9);
+                this.Roommate1 = sourceList.SingleOrDefault(s => s.Type == 10);
+                this.Roommate2 = sourceList.SingleOrDefault(s => s.Type == 11);
+                this.StudentId1 = sourceList.SingleOrDefault(s => s.Type == 12);
+                this.StudentId2 = sourceList.SingleOrDefault(s => s.Type == 13);
+                this.Residencebooklet = sourceList.SingleOrDefault(s => s.Type == 14);
+                this.DriversLicense = sourceList.SingleOrDefault(s => s.Type == 15);
+                this.Awards = sourceList.SingleOrDefault(s => s.Type == 16);
             }
         }
     }

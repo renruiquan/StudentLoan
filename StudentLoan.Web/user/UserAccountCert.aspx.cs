@@ -35,12 +35,41 @@ namespace StudentLoan.Web.user
         /// <summary>
         /// 正常还款积分
         /// </summary>
-        public int UserLoanPoint { get { return new UserLoanBLL().GetStatNormalUserLoan(this.GetUserModel().UserId).NormalLoanCount; } }
+        public int UserLoanPoint
+        {
+            get
+            {
+                UserLoanEntityEx model = new UserLoanBLL().GetStatNormalUserLoan(this.GetUserModel().UserId);
+
+                if (model == null)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return model.NormalLoanCount;
+                }
+            }
+        }
 
         /// <summary>
         /// 严重逾期次数
         /// </summary>
-        public int BreakContractUserLoan { get { return -new UserLoanBLL().GetStatBreakContractUserLoan(this.GetUserModel().UserId).TotalBreakCount; } }
+        public int BreakContractUserLoan
+        {
+            get
+            {
+                UserLoanEntityEx model = new UserLoanBLL().GetStatBreakContractUserLoan(this.GetUserModel().UserId);
+                if (model == null)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return -model.TotalBreakCount;
+                }
+            }
+        }
 
         /// <summary>
         /// 用户信息
@@ -189,36 +218,36 @@ namespace StudentLoan.Web.user
         {
             List<UserCertificationEntityEx> sourceList = new UserCertificationBLL().GetList(string.Format(" 1=1 and UserId = {0}", base.GetUserModel().UserId));
 
-            if (sourceList != null)
+            if (sourceList != null && sourceList.Count > 0)
             {
-                this.IdentityCard_1 = sourceList.Where(s => s.Type == 0).First();
-                this.IdentityCard_2 = sourceList.Where(s => s.Type == 1).First();
-                this.StudentId1 = sourceList.Where(s => s.Type == 2).First();
-                this.StudentId2 = sourceList.Where(s => s.Type == 3).First();
-                this.XueXin = sourceList.Where(s => s.Type == 4).First();
-                this.Bank = sourceList.Where(s => s.Type == 5).First();
-                this.Alipay = sourceList.Where(s => s.Type == 6).First();
-                this.Mobile = sourceList.Where(s => s.Type == 7).First();
-                this.Parents1 = sourceList.Where(s => s.Type == 8).First();
-                this.Parents2 = sourceList.Where(s => s.Type == 9).First();
-                this.RoommateIdentityCard1 = sourceList.Where(s => s.Type == 10).First();
-                this.RoommateIdentityCard2 = sourceList.Where(s => s.Type == 11).First();
-                this.RoommateStudentId1 = sourceList.Where(s => s.Type == 12).First();
-                this.RoommateStudentId2 = sourceList.Where(s => s.Type == 13).First();
-                this.Residencebooklet = sourceList.Where(s => s.Type == 14).First();
-                this.DriversLicense = sourceList.Where(s => s.Type == 15).First();
-                this.Awards = sourceList.Where(s => s.Type == 16).First();
+                this.IdentityCard_1 = sourceList.SingleOrDefault(s => s.Type == 0);
+                this.IdentityCard_2 = sourceList.SingleOrDefault(s => s.Type == 1);
+                this.StudentId1 = sourceList.SingleOrDefault(s => s.Type == 2);
+                this.StudentId2 = sourceList.SingleOrDefault(s => s.Type == 3);
+                this.XueXin = sourceList.SingleOrDefault(s => s.Type == 4);
+                this.Bank = sourceList.SingleOrDefault(s => s.Type == 5);
+                this.Alipay = sourceList.SingleOrDefault(s => s.Type == 6);
+                this.Mobile = sourceList.SingleOrDefault(s => s.Type == 7);
+                this.Parents1 = sourceList.SingleOrDefault(s => s.Type == 8);
+                this.Parents2 = sourceList.SingleOrDefault(s => s.Type == 9);
+                this.RoommateIdentityCard1 = sourceList.SingleOrDefault(s => s.Type == 10);
+                this.RoommateIdentityCard2 = sourceList.SingleOrDefault(s => s.Type == 11);
+                this.RoommateStudentId1 = sourceList.SingleOrDefault(s => s.Type == 12);
+                this.RoommateStudentId2 = sourceList.SingleOrDefault(s => s.Type == 13);
+                this.Residencebooklet = sourceList.SingleOrDefault(s => s.Type == 14);
+                this.DriversLicense = sourceList.SingleOrDefault(s => s.Type == 15);
+                this.Awards = sourceList.SingleOrDefault(s => s.Type == 16);
             }
         }
 
         public void BindUserRelationship()
         {
             List<UserRelationshipEntityEx> list = new UserRelationshipBLL().GetList(string.Format(" 1=1 and UserId = {0}", base.GetUserModel().UserId));
-            if (list != null)
+            if (list != null && list.Count > 0)
             {
-                FamilyModel = list.Where(s => s.Type == 1).First();
-                StudentModel = list.Where(s => s.Type == 2).First();
-                FriendModel = list.Where(s => s.Type == 3).First();
+                FamilyModel = list.SingleOrDefault(s => s.Type == 1);
+                StudentModel = list.SingleOrDefault(s => s.Type == 2);
+                FriendModel = list.SingleOrDefault(s => s.Type == 3);
             }
         }
 
@@ -227,25 +256,34 @@ namespace StudentLoan.Web.user
         /// </summary>
         public void BindUserBasePoint()
         {
-            if (!string.IsNullOrEmpty(this.UserModel.TrueName) && !string.IsNullOrEmpty(this.UserModel.IdentityCard) && !string.IsNullOrEmpty(this.UserModel.Mobile)
-                                            && !string.IsNullOrEmpty(this.UserModel.Gender) && !string.IsNullOrEmpty(this.UserModel.Nation) && (this.UserModel.Birthday != null || this.UserModel.Birthday != default(DateTime)))
+            if (this.UserModel != null)
             {
-                this.BasePoint += 10;
+                if (!string.IsNullOrEmpty(this.UserModel.TrueName) && !string.IsNullOrEmpty(this.UserModel.IdentityCard) && !string.IsNullOrEmpty(this.UserModel.Mobile)
+                                                && !string.IsNullOrEmpty(this.UserModel.Gender) && !string.IsNullOrEmpty(this.UserModel.Nation) && (this.UserModel.Birthday != null && this.UserModel.Birthday != default(DateTime)))
+                {
+                    this.BasePoint += 10;
+                }
             }
 
-            if (!string.IsNullOrEmpty(this.UserSchoolModel.XuexinUsername) && !string.IsNullOrEmpty(this.UserSchoolModel.XuexinPassword) && !string.IsNullOrEmpty(this.UserSchoolModel.SchoolName)
-                                                && !string.IsNullOrEmpty(this.UserSchoolModel.SchoolAddress) && (this.UserSchoolModel.YearOfAdmission != null || this.UserSchoolModel.YearOfAdmission != default(DateTime))
-                                                && this.UserSchoolModel.SchoolSystem > 0 && this.UserSchoolModel.Education > 0 && !string.IsNullOrEmpty(this.UserSchoolModel.Major))
+            if (this.UserSchoolModel != null)
             {
-                this.BasePoint += 10;
+                if (!string.IsNullOrEmpty(this.UserSchoolModel.XuexinUsername) && !string.IsNullOrEmpty(this.UserSchoolModel.XuexinPassword) && !string.IsNullOrEmpty(this.UserSchoolModel.SchoolName)
+                                                    && !string.IsNullOrEmpty(this.UserSchoolModel.SchoolAddress) && (this.UserSchoolModel.YearOfAdmission != null && this.UserSchoolModel.YearOfAdmission != default(DateTime))
+                                                    && this.UserSchoolModel.SchoolSystem > 0 && this.UserSchoolModel.Education > 0 && !string.IsNullOrEmpty(this.UserSchoolModel.Major))
+                {
+                    this.BasePoint += 10;
+                }
             }
 
-            if (!string.IsNullOrEmpty(this.FamilyModel.Name) && !string.IsNullOrEmpty(this.FamilyModel.Relationship) &&
-                                                 !string.IsNullOrEmpty(this.FamilyModel.Mobile) && !string.IsNullOrEmpty(this.FamilyModel.Profession) &&
-                                                 !string.IsNullOrEmpty(this.StudentModel.Name) && !string.IsNullOrEmpty(this.StudentModel.Mobile) &&
-                                                 !string.IsNullOrEmpty(this.FriendModel.Name) && !string.IsNullOrEmpty(this.FriendModel.Mobile))
+            if (this.FamilyModel != null)
             {
-                this.BasePoint += 10;
+                if (!string.IsNullOrEmpty(this.FamilyModel.Name) && !string.IsNullOrEmpty(this.FamilyModel.Relationship) &&
+                                                     !string.IsNullOrEmpty(this.FamilyModel.Mobile) && !string.IsNullOrEmpty(this.FamilyModel.Profession) &&
+                                                     !string.IsNullOrEmpty(this.StudentModel.Name) && !string.IsNullOrEmpty(this.StudentModel.Mobile) &&
+                                                     !string.IsNullOrEmpty(this.FriendModel.Name) && !string.IsNullOrEmpty(this.FriendModel.Mobile))
+                {
+                    this.BasePoint += 10;
+                }
             }
         }
 

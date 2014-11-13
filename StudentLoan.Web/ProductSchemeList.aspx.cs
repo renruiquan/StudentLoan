@@ -21,7 +21,7 @@ namespace StudentLoan.Web
 
         private void BindData()
         {
-            string strWhere = "1 = 1";
+            string strWhere = "1 = 1 and StartTime <=getdate() and EndTime >=getdate() ";
 
             #region 计算分页数据
 

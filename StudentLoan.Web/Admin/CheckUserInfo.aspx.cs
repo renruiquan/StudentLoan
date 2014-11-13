@@ -11,6 +11,7 @@ using System.Text;
 using NPOI.XSSF.UserModel;
 using NPOI.SS.UserModel;
 using System.IO;
+using StudentLoan.Common.Logging;
 
 namespace StudentLoan.Web.Admin
 {
@@ -24,6 +25,7 @@ namespace StudentLoan.Web.Admin
         {
             if (!IsPostBack)
             {
+
                 if (this.LoanId > 0)
                 {
                     this.BindBaseCert();
@@ -90,33 +92,31 @@ namespace StudentLoan.Web.Admin
         {
             List<UserRelationshipEntityEx> list = new UserRelationshipBLL().GetList(string.Format(" 1=1 and UserId = {0}", this.UserLoanModel.UserId));
 
-            if (list == null || list.Count == 0)
+            if (list != null && list.Count > 0)
             {
-                return;
-            }
+                UserRelationshipEntityEx familyModel = list.SingleOrDefault(s => s.Type == 1);
+                UserRelationshipEntityEx studentModel = list.SingleOrDefault(s => s.Type == 2);
+                UserRelationshipEntityEx friendModel = list.SingleOrDefault(s => s.Type == 3);
 
-            UserRelationshipEntityEx familyModel = list.Where(s => s.Type == 1).First();
-            UserRelationshipEntityEx studentModel = list.Where(s => s.Type == 2).First();
-            UserRelationshipEntityEx friendModel = list.Where(s => s.Type == 3).First();
+                if (familyModel != null)
+                {
+                    this.lblFamilyName.Text = familyModel.Name;
+                    this.lblRelationship.Text = familyModel.Relationship;
+                    this.lblFamilyMobile.Text = familyModel.Mobile;
+                    this.lblProfession.Text = familyModel.Profession;
+                }
 
-            if (familyModel != null)
-            {
-                this.lblFamilyName.Text = familyModel.Name;
-                this.lblRelationship.Text = familyModel.Relationship;
-                this.lblFamilyMobile.Text = familyModel.Mobile;
-                this.lblProfession.Text = familyModel.Profession;
-            }
+                if (studentModel != null)
+                {
+                    this.lblStudentName.Text = studentModel.Name;
+                    this.lblStudentMobile.Text = studentModel.Mobile;
+                }
 
-            if (studentModel != null)
-            {
-                this.lblStudentName.Text = studentModel.Name;
-                this.lblStudentMobile.Text = studentModel.Mobile;
-            }
-
-            if (friendModel != null)
-            {
-                this.lblFriendName.Text = friendModel.Name;
-                this.lblFriendMobile.Text = friendModel.Mobile;
+                if (friendModel != null)
+                {
+                    this.lblFriendName.Text = friendModel.Name;
+                    this.lblFriendMobile.Text = friendModel.Mobile;
+                }
             }
         }
 
@@ -129,10 +129,10 @@ namespace StudentLoan.Web.Admin
 
             if (sourceList != null && sourceList.Count > 0)
             {
-                var identityCard1 = sourceList.Where(s => s.Type == 0).First();
-                var identityCard2 = sourceList.Where(s => s.Type == 1).First();
-                var studentId1 = sourceList.Where(s => s.Type == 2).First();
-                var studentId2 = sourceList.Where(s => s.Type == 3).First();
+                var identityCard1 = sourceList.SingleOrDefault(s => s.Type == 0);
+                var identityCard2 = sourceList.SingleOrDefault(s => s.Type == 1);
+                var studentId1 = sourceList.SingleOrDefault(s => s.Type == 2);
+                var studentId2 = sourceList.SingleOrDefault(s => s.Type == 3);
 
                 if (identityCard1 != null)
                 {
@@ -166,19 +166,19 @@ namespace StudentLoan.Web.Admin
 
             if (sourceList != null && sourceList.Count > 0)
             {
-                var XueXin = sourceList.Where(s => s.Type == 4).First();
-                var Bank = sourceList.Where(s => s.Type == 5).First();
-                var Alipay = sourceList.Where(s => s.Type == 6).First();
-                var Mobile = sourceList.Where(s => s.Type == 7).First();
-                var Parents1 = sourceList.Where(s => s.Type == 8).First();
-                var Parents2 = sourceList.Where(s => s.Type == 9).First();
-                var Roommate1 = sourceList.Where(s => s.Type == 10).First();
-                var Roommate2 = sourceList.Where(s => s.Type == 11).First();
-                var StudentId1 = sourceList.Where(s => s.Type == 12).First();
-                var StudentId2 = sourceList.Where(s => s.Type == 13).First();
-                var Residencebooklet = sourceList.Where(s => s.Type == 14).First();
-                var DriversLicense = sourceList.Where(s => s.Type == 15).First();
-                var Awards = sourceList.Where(s => s.Type == 16).First();
+                var XueXin = sourceList.SingleOrDefault(s => s.Type == 4);
+                var Bank = sourceList.SingleOrDefault(s => s.Type == 5);
+                var Alipay = sourceList.SingleOrDefault(s => s.Type == 6);
+                var Mobile = sourceList.SingleOrDefault(s => s.Type == 7);
+                var Parents1 = sourceList.SingleOrDefault(s => s.Type == 8);
+                var Parents2 = sourceList.SingleOrDefault(s => s.Type == 9);
+                var Roommate1 = sourceList.SingleOrDefault(s => s.Type == 10);
+                var Roommate2 = sourceList.SingleOrDefault(s => s.Type == 11);
+                var StudentId1 = sourceList.SingleOrDefault(s => s.Type == 12);
+                var StudentId2 = sourceList.SingleOrDefault(s => s.Type == 13);
+                var Residencebooklet = sourceList.SingleOrDefault(s => s.Type == 14);
+                var DriversLicense = sourceList.SingleOrDefault(s => s.Type == 15);
+                var Awards = sourceList.SingleOrDefault(s => s.Type == 16);
 
                 if (XueXin != null)
                 {

@@ -326,7 +326,9 @@ namespace StudentLoan.DAL
 	                            FROM sl_user_repayment
 	                            WHERE LoanId = T.LoanId
 	                            AND Status = 0)
-	                            AS 'RepaymentTime'
+	                            AS 'RepaymentTime',
+                                 T.AlreadyAmortization,
+		                         T.TotalAmortization
                             FROM sl_user_loan T
                             WHERE T.UserId = @UserId) TT
                             WHERE TT.Row between @startIndex and @endIndex";

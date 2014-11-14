@@ -51,7 +51,7 @@ namespace StudentLoan.Web.user
             if (!string.IsNullOrEmpty(userModel.TrueName))
             {
                 this.txtTruename.Attributes.Add("ReadOnly", "true");
-                this.txtIdentityCard.Attributes.Add("ReadOnly", "true");
+                this.txtBirthday.Attributes.Add("ReadOnly", "true");
                 txtBirthday.Text = userModel.Birthday.ToString("yyyy-MM-dd");
                 txtIdentityCard.Text = userModel.IdentityCard;
                 txtMobile.Text = userModel.Mobile;

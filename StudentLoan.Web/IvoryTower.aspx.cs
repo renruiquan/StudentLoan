@@ -72,6 +72,7 @@ namespace StudentLoan.Web
             {
                 this.lblRepaymentTime.Text = result.RepaymentTime.ToString("yyyy-MM-dd");
                 this.lblRepaymentMoney.Text = (result.RepaymentMoney + result.Interest).ToString();
+                this.lblAmortization.Text = string.Format("{0}/{1}", result.AlreadyAmortization, result.TotalAmortization);
             }
 
             this.objRepeater.DataSource = new UserLoanBLL().GetLoanAnnouncement();

@@ -91,12 +91,12 @@
                             <label class="control-label" for="deadline2"><span class="c-red">*</span> 成交服务费：</label>
 
                             <div class="controls text-left">
-                                <p class="mt5 c-blue">只要申请贷款成功，所有信用等级的服务费0.3%/天,0.9%/月，但信用等级越高贷款的成功性越大。</p>
+                                <p class="mt5 c-blue">本金*0.3%/天</p>
                             </div>
                         </div>
 
                         <div class="control-group">
-                            <label class="control-label"><span class="c-red">*</span> 借款描述：</label>
+                            <label class="control-label"><span class="c-red"></span> 借款描述：</label>
 
                             <div class="controls text-left">
 

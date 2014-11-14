@@ -87,9 +87,26 @@ namespace StudentLoan.Web.user
             }
             else
             {
-                this.objLiteral.Text = string.Format("已绑定手机号码：{0}，如希望绑定其他手机号码，请输入以下信息", userModel.Mobile);
+                this.objLiteral.Text = string.Format("已绑定手机号码：{0}，如希望绑定其他手机号码，请输入以下信息", EncryptionMobile(userModel.Mobile));
             }
         }
 
+        public string EncryptionMobile(string mobile)
+        {
+            if (string.IsNullOrEmpty(mobile))
+            {
+                return mobile;
+            }
+
+            else if (mobile.Length != 11)
+            {
+                return mobile;
+            }
+
+            else
+            {
+                return string.Format("{0}****{1}", mobile.Substring(0, 3), mobile.Substring(7, 4));
+            }
+        }
     }
 }

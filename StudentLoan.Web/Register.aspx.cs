@@ -24,8 +24,9 @@ namespace StudentLoan.Web
             string userProvice = this.Request<string>("ddlProvince").HtmlEncode();
             string userCity = this.Request<string>("ddlCity").HtmlEncode();
             string userDist = this.Request<string>("ddlDist").HtmlEncode();
-            string userAddress = txtAddress.Text.Trim().HtmlEncode();
+            string userAddress = string.Format("{0} {1} {2}", this.Request<string>("ddlBirthOrOriginProvince").HtmlEncode(), this.Request<string>("ddlBirthOrOriginCity").HtmlEncode(), this.Request<string>("ddlBirthOrOriginDist").HtmlEncode());
             string userDrawMoneyPassword = txtDrawMoneyPassword.Text.Trim().HtmlEncode();
+            string ConfirmUserDrawMoneyPassword = txtConfirmDrawMoneyPassword.Text.Trim().HtmlEncode();
             string validateCode = txtValidateCode.Text.Trim().HtmlEncode();
 
             if (string.IsNullOrEmpty(userName))
@@ -51,6 +52,26 @@ namespace StudentLoan.Web
                 this.artDialog("错误", "确认密码不能为空，请重新填写");
                 return;
             }
+
+            if (string.IsNullOrEmpty(userDrawMoneyPassword))
+            {
+                this.artDialog("错误", "提现密码不能为空，请重新填写");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(ConfirmUserDrawMoneyPassword))
+            {
+                this.artDialog("错误", "确认提现密码不能为空，请重新填写");
+                return;
+            }
+
+            if (!userDrawMoneyPassword.Equals(ConfirmUserDrawMoneyPassword))
+            {
+                this.artDialog("错误", "两次提现密码不同，请重新填写");
+                return;
+            }
+
+
             if (string.IsNullOrEmpty(userAddress))
             {
                 this.artDialog("错误", "家庭地址不能为空，请重新填写");

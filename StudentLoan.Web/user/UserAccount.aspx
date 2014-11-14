@@ -136,6 +136,7 @@
                                     <tr>
                                         <th>借款时间</th>
                                         <th>借款金额</th>
+                                        <th>还款进度</th>
                                         <th>还款日期</th>
                                     </tr>
                                 </thead>
@@ -154,6 +155,7 @@
                                 <tr>
                                     <td><%#((DateTime)Eval("CreateTime")).ToString("yyyy-MM-dd") %></td>
                                     <td><%#Convert.ToDecimal( Eval("LoanMoney")).ToString("C") %></td>
+                                    <td>已还<%#Eval("AlreadyAmortization")%>期 / 共<%#Eval("TotalAmortization") %>期</td>
                                     <td><%#((DateTime)Eval("RepaymentTime")).ToString("yyyy-MM-dd")=="0001-01-01"?"完成还款":((DateTime)Eval("RepaymentTime")).ToString("yyyy-MM-dd") %></td>
                                 </tr>
                             </tbody>

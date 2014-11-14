@@ -70,7 +70,7 @@
                         <label class="control-label">手机号码：</label>
 
                         <div class="controls">
-                            <asp:TextBox ID="txtMobile" ClientIDMode="Static" runat="server" class="span5" type="text" placeholder="请输入手机号码" />
+                            <asp:TextBox ID="txtMobile" ClientIDMode="Static" runat="server" class="span5" type="text" placeholder="请输入正确的11位手机号码" />
                             <button id="btnSendMessage" type="button" class="btn btn-info" runat="server" onclick="return time();">发送手机验证码</button>
                         </div>
                     </div>

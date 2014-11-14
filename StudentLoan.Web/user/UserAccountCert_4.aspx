@@ -57,7 +57,7 @@
             <div class="item">
 
                 <table class="table table-bordered">
-                    <caption>学贷网截图（学信网网址：<a href="javascript:;">www.chsi.com.cn</a>）</caption>
+                    <caption>学贷网截图（学信网网址：<a href="http://www.chsi.com.cn">www.chsi.com.cn</a>）</caption>
                     <thead>
                         <tr>
                             <th>照片角度/场景</th>

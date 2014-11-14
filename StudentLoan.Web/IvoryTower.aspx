@@ -94,18 +94,6 @@
                                 </div>
                             </div>
 
-                            <div class="blue-bg">
-                                <div class="person">
-                                    <div class="blue-title">
-                                        <h4><%=base.GetUserModel().UserName %></h4>
-
-                                    </div>
-                                    <div class="cont">
-                                        <img id="account" src="<%=base.GetUserModel()==null?"/css/img/admin/regina_1.png":base.GetUserModel().Avatar %>" alt="" />
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="right-items">
                                 <h4>信用积分</h4>
 
@@ -136,6 +124,15 @@
                                 </div>
                             </div>
 
+                             <div class="right-items">
+                                <h4>归还进度</h4>
+
+                                <div class="blue-bg">
+                                    <div class="blue-title">
+                                        <asp:Label ID="lblAmortization" runat="server" Text="0"></asp:Label>期
+                                    </div>
+                                </div>
+                            </div>
                             <div class="blue-bg">
                                 <div class="person">
                                     <div class="blue-title">已申请人名单</div>

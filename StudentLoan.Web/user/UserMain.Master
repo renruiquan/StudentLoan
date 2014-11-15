@@ -22,7 +22,7 @@
     <link href="../css/ui-dialog.css" rel="stylesheet" />
     <script src="../js/jquery-1.11.0.min.js"></script>
     <script src="../js/dialog-plus-min.js"></script>
-
+    <script type="text/javascript" src="../css/bootstrap/js/bootstrap.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -34,10 +34,21 @@
                     <img src="../css/img/admin/logo.jpg" alt="" />
                 </h1>
                 <div class="user-icon">
-                    <div class="icon">
-                        <img src="<%=this.UserModel.Avatar %>" alt="" />
-                    </div>
-                    <p><%=this.UserModel.UserName %></p>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <span class="icon">
+                                <img src='<%=this.UserModel.Avatar==null?"../css/img/admin/user_no_frame.png":this.UserModel.Avatar%>' alt="" /></span>
+                            <div class="down-item">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><%=this.UserModel.UserName %>
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/user/UserAccount.aspx">账户总览</a></li>
+                                    <li><a href="/LoginOut.aspx">安全退出</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
                 <ul class="menu fr">
                     <li id="IvoryTower" class="nav">

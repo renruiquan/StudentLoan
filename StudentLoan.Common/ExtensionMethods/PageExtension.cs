@@ -50,7 +50,7 @@ namespace StudentLoan.Common
             string key = "artDialog";
             StringBuilder script = new StringBuilder();
             script.AppendFormat(@"var d = dialog({{");
-            script.AppendFormat(@"title: '消息',content:'{0}'}});", content);
+            script.AppendFormat(@"title: '消息',content:'{0}',width:320}});", content);
 
             if (isModal)
             {
@@ -84,7 +84,7 @@ namespace StudentLoan.Common
             string key = "artDialog";
             StringBuilder script = new StringBuilder();
             script.AppendFormat(@"var d = dialog({{");
-            script.AppendFormat(@"title: '{0}',content:'{1}'}});", temp_title, content);
+            script.AppendFormat(@"title: '{0}',content:'{1}',width:320}});", temp_title, content);
 
             if (isModal)
             {
@@ -119,7 +119,7 @@ namespace StudentLoan.Common
             StringBuilder script = new StringBuilder();
             script.AppendFormat(@"var d = dialog({{");
             script.AppendFormat(@"onclose:function(){{ window.location.href='{0}'; }},", url);
-            script.AppendFormat(@"title: '{0}',content:'{1}'}});", temp_title, content);
+            script.AppendFormat(@"title: '{0}',content:'{1}',width:320}});", temp_title, content);
 
             if (isModal)
             {

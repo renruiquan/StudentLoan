@@ -421,8 +421,10 @@
     <Content Include="js\jquery.cityselect.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\prefixfree.min.js" />
+    <Content Include="js\scroll.js" />
     <Content Include="LoanList.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="LoginOut.aspx" />
     <Content Include="MasterTest.aspx" />
     <Content Include="ManageMoneyNav.aspx" />
     <Content Include="Question.aspx" />
@@ -735,6 +737,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginOut.aspx.cs">
+      <DependentUpon>LoginOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginOut.aspx.designer.cs">
+      <DependentUpon>LoginOut.aspx</DependentUpon>
     </Compile>
     <Compile Include="Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>

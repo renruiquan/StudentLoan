@@ -358,7 +358,7 @@ namespace StudentLoan.DAL
         /// <returns></returns>
         public List<UserLoanEntityEx> GetLoanAnnouncement()
         {
-            string commandText = @"SELECT TOP 5
+            string commandText = @"SELECT TOP 30
 	                                        a.LoanMoney,
 	                                        b.SchoolName
                                         FROM	sl_user_loan a,

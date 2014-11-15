@@ -19,12 +19,18 @@
     <link rel="stylesheet" type="text/css" href="../css/bootstrap/css/bootstrap.ie6.min.css">
     <![endif]-->
     <script type="text/javascript" src="../css/bootstrap/js/jquery-1.7.2.min.js"></script>
+    <script src="js/scroll.js"></script>
     <script type="text/javascript">
         $(function () {
             $("#madeloans").on("mouseover", function () {
                 $(this).css("cursor", "pointer");
             }).on("mouseout", function () {
                 $(this).css("cursor", "default");
+            });
+
+            $("div.list").myScroll({
+                speed: 40,  //滚动速度,值越大速度越慢
+                rowHeight: 30 //每行的高度
             });
         });
     </script>
@@ -35,11 +41,28 @@
         <div class="top step-top">
             <div class="wrapper">
 
-                <div class="user-icon">
-                    <div class="icon">
-                        <img src="<%=base.GetUserModel()==null?"/css/img/admin/user_no_frame.png":base.GetUserModel().Avatar %>" alt="" />
-                    </div>
-                    <p><%=base.GetUserModel().UserName %></p>
+                 <div class="user-icon">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <span class="icon">
+                                <img src='<%=base.GetUserModel()==null?"../css/img/admin/user_no_frame.png":base.GetUserModel().Avatar%>' alt="" /></span>
+                            <div class="down-item">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><span style="color:#000;"><%=base.GetUserModel()==null?"<a href='/Login.aspx'>请登录</a>":base.GetUserModel().UserName %></span>
+                                    <% if (base.GetUserModel() != null)
+                                       {
+                                    %>
+                                    <span class="caret" style="border-top-color:#000;border-bottom-color:#000"></span>
+                                    <%
+                                       } %>
+                                   
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/user/UserAccount.aspx">账户总览</a></li>
+                                    <li><a href="/LoginOut.aspx">安全退出</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
                 <ul class="menu fl">
                     <li class="active nav">
@@ -124,7 +147,7 @@
                                 </div>
                             </div>
 
-                             <div class="right-items">
+                            <div class="right-items">
                                 <h4>归还进度</h4>
 
                                 <div class="blue-bg">
@@ -136,7 +159,7 @@
                             <div class="blue-bg">
                                 <div class="person">
                                     <div class="blue-title">已申请人名单</div>
-                                    <div class="cont list">
+                                    <div class="cont list" style="height: 120px; overflow: hidden;">
                                         <StudentLoan:RepeaterPlus ID="objRepeater" runat="server">
                                             <HeaderTemplate>
                                                 <ul>
@@ -147,7 +170,7 @@
                                                 </ul>
                                             </EmptyDataTemplate>
                                             <ItemTemplate>
-                                                <li style="border-bottom: 1px solid #d2cdc7; line-height:30px;"><span style="float: right;line-height:30px; margin-left: 40px;">已申请<%#Eval("LoanMoney") %>元</span> <%#Eval("SchoolName") %> </li>
+                                                <li style="border-bottom: 1px solid #d2cdc7; height: 30px; line-height: 30px;"><span style="float: right; line-height: 30px; margin-left: 40px;">已申请<%#Eval("LoanMoney") %>元</span> <%#Eval("SchoolName") %> </li>
                                             </ItemTemplate>
                                             <FooterTemplate>
                                                 </ul>

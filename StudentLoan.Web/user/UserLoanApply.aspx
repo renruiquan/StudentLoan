@@ -5,6 +5,21 @@
     <script type="text/javascript">
         $(function () {
             $("#LoanList").addClass("active").siblings().removeClass("active");
+
+            $("#repaymoney").text($("#<%=ddlLoanMoney.ClientID%>").val() * $("#<%=ddlTotalAmortization.ClientID%>").val() * 0.09 + "元");
+
+            $("#<%=ddlLoanMoney.ClientID%>").on("change", function () {
+                var loanMoney = $(this).val();
+                var totalAmortization = $("#<%=ddlTotalAmortization.ClientID%>").val();
+                $("#repaymoney").text(loanMoney * totalAmortization * 0.09 + "元");
+            });
+
+            $("#<%=ddlTotalAmortization.ClientID%>").on("change", function () {
+                var loanMoney = $("#<%=ddlLoanMoney.ClientID%>").val();
+                var totalAmortization = $(this).val();
+                $("#repaymoney").text(loanMoney * totalAmortization * 0.09 + "元");
+            })
+
         });
     </script>
 </asp:Content>
@@ -79,7 +94,13 @@
 
                             </div>
                         </div>
+                        <div class="control-group" id="divRepayMoney" runat="server">
+                            <label class="control-label" for="deadline2"><span class="c-red"></span>首月还款金额：</label>
 
+                            <div class="controls text-left">
+                                <p id="repaymoney" class="mt5 c-blue">0元</p>
+                            </div>
+                        </div>
                         <div class="control-group">
                             <label class="control-label"><span class="c-red">*</span> 还款方式：</label>
 
@@ -96,7 +117,7 @@
                         </div>
 
                         <div class="control-group">
-                            <label class="control-label"><span class="c-red"></span> 借款描述：</label>
+                            <label class="control-label"><span class="c-red"></span>借款描述：</label>
 
                             <div class="controls text-left">
 

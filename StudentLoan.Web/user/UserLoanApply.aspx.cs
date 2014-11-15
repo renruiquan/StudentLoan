@@ -90,6 +90,7 @@ namespace StudentLoan.Web.user
 
                 this.ddlTotalAmortization.Visible = false;
                 this.txtTotalAmortization.Visible = true;
+                this.divRepayMoney.Visible = false;
             }
         }
 

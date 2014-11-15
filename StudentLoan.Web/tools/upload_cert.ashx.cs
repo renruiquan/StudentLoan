@@ -30,10 +30,12 @@ namespace StudentLoan.Web.tools
 
             string fileTicks = DateTime.Now.Ticks.ToString();
             //文件保存路径
-            string fileName = string.Format("{0}{1}_{2}", uploadPath, fileTicks, file.FileName);
+            string fileName = string.Empty;
 
             if (file != null)
             {
+                fileName = string.Format("{0}{1}_{2}", uploadPath, fileTicks, file.FileName);
+
                 if (!Directory.Exists(uploadPath))
                 {
                     Directory.CreateDirectory(uploadPath);
@@ -44,7 +46,7 @@ namespace StudentLoan.Web.tools
             }
             else
             {
-                context.Response.Write("{\"result\":\"fail\",\"url\":\"\"}");
+                context.Response.Write("{\"result\":\"false\",\"url\":\"\"}");
                 return;
             }
 

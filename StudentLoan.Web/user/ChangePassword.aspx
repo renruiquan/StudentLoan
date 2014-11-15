@@ -20,7 +20,7 @@
 
                 <div class="item">
 
-                    <div class="control-group">
+                    <div id="divOldPassword" runat="server" class="control-group">
                         <label class="control-label">当前密码：</label>
 
                         <div class="controls">

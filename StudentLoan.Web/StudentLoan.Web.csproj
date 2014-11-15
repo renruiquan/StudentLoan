@@ -378,6 +378,7 @@
     <Content Include="Culture.aspx" />
     <Content Include="DetailInfo.aspx" />
     <Content Include="expressInstall.swf" />
+    <Content Include="FindPassword.aspx" />
     <Content Include="fullAvatarEditor.swf" />
     <Content Include="Global.asax" />
     <Content Include="img\anonymous.jpg" />
@@ -706,6 +707,13 @@
     </Compile>
     <Compile Include="DetailInfo.aspx.designer.cs">
       <DependentUpon>DetailInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindPassword.aspx.cs">
+      <DependentUpon>FindPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FindPassword.aspx.designer.cs">
+      <DependentUpon>FindPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

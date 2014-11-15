@@ -19,10 +19,20 @@ namespace StudentLoan.Web.tools
 
             string mobile = context.Request.Params["txtMobile"];
             string mobileCode = Guid.NewGuid().ToString().Split('-')[1];
+            string type = context.Request.Params["type"];
+
 
             HttpRuntime.Cache.Add("MobileCode", mobileCode, null, DateTime.Now.AddMinutes(5), TimeSpan.Zero, CacheItemPriority.NotRemovable, null);
+            string content = string.Empty;
 
-            string content = string.Format("【UTL温馨提醒】欢迎注册学子易贷帐号，您的手机验证码为：{0}，请在注册页面填写，有效期为5分钟。", mobileCode);
+            if (type == "findpassword")
+            {
+                content = string.Format("【UTL温馨提醒】验证码：{0}，切勿将验证码泄露于他人。如非本人操作，建议及时修改账号密码。", mobileCode);
+            }
+            else
+            {
+                content = string.Format("【UTL温馨提醒】欢迎注册学子易贷帐号，您的手机验证码为：{0}，请在注册页面填写，有效期为5分钟。", mobileCode);
+            }
 
             context.Response.Write(Message.Send(mobile, content));
 

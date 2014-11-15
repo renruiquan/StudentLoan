@@ -34,6 +34,12 @@ namespace StudentLoan.Web.user
 
                 #endregion
 
+                string type = this.Request<string>("type");
+
+                if (!string.IsNullOrEmpty(type) && type == "findpassword")
+                {
+                    this.divOldPassword.Visible = false;
+                }
             }
         }
 
@@ -42,13 +48,17 @@ namespace StudentLoan.Web.user
             string oldPassword = this.txtOldPassword.Text.Trim();
             string newPassword = this.txtNewPassword.Text.Trim();
             string confirmPassword = this.txtConfirmPassword.Text.Trim();
+            string type = this.Request<string>("type");
 
             UsersEntityEx model = base.GetUserModel();
 
-            if (DESHelper.Encrypt(oldPassword, model.Salt) != model.Password)
+            if (string.IsNullOrEmpty(type))
             {
-                this.artDialog("旧密码不正确，请修正后重试！");
-                return;
+                if (DESHelper.Encrypt(oldPassword, model.Salt) != model.Password)
+                {
+                    this.artDialog("旧密码不正确，请修正后重试！");
+                    return;
+                }
             }
 
             if (!newPassword.Equals(confirmPassword))

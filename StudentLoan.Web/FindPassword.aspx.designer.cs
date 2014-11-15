@@ -7,54 +7,54 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace StudentLoan.Web.user {
+namespace StudentLoan.Web {
     
     
-    public partial class ChangePassword {
+    public partial class FindPassword {
         
         /// <summary>
-        /// divOldPassword 控件。
+        /// txtUserName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divOldPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtUserName;
         
         /// <summary>
-        /// txtOldPassword 控件。
+        /// txtMobile 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOldPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtMobile;
         
         /// <summary>
-        /// txtNewPassword 控件。
+        /// btnSendMessage 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNewPassword;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnSendMessage;
         
         /// <summary>
-        /// txtConfirmPassword 控件。
+        /// txtValidatecode 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtValidatecode;
         
         /// <summary>
-        /// btnSubmit 控件。
+        /// btnFindPassword 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnSubmit;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnFindPassword;
     }
 }

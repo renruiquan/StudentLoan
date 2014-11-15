@@ -234,8 +234,8 @@
                         <h2 class="max">高效 / 安全 / 保密</h2>
                         <p>学子易贷会员所发布展示信息版权归原作者所有。</p>
                         <p>任何商业用途均须联系作者，如未经授权用作他处，作者将保留追究侵权者法律责任的权利。</p>
-                        <p>苏ICP备案14046554号</p>
-                        <p>工作时间：周一至周五 9:00-17:50</p>
+                        <p>苏ICP备案14046554号-1</p>
+                        <p>工作时间：周一至周五 9:00-17:30</p>
                         <p style="display: none;">
                             <script type="text/javascript">
                                 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");

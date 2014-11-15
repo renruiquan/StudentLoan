@@ -23,7 +23,7 @@
 
                         <h2>一般贷</h2>
 
-                        <p class="c-gray">（资金需求不大，吃喝玩乐）</p>
+                        <p class="c-gray">（追求自我，引领潮流）</p>
 
                         <div class="money">
                             <span class="dollar">￥</span>
@@ -32,13 +32,11 @@
                         </div>
 
                         <div class="txt">
-                            <h4>快速、容易</h4>
+                            <h4>申请只需2分钟</h4>
 
-                            <p>申请只需2分钟</p>
-
-                            <p>闪电审批2个小时资金到账</p>
-
-                            <p>短期借款无压力</p>
+                            <p>审批速度快，资金到账只需2小时。</p>
+                            <p>闪电般的速度，</p>
+                            <p>为您带来高品质的生活。</p>
                         </div>
 
                         <p>
@@ -54,7 +52,7 @@
 
                         <h2>高额贷</h2>
 
-                        <p>（提升自我、助学创业）</p>
+                        <p class="c-gray">（提升自我，助学创业）</p>
 
                         <div class="money">
                             <span class="dollar">￥</span>
@@ -65,15 +63,13 @@
                         <div class="txt">
                             <h4>我的未来不等待</h4>
 
-                            <p>借款期限可达最长6个月</p>
-
-                            <p>资料齐全4个小时放款</p>
-
-                            <p>保密用户信息隐私</p>
+                            <p>动动手指完善资料，</p>
+                            <p>审批后4小时内放款，保密高效，</p>
+                            <p>借款期限长，注重用户隐私权。</p>
                         </div>
 
                         <p>
-                           <button class="mt10 btn btn-large btn-primary" type="button" onclick="return window.location.href='/user/UserLoanApply.aspx?productId=2'">我要借款</button>
+                            <button class="mt10 btn btn-large btn-primary" type="button" onclick="return window.location.href='/user/UserLoanApply.aspx?productId=2'">我要借款</button>
                         </p>
                     </div>
 
@@ -85,7 +81,7 @@
 
                         <h2>随时贷</h2>
 
-                        <p>（好借好还、还款时间自由）</p>
+                        <p class="c-gray">（好借好还，时间自由）</p>
 
                         <div class="money">
                             <span class="dollar">￥</span>
@@ -96,11 +92,9 @@
                         <div class="txt">
                             <h4>资金在手 还款随我</h4>
 
-                            <p>还款期限灵活，时间不受限制</p>
-
-                            <p>按天收取最低3元服务费</p>
-
-                            <p>无其他费用无押金</p>
+                            <p>无须担保抵押，随心贷，随心还，</p>
+                            <p>最低收取3元/天服务费，</p>
+                            <p>该出手时就出手，还款时间超自由。</p>
                         </div>
 
                         <p>
@@ -183,7 +177,7 @@
                                 </div>
                                 <div class="right">
                                     <h4>借款期限</h4>
-                                    <span>半年内</span>
+                                    <span>6个月内</span>
                                 </div>
                             </div>
 
@@ -225,7 +219,7 @@
                                 </div>
                                 <div class="right">
                                     <h4>借款期限</h4>
-                                    <span>最长半年</span>
+                                    <span>90天内</span>
                                     <p>(还款期限不受限制)</p>
                                 </div>
                             </div>
@@ -267,12 +261,12 @@
                         </tr>
                         <tr>
                             <th>放款时间</th>
-                            <td>经工作人员审核，符合条件后一小时内便可放款，网站后台将实时显示易情况。具体到账时间，请参照各大银行具体服务时间为准
+                            <td>经工作人员审核，符合条件后一小时内便可放款，网站后台将实时显示交易状态。具体到账时间，请参照各大银行具体服务时间为准
                             </td>
                         </tr>
                         <tr>
                             <th>借款原则</th>
-                            <td>需要先填写完整自己的资料才可以借款 <a class="c-blue" href="javascript:;">（完善资料）</a></td>
+                            <td>需要先完整填写自己的资料才可以借款 <a class="c-blue" href="javascript:;">（完善资料）</a></td>
                         </tr>
                         <tr>
                             <th>还款原则</th>

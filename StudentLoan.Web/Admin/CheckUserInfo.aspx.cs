@@ -37,6 +37,8 @@ namespace StudentLoan.Web.Admin
                     this.BindUserMustCert();
 
                     this.BindUserOptionalCert();
+
+                    this.txtRefuse.Text = string.Format(@"尊敬的用户:{0}，您于{1}提交的贷款认证资料未通过审核，请根据申请提示完善资料后再提交审核。如有疑问，请咨询：XXXXXXXXX", this.UserLoanModel.UserName, UserLoanModel.CreateTime);
                 }
                 else
                 {
@@ -349,7 +351,7 @@ namespace StudentLoan.Web.Admin
             {
                 PostUserName = "系统",
                 Title = "材料通过",
-                Content = "恭喜，您申请的借款通过审核。",
+                Content = string.Format("尊敬的用户:{0}，您于{1}提交的贷款申请已经通过审核，申请金额为：{2}元，【学子易贷】已将款打入您的账号中。", userLoanModel.UserName, userLoanModel.CreateTime.ToString("yyyy-MM-dd"), userLoanModel.LoanMoney),
                 Type = 0,
                 AcceptUserName = new UsersBLL().GetModel(userLoanModel.UserId).UserName
             });

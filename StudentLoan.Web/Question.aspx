@@ -20,7 +20,7 @@
                 <div class="item">
                     <h2>关于我们</h2>
                     <ul>
-                        <li><a href="About.aspx"><i class="ico-note"></i>保障</a></li>
+                        <li><a href="About.aspx"><i class="ico-note"></i>安全保障</a></li>
                         <li><a href="Introduction.aspx"><i class="ico-params"></i>公司简介</a></li>
                         <li><a href="Contact.aspx"><i class="ico-note"></i>联系我们</a></li>
                         <li><a href="Culture.aspx"><i class="ico-wallet"></i>企业文化</a></li>
@@ -43,7 +43,7 @@
                             </p>
 
                             <div class="answer">
-                                <p>答：我们只收取服务费，服务费是0.3%/天。</p>
+                                <p>答：我们只收取服务费，服务费是本金*0.3%/天。</p>
                             </div>
                         </li>
                         <li>
@@ -52,7 +52,7 @@
                             </p>
 
                             <div class="answer">
-                                <p>答：网站在线付款或者提前充值到账户账户余额还款。</p>
+                                <p>答：网站在线付款或者提前充值到账户，账户余额还款。</p>
                             </div>
                         </li>
                         <li>
@@ -77,7 +77,7 @@
 
                         <li>
                             <p class="ask">
-                                <b>5.手机不是自己的，但是自己在用，可以吗？</b>
+                                <b>5.身份证不是自己的，可以吗？</b>
                             </p>
 
                             <div class="answer">

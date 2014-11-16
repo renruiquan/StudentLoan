@@ -109,8 +109,8 @@ namespace StudentLoan.Web.tools
                 case 5: model.CertificationName = "银行卡流水截图"; model.Point = 1; break;
                 case 6: model.CertificationName = "网银或支付宝流水截图"; model.Point = 1; break;
                 case 7: model.CertificationName = "手机通话记录清单"; model.Point = 1; break;
-                case 8: model.CertificationName = "家长身份证正面"; model.Point = 0; break;
-                case 9: model.CertificationName = "家长身份证背面"; model.Point = 2; break;
+                case 8: model.CertificationName = "家长身份证正面"; model.Point = 1; break;
+                case 9: model.CertificationName = "家长身份证背面"; model.Point = 1; break;
                 case 10: model.CertificationName = "手持室友身份证照片"; model.Point = 0; break;
                 case 11: model.CertificationName = "室友身份证正面"; model.Point = 1; break;
                 case 12: model.CertificationName = "室友学生证正面"; model.Point = 0; break;

@@ -330,6 +330,11 @@ namespace StudentLoan.Web.user
             {
                 this.OptionalPoint += this.Parents1.Point;
             }
+            if (this.Parents2 != null)
+            {
+                this.OptionalPoint += this.Parents2.Point;
+            }
+
             if (this.RoommateStudentId2 != null)
             {
                 this.OptionalPoint += this.RoommateStudentId2.Point;

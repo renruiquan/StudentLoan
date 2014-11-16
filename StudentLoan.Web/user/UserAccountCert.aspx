@@ -339,6 +339,12 @@
                                     <a href="UserAccountCert_4.aspx">未完成</a>
                                     <%
                                         }
+                                        else if (this.Parents2 == null)
+                                        {
+                                    %>
+                                    <a href="UserAccountCert_4.aspx">继续</a>
+                                    <%
+                                        }
                                         else
                                         {
                                     %>

@@ -12,7 +12,7 @@
 
                 <p>美好故事从这里开始·学子易贷</p>
                 <div class="control-group">
-                    <asp:TextBox ID="txtUserName" class="input-large span6" placeholder="手机号码 / 电子邮箱" runat="server" />
+                    <asp:TextBox ID="txtUserName" class="input-large span6" placeholder="请输入用户名" runat="server" />
                 </div>
                 <div class="control-group">
                     <asp:TextBox ID="txtPassword" class="input-large span6" TextMode="Password" placeholder="输入密码" runat="server" />
@@ -26,7 +26,7 @@
                 <div class="control-group">
                     <label class="checkbox">
                         <input type="checkbox" checked>
-                        <span class="c-white">记住登录状态 <a href="javascript:;"><span class="c-blue">忘记密码？</span></a>
+                        <span class="c-white">记住登录状态 <a href="FindPassword.aspx"><span class="c-blue">忘记密码？</span></a>
                         </span>
                     </label>
                 </div>

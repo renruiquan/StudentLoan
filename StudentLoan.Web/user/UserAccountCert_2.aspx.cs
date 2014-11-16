@@ -46,12 +46,13 @@ namespace StudentLoan.Web.user
         //判断是否已经完善过信息
         protected void IsWritten()
         {
+            this.txtBirthday.Attributes.Add("ReadOnly", "true");
+
             UsersEntityEx userModel = base.GetUserModel();
 
             if (!string.IsNullOrEmpty(userModel.TrueName))
             {
                 this.txtTruename.Attributes.Add("ReadOnly", "true");
-                this.txtBirthday.Attributes.Add("ReadOnly", "true");
                 txtBirthday.Text = userModel.Birthday.ToString("yyyy-MM-dd");
                 txtIdentityCard.Text = userModel.IdentityCard;
                 txtMobile.Text = userModel.Mobile;
@@ -124,11 +125,12 @@ namespace StudentLoan.Web.user
             userModel.Remark = "point=true";
 
             bool result = new UsersBLL().Update(userModel);
+
             if (result)
             {
                 userModel = new UsersBLL().GetModel(userModel.UserId);
 
-                if (userModel.Remark == "point==true")
+                if (userModel.Remark == "point=true")
                 {
                     new UsersBLL().UpdatePoint(userModel.UserId, 10);
                 }

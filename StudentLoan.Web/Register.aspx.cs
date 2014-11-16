@@ -82,17 +82,7 @@ namespace StudentLoan.Web
                 this.artDialog("错误", "省份不能为空，请重新选择");
                 return;
             }
-            if (string.IsNullOrEmpty(userCity))
-            {
-                this.artDialog("错误", "城市不能为空，请重新选择");
-                return;
-            }
-            if (string.IsNullOrEmpty(userDist))
-            {
-                this.artDialog("错误", "区域不能为空，请重新选择");
-                return;
-            }
-
+           
             if (!userPwd.Equals(userCon_pwd))
             {
                 this.artDialog("错误", "两次密码不同");

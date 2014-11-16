@@ -32,7 +32,7 @@
             <div class="text-center ptb20 w-top-bg">
                 <h1>请填写借款申请表单</h1>
 
-                <p>借款需要达到一定信用等级认证，如果不够一定信用等级认证，<a href="javascript:;"><span class="c-blue">请完善资料</span></a></p>
+                <p>借款需要达到一定信用等级认证，如果不够一定信用等级认证，<a href="UserAccountCert.aspx"><span class="c-blue">请完善资料</span></a></p>
 
             </div>
 

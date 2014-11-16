@@ -340,11 +340,11 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select count(0) From sl_product_scheme ");
+            commandText.Append(" Select count(0) From sl_product_scheme T,sl_admin,sl_product");
 
             if (!string.IsNullOrEmpty(strWhere.Trim()))
             {
-                commandText.AppendFormat(" WHERE {0}", strWhere);
+                commandText.AppendFormat(" WHERE sl_admin.AdminId=T.InitiatorAdminId  and sl_product.ProductId = T.ProductId and {0}", strWhere);
             }
 
             #endregion

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using StudentLoan.Common;
 
 namespace StudentLoan.Web
 {
@@ -21,7 +22,15 @@ namespace StudentLoan.Web
 
         private void BindData()
         {
-            string strWhere = "1 = 1 and StartTime <=getdate() and EndTime >=getdate() ";
+            int productId = this.Request<int>("ProductId");
+
+            if (productId == 0)
+            {
+                this.artDialog("借误", "参数不正确", "/ManageMoneyNav.aspx");
+                return;
+            }
+
+            string strWhere = string.Format("1 = 1 and T.ProductId={0} and StartTime <=getdate() and EndTime >=getdate() ", productId);
 
             #region 计算分页数据
 

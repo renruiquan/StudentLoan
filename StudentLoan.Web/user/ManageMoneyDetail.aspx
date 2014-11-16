@@ -30,9 +30,9 @@
             <div class="text-center form-inline">
                 <div style="margin: 0 0 20px">
                     <span>交易时间：</span>
-                    <asp:TextBox ID="txtStartTime" runat="server" class="span2 datepickers" value="" type="text" data-date-format="yyyy-mm-dd" placeholder="起始日期" />
+                    <asp:TextBox ID="txtStartTime" Style="cursor: pointer" runat="server" class="span2 datepickers" value="" type="text" data-date-format="yyyy-mm-dd" placeholder="起始日期" />
                     <span>- </span>
-                    <asp:TextBox ID="txtEndTime" runat="server" class="span2 datepickers" value="" type="text" data-date-format="yyyy-mm-dd" placeholder="结束日期" />
+                    <asp:TextBox ID="txtEndTime" Style="cursor: pointer" runat="server" class="span2 datepickers" value="" type="text" data-date-format="yyyy-mm-dd" placeholder="结束日期" />
 
                     <button id="btnQuery" runat="server" class="btn btn-primary" type="button" onserverclick="btnQuery_ServerClick">查询</button>
                 </div>

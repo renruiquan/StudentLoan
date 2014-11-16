@@ -133,12 +133,12 @@
                                                 <asp:ListItem Text="壮族" Value="壮族"></asp:ListItem>
                                             </asp:DropDownList>
                                         </div>
-                                   </div>
+                                    </div>
                                     <div class="control-group">
                                         <label class="control-label"><span class="c-red">*</span> 出生日期：</label>
 
                                         <div class="controls text-left">
-                                            <asp:TextBox ID="txtBirthday" runat="server" class="span2 datepickers" size="16" type="text" data-date-format="yyyy-mm-dd" placeholder="请选择" />
+                                            <asp:TextBox ID="txtBirthday" Style="cursor: pointer" runat="server" class="span2 datepickers" size="16" type="text" data-date-format="yyyy-mm-dd" placeholder="请选择" />
                                         </div>
                                     </div>
                                     <div class="control-group">
@@ -158,7 +158,7 @@
                                     </div>
 
                                 </td>
-                              
+
                             </tr>
                         </tbody>
                     </table>
@@ -193,7 +193,7 @@
                                         <label class="control-label">* 就读学校：</label>
 
                                         <div class="controls text-left">
-                                            <asp:TextBox ID="txtSchoolName" autocomplete="off"   data-provide="typeahead" data-items="10"  runat="server" class="span5" type="text" placeholder="请输入学校名称(与学生证上一致)" />
+                                            <asp:TextBox ID="txtSchoolName" autocomplete="off" data-provide="typeahead" data-items="10" runat="server" class="span5" type="text" placeholder="请输入学校名称(与学生证上一致)" />
                                         </div>
                                     </div>
 
@@ -213,7 +213,7 @@
                                         <label class="control-label">* 入学日期：</label>
 
                                         <div class="controls text-left">
-                                            <asp:TextBox ID="txtYearOfAdmission" runat="server" class="span2 datepickers" size="16" type="text" data-date-format="yyyy-mm-dd" placeholder="请选择" />
+                                            <asp:TextBox ID="txtYearOfAdmission" Style="cursor: pointer" runat="server" class="span2 datepickers" size="16" type="text" data-date-format="yyyy-mm-dd" placeholder="请选择" />
                                         </div>
                                     </div>
 

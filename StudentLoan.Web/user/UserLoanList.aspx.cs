@@ -124,7 +124,7 @@ namespace StudentLoan.Web.user
             switch (status)
             {
                 case 0:
-                    result = "<span style='color:#ffd800'>审核中</span>";
+                    result = "<span style='color:#000000'>审核中</span>";
                     break;
                 case 1:
                     result = "<span style='color:Green'>借款成功</span>";

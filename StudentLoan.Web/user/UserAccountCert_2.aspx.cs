@@ -424,6 +424,8 @@ namespace StudentLoan.Web.user
         /// </summary>
         public void BindUserSchool()
         {
+            this.txtYearOfAdmission.Attributes.Add("ReadOnly", "true");
+
             UserSchoolEntityEx model = new UserSchoolBLL().GetModel(base.GetUserModel().UserId);
 
             if (model != null)

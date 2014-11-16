@@ -88,6 +88,7 @@ namespace StudentLoan.Web.user
                 this.ddlLoanMoney.Items.Add(new ListItem("9000元", "9000"));
                 this.ddlLoanMoney.Items.Add(new ListItem("10000元", "10000"));
 
+                this.lblAmortizationMsg.Text = "不得多于90天";
                 this.ddlTotalAmortization.Visible = false;
                 this.txtTotalAmortization.Visible = true;
                 this.divRepayMoney.Visible = false;
@@ -105,7 +106,7 @@ namespace StudentLoan.Web.user
             }
 
             decimal shouldRepayMoney = 0;
-            int loanTypeId = this.ddlLoanTypeId.SelectedValue.Convert<int>(this.ProductId);
+            int loanTypeId = 0; //没有用到此字段
             decimal loanMoney = Math.Abs(this.ddlLoanMoney.SelectedValue.Convert<decimal>(0));
             int loanCategory = this.ddlLoanCategory.SelectedValue.Convert<int>(1);
             string loanDescription = this.txtLoanDescription.Text.Trim().HtmlEncode();

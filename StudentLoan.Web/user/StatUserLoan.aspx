@@ -27,7 +27,7 @@
                             <td>
                                 <%=this.StatNormalUserLoan==null?"￥0":this.StatNormalUserLoan.TotalAmount.ToString("C") %>元
                             </td>
-                            <td>发布借贷笔数
+                            <td>借贷笔数
                             </td>
                             <td>
                                 <%=this.StatNormalUserLoan==null?0:this.StatNormalUserLoan.TotalCount %>

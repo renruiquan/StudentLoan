@@ -117,7 +117,7 @@
 
             <div class="wrapper">
 
-                <div class="link">
+                <%--<div class="link">
                     <ul>
                         <li><a href="javascript:;">百度</a></li>
                         <li>|</li>
@@ -127,7 +127,7 @@
                         <li>|</li>
                         <li><a href="javascript:;">百度</a></li>
                     </ul>
-                </div>
+                </div>--%>
                 <div class="copyright">
                     <div class="foot-logo">
                         <img src="../css/img/admin/logo_footer.jpg" alt="" />

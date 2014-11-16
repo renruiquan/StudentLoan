@@ -86,7 +86,7 @@
                         <div class="money">
                             <span class="dollar">￥</span>
 
-                            <h2 class="c-gray">1000-5000</h2>
+                            <h2 class="c-gray">1000-10000</h2>
                         </div>
 
                         <div class="txt">
@@ -131,8 +131,8 @@
 
                             <div class="limit">
                                 <div class="left">
-                                    <h4>借款利率</h4>
-                                    <span>9%/月</span>
+                                    <h4>借款服务费</h4>
+                                    <span>0.3%/天</span>
                                 </div>
                                 <div class="right">
                                     <h4>借款期限</h4>
@@ -172,8 +172,8 @@
 
                             <div class="limit">
                                 <div class="left">
-                                    <h4>借款利率</h4>
-                                    <span>9%/月</span>
+                                    <h4>借款服务费</h4>
+                                    <span>0.3%/天</span>
                                 </div>
                                 <div class="right">
                                     <h4>借款期限</h4>
@@ -214,7 +214,7 @@
 
                             <div class="limit">
                                 <div class="left">
-                                    <h4>借款利率</h4>
+                                    <h4>借款服务费</h4>
                                     <span>0.3%/天</span>
                                 </div>
                                 <div class="right">
@@ -266,7 +266,7 @@
                         </tr>
                         <tr>
                             <th>借款原则</th>
-                            <td>需要先完整填写自己的资料才可以借款 <a class="c-blue" href="javascript:;">（完善资料）</a></td>
+                            <td>需要先完整填写自己的资料才可以借款 <a class="c-blue" href="user/UserAccountCert.aspx">（完善资料）</a></td>
                         </tr>
                         <tr>
                             <th>还款原则</th>

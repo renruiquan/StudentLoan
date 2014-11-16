@@ -63,7 +63,7 @@
                                     </p>
 
                                     <p>
-                                        <button type="button" id="btnHidn" runat="server" class="btn btn-primary" value='<%#Eval("Id") %>'>隐藏</button>
+                                        <button type="button" id="btnHidn" runat="server" class="btn btn-primary" value='<%#Eval("Id") %>'>删除</button>
                                     </p>
                                 </div>
                             </div>

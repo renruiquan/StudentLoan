@@ -68,29 +68,13 @@
                             </div>
                         </div>
 
-                        <div class="control-group mt10">
-                            <label class="control-label" for="ddlLoanTypeId"><span class="c-red">*</span> 借款类型：</label>
-
-                            <div class="controls text-left">
-
-                                <asp:DropDownList runat="server" ID="ddlLoanTypeId">
-                                    <asp:ListItem Value="1">一般借款</asp:ListItem>
-                                    <asp:ListItem Value="2">紧急借款</asp:ListItem>
-                                </asp:DropDownList>
-
-                            </div>
-                        </div>
-
-
-
-
                         <div class="control-group">
                             <label class="control-label" for="deadline"><span class="c-red">*</span> 借款期限：</label>
 
                             <div class="controls text-left">
 
                                 <asp:DropDownList ID="ddlTotalAmortization" runat="server"></asp:DropDownList>
-                                <asp:TextBox ID="txtTotalAmortization" runat="server" Visible="false" placeholder="单位（天）"></asp:TextBox>
+                                <asp:TextBox ID="txtTotalAmortization" runat="server" Visible="false" placeholder="单位（天）"></asp:TextBox> <asp:Label ID="lblAmortizationMsg" runat="server" ForeColor="Blue"></asp:Label>
 
                             </div>
                         </div>

@@ -331,6 +331,9 @@ body {
 	color: #9e9fa3;
 	background: #434449;
 }
+.footer ul  {
+	margin: 0;
+}
 .link {
 	overflow: hidden;
 	padding: 15px 0;
@@ -341,18 +344,22 @@ body {
 }
 .link ul li {
 	float: left;
+	margin:0 10px 0 0;
 }
 .link a {
-	padding: 0 10px;
 	color: #9e9fa3;
 }
 .copyright {
 	float: left;
 	margin-top: 5px;
 }
+.copyright .foot-logo,
+.copyright ul {
+	margin-top: 5px;
+}
 .copyright ul li {
 	float: left;
-	padding: 0 10px;
+	padding: 0 10px 0 0;
 }
 .copyright a {
 	color: #9e9fa3;
@@ -522,7 +529,7 @@ body {
 	font-size: 18px;
 }
 .class-of .money h2 {
-	color: #fff;
+	color: #0061d3;
 	letter-spacing: -2px;
 	font: normal 34px/60px "microsoft yahei";
 }
@@ -541,13 +548,13 @@ body {
 	overflow: hidden;
 }
 .less-to-multi {
-	background: #ffe9de;
+	background: #afd4ff;
 }
 .money-drawing {
-	background: #c9fffd;
+	background: #8abefa;
 }
 .top-full {
-	background: #c6fdca;
+	background: #afd4ff;
 }
 .class-shadow,
 .shadow-text,
@@ -617,6 +624,11 @@ body {
 .mb0 {
 	margin-bottom: 0;
 }
+
+.form-horizontal .control-group {
+	margin-bottom: 10px;
+}
+
 .login {
 	float: left;
 	height: 1220px;
@@ -626,6 +638,10 @@ body {
 .login-form {
 	width: 458px;
 	margin: 50px auto;
+}
+.login-form .Validform_checktip {
+	float: left;
+	margin: 10px 0 0 0;
 }
 .dark-gray:hover,
 .dark-gray {
@@ -637,7 +653,6 @@ body {
 	font: normal 22px/30px "microsoft yahei";
 }
 .login-form p {
-	color: #fff;
 	text-align: center;
 }
 .login-form .check-code {
@@ -668,7 +683,7 @@ body {
 	font: normal 14px/22px "microsoft yahei";
 }
 .bg-cyan {
-	background: #9df0ff;
+	background: #cde5ff;
 }
 .wbb {
 	width: 100%;
@@ -841,6 +856,16 @@ body {
 .blue-bg .person .cont {
 	background: #fff;
 	padding: 20px;
+	width: 220px;
+	height: 150px;
+	overflow: hidden;
+}
+.blue-bg .person .cont a {
+	display: block;
+	width: 216px;
+	height: 20px;
+	line-height: 20px;
+	overflow: hidden;
 }
 .right-items {
 	float: right;
@@ -904,11 +929,14 @@ body {
 }
 .foot-txt {
 	text-align: center;
-	color: #fff;
+	color: #569eed;
 	margin: 20px 0;
 }
+.foot-txt p {
+	margin-bottom: 5px;
+}
 .foot-txt .max {
-	font: normal 40px/60px "microsoft yahei";
+	font: normal 40px/50px "microsoft yahei";
 }
 .foot-thin {
 	font-weight: normal;
@@ -993,7 +1021,7 @@ body {
 }
 .borrow-money-detail .project-wrap .item h4 {
 	font-weight: normal;
-	color: #b7b6b6;
+	color: #666;
 	clear: both;
 	margin: 20px 0;
 }
@@ -1204,6 +1232,6 @@ body {
 }
 
 .find-pwd {
-	width: 560px;
+	width: 660px;
 	margin: 120px auto;
 }

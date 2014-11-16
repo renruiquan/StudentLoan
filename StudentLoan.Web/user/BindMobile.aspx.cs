@@ -69,6 +69,15 @@ namespace StudentLoan.Web.user
 
             if (result)
             {
+                UsersEntityEx userModel = new UsersBLL().GetModel(base.GetUserModel().UserId);
+
+                userModel.Mobile = mobile;
+
+                //重新写入Cookies
+                this.WriteCookie("SLRememberName", userModel.UserName, 14400);
+                this.WriteCookie("UserName", "StudentLoan", userModel.UserName);
+                this.WriteCookie("UserPwd", "StudentLoan", userModel.Password);
+
                 this.artDialog("提示", "绑定手机成功", "BindMobile.aspx");
             }
             else

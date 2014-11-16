@@ -144,11 +144,11 @@ a, button, input[type="button"] { cursor: pointer; }
 /*相对定位*/
 .pa { position: absolute; right: 0; }
 /*绝对定位*/
-.fl { float: left; display: inline; }
+.fl { float: left!important; display: inline; }
 /*向左浮动*/
-.fr { float: right; display: inline; }
+.fr { float: right!important; display: inline; }
 /*向右浮动*/
-.fn { float: none; }
+.fn { float: none!important; }
 /*不浮动*/
 .clear { clear: both; margin-top: -1px; }
 /*清除浮动*/
@@ -458,7 +458,7 @@ a, button, input[type="button"] { cursor: pointer; }
 .ml2 { margin-left: 2px; }
 .ml3 { margin-left: 3px; }
 .ml4 { margin-left: 4px; }
-.ml5 { margin-left: 5px; }
+.ml5 { margin-left: 5px!important; }
 .ml6 { margin-left: 5px; }
 .ml7 { margin-left: 7px; }
 .ml8 { margin-left: 8px; }

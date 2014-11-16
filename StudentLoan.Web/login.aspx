@@ -26,7 +26,7 @@
                 <div class="control-group">
                     <label class="checkbox">
                         <input type="checkbox" checked>
-                        <span class="c-white">记住登录状态 <a href="FindPassword.aspx"><span class="c-blue">忘记密码？</span></a>
+                        <span class="c-black">记住登录状态 <a href="FindPassword.aspx"><span class="c-blue">忘记密码？</span></a>
                         </span>
                     </label>
                 </div>

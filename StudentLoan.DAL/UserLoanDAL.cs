@@ -278,7 +278,25 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select Top 1 LoanId,LoanNo,ProductId,UserId,LoanTitle,LoanMoney,AnnualFee,ShouldRepayMoney,AlreadyAmortization,TotalAmortization,Status,AdminId,CreateTime,PassTime From sl_user_loan Where LoanId = @LoanId ");
+            commandText.Append(@" SELECT TOP 1
+	a.LoanId,
+	a.LoanNo,
+	a.ProductId,
+	a.UserId,
+	b.UserName,
+	a.LoanTitle,
+	a.LoanMoney,
+	a.AnnualFee,
+	a.ShouldRepayMoney,
+	a.AlreadyAmortization,
+	a.TotalAmortization,
+	a.Status,
+	a.AdminId,
+	a.CreateTime,
+	a.PassTime
+FROM sl_user_loan a,sl_users b
+WHERE LoanId = @LoanId
+and a.UserId = b.UserId");
 
             #endregion
 

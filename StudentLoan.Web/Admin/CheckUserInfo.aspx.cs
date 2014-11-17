@@ -38,7 +38,7 @@ namespace StudentLoan.Web.Admin
 
                     this.BindUserOptionalCert();
 
-                    this.txtRefuse.Text = string.Format(@"尊敬的用户:{0}，您于{1}提交的贷款认证资料未通过审核，请根据申请提示完善资料后再提交审核。如有疑问，请咨询：XXXXXXXXX", this.UserLoanModel.UserName, UserLoanModel.CreateTime);
+                    this.txtRefuse.Text = string.Format(@"尊敬的用户:{0}，您于{1}提交的贷款认证资料未通过审核，请根据申请提示完善资料后再提交审核。如有疑问，请咨询：0527-88802678", this.UserLoanModel.UserName, UserLoanModel.CreateTime);
                 }
                 else
                 {
@@ -356,6 +356,9 @@ namespace StudentLoan.Web.Admin
                 AcceptUserName = new UsersBLL().GetModel(userLoanModel.UserId).UserName
             });
 
+            StudentLoan.API.Message.Send(new UsersBLL().GetModel(userLoanModel.UserId).Mobile, string.Format("尊敬的用户:{0}，您于{1}提交的贷款申请已经通过审核，申请金额为：{2}元，已将款打入您的账号中。【UTL温馨提醒】",
+                                                                                               userLoanModel.UserName, userLoanModel.CreateTime.ToString("yyyy-MM-dd"), userLoanModel.LoanMoney));
+
             this.Alert(string.Format("操作{0}", result == true ? "成功" : "失败"), "UserLoanApplyList.aspx");
         }
 
@@ -391,6 +394,9 @@ namespace StudentLoan.Web.Admin
                 Type = 0,
                 AcceptUserName = new UsersBLL().GetModel(userLoanModel.UserId).UserName
             });
+
+            StudentLoan.API.Message.Send(new UsersBLL().GetModel(userLoanModel.UserId).Mobile, this.txtRefuse.Text.Trim());
+
 
             this.Alert(string.Format("操作{0}", result == true ? "成功" : "失败"), "UserLoanApplyList.aspx");
         }

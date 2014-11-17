@@ -11,7 +11,7 @@
             $('.datepickers').datepicker();
             $("#demo1").typeahead();
 
-            
+
             $("#form1").Validform({
                 tiptype: 3,
                 datatype: {
@@ -98,14 +98,14 @@
                                         <label class="control-label"><span class="c-blue">*</span> 真实姓名：</label>
 
                                         <div class="controls text-left">
-                                            <asp:TextBox ID="txtTruename" runat="server" class="span5" type="text" datatype="*2-10" placeholder="请输入真实姓名" />
+                                            <asp:TextBox ID="txtTruename" runat="server" class="span5" type="text" placeholder="请输入真实姓名" />
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label"><span class="c-blue">*</span> 身份证号：</label>
 
                                         <div class="controls text-left">
-                                            <asp:TextBox ID="txtIdentityCard" runat="server" class="span5" type="text" placeholder="请输入身份证号" datatype="idcard" sucmsg="身份证号码验证通过！" tips="请填写身份证号码" nullmsg="身份证号码不能为空" errormsg="身份证号码填写错误" />
+                                            <asp:TextBox ID="txtIdentityCard" runat="server" class="span5" type="text" placeholder="请输入身份证号" />
                                         </div>
                                     </div>
                                     <div class="control-group">

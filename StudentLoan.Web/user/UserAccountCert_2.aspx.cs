@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
@@ -15,6 +16,8 @@ namespace StudentLoan.Web.user
 {
     public partial class UserAccountCert_2 : BasePage
     {
+        Regex mobileRegex = new Regex(@"^\d{11}$");
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -85,11 +88,28 @@ namespace StudentLoan.Web.user
                 this.artDialog("错误", "身份证号码不能为空，请重新填写");
                 return;
             }
+
+            Regex identityCardRegex = new Regex(@"^\d{14,17}[a-zA-Z\d]$");
+
+            if (!identityCardRegex.IsMatch(identityCard))
+            {
+                this.artDialog("错误", "请输入有效的身份证号码！");
+                return;
+            }
             if (string.IsNullOrEmpty(mobile))
             {
                 this.artDialog("错误", "电话号码不能为空，请重新填写");
                 return;
             }
+
+
+
+            if (!mobileRegex.IsMatch(mobile))
+            {
+                this.artDialog("错误", "请输入正确的11位手机号码，如：15900001111");
+                return;
+            }
+
             if (string.IsNullOrEmpty(gender))
             {
                 this.artDialog("错误", "请选择性别");
@@ -122,7 +142,7 @@ namespace StudentLoan.Web.user
             userModel.Gender = gender;
             userModel.Nation = nation;
             userModel.Birthday = Convert.ToDateTime(birthday);
-         
+
             bool result = new UsersBLL().Update(userModel);
 
             if (result)
@@ -278,12 +298,24 @@ namespace StudentLoan.Web.user
                 return;
             }
 
+            if (!mobileRegex.IsMatch(relativemobile))
+            {
+                 this.artDialog("错误", "请输入正确的11位手机号码，如：15900001111");
+                return;
+            }
+
             string matename = txtMateName.Text.Trim().HtmlEncode();
             string matemobile = txtMateMobile.Text.Trim().HtmlEncode();
 
-            if (string.IsNullOrEmpty(matename) || string.IsNullOrEmpty(matename))
+            if (string.IsNullOrEmpty(matename) || string.IsNullOrEmpty(matemobile))
             {
                 this.artDialog("提示", "请将同学(同室)信息填写完整");
+                return;
+            }
+
+            if (!mobileRegex.IsMatch(matemobile))
+            {
+                this.artDialog("错误", "请输入正确的11位手机号码，如：15900001111");
                 return;
             }
 
@@ -295,6 +327,12 @@ namespace StudentLoan.Web.user
                 this.artDialog("提示", "请将朋友信息填写完整");
                 return;
             }
+            if (!mobileRegex.IsMatch(friendmobile))
+            {
+                this.artDialog("错误", "请输入正确的11位手机号码，如：15900001111");
+                return;
+            }
+
             //亲属
             userrelationshipmodel.UserId = userModel.UserId;
             userrelationshipmodel.Name = relativename;

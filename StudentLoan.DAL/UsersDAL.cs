@@ -307,7 +307,7 @@ namespace StudentLoan.DAL
         /// <returns></returns>
         public bool UpdatePoint(int userId, int point)
         {
-            string commandText = @"Update sl_users set Point+=@Point,Remark=true where UserId = @UserId";
+            string commandText = @"Update sl_users set Point+=@Point,Remark='true' where UserId = @UserId";
 
             List<SqlParameter> paramsList = new List<SqlParameter>();
             paramsList.Add(new SqlParameter("@UserId", userId));

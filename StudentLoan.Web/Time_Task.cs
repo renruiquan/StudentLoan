@@ -110,6 +110,22 @@ namespace StudentLoan.Web
         }
 
         /// <summary>
+        /// 获取还有N天到期的还款账单
+        /// </summary>
+        public void GetRepayment(int day, string msg)
+        {
+            List<UserRepaymentEntityEx> list = new UserRepaymentBLL().GetList(string.Format(" 1=1 and DATEDIFF(DAY,getdate(), RepaymentTime) = {0}", day));
+
+            if (list != null)
+            {
+                foreach (UserRepaymentEntityEx item in list)
+                {
+                    API.Message.Send(item.Mobile, msg);
+                }
+            }
+        }
+
+        /// <summary>
         /// 提现，将到期的理财产品，转到用户账户中
         /// </summary>
         public void Withdrawal()

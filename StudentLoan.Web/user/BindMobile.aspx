@@ -2,6 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>个人信息 - 手机绑定</title>
+
+    <link rel="stylesheet" type="text/css" href="../js/Validform/css/Validform.css" />
+    <script src="../js/Validform/js/Validform_v5.3.2_min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
 
         var wait = 60;
@@ -37,6 +40,13 @@
                 1000)
             }
         }
+
+
+        $(function () {
+            $("#form1").Validform({
+                tiptype: 3,
+            });
+        });
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -70,7 +80,7 @@
                         <label class="control-label">手机号码：</label>
 
                         <div class="controls">
-                            <asp:TextBox ID="txtMobile" ClientIDMode="Static" runat="server" class="span5" type="text" placeholder="请输入正确的11位手机号码" />
+                            <asp:TextBox ID="txtMobile" ClientIDMode="Static" runat="server" class="span5" type="text" placeholder="请输入正确的11位手机号码" datatype="/1\d{10}/" />
                             <button id="btnSendMessage" type="button" class="btn btn-info" runat="server" onclick="return time();">发送手机验证码</button>
                         </div>
                     </div>
@@ -79,7 +89,7 @@
                         <label class="control-label">验证码：</label>
 
                         <div class="controls">
-                            <asp:TextBox ID="txtValidatecode" runat="server" class="span5" type="text" placeholder="请输入发送至手机的验证码" />
+                            <asp:TextBox ID="txtValidatecode" runat="server" class="span5" type="text" datatype="*" placeholder="请输入发送至手机的验证码" />
                         </div>
                     </div>
 
@@ -88,7 +98,7 @@
 
                         <div class="controls">
                             <p class="w210">
-                                <button id="btnSave" runat="server" onserverclick="btnSave_ServerClick" class="btn btn-large btn-block btn-primary" type="button">确 定</button>
+                                <asp:Button ID="btnSave" runat="server" OnClick="btnSave_ServerClick" Style="padding: 10px;" CssClass="btn btn-large btn-block btn-primary" Text="确 定"></asp:Button>
                             </p>
                         </div>
                     </div>

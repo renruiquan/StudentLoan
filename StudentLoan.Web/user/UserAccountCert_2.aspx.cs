@@ -122,19 +122,23 @@ namespace StudentLoan.Web.user
             userModel.Gender = gender;
             userModel.Nation = nation;
             userModel.Birthday = Convert.ToDateTime(birthday);
-            userModel.Remark = "point=true";
-            userModel.Point = 10;
-
+         
             bool result = new UsersBLL().Update(userModel);
 
             if (result)
             {
                 userModel = new UsersBLL().GetModel(userModel.UserId);
+
+                if (string.IsNullOrEmpty(userModel.Remark))
+                {
+                    new UsersBLL().UpdatePoint(userModel.UserId, 10);
+                }
+
+                userModel = new UsersBLL().GetModel(userModel.UserId);
                 //写入Cookies
                 this.WriteCookie("SLRememberName", userModel.UserName, 14400);
                 this.WriteCookie("UserName", "StudentLoan", userModel.UserName);
                 this.WriteCookie("UserPwd", "StudentLoan", userModel.Password);
-                Response.Redirect("/IvoryTower.aspx");
 
                 this.artDialog("提示", "保存成功！请继续填写其他信息");
                 this.txtTruename.Attributes.Add("ReadOnly", "true");

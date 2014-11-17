@@ -4,6 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>聚宝盆 - 确认理财</title>
     <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../Admin/js/jquery.validate.js"></script>
     <script src="../css/bootstrap/js/bootstrap.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -59,6 +60,7 @@
                                             请输入购买金额：
                                     <asp:TextBox ID="PurchaseMoney" runat="server" />
                                             元
+                                            <asp:Label ID="lblMsg" runat="server" ForeColor="Blue"></asp:Label>
                                         </label>
                                     </p>
 

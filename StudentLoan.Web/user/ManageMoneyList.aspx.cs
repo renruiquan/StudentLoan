@@ -220,7 +220,7 @@ namespace StudentLoan.Web.user
                 }
                 else if (model.Status == 1)
                 {
-                    objLiteral.Text = string.Format("<a href=\"ManageMoneyList_2.aspx?buyId={0}&action=drawMoney\">申请转出</a>", model.BuyId);
+                    objLiteral.Text = string.Format("<a onclick=\"return confirm('确定转出？');\" href=\"ManageMoneyList_2.aspx?buyId={0}&action=drawMoney\">申请转出</a>", model.BuyId);
                 }
                 else if (model.Status == 2)
                 {

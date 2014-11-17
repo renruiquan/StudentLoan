@@ -34,6 +34,8 @@ namespace StudentLoan.Web.user
 
                 #endregion
 
+                this.txtConfirmPassword.Attributes.Add("recheck", this.txtNewPassword.UniqueID);
+
                 string type = this.Request<string>("type");
 
                 if (!string.IsNullOrEmpty(type) && type == "findpassword")
@@ -56,30 +58,30 @@ namespace StudentLoan.Web.user
             {
                 if (DESHelper.Encrypt(oldPassword, model.Salt) != model.Password)
                 {
-                    this.artDialog("旧密码不正确，请修正后重试！");
+                    this.artDialog("错误", "旧密码不正确，请修正后重试！");
                     return;
                 }
             }
 
             if (!newPassword.Equals(confirmPassword))
             {
-                this.artDialog("新密码与确认密码不同，请修正后重试！");
+                this.artDialog("错误", "新密码与确认密码不同，请修正后重试！");
                 return;
             }
 
-            if (newPassword.Length < 8 || newPassword.Length > 16)
+            if (newPassword.Length < 6 || newPassword.Length > 18)
             {
-                this.artDialog("密码长度最短为8位，最长16位，且包含字母和数字，请修正后重试！");
+                this.artDialog("错误", "密码长度最短为6位，最长18位，请修正后重试！");
                 return;
             }
 
-            Regex regex = new Regex(@"^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$");
+            //Regex regex = new Regex(@"^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,18}$");
 
-            if (!regex.IsMatch(newPassword))
-            {
-                this.artDialog("密码长度最短为8位，最长16位，且包含字母和数字，请修正后重试！");
-                return;
-            }
+            //if (!regex.IsMatch(newPassword))
+            //{
+            //    this.artDialog("密码长度最短为6位，最长18位，且包含字母和数字，请修正后重试！");
+            //    return;
+            //}
 
             model = new UsersEntityEx()
             {
@@ -93,12 +95,9 @@ namespace StudentLoan.Web.user
 
             if (result)
             {
-                Session[StudentLoanKeys.SESSION_USER_INFO] = null;
-                this.WriteCookie("UserName", "StudentLoan", -14400);
-                this.WriteCookie("UserPwd", "StudentLoan", -14400);
-            }
+                this.artDialog("提示", string.Format("密码修改{0}，请使用新密码重新登录", result == true ? "成功" : "失败"), "/LoginOut.aspx");
 
-            this.artDialog("提示", string.Format("密码修改{0}，请使用新密码重新登录", result == true ? "成功" : "失败"), "Login.aspx");
+            }
         }
     }
 }

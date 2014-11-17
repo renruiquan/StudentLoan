@@ -63,7 +63,7 @@
                             <td class="login_form_pad"></td>
                             <td class="login_form_label">验证码：</td>
                             <td>
-                                <input type="text" id="verifycode" class="login_input" value="" size="20" maxlength="4" /></td>
+                                <asp:TextBox runat="server" type="text" id="txtValidateCode" class="login_input"  size="20" maxlength="4" /></td>
                         </tr>
                         <tr>
                             <td class="login_form_pad"></td>

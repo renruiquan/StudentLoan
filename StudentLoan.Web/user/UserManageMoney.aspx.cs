@@ -72,11 +72,17 @@ namespace StudentLoan.Web.user
 
         private void BindPeriodList()
         {
+            ProductEntityEx productModel = new ProductBLL().GetModel(this.ProductId);
+
+            this.lblMsg.Text = string.Format("(至少购买{0}元)", productModel.ProductMinMoney);
+
             if (this.ProductId == 4)
             {
                 this.ddlPeriod.Items.Add(new ListItem("1个月", "1"));
                 this.ddlPeriod.Items.Add(new ListItem("2个月", "2"));
                 this.ddlPeriod.Items.Add(new ListItem("3个月", "3"));
+
+                
             }
             else if (this.ProductId == 5)
             {
@@ -92,6 +98,7 @@ namespace StudentLoan.Web.user
                 this.ddlPeriod.Items.Add(new ListItem("10个月", "10"));
                 this.ddlPeriod.Items.Add(new ListItem("11个月", "11"));
                 this.ddlPeriod.Items.Add(new ListItem("12个月", "12"));
+                
             }
         }
 
@@ -136,7 +143,7 @@ namespace StudentLoan.Web.user
                     };
                     if (new UserManageMoneyBLL().Update(model))
                     {
-                        LogHelper.Default.Info("短信内容：" +  Message.Send(userModel.Telphone, string.Format("亲，你购买了理财产品{0},共消费了{1}元。【学子易贷】", this.SchemeModel.SchemeName, model.Amount)));
+                        LogHelper.Default.Info("短信内容：" + Message.Send(userModel.Telphone, string.Format("亲，你购买了理财产品{0},共消费了{1}元。【学子易贷】", this.SchemeModel.SchemeName, model.Amount)));
                         this.artDialog("提示", "购买成功,详情请进入个人中心-理财记录查看", "ManageMoneyList.aspx", true);
                     }
                     else

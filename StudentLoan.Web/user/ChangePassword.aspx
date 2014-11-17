@@ -2,6 +2,16 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>修改密码</title>
+    <link rel="stylesheet" type="text/css" href="../js/Validform/css/Validform.css" />
+    <script src="../js/Validform/js/Validform_v5.3.2_min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#form1").Validform({
+                tiptype: 3
+            });
+        });
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="content">
@@ -16,7 +26,7 @@
 
         <div class="cont">
 
-            <div action="" class="form-horizontal">
+            <div class="form-horizontal">
 
                 <div class="item">
 
@@ -24,7 +34,7 @@
                         <label class="control-label">当前密码：</label>
 
                         <div class="controls">
-                            <asp:TextBox ID="txtOldPassword" CssClass="span5" runat="server" TextMode="Password" />
+                            <asp:TextBox ID="txtOldPassword" CssClass="span5" runat="server" TextMode="Password" datatype="*" />
                         </div>
                     </div>
 
@@ -32,7 +42,7 @@
                         <label class="control-label">新密码：</label>
 
                         <div class="controls">
-                            <asp:TextBox ID="txtNewPassword" CssClass="span5" runat="server" TextMode="Password" placeholder="密码至少包括数字、字母两种，最短8位，最长16位" />
+                            <asp:TextBox ID="txtNewPassword" CssClass="span5" runat="server" TextMode="Password" placeholder="6-20个字符，可以使用字母数字或符号组合，不建议使用纯数字，纯字母，纯符号！" datatype="*6-18" sucmsg="密码验证通过！" tips="6-20个字符，可以使用字母数字或符号组合，不建议使用纯数字，纯字母，纯符号！" nullmsg="请填写密码！6-18个字符，可以使用字母数字或符号组合，不建议使用纯数字，纯字母，纯符号！" errormsg="密码必须是6-18个字符！可以使用字母数字或符号组合，不建议使用纯数字，纯字母，纯符号！" />
                         </div>
                     </div>
 
@@ -40,7 +50,7 @@
                         <label class="control-label">确认密码：</label>
 
                         <div class="controls">
-                            <asp:TextBox ID="txtConfirmPassword" CssClass="span5" runat="server" TextMode="Password" placeholder="请再次输入你的密码" />
+                            <asp:TextBox ID="txtConfirmPassword" CssClass="span5" runat="server" TextMode="Password" placeholder="请再次输入你的密码" datatype="*6-18" sucmsg="密码验证通过！" tips="6-20个字符，可以使用字母数字或符号组合，不建议使用纯数字，纯字母，纯符号！" nullmsg="请填写密码！6-18个字符，可以使用字母数字或符号组合，不建议使用纯数字，纯字母，纯符号！" errormsg="确认密码输入错误！" />
                         </div>
                     </div>
 
@@ -49,7 +59,7 @@
 
                         <div class="controls">
                             <p class="w210">
-                                <button id="btnSubmit" runat="server" class="btn btn-large btn-block btn-primary" type="button" onserverclick="btnSubmit_ServerClick">确 定</button>
+                                <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-large btn-block btn-primary" OnClick="btnSubmit_ServerClick" Style="padding: 10px;" Text="确 定"></asp:Button>
                             </p>
                         </div>
                     </div>

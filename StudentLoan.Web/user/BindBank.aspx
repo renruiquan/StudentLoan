@@ -3,12 +3,20 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>个人信息 - 银行账户信息</title>
     <script src="../js/jquery.cityselect.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../js/Validform/css/Validform.css" />
+    <script src="../js/Validform/js/Validform_v5.3.2_min.js" type="text/javascript" charset="utf-8"></script>
+
     <script type="text/javascript">
         $(function () {
             $("#bank_area").citySelect(
                 {
                     url: "/js/city.min.js"
                 });
+
+            $("#form1").Validform({
+                tiptype: 3,
+            });
         });
     </script>
 </asp:Content>
@@ -65,7 +73,7 @@
                         <label class="control-label">开户行所在地区：</label>
 
                         <div class="controls" id="bank_area">
-                            <select id="ddlProvince" name="ddlProvince" class="prov span2"></select>
+                            <select id="ddlProvince" name="ddlProvince" class="prov span2" datatype="*"></select>
                             <select id="ddlCity" name="ddlCity" disabled="disabled" class="city span3"></select>
                         </div>
                     </div>
@@ -74,7 +82,7 @@
                         <label class="control-label">银行卡类型：</label>
 
                         <div class="controls">
-                            <asp:DropDownList ID="ddlBankTypeList" CssClass="span5" runat="server">
+                            <asp:DropDownList ID="ddlBankTypeList" CssClass="span5" runat="server" datatype="*">
                             </asp:DropDownList>
                         </div>
                     </div>
@@ -83,7 +91,7 @@
                         <label class="control-label">开户银行全称：</label>
 
                         <div class="controls">
-                            <asp:TextBox ID="txtBankName" runat="server" CssClass="span5" placeholder="请输入你的开户行名称"></asp:TextBox>
+                            <asp:TextBox ID="txtBankName" runat="server" CssClass="span5" placeholder="请输入你的开户行名称" datatype="*"></asp:TextBox>
                         </div>
                     </div>
 
@@ -93,7 +101,7 @@
                         <label class="control-label">银行卡卡号：</label>
 
                         <div class="controls">
-                            <asp:TextBox ID="txtBankCard" runat="server" CssClass="span5" placeholder="请输入你的银行卡卡号"></asp:TextBox>
+                            <asp:TextBox ID="txtBankCard" runat="server" CssClass="span5" placeholder="请输入你的银行卡卡号" datatype="n"></asp:TextBox>
                         </div>
                     </div>
 
@@ -103,7 +111,7 @@
 
                         <div class="controls">
                             <p class="w220">
-                                <button id="btnSubmit" runat="server" class="btn btn-large btn-block btn-primary" onserverclick="btnSubmit_ServerClick" type="button">添加绑定</button>
+                                <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-large btn-block btn-primary" Style="padding: 10px;" OnClick="btnSubmit_ServerClick" type="button" Text="添加绑定"></asp:Button>
                             </p>
                         </div>
                     </div>

@@ -28,7 +28,7 @@ namespace StudentLoan.Web
                 this.artDialog("提示", "用户名或密码不能空");
                 return;
             }
-            /**
+            
             if (string.IsNullOrEmpty(txtValidateCode.Text.Trim()))
             {
                 this.artDialog("提示", "验证码不能为空！");
@@ -42,7 +42,7 @@ namespace StudentLoan.Web
                     return;
                 }
             }
-            **/
+            
 
             if (Session[StudentLoanKeys.SESSION_USER_LOGIN_SUM] == null)
             {

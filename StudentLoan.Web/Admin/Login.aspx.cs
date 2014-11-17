@@ -34,19 +34,19 @@ namespace StudentLoan.Web.Admin
                 this.artDialog("错误", "用户名或密码不能空");
                 return;
             }
-            //if (string.IsNullOrEmpty(txtValidateCode.Text.Trim()))
-            //{
-            //    this.artDialog("错误", "验证码不能为空！");
-            //    return;
-            //}
-            //if (Session[StudentLoanKeys.SESSION_ADMIN_INFO] != null)
-            //{
-            //    if (Session[StudentLoanKeys.SESSION_CODE].ToString().ToLower() != txtValidateCode.Text.Trim().ToLower())
-            //    {
-            //        this.artDialog("错误", "验证码不正确！");
-            //        return;
-            //    }
-            //}
+            if (string.IsNullOrEmpty(txtValidateCode.Text.Trim()))
+            {
+                this.artDialog("错误", "验证码不能为空！");
+                return;
+            }
+            if (Session[StudentLoanKeys.SESSION_ADMIN_INFO] != null)
+            {
+                if (Session[StudentLoanKeys.SESSION_CODE].ToString().ToLower() != txtValidateCode.Text.Trim().ToLower())
+                {
+                    this.artDialog("错误", "验证码不正确！");
+                    return;
+                }
+            }
 
             if (Session[StudentLoanKeys.SESSION_ADMIN_LOGIN_SUM] == null)
             {

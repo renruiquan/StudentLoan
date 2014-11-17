@@ -169,8 +169,6 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Update sl_users set Point+=@Point where UserId = @UserId;");
-
             commandText.Append(" Update sl_users Set ");
 
             commandText.Append(" GroupId = @GroupId, ");
@@ -225,9 +223,7 @@ namespace StudentLoan.DAL
 
             commandText.Append(" CreateTime = @CreateTime, ");
 
-            commandText.Append(" RegIP = @RegIP, ");
-
-            commandText.Append(" Remark = @Remark ");
+            commandText.Append(" RegIP = @RegIP ");
 
             commandText.Append(" Where UserId = @UserId ");
 
@@ -295,7 +291,6 @@ namespace StudentLoan.DAL
 
             paramsList.Add(new SqlParameter("@RegIP", model.RegIP));
 
-            paramsList.Add(new SqlParameter("@Remark", model.Remark));
 
             #endregion
 
@@ -312,7 +307,7 @@ namespace StudentLoan.DAL
         /// <returns></returns>
         public bool UpdatePoint(int userId, int point)
         {
-            string commandText = @"Update sl_users set Point+=@Point where UserId = @UserId";
+            string commandText = @"Update sl_users set Point+=@Point,Remark=true where UserId = @UserId";
 
             List<SqlParameter> paramsList = new List<SqlParameter>();
             paramsList.Add(new SqlParameter("@UserId", userId));
@@ -456,7 +451,9 @@ namespace StudentLoan.DAL
 
             commandText.Append(" Update sl_users Set ");
 
-            commandText.Append(" Password = @Password ");
+            commandText.Append(" Password = @Password, ");
+
+            commandText.Append(" Salt = @Salt ");
 
             commandText.Append(" Where UserId = @UserId ");
 
@@ -469,6 +466,8 @@ namespace StudentLoan.DAL
             paramsList.Add(new SqlParameter("@UserId", model.UserId));
 
             paramsList.Add(new SqlParameter("@Password", model.Password));
+
+            paramsList.Add(new SqlParameter("@Salt", model.Salt));
 
             #endregion
 

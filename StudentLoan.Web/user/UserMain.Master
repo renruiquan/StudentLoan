@@ -37,7 +37,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <span class="icon">
-                                <img src='<%=this.UserModel.Avatar==null?"../css/img/admin/user_no_frame.png":this.UserModel.Avatar%>' alt="" /></span>
+                                <img src='<%=this.UserModel==null?"../css/img/admin/user_no_frame.png":this.UserModel.Avatar ==null?"../css/img/admin/user_no_frame.png":this.UserModel.Avatar%>' alt="" /></span>
                             <div class="down-item">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><%=this.UserModel.UserName %>
                                     <span class="caret"></span>

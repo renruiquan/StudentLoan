@@ -13,7 +13,11 @@ namespace StudentLoan.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                this.txtConfirmPassword.Attributes.Add("recheck", txtPassword.UniqueID);
+                this.txtConfirmDrawMoneyPassword.Attributes.Add("recheck", txtDrawMoneyPassword.UniqueID);
+            }
         }
         protected void btnRegister_Click(object sender, EventArgs e)
         {
@@ -82,7 +86,7 @@ namespace StudentLoan.Web
                 this.artDialog("错误", "省份不能为空，请重新选择");
                 return;
             }
-           
+
             if (!userPwd.Equals(userCon_pwd))
             {
                 this.artDialog("错误", "两次密码不同");

@@ -36,7 +36,7 @@
                                         <span>保证计划：本息保障计划 </span>
                                         <span class="c-blue">利率：<%#Eval("BaseAnnualFee").Convert<decimal>().ToString("P2") %></span>
                                         <span>额度：<%#Eval("ProductMinMoney").Convert<decimal>().ToString("C") %>+</span>
-                                        <span>投资期限：<%#Eval("MinPeriod") %>-<%#Eval("MaxPeriod") %>个月</span>
+                                        <span>理财期限：<%#Eval("MinPeriod") %>-<%#Eval("MaxPeriod") %>个月</span>
                                     </div>
                                 </div>
 
@@ -73,7 +73,7 @@
 
                 <p>2：如何计算投资收益？</p>
 
-                <p>投资收益=投资本金 * 预期年化收益率 / 12 * 投资期限；</p>
+                <p>投资收益=投资本金 * 预期年化收益率 / 12 * 理财期限；</p>
 
                 <p>3：如何知道自己投资到期获得收益？</p>
 

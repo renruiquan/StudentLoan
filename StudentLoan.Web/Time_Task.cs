@@ -69,6 +69,14 @@ namespace StudentLoan.Web
                     this.Withdrawal();
 
                     this.PayInterest();
+
+                    string msg_3day = string.Format("【UTL温馨提醒】截止{0}，距您的借款服务费结算日还有{1}日，请您在百忙之中抽出时间结算。", DateTime.Now.ToString("yyyy-MM-dd"), 3);
+                    string today = string.Format("【UTL温馨提醒】您好，{0}，已到本月借款服务费结算日期，请及时办理结算手续。", DateTime.Now.ToString("yyyy-MM-dd"), 0);
+                    string msg_5day = string.Format("【UTL温馨提醒】您好，您的借款日期{0}，现已逾期{1}天，逾期5天内不收取逾期费用，超过5天，每天按(本金*0.5%*逾期天数)收取，为了减少您的损失，请您及还款，谢谢。", DateTime.Now.AddDays(-5), 5);
+
+                    this.GetRepayment(3, msg_3day);
+                    this.GetRepayment(0, today);
+                    this.GetRepayment(-5, msg_5day);
                 }
             }
         }

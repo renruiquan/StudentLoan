@@ -129,7 +129,7 @@ namespace StudentLoan.Web
             model.DrawMoneyPassword = DESHelper.Encrypt(userDrawMoneyPassword, model.Salt);
             model.Province = userProvice;
             model.City = userCity;
-            model.Address = string.Format("{0}区{1}", userDist, userAddress);
+            model.Address = string.Format("{0}{1}", userDist, userAddress);
 
             //判断用户是否存在
             bool result = new UsersBLL().Exists(model.UserName);

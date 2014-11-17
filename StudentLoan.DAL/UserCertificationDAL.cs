@@ -54,6 +54,8 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
+            commandText.Append(" Update sl_users set Point+=@Point where UserId = @UserId;");
+
             commandText.Append(" Insert Into sl_user_certification( ");
 
             commandText.Append(" UserId,Type,CertificationName,Images,Point,Status,CreateTime) ");
@@ -80,7 +82,9 @@ namespace StudentLoan.DAL
 
             #endregion
 
-            return base.ExecuteNonQuery(commandText.ToString(), paramsList.ToArray());
+            SqlTransaction trans = base.GetTransaction();
+
+            return base.ExecuteNonQuery(trans, commandText.ToString(), paramsList.ToArray());
         }
 
 

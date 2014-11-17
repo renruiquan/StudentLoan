@@ -61,5 +61,9 @@ namespace StudentLoan.Model
         /// </summary>
         public int UserId { get; set; }
 
+        /// <summary>
+        /// 用户信息积分，用于还款加（减）信用积分
+        /// </summary>
+        public int Point { get; set; }
     }
 }

@@ -68,8 +68,6 @@ namespace StudentLoan.Web.tools
                 };
 
                 result = new UserCertificationBLL().Insert(userCertModel);
-
-                new UsersBLL().UpdatePoint(userId, this.GetCertification(type).Point);
             }
             else
             {

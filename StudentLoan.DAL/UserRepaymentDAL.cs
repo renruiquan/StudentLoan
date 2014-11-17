@@ -146,6 +146,9 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
+            /**更新账户信息积分**/
+            commandText.Append(" Update sl_users set Point+=@Point where UserId = @UserId;");
+
             /**更新账户余额**/
             commandText.Append(@" Update sl_users Set Amount -= @Amount where UserId = @UserId;");
 
@@ -190,6 +193,8 @@ namespace StudentLoan.DAL
             paramsList.Add(new SqlParameter("@CreateTime", DateTime.Now));
 
             paramsList.Add(new SqlParameter("@Status", model.Status));
+
+            paramsList.Add(new SqlParameter("@Point", model.Point));
 
             #endregion
 

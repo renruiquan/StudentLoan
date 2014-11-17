@@ -169,6 +169,8 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
+            commandText.Append(" Update sl_users set Point+=@Point where UserId = @UserId;");
+
             commandText.Append(" Update sl_users Set ");
 
             commandText.Append(" GroupId = @GroupId, ");
@@ -216,8 +218,6 @@ namespace StudentLoan.DAL
             commandText.Append(" SafeAnswer = @SafeAnswer, ");
 
             commandText.Append(" Amount = @Amount, ");
-
-            commandText.Append(" Point = @Point, ");
 
             commandText.Append(" Exp = @Exp, ");
 
@@ -299,7 +299,9 @@ namespace StudentLoan.DAL
 
             #endregion
 
-            return base.ExecuteNonQuery(commandText.ToString(), paramsList.ToArray());
+            SqlTransaction trans = base.GetTransaction();
+
+            return base.ExecuteNonQuery(trans, commandText.ToString(), paramsList.ToArray());
         }
 
         /// <summary>

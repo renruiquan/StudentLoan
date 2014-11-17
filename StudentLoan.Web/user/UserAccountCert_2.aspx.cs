@@ -123,17 +123,18 @@ namespace StudentLoan.Web.user
             userModel.Nation = nation;
             userModel.Birthday = Convert.ToDateTime(birthday);
             userModel.Remark = "point=true";
+            userModel.Point = 10;
 
             bool result = new UsersBLL().Update(userModel);
 
             if (result)
             {
                 userModel = new UsersBLL().GetModel(userModel.UserId);
-
-                if (userModel.Remark == "point=true")
-                {
-                    new UsersBLL().UpdatePoint(userModel.UserId, 10);
-                }
+                //写入Cookies
+                this.WriteCookie("SLRememberName", userModel.UserName, 14400);
+                this.WriteCookie("UserName", "StudentLoan", userModel.UserName);
+                this.WriteCookie("UserPwd", "StudentLoan", userModel.Password);
+                Response.Redirect("/IvoryTower.aspx");
 
                 this.artDialog("提示", "保存成功！请继续填写其他信息");
                 this.txtTruename.Attributes.Add("ReadOnly", "true");
@@ -223,6 +224,7 @@ namespace StudentLoan.Web.user
             userschoolModel.Major = major;
             userschoolModel.SchoolName = schoolname;
             userschoolModel.CreateTime = DateTime.Now;
+            userschoolModel.Point = 10;
 
             //判断用户的学校信息是否存在
             bool result = new UserSchoolBLL().Exists(userModel.UserId);
@@ -246,7 +248,6 @@ namespace StudentLoan.Web.user
 
                 if (result)
                 {
-                    new UsersBLL().UpdatePoint(userModel.UserId, 10);
                     this.artDialog("提示", "保存成功！请继续填写其他信息");
                 }
                 else
@@ -298,6 +299,7 @@ namespace StudentLoan.Web.user
             userrelationshipmodel.Mobile = relativemobile;
             userrelationshipmodel.Type = 1;
             userrelationshipmodel.CreateTime = DateTime.Now;
+            userrelationshipmodel.Point = 4;
 
             bool result = new UserRelationshipBLL().Exists(userModel.UserId, 1);
 
@@ -316,9 +318,9 @@ namespace StudentLoan.Web.user
             else
             {
                 result = new UserRelationshipBLL().Insert(userrelationshipmodel);
+
                 if (result)
                 {
-                    new UsersBLL().UpdatePoint(userModel.UserId, 4);
                     this.artDialog("提示", "保存成功！");
                 }
                 else
@@ -335,6 +337,7 @@ namespace StudentLoan.Web.user
             userrelationshipmodel2.Relationship = "同学(同室)";
             userrelationshipmodel2.Type = 2;
             userrelationshipmodel2.CreateTime = DateTime.Now;
+            userrelationshipmodel2.Point = 3;
 
             bool result2 = new UserRelationshipBLL().Exists(userModel.UserId, 2);
 
@@ -355,7 +358,6 @@ namespace StudentLoan.Web.user
                 result = new UserRelationshipBLL().Insert(userrelationshipmodel2);
                 if (result)
                 {
-                    new UsersBLL().UpdatePoint(userModel.UserId, 3);
                     this.artDialog("提示", "保存成功！");
                 }
                 else
@@ -373,6 +375,7 @@ namespace StudentLoan.Web.user
             userrelationshipmodel3.Relationship = "朋友";
             userrelationshipmodel3.Type = 3;
             userrelationshipmodel3.CreateTime = DateTime.Now;
+            userrelationshipmodel3.Point = 3;
 
             bool result3 = new UserRelationshipBLL().Exists(userModel.UserId, 3);
 
@@ -393,7 +396,6 @@ namespace StudentLoan.Web.user
                 result = new UserRelationshipBLL().Insert(userrelationshipmodel3);
                 if (result)
                 {
-                    new UsersBLL().UpdatePoint(userModel.UserId, 3);
                     this.artDialog("提示", "保存成功！");
                 }
                 else

@@ -56,6 +56,8 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
+            commandText.Append(" Update sl_users set Point+=@Point where UserId = @UserId;");
+
             commandText.Append(" Insert Into sl_user_relationship( ");
 
             commandText.Append(" UserId,Name,Relationship,Mobile,Profession,Address,Type,Remark,CreateTime) ");
@@ -88,9 +90,13 @@ namespace StudentLoan.DAL
 
             paramsList.Add(new SqlParameter("@CreateTime", model.CreateTime));
 
+            paramsList.Add(new SqlParameter("@Point", model.Point));
+
             #endregion
 
-            return base.ExecuteNonQuery(commandText.ToString(), paramsList.ToArray());
+            SqlTransaction trans = base.GetTransaction();
+
+            return base.ExecuteNonQuery(trans, commandText.ToString(), paramsList.ToArray());
         }
 
 
@@ -183,7 +189,7 @@ namespace StudentLoan.DAL
 
             paramsList.Add(new SqlParameter("@Type", model.Type));
 
-          
+
 
             #endregion
 

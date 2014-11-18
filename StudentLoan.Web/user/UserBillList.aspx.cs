@@ -132,7 +132,7 @@ namespace StudentLoan.Web.user
         {
             if (userAmount < repaymentMoney)
             {
-                this.artDialog("提示", string.Format("对不起，你的账户余额不足，无法完成还款，前账号的余额为{0}，还需充值{1}元", userAmount.ToString("C"), Convert.ToDecimal(repaymentMoney - userAmount).ToString("C")), "Charge.aspx");
+                this.artDialog("提示", string.Format("对不起，你的账户余额不足，无法完成还款，当前账号的余额为{0}，还需充值{1}元", userAmount.ToString("C"), Convert.ToDecimal(repaymentMoney - userAmount).ToString("C")), "Charge.aspx");
                 return false;
             }
             else

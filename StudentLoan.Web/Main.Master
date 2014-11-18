@@ -51,7 +51,7 @@
                                    
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="/user/UserAccount.aspx">账户总览</a></li>
+                                    <li><a href="/user/UserAccount.aspx">我的易贷</a></li>
                                     <li><a href="/LoginOut.aspx">安全退出</a></li>
                                 </ul>
                             </div>

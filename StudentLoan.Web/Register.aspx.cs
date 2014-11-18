@@ -108,7 +108,11 @@ namespace StudentLoan.Web
                 this.artDialog("错误", "尚未同意学子易贷协议");
                 return;
             }
-
+            if (txtPassword.Text.Trim() == txtDrawMoneyPassword.Text.Trim())
+            {
+                this.artDialog("错误", "登录密码与提现密码不能相同，请修改后重试！");
+                return;
+            }
 
 
             if (Session[StudentLoanKeys.SESSION_USER_LOGIN_SUM] == null)

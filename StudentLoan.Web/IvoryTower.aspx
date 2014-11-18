@@ -41,23 +41,23 @@
         <div class="top step-top">
             <div class="wrapper">
 
-                 <div class="user-icon">
+                <div class="user-icon">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <span class="icon">
                                 <img src='<%=base.GetUserModel()==null?"../css/img/admin/user_no_frame.png":base.GetUserModel().Avatar%>' alt="" /></span>
                             <div class="down-item">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><span style="color:#000;"><%=base.GetUserModel()==null?"<a href='/Login.aspx'>请登录</a>":base.GetUserModel().UserName %></span>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><span style="color: #000;"><%=base.GetUserModel()==null?"<a href='/Login.aspx'>请登录</a>":base.GetUserModel().UserName %></span>
                                     <% if (base.GetUserModel() != null)
                                        {
                                     %>
-                                    <span class="caret" style="border-top-color:#000;border-bottom-color:#000"></span>
+                                    <span class="caret" style="border-top-color: #000; border-bottom-color: #000"></span>
                                     <%
                                        } %>
                                    
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="/user/UserAccount.aspx">账户总览</a></li>
+                                    <li><a href="/user/UserAccount.aspx">我的易贷</a></li>
                                     <li><a href="/LoginOut.aspx">安全退出</a></li>
                                 </ul>
                             </div>
@@ -122,7 +122,7 @@
 
                                 <div class="blue-bg">
                                     <div class="blue-title">
-                                        <asp:Label ID="lblPoint" runat="server" Text="0"></asp:Label>分
+                                        <asp:Label ID="lblPoint" runat="server" Text="0分  E级"></asp:Label>
                                     </div>
                                 </div>
                             </div>

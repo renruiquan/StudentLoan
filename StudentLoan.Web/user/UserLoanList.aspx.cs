@@ -127,7 +127,7 @@ namespace StudentLoan.Web.user
                     result = "<span style='color:#000000'>审核中</span>";
                     break;
                 case 1:
-                    result = "<span style='color:Green'>借款成功</span>";
+                    result = "<span style='color:Green'>审核通过</span>";
                     break;
                 case 2:
                     result = "<span style='color:#ff0000'>借款失败</span>";

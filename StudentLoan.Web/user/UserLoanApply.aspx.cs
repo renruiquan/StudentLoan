@@ -284,9 +284,9 @@ namespace StudentLoan.Web.user
                     this.artDialog("提示", "对不起，您还没有填写出生日期，请完善后重试！", "/user/UserAccountCert_2.aspx");
                     return;
                 }
-                if ((DateTime.Now - model.Birthday).Days < 365 * 16)
+                if ((DateTime.Now - model.Birthday).Days < 365 * 18)
                 {
-                    this.artDialog("提示", "对不起，您还没满16周岁，无法申请借款！", "/user/UserAccount.aspx");
+                    this.artDialog("提示", "对不起，您还没满18周岁，无法申请借款！", "/user/UserAccount.aspx");
                     return;
                 }
             }

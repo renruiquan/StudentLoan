@@ -96,6 +96,32 @@ namespace StudentLoan.Web.user
                 this.artDialog("错误", "请输入有效的身份证号码！");
                 return;
             }
+
+            DateTime Id_birthday = default(DateTime);
+
+            if (identityCard.Length == 15)
+            {
+                int year = string.Format("19{0}", identityCard.Substring(6, 2)).Convert<int>();
+                int month = identityCard.Substring(8, 2).Convert<int>();
+                int day = identityCard.Substring(10, 2).Convert<int>();
+
+                Id_birthday = new DateTime(year, month, day);
+            }
+            if (identityCard.Length == 18)
+            {
+                int year = identityCard.Substring(6, 4).Convert<int>();
+                int month = identityCard.Substring(10, 2).Convert<int>();
+                int day = identityCard.Substring(12, 2).Convert<int>();
+
+                Id_birthday = new DateTime(year, month, day);
+            }
+
+            if (Id_birthday.ToString("yyyy-MM-dd") != birthday)
+            {
+                this.artDialog("错误", "您填写的出生日期与身份证不符，请检查后重写！");
+                return;
+            }
+
             if (string.IsNullOrEmpty(mobile))
             {
                 this.artDialog("错误", "电话号码不能为空，请重新填写");
@@ -300,7 +326,7 @@ namespace StudentLoan.Web.user
 
             if (!mobileRegex.IsMatch(relativemobile))
             {
-                 this.artDialog("错误", "请输入正确的11位手机号码，如：15900001111");
+                this.artDialog("错误", "请输入正确的11位手机号码，如：15900001111");
                 return;
             }
 
@@ -330,6 +356,18 @@ namespace StudentLoan.Web.user
             if (!mobileRegex.IsMatch(friendmobile))
             {
                 this.artDialog("错误", "请输入正确的11位手机号码，如：15900001111");
+                return;
+            }
+
+
+            if (txtRelativeMobile.Text.Trim() == txtFriendMobile.Text.Trim() || txtRelativeMobile.Text.Trim() == txtMateMobile.Text.Trim())
+            {
+                this.artDialog("错误", "联系人的手机号码不能相同！");
+                return;
+            }
+            if (txtFriendMobile.Text.Trim() == txtMateMobile.Text.Trim())
+            {
+                this.artDialog("错误", "联系人的手机号码不能相同！");
                 return;
             }
 

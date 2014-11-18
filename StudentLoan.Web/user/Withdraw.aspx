@@ -2,6 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>账户信息 - 会员提现</title>
+
+    <link rel="stylesheet" type="text/css" href="../js/Validform/css/Validform.css" />
+    <script src="../js/Validform/js/Validform_v5.3.2_min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../js/jquery.cityselect.js"></script>
     <script type="text/javascript">
         $(function () {
@@ -9,6 +12,10 @@
                 {
                     url: "/js/city.min.js"
                 });
+
+            $("#form1").Validform({
+                tiptype: 3
+            });
         });
     </script>
 </asp:Content>
@@ -40,12 +47,12 @@
                         </HeaderTemplate>
                         <ItemTemplate>
                             <label class="border-radius select-bank-cards">
-                                 <input type="radio" name="bank_id" value="<%#Eval("BankID") %>">
+                                <asp:Literal ID="litBankID" runat="server"></asp:Literal>
+
                                 <span class="bank-name">
                                     <asp:Literal runat="server" ID="objLiteral"></asp:Literal>
                                 </span>
-                                <span>卡号：<%#Eval("BankCardNo") %></span>
-                            </label>
+                                <span>卡号：<%#Eval("BankCardNo") %></span></label>
                         </ItemTemplate>
                         <FooterTemplate>
                             </div>
@@ -55,21 +62,29 @@
                 </div>
 
                 <div class="item">
+                    <div class="control-group">
+                        <label class="control-label">账户余额：</label>
+
+                        <div class="controls">
+                            <asp:Label ID="lblAmount" runat="server" Style="line-height: 30px;">0元</asp:Label>
+                        </div>
+                    </div>
 
                     <div class="control-group">
                         <label class="control-label">提现金额：</label>
 
                         <div class="controls">
-                            <asp:TextBox ID="txtWithdrawMoney" runat="server" type="text" placeholder="请填写提现金额..." />
+                            <asp:TextBox ID="txtWithdrawMoney" runat="server" type="text" placeholder="请填写提现金额..."
+                                datatype="/^\d+$/" sucmsg="提现金额验证通过！" tips="请填写充值金额" nullmsg="提现金额不能为空" errormsg="提现金额填写错误" />
                             元
                         </div>
                     </div>
 
-                     <div class="control-group">
+                    <div class="control-group">
                         <label class="control-label">提现密码：</label>
 
                         <div class="controls">
-                            <asp:TextBox ID="txtDrawMoneyPassword" runat="server" type="text" placeholder="请填写提现密码..." />
+                            <asp:TextBox ID="txtDrawMoneyPassword" runat="server" TextMode="Password" placeholder="请填写提现密码..." datatype="*" />
                         </div>
                     </div>
 

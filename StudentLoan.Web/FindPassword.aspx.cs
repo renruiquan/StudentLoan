@@ -48,7 +48,7 @@ namespace StudentLoan.Web
 
             int userId = bll.GetUserId(userName);
 
-            if (userId > 0)
+            if (userId != 0)
             {
                 this.artDialog("提示", "该用户不存在，无法找回密码！");
                 return;

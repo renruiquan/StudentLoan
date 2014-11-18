@@ -348,7 +348,7 @@
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="Admin/Login.aspx">
-      <publishTime>11/18/2014 00:52:14</publishTime>
+      <publishTime>11/18/2014 02:08:52</publishTime>
     </File>
     <File Include="Admin/LoginLog.aspx">
       <publishTime>11/17/2014 19:11:48</publishTime>
@@ -387,10 +387,10 @@
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>11/18/2014 00:55:39</publishTime>
+      <publishTime>11/19/2014 01:10:29</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>11/18/2014 00:55:39</publishTime>
+      <publishTime>11/19/2014 01:10:29</publishTime>
     </File>
     <File Include="bin/AspNetPager.dll">
       <publishTime>11/17/2014 19:11:47</publishTime>
@@ -432,22 +432,22 @@
       <publishTime>11/17/2014 19:11:47</publishTime>
     </File>
     <File Include="bin/StudentLoan.API.dll">
-      <publishTime>11/18/2014 00:55:35</publishTime>
+      <publishTime>11/19/2014 01:05:53</publishTime>
     </File>
     <File Include="bin/StudentLoan.BLL.dll">
-      <publishTime>11/18/2014 00:55:35</publishTime>
+      <publishTime>11/19/2014 01:05:53</publishTime>
     </File>
     <File Include="bin/StudentLoan.Common.dll">
       <publishTime>11/18/2014 00:55:34</publishTime>
     </File>
     <File Include="bin/StudentLoan.DAL.dll">
-      <publishTime>11/18/2014 00:55:34</publishTime>
+      <publishTime>11/19/2014 01:05:52</publishTime>
     </File>
     <File Include="bin/StudentLoan.Model.dll">
-      <publishTime>11/18/2014 00:55:34</publishTime>
+      <publishTime>11/19/2014 01:05:52</publishTime>
     </File>
     <File Include="bin/StudentLoan.Web.dll">
-      <publishTime>11/18/2014 00:55:35</publishTime>
+      <publishTime>11/19/2014 01:05:53</publishTime>
     </File>
     <File Include="bin/zh-CHT/AspNetPager.resources.dll">
       <publishTime>11/17/2014 19:11:47</publishTime>
@@ -468,7 +468,7 @@
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="Contact.aspx">
-      <publishTime>11/17/2014 19:11:48</publishTime>
+      <publishTime>11/19/2014 00:04:27</publishTime>
     </File>
     <File Include="crossdomain.xml">
       <publishTime>11/17/2014 19:11:48</publishTime>
@@ -822,7 +822,7 @@
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="css/img/admin/user_no_frame.png">
-      <publishTime>11/17/2014 19:11:48</publishTime>
+      <publishTime>11/19/2014 00:10:12</publishTime>
     </File>
     <File Include="css/img/admin/water.png">
       <publishTime>11/17/2014 19:11:48</publishTime>
@@ -1071,7 +1071,7 @@
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="IvoryTower.aspx">
-      <publishTime>11/17/2014 19:11:48</publishTime>
+      <publishTime>11/19/2014 00:45:38</publishTime>
     </File>
     <File Include="js/birthday.js">
       <publishTime>11/17/2014 19:11:48</publishTime>
@@ -1455,7 +1455,7 @@
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="Main.Master">
-      <publishTime>11/17/2014 19:11:48</publishTime>
+      <publishTime>11/19/2014 00:05:26</publishTime>
     </File>
     <File Include="ManageMoneyNav.aspx">
       <publishTime>11/18/2014 00:29:57</publishTime>
@@ -1464,7 +1464,7 @@
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>11/18/2014 00:55:37</publishTime>
+      <publishTime>11/19/2014 01:10:28</publishTime>
     </File>
     <File Include="ProductSchemeList.aspx">
       <publishTime>11/17/2014 19:11:48</publishTime>
@@ -1515,7 +1515,7 @@
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="user/BindBank.aspx">
-      <publishTime>11/17/2014 23:58:40</publishTime>
+      <publishTime>11/19/2014 00:36:56</publishTime>
     </File>
     <File Include="user/BindMobile.aspx">
       <publishTime>11/17/2014 23:53:05</publishTime>
@@ -1557,10 +1557,10 @@
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="user/UserAccountCert.aspx">
-      <publishTime>11/17/2014 19:11:48</publishTime>
+      <publishTime>11/19/2014 00:43:00</publishTime>
     </File>
     <File Include="user/UserAccountCert_2.aspx">
-      <publishTime>11/17/2014 22:35:20</publishTime>
+      <publishTime>11/18/2014 01:20:35</publishTime>
     </File>
     <File Include="user/UserAccountCert_3.aspx">
       <publishTime>11/17/2014 19:11:48</publishTime>
@@ -1581,7 +1581,7 @@
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="user/UserMain.Master">
-      <publishTime>11/17/2014 23:47:32</publishTime>
+      <publishTime>11/19/2014 00:05:36</publishTime>
     </File>
     <File Include="user/UserManageMoney.aspx">
       <publishTime>11/18/2014 00:32:55</publishTime>
@@ -1602,7 +1602,7 @@
       <publishTime>10/20/2014 10:21:19</publishTime>
     </File>
     <File Include="user/Withdraw.aspx">
-      <publishTime>11/17/2014 19:11:48</publishTime>
+      <publishTime>11/19/2014 01:10:26</publishTime>
     </File>
     <File Include="UserLoanApply.aspx">
       <publishTime>10/20/2014 10:21:18</publishTime>

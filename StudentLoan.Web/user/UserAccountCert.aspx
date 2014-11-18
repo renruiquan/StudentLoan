@@ -31,35 +31,24 @@
                             <td><span class="grade green-two">C</span></td>
                             <td><span class="grade brown">D</span></td>
                             <td><span class="grade orange">E</span></td>
-                            <td><span class="grade red">F</span></td>
-                            <td><span class="grade pink">G</span></td>
-                            <td><span class="grade purple">H</span></td>
+
                         </tr>
                         <tr>
                             <td>信用分数</td>
                             <td>
-                                <p>100分</p>
+                                <p>81-100分</p>
                             </td>
                             <td>
-                                <p>95-100分</p>
+                                <p>71-80分</p>
                             </td>
                             <td>
-                                <p>90-95分</p>
+                                <p>61-70分</p>
                             </td>
                             <td>
-                                <p>85-90分</p>
+                                <p>31-60分</p>
                             </td>
                             <td>
-                                <p>80-85分</p>
-                            </td>
-                            <td>
-                                <p>75-80分</p>
-                            </td>
-                            <td>
-                                <p>70-75分</p>
-                            </td>
-                            <td>
-                                <p>0-70分</p>
+                                <p>0-30分</p>
                             </td>
                         </tr>
                     </tbody>

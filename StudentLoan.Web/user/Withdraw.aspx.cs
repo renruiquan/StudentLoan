@@ -44,6 +44,8 @@ namespace StudentLoan.Web.user
 
         private void BindData()
         {
+            this.lblAmount.Text = string.Format("{0}元", new UsersBLL().GetModel(base.GetUserModel().UserId).Amount.Convert<double>().ToString("C"));
+
             string strWhere = string.Format(@" 1=1  and UserId = {0} and Status=1 Order By IsDefault Desc, CreateTime desc ", base.GetUserModel().UserId);
 
             List<UserBankEntityEx> list = new UserBankBLL().GetList(strWhere);
@@ -103,7 +105,7 @@ namespace StudentLoan.Web.user
 
             bool result = new DrawMoneyBLL().Insert(model);
 
-            this.artDialog("提示", string.Format("提现申请{0}", result == true ? "成功" : "失败"), "Withdraw.aspx");
+            this.artDialog("提示", string.Format("提现申请{0}", result == true ? "成功" : "失败"), "AccountLog.aspx");
         }
 
 
@@ -135,6 +137,17 @@ namespace StudentLoan.Web.user
                     case 57: objLiteral.Text = "<i><img src=\"../css/img/banks/icon_EBA.jpg\" alt=\"\"></i>东亚银行"; break;
                     case 316: objLiteral.Text = "<i><img src=\"../css/img/banks/icon_SPABANK.jpg\" alt=\"\"></i>平安银行"; break;
 
+                }
+
+                Literal litBankID = e.Item.FindControl("litBankID") as Literal;
+
+                if (model.IsDefault)
+                {
+                    litBankID.Text = string.Format("<input type=\"radio\" checked name=\"bank_id\" value=\"{0}\">", model.BankId);
+                }
+                else
+                {
+                    litBankID.Text = string.Format("<input type=\"radio\" name=\"bank_id\" value=\"{0}\">", model.BankId);
                 }
             }
         }

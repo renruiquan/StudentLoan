@@ -49,7 +49,7 @@ namespace StudentLoan.Web
         {
             UsersEntityEx userModel = new UsersBLL().GetModel(base.GetUserModel().UserId);
 
-            this.lblPoint.Text = userModel.Point.ToString();
+            this.lblPoint.Text = string.Format("{0}分  {1}", userModel.Point, this.GetLevel(userModel.Point));
 
             if (userModel.Point <= 30)
             {
@@ -77,6 +77,34 @@ namespace StudentLoan.Web
 
             this.objRepeater.DataSource = new UserLoanBLL().GetLoanAnnouncement();
             this.objRepeater.DataBind();
+        }
+
+        protected string GetLevel(int point)
+        {
+            string result = string.Empty;
+
+            if (point > 0 && point <= 30)
+            {
+                result = "E级";
+            }
+            if (point > 31 && point <= 60)
+            {
+                result = "D级";
+            }
+            if (point > 61 && point <= 70)
+            {
+                result = "C级";
+            }
+            if (point > 71 && point <= 80)
+            {
+                result = "B级";
+            }
+            if (point > 81)
+            {
+                result = "A级";
+            }
+
+            return result;
         }
     }
 }

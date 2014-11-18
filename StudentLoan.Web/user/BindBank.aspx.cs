@@ -60,7 +60,7 @@ namespace StudentLoan.Web.user
                 BankProvince = province,
                 BankCity = city,
                 BaseBankId = baseBankId,
-                IsDefault = false,
+                IsDefault = true,
             };
 
             bool result = new UserBankBLL().Insert(this.BankModel);

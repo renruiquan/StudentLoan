@@ -29,19 +29,19 @@ namespace StudentLoan.Web
                 return;
             }
             
-            if (string.IsNullOrEmpty(txtValidateCode.Text.Trim()))
-            {
-                this.artDialog("提示", "验证码不能为空！");
-                return;
-            }
-            if (Session[StudentLoanKeys.SESSION_CODE] != null)
-            {
-                if (Session[StudentLoanKeys.SESSION_CODE].ToString().ToLower() != txtValidateCode.Text.Trim().ToLower())
-                {
-                    this.artDialog("提示", "验证码不正确！");
-                    return;
-                }
-            }
+            //if (string.IsNullOrEmpty(txtValidateCode.Text.Trim()))
+            //{
+            //    this.artDialog("提示", "验证码不能为空！");
+            //    return;
+            //}
+            //if (Session[StudentLoanKeys.SESSION_CODE] != null)
+            //{
+            //    if (Session[StudentLoanKeys.SESSION_CODE].ToString().ToLower() != txtValidateCode.Text.Trim().ToLower())
+            //    {
+            //        this.artDialog("提示", "验证码不正确！");
+            //        return;
+            //    }
+            //}
             
 
             if (Session[StudentLoanKeys.SESSION_USER_LOGIN_SUM] == null)

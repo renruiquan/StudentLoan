@@ -18,7 +18,8 @@
                 var url = $(this).attr("location");
                 var d = dialog({
                     title: '提示',
-                    content: '您购买的理财产品还没有到期，申请转出需要管理员审核，是否确认转出？',
+                    width: 320,
+                    content: '<p>您购买的理财产品还没有到期，申请转出需要管理员审核，是否确认转出？</p>',
                     okValue: '确定',
                     ok: function () {
                         window.location.href = url;
@@ -26,7 +27,7 @@
                     },
                     cancelValue: '取消',
                     cancel: function () { }
-                });
+                })
 
                 d.showModal();
             });

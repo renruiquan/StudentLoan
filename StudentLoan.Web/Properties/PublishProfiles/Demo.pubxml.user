@@ -381,16 +381,16 @@
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="Admin/UserManageMoneyList.aspx">
-      <publishTime>11/17/2014 19:11:48</publishTime>
+      <publishTime>11/19/2014 21:04:12</publishTime>
     </File>
     <File Include="Admin/welcome.aspx">
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>11/19/2014 01:10:29</publishTime>
+      <publishTime>11/20/2014 02:34:29</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>11/19/2014 01:10:29</publishTime>
+      <publishTime>11/20/2014 02:34:29</publishTime>
     </File>
     <File Include="bin/AspNetPager.dll">
       <publishTime>11/17/2014 19:11:47</publishTime>
@@ -435,19 +435,19 @@
       <publishTime>11/19/2014 01:05:53</publishTime>
     </File>
     <File Include="bin/StudentLoan.BLL.dll">
-      <publishTime>11/19/2014 01:05:53</publishTime>
+      <publishTime>11/20/2014 02:34:25</publishTime>
     </File>
     <File Include="bin/StudentLoan.Common.dll">
       <publishTime>11/18/2014 00:55:34</publishTime>
     </File>
     <File Include="bin/StudentLoan.DAL.dll">
-      <publishTime>11/19/2014 01:05:52</publishTime>
+      <publishTime>11/20/2014 02:34:25</publishTime>
     </File>
     <File Include="bin/StudentLoan.Model.dll">
       <publishTime>11/19/2014 01:05:52</publishTime>
     </File>
     <File Include="bin/StudentLoan.Web.dll">
-      <publishTime>11/19/2014 01:05:53</publishTime>
+      <publishTime>11/20/2014 02:34:26</publishTime>
     </File>
     <File Include="bin/zh-CHT/AspNetPager.resources.dll">
       <publishTime>11/17/2014 19:11:47</publishTime>
@@ -1053,7 +1053,7 @@
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="FindPassword.aspx">
-      <publishTime>11/17/2014 19:11:48</publishTime>
+      <publishTime>11/19/2014 23:23:28</publishTime>
     </File>
     <File Include="fullAvatarEditor.swf">
       <publishTime>11/17/2014 19:11:48</publishTime>
@@ -1455,7 +1455,7 @@
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="Main.Master">
-      <publishTime>11/19/2014 00:05:26</publishTime>
+      <publishTime>11/19/2014 01:11:11</publishTime>
     </File>
     <File Include="ManageMoneyNav.aspx">
       <publishTime>11/18/2014 00:29:57</publishTime>
@@ -1464,7 +1464,7 @@
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>11/19/2014 01:10:28</publishTime>
+      <publishTime>11/20/2014 02:34:27</publishTime>
     </File>
     <File Include="ProductSchemeList.aspx">
       <publishTime>11/17/2014 19:11:48</publishTime>
@@ -1473,7 +1473,7 @@
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="Register.aspx">
-      <publishTime>11/17/2014 23:33:24</publishTime>
+      <publishTime>11/20/2014 01:51:22</publishTime>
     </File>
     <File Include="RegProvision.aspx">
       <publishTime>11/17/2014 19:11:48</publishTime>
@@ -1502,6 +1502,12 @@
     <File Include="tools/validate_code.ashx">
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
+    <File Include="tools/validate_user_register.ashx">
+      <publishTime>11/20/2014 00:12:31</publishTime>
+    </File>
+    <File Include="tools/validate_vcerification_code.ashx">
+      <publishTime>11/20/2014 01:44:37</publishTime>
+    </File>
     <File Include="TTTTTTTTTTTTTTTTTTTTT.aspx">
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
@@ -1515,22 +1521,28 @@
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="user/BindBank.aspx">
-      <publishTime>11/19/2014 00:36:56</publishTime>
+      <publishTime>11/20/2014 01:40:16</publishTime>
     </File>
     <File Include="user/BindMobile.aspx">
-      <publishTime>11/17/2014 23:53:05</publishTime>
+      <publishTime>11/20/2014 01:43:04</publishTime>
     </File>
     <File Include="user/ChangePassword.aspx">
       <publishTime>11/17/2014 23:25:55</publishTime>
     </File>
+    <File Include="user/ChangeWithDrawPassword.aspx">
+      <publishTime>11/19/2014 23:31:32</publishTime>
+    </File>
     <File Include="user/Charge.aspx">
-      <publishTime>11/17/2014 23:12:53</publishTime>
+      <publishTime>11/19/2014 22:33:14</publishTime>
     </File>
     <File Include="user/ChargeLog.aspx">
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="user/EarningsList.aspx">
       <publishTime>11/17/2014 19:11:48</publishTime>
+    </File>
+    <File Include="user/FindWithDrawPassword.aspx">
+      <publishTime>11/19/2014 23:26:38</publishTime>
     </File>
     <File Include="user/InviteFriend.aspx">
       <publishTime>11/17/2014 19:11:48</publishTime>
@@ -1542,7 +1554,7 @@
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="user/ManageMoneyList_2.aspx">
-      <publishTime>11/17/2014 19:11:48</publishTime>
+      <publishTime>11/20/2014 02:33:22</publishTime>
     </File>
     <File Include="user/ManageMoneyList_3.aspx">
       <publishTime>11/17/2014 19:11:48</publishTime>
@@ -1581,7 +1593,7 @@
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="user/UserMain.Master">
-      <publishTime>11/19/2014 00:05:36</publishTime>
+      <publishTime>11/19/2014 23:39:57</publishTime>
     </File>
     <File Include="user/UserManageMoney.aspx">
       <publishTime>11/18/2014 00:32:55</publishTime>
@@ -1602,7 +1614,7 @@
       <publishTime>10/20/2014 10:21:19</publishTime>
     </File>
     <File Include="user/Withdraw.aspx">
-      <publishTime>11/19/2014 01:10:26</publishTime>
+      <publishTime>11/19/2014 23:24:54</publishTime>
     </File>
     <File Include="UserLoanApply.aspx">
       <publishTime>10/20/2014 10:21:18</publishTime>

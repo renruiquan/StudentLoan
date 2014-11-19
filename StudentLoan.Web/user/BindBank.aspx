@@ -101,7 +101,7 @@
                         <label class="control-label">银行卡卡号：</label>
 
                         <div class="controls">
-                            <asp:TextBox ID="txtBankCard" runat="server" CssClass="span5" placeholder="请输入你的银行卡卡号" datatype="n"></asp:TextBox>
+                            <asp:TextBox ID="txtBankCard" runat="server" CssClass="span5" placeholder="请输入你的银行卡卡号" datatype="n15-20"></asp:TextBox>
                         </div>
                     </div>
 

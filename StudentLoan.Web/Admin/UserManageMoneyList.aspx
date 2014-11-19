@@ -1,4 +1,4 @@
-﻿ <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserManageMoneyList.aspx.cs" Inherits="StudentLoan.Web.Admin.UserManageMoneyList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserManageMoneyList.aspx.cs" Inherits="StudentLoan.Web.Admin.UserManageMoneyList" %>
 
 
 <%@ Register Assembly="AspNetPager" Namespace="Wuqi.Webdiyer" TagPrefix="webdiyer" %>
@@ -82,7 +82,7 @@
                 <div class="br corner"></div>
                 <div class="cnt-wp">
                     <div class="cnt">
-                        <asp:Repeater ID="objRepeater" runat="server">
+                        <asp:Repeater ID="objRepeater" runat="server" OnItemDataBound="objRepeater_ItemDataBound">
                             <HeaderTemplate>
                                 <table class="data-table" width="100%" border="0" cellspacing="0" cellpadding="0">
                                     <tr>
@@ -110,7 +110,7 @@
                                     <td class="txt40 c"><%#Eval("CreateTime")%></td>
                                     <td class="txt40 c"><%#Eval("PayTime")%></td>
                                     <td class="txt40 c"><%# this.GetStatusName(Convert.ToInt32(Eval("Status")))%></td>
-                                    <td class="txt40 c"><a class="opt" title="详情" href="UserEarningsList.aspx?UserId=<%#Eval("UserId") %>"><span class="icon-sprite icon-list"></span></a></td>
+                                    <td class="txt40 c"><asp:Literal ID="objLiteral" runat="server"></asp:Literal></td>
 
                                 </tr>
                             </ItemTemplate>

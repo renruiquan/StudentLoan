@@ -7,18 +7,18 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using StudentLoan.Common;
-using StudentLoan.BLL;
 using StudentLoan.Model;
-using System.Text.RegularExpressions;
+using StudentLoan.BLL;
 
 namespace StudentLoan.Web.user
 {
-    public partial class ChangePassword : BasePage
+    public partial class ChangeWithDrawPassword : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+
                 #region 设置样式
 
                 string id = MethodBase.GetCurrentMethod().DeclaringType.Name;
@@ -38,7 +38,7 @@ namespace StudentLoan.Web.user
 
                 string type = this.Request<string>("type");
 
-                if (!string.IsNullOrEmpty(type) && type == "findpassword")
+                if (!string.IsNullOrEmpty(type) && type == "findwithdrawpassword")
                 {
                     this.divOldPassword.Visible = false;
                 }
@@ -62,11 +62,12 @@ namespace StudentLoan.Web.user
                     return;
                 }
 
-                if (DESHelper.Encrypt(oldPassword, model.Salt) != model.Password)
+                if (DESHelper.Encrypt(oldPassword, model.Salt) != model.DrawMoneyPassword)
                 {
                     this.artDialog("错误", "旧密码不正确，请修正后重试！");
                     return;
                 }
+
             }
 
             if (!newPassword.Equals(confirmPassword))
@@ -92,16 +93,16 @@ namespace StudentLoan.Web.user
             model = new UsersEntityEx()
             {
                 UserId = model.UserId,
-                Salt = Guid.NewGuid().ToString().Split('-')[1],
+                Salt = model.Salt
             };
 
-            model.Password = DESHelper.Encrypt(newPassword, model.Salt);
+            model.DrawMoneyPassword = DESHelper.Encrypt(newPassword, model.Salt);
 
-            bool result = new UsersBLL().UpdatePassword(model);
+            bool result = new UsersBLL().UpdateWithDrawPassword(model);
 
             if (result)
             {
-                this.artDialog("提示", string.Format("密码修改{0}，请使用新密码重新登录", result == true ? "成功" : "失败"), "/LoginOut.aspx");
+                this.artDialog("提示", string.Format("密码修改{0}，请使用新的提现密码提现", result == true ? "成功" : "失败"));
 
             }
         }

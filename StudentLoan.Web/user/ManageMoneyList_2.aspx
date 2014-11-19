@@ -13,6 +13,25 @@
     <script type="text/javascript">
         $(function () {
             $('.datepickers').datepicker();
+
+            $(".draw").on("click", function () {
+                var url = $(this).attr("location");
+                var d = dialog({
+                    title: '提示',
+                    content: '您购买的理财产品还没有到期，申请转出需要管理员审核，是否确认转出？',
+                    okValue: '确定',
+                    ok: function () {
+                        window.location.href = url;
+                        return false;
+                    },
+                    cancelValue: '取消',
+                    cancel: function () { }
+                });
+
+                d.showModal();
+            });
+
+
         });
     </script>
 </asp:Content>
@@ -36,7 +55,7 @@
                     <span>交易时间：</span>
                     <asp:TextBox ID="txtStartTime" Style="cursor: pointer" runat="server" class="span2 datepickers" value="" type="text" data-date-format="yyyy-mm-dd" placeholder="起始日期" />
                     <span>- </span>
-                    <asp:TextBox ID="txtEndTime" Style="cursor: pointer"  runat="server" class="span2 datepickers" value="" type="text" data-date-format="yyyy-mm-dd" placeholder="结束日期" />
+                    <asp:TextBox ID="txtEndTime" Style="cursor: pointer" runat="server" class="span2 datepickers" value="" type="text" data-date-format="yyyy-mm-dd" placeholder="结束日期" />
 
                     <button id="btnQuery" runat="server" class="btn btn-primary" type="button" onserverclick="btnSearch_Click">查询</button>
                 </div>

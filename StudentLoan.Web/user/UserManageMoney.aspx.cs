@@ -72,6 +72,9 @@ namespace StudentLoan.Web.user
 
         private void BindPeriodList()
         {
+            this.ValidateBaseCert();
+
+
             ProductEntityEx productModel = new ProductBLL().GetModel(this.ProductId);
 
             this.lblMsg.Text = string.Format("(至少购买{0}元)", productModel.ProductMinMoney);
@@ -82,7 +85,7 @@ namespace StudentLoan.Web.user
                 this.ddlPeriod.Items.Add(new ListItem("2个月", "2"));
                 this.ddlPeriod.Items.Add(new ListItem("3个月", "3"));
 
-                
+
             }
             else if (this.ProductId == 5)
             {
@@ -98,7 +101,7 @@ namespace StudentLoan.Web.user
                 this.ddlPeriod.Items.Add(new ListItem("10个月", "10"));
                 this.ddlPeriod.Items.Add(new ListItem("11个月", "11"));
                 this.ddlPeriod.Items.Add(new ListItem("12个月", "12"));
-                
+
             }
         }
 
@@ -158,7 +161,54 @@ namespace StudentLoan.Web.user
             }
         }
 
+        /// <summary>
+        /// 校验基本认证信息
+        /// </summary>
+        protected void ValidateBaseCert()
+        {
+            UsersEntityEx model = base.GetUserModel();
 
+            #region 校验用户基本信息
 
+            if (model != null)
+            {
+                if (string.IsNullOrEmpty(model.TrueName))
+                {
+                    this.artDialog("提示", "对不起，您还没有填写真实姓名，请完善后重试！", "/user/UserAccountCert_2.aspx");
+                    return;
+                }
+                if (string.IsNullOrEmpty(model.IdentityCard))
+                {
+                    this.artDialog("提示", "对不起，您还没有填写身份证号码，请完善后重试！", "/user/UserAccountCert_2.aspx");
+                    return;
+                }
+                if (string.IsNullOrEmpty(model.Mobile))
+                {
+                    this.artDialog("提示", "对不起，您还没有绑定手机号码，请完善后重试！", "/user/BindMobile.aspx");
+                    return;
+                }
+                if (string.IsNullOrEmpty(model.Birthday.ToString()) || model.Birthday == default(DateTime))
+                {
+                    this.artDialog("提示", "对不起，您还没有填写出生日期，请完善后重试！", "/user/UserAccountCert_2.aspx");
+                    return;
+                }
+                if ((DateTime.Now - model.Birthday).Days < 365 * 18)
+                {
+                    this.artDialog("提示", "对不起，您还没满18周岁，无法申请借款！", "/user/UserAccount.aspx");
+                    return;
+                }
+            }
+            else
+            {
+                this.artDialog("提示", "用户不存在，无法完成校验,请重新登录后重试！", "/login.aspx");
+                Session[StudentLoanKeys.SESSION_USER_INFO] = null;
+                this.WriteCookie("UserName", "StudentLoan", -14400);
+                this.WriteCookie("UserPwd", "StudentLoan", -14400);
+                Response.Redirect("/login.aspx");
+                return;
+            }
+
+            #endregion
+        }
     }
 }

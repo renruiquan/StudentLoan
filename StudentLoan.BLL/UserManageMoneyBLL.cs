@@ -69,9 +69,9 @@ namespace StudentLoan.BLL
         /// <summary>
         /// 获取一个实体
         /// </summary>
-        public UserManageMoneyEntityEx GetModel(int Status)
+        public UserManageMoneyEntityEx GetModel(int buyId)
         {
-            return dal.GetModel(Status);
+            return dal.GetModel(buyId);
         }
 
         /// <summary>

@@ -16,6 +16,8 @@
             $("#form1").Validform({
                 tiptype: 3
             });
+
+            $("#<%=txtWithdrawMoney.ClientID%>").val(" ");
         });
     </script>
 </asp:Content>
@@ -74,7 +76,7 @@
                         <label class="control-label">提现金额：</label>
 
                         <div class="controls">
-                            <asp:TextBox ID="txtWithdrawMoney" runat="server" type="text" placeholder="请填写提现金额..."
+                            <asp:TextBox ID="txtWithdrawMoney" runat="server" autocomplete="off" placeholder="请填写提现金额..."
                                 datatype="/^\d+$/" sucmsg="提现金额验证通过！" tips="请填写充值金额" nullmsg="提现金额不能为空" errormsg="提现金额填写错误" />
                             元
                         </div>
@@ -84,7 +86,8 @@
                         <label class="control-label">提现密码：</label>
 
                         <div class="controls">
-                            <asp:TextBox ID="txtDrawMoneyPassword" runat="server" TextMode="Password" placeholder="请填写提现密码..." datatype="*" />
+                            <asp:TextBox ID="txtDrawMoneyPassword" autocomplete="off" runat="server" TextMode="Password" placeholder="请填写提现密码..." datatype="*" />
+                            <a href="FindWithDrawPassword.aspx">忘记密码？</a>
                         </div>
                     </div>
 

@@ -85,6 +85,7 @@
                         <h2>个人信息</h2>
                         <ul>
                             <li><a id="ChangePassword" runat="server" href="ChangePassword.aspx"><i class="ico-key"></i>修改登录密码</a></li>
+                            <li><a id="ChangeWithDrawPassword" runat="server" href="ChangeWithDrawPassword.aspx"><i class="ico-key"></i>修改提现密码</a></li>
                             <li><a id="BindMobile" runat="server" href="BindMobile.aspx"><i class="ico-phone"></i>手机绑定</a></li>
                             <li><a id="BindBank" runat="server" href="BindBank.aspx"><i class="ico-diamond"></i>银行账户信息</a></li>
                             <li><a id="UserMessage" runat="server" href="UserMessage.aspx"><i class="ico-bubble"></i>消息管理</a></li>

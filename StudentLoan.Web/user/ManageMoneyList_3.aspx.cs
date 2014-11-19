@@ -132,17 +132,17 @@ namespace StudentLoan.Web.user
                 //  0=等待付款，1=已付款，2=用户消费付款
                 return "等待付款";
             }
-            else if (status == 0)
-            {
-                return "等待付款";
-            }
             else if (status == 1)
             {
                 return "已付款";
             }
             else if (status == 2)
             {
-                return "用户消费付款";
+                return "转出申请中";
+            }
+            else if (status == 3)
+            {
+                return "转出成功";
             }
             else
             {
@@ -167,11 +167,11 @@ namespace StudentLoan.Web.user
                 }
                 else if (model.Status == 2)
                 {
-                    objLiteral.Text = "转出申请中";
+                    objLiteral.Text = "";
                 }
                 else if (model.Status == 3)
                 {
-                    objLiteral.Text = "转出成功";
+                    objLiteral.Text = "";
                 }
 
             }

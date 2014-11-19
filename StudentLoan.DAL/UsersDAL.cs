@@ -441,7 +441,7 @@ namespace StudentLoan.DAL
         }
 
         /// <summary>
-        /// 更新一条数据
+        /// 更新登录密码
         /// </summary>
         public bool UpdatePassword(UsersEntityEx model)
         {
@@ -468,6 +468,36 @@ namespace StudentLoan.DAL
             paramsList.Add(new SqlParameter("@Password", model.Password));
 
             paramsList.Add(new SqlParameter("@Salt", model.Salt));
+
+            #endregion
+
+            return base.ExecuteNonQuery(commandText.ToString(), paramsList.ToArray());
+        }
+
+        /// <summary>
+        /// 更新提现密码
+        /// </summary>
+        public bool UpdateWithDrawPassword(UsersEntityEx model)
+        {
+            #region CommandText
+
+            StringBuilder commandText = new StringBuilder();
+
+            commandText.Append(" Update sl_users Set ");
+
+            commandText.Append(" DrawMoneyPassword = @DrawMoneyPassword ");
+
+            commandText.Append(" Where UserId = @UserId ");
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@UserId", model.UserId));
+
+            paramsList.Add(new SqlParameter("@DrawMoneyPassword", model.DrawMoneyPassword));
 
             #endregion
 

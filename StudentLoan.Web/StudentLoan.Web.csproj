@@ -543,7 +543,9 @@
     <Content Include="uploadify.swf" />
     <Content Include="user\AccountLog.aspx" />
     <Content Include="user\AvatarUpload.aspx" />
+    <Content Include="user\ChangeWithDrawPassword.aspx" />
     <Content Include="user\ChargeLog.aspx" />
+    <Content Include="user\FindWithDrawPassword.aspx" />
     <Content Include="user\ManageMoneyList_2.aspx" />
     <Content Include="user\ManageMoneyList_3.aspx" />
     <Content Include="RegSuccess.aspx" />
@@ -935,6 +937,12 @@
     <Compile Include="tools\validate_code.ashx.cs">
       <DependentUpon>validate_code.ashx</DependentUpon>
     </Compile>
+    <Compile Include="tools\validate_user_register.ashx.cs">
+      <DependentUpon>validate_user_register.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="tools\validate_vcerification_code.ashx.cs">
+      <DependentUpon>validate_vcerification_code.ashx</DependentUpon>
+    </Compile>
     <Compile Include="TTTTTTTTTTTTTTTTTTTTT.aspx.cs">
       <DependentUpon>TTTTTTTTTTTTTTTTTTTTT.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -956,12 +964,26 @@
     <Compile Include="user\AvatarUpload.aspx.designer.cs">
       <DependentUpon>AvatarUpload.aspx</DependentUpon>
     </Compile>
+    <Compile Include="user\ChangeWithDrawPassword.aspx.cs">
+      <DependentUpon>ChangeWithDrawPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\ChangeWithDrawPassword.aspx.designer.cs">
+      <DependentUpon>ChangeWithDrawPassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="user\ChargeLog.aspx.cs">
       <DependentUpon>ChargeLog.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="user\ChargeLog.aspx.designer.cs">
       <DependentUpon>ChargeLog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\FindWithDrawPassword.aspx.cs">
+      <DependentUpon>FindWithDrawPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\FindWithDrawPassword.aspx.designer.cs">
+      <DependentUpon>FindWithDrawPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="user\ManageMoneyList_2.aspx.cs">
       <DependentUpon>ManageMoneyList_2.aspx</DependentUpon>
@@ -1170,6 +1192,8 @@
     <Content Include="tools\delete_user_message.ashx" />
     <Content Include="tools\upload_avatar.ashx" />
     <Content Include="tools\upload_cert.ashx" />
+    <Content Include="tools\validate_user_register.ashx" />
+    <Content Include="tools\validate_vcerification_code.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

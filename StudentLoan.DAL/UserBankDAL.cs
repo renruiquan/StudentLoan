@@ -205,7 +205,7 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select UserId,BankId,BankName,BankCardNo,BankProvince,BankCity,Status,IsDefault,CreateTime,Remark ");
+            commandText.Append(" Select UserId,BaseBankId,BankId,BankName,BankCardNo,BankProvince,BankCity,Status,IsDefault,CreateTime,Remark ");
 
             commandText.Append("From sl_user_bank ");
 

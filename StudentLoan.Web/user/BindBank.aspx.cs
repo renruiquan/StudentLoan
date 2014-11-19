@@ -101,7 +101,7 @@ namespace StudentLoan.Web.user
 
                 Literal objLiteral = e.Item.FindControl("objLiteral") as Literal;
 
-                switch (model.BankId)
+                switch (model.BaseBankId)
                 {
                     case 1: objLiteral.Text = "<i><img src=\"../css/img/banks/icon_ICBC.jpg\" alt=\"\"></i>中国工商银行"; break;
                     case 2: objLiteral.Text = "<i><img src=\"../css/img/banks/icon_ABC.jpg\" alt=\"\"></i>中国农业银行"; break;

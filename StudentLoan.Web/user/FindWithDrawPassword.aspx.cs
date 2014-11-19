@@ -8,18 +8,17 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace StudentLoan.Web
+namespace StudentLoan.Web.user
 {
-    public partial class FindPassword : System.Web.UI.Page
+    public partial class FindWithDrawPassword : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
         protected void btnFindPassword_ServerClick(object sender, EventArgs e)
         {
-            string userName = this.txtUserName.Text.Trim();
+
             string mobile = this.txtMobile.Text.Trim();
 
             string validateCode = this.txtValidatecode.Text.Trim();
@@ -44,32 +43,7 @@ namespace StudentLoan.Web
                 return;
             }
 
-            UsersBLL bll = new UsersBLL();
-
-            int userId = bll.GetUserId(userName);
-
-            if (userId == 0)
-            {
-                this.artDialog("提示", "该用户不存在，无法找回密码！");
-                return;
-            }
-
-            UsersEntityEx userModel = bll.GetModel(userId);
-
-            if (userModel == null)
-            {
-                this.artDialog("提示", "该用户不存在，无法找回密码！");
-                return;
-            }
-
-            //写入Cookies
-            this.WriteCookie("SLRememberName", userModel.UserName, 14400);
-            this.WriteCookie("UserName", "StudentLoan", userModel.UserName);
-            this.WriteCookie("UserPwd", "StudentLoan", userModel.Password);
-
-            Session[StudentLoanKeys.SESSION_USER_INFO] = userModel;
-            Session.Timeout = 45;
-            Response.Redirect("/user/ChangePassword.aspx?type=findpassword");
+            Response.Redirect("/user/ChangeWithDrawPassword.aspx?type=findwithdrawpassword");
         }
     }
 }

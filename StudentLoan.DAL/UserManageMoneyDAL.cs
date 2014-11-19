@@ -233,7 +233,7 @@ namespace StudentLoan.DAL
 
             commandText.Append(" Update sl_user_manage_money Set ");
 
-            commandText.Append(" ApplyWithdrawalTime = getdate(), ");
+            commandText.Append(" WithdrawalTime = getdate(), ");
 
             commandText.Append(" AdminId = @AdminId, ");
 
@@ -276,7 +276,7 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select Top 1 BuyId,UserId,ProductId,ProductSchemeId,Count,period,Amount,CreateTime,PayTime,Status From sl_user_manage_money Where BuyId = @BuyId ");
+            commandText.Append(" Select Top 1 * From sl_user_manage_money Where BuyId = @BuyId ");
 
             #endregion
 

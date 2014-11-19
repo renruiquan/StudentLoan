@@ -17,6 +17,7 @@
                     url: "/js/city.min.js"
                 });
 
+           
             $("#form1").Validform({
                 tiptype: 3,
                 datatype: {
@@ -110,7 +111,8 @@
                         <label class="control-label"><span class="c-red">* </span>用户名：</label>
 
                         <div class="controls text-left">
-                            <asp:TextBox ID="txtUserName" runat="server" class="input-large span7" type="text" placeholder="昵称、中文、数字、字母组合" datatype="*4-16" ajaxurl="" sucmsg="用户名验证通过！" tips="4-16个字符，支持中英数字下划线组合，用户名一旦确认不可更改！" nullmsg="请填写用户名！4-16个字符，支持中英数字下划线组合，用户名一旦确认不可更改！" errormsg="您填写的用户名不正确！用户名必须是4-16个字符，支持中英数字下划线组合，用户名一旦确认不可更改！" />
+                            <asp:TextBox ID="txtUserName" runat="server"
+                                class="input-large span7" ajaxurl="/tools/validate_user_register.ashx" type="text" placeholder="昵称、中文、数字、字母组合" datatype="*4-16" sucmsg="用户名验证通过！" tips="4-16个字符，支持中英数字下划线组合，用户名一旦确认不可更改！" nullmsg="请填写用户名！4-16个字符，支持中英数字下划线组合，用户名一旦确认不可更改！" errormsg="您填写的用户名不正确！用户名必须是4-16个字符，支持中英数字下划线组合，用户名一旦确认不可更改！" />
                         </div>
                     </div>
 
@@ -178,7 +180,7 @@
                     <div class="control-group check-code">
                         <label class="control-label"><span class="c-red">* </span>验证码：</label>
                         <div class="controls text-left">
-                            <asp:TextBox ID="txtValidateCode" runat="server" class="input-large span5" type="text" placeholder="输入验证码" datatype="*4-4" sucmsg="验证码验证通过！" tips="请输入验证码" nullmsg="请输入验证码" errormsg="验证码不正确"  />
+                            <asp:TextBox ID="txtValidateCode" runat="server" ajaxurl="/tools/validate_vcerification_code.ashx" class="input-large span5" type="text" placeholder="输入验证码" datatype="*4-4" sucmsg="验证码验证通过！" tips="请输入验证码" nullmsg="请输入验证码" errormsg="验证码不正确" />
                             <a class="check-a" href="javascript:;">
                                 <img src="tools/validate_code.ashx" onclick="this.src='tools/validate_code.ashx?token='+Math.random();" width="100" height="40" alt="" />
                             </a>

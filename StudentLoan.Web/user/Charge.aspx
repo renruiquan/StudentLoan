@@ -191,7 +191,7 @@
                 <div class="item">
                     <h3>3.填写充值金额</h3>
 
-                    <p>单笔充值金额必须≥10元，<a href="javascript:;">各大银行每日充值限额</a></p>
+                    <p>单笔充值金额必须≥10元</p>
 
                     <p class="w240">
                         <asp:TextBox ID="Amount" runat="server" class="input input-block input-large" type="text"

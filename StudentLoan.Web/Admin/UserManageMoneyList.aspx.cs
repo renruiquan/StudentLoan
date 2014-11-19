@@ -25,36 +25,41 @@ namespace StudentLoan.Web.Admin
             {
                 this.txtStartTime.Text = DateTime.Now.ToString("yyyy-MM-dd");
 
-                string action = this.Request<string>("Action");
+                string action = this.Request<string>("action");
 
-                if (action == "DrawMoney")
+                if (action == "allow")
                 {
-                    int drawId = this.Request<int>("DrawId");
+                    int buyId = this.Request<int>("buyId");
 
-                    if (drawId > 0)
+                    if (buyId > 0)
                     {
-                        DrawMoneyEntityEx model = new DrawMoneyEntityEx();
-                        model.DrawId = drawId;
-                        model.AdminId = base.GetAdminInfo().AdminId;
-                        model.Status = 2;
 
-                        bool result = new DrawMoneyBLL().UpdateByAdmin(model);
+                        UserManageMoneyEntityEx model = new UserManageMoneyBLL().GetModel(buyId);
+
+                        if (model == null)
+                        {
+                            this.Alert("无此记录！", "UserManageMoneyList.aspx");
+                            return;
+                        }
+                        model.Status = 3;
+                        model.AdminId = base.GetAdminInfo().AdminId;
+
+                        bool result = new UserManageMoneyBLL().PassApplyWithdrawal(model);
 
                         if (result)
                         {
-                            int userId = this.Request<int>("UserId");
-                            string userMobile = new UsersBLL().GetModel(userId).Mobile;
+                            string userMobile = new UsersBLL().GetModel(model.UserId).Mobile;
 
-                            string code =  Message.Send(userMobile, "亲，你的提现申请已受理，请注意查收！【学子易贷】");
+                            string code = Message.Send(userMobile, "亲，你申请转出的理财金额已受理，已将金额转入您的账户中，请注意查收！【学子易贷】");
 
                             LogHelper.Default.Info("短信发送记录:" + code);
                         }
 
-                        this.Alert(string.Format("更新提现记录状态{0}", result == true ? "成功" : "失败"));
+                        this.Alert(string.Format("更新理财转出状态{0}", result == true ? "成功" : "失败"));
                     }
                     else
                     {
-                        this.Alert("参数不正确！", "DrawMoneyList.aspx");
+                        this.Alert("参数不正确！", "UserManageMoneyList.aspx");
                     }
 
                 }
@@ -133,17 +138,17 @@ namespace StudentLoan.Web.Admin
                 //  0=等待付款，1=已付款，2=用户消费付款
                 return "等待付款";
             }
-            else if (status == 0)
-            {
-                return "等待付款";
-            }
             else if (status == 1)
             {
                 return "已付款";
             }
             else if (status == 2)
             {
-                return "用户消费付款";
+                return "转出申请中";
+            }
+            else if (status == 3)
+            {
+                return "转出成功";
             }
             else
             {
@@ -252,6 +257,34 @@ namespace StudentLoan.Web.Admin
             Response.WriteFile(string.Format("{0}/{1}", MapPath("~/Excels"), filename));
             Response.Flush();
             Response.End();
+        }
+
+        protected void objRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
+            {
+                UserManageMoneyEntityEx model = e.Item.DataItem as UserManageMoneyEntityEx;
+
+                Literal objLiteral = e.Item.FindControl("objLiteral") as Literal;
+
+                StringBuilder objSB = new StringBuilder();
+
+                objSB.AppendFormat(@"<a href='UserEarningsList.aspx?UserId={0}'>收益详情</a>", model.UserId);
+
+                if (model.Status == 1)
+                {
+                    objLiteral.Text = objSB.ToString();
+                }
+                if (model.Status == 2)
+                {
+                    objSB.Append(" | ");
+
+                    objSB.AppendFormat("<a href='UserManageMoneyList.aspx?action=allow&BuyID={0}'>允许转出</a>", model.BuyId);
+
+                    objLiteral.Text = objSB.ToString();
+                }
+
+            }
         }
 
     }

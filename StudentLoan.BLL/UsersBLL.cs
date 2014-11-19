@@ -107,6 +107,14 @@ namespace StudentLoan.BLL
         }
 
         /// <summary>
+        /// 更新提现密码
+        /// </summary>
+        public bool UpdateWithDrawPassword(UsersEntityEx model)
+        {
+            return dal.UpdateWithDrawPassword(model);
+        }
+
+        /// <summary>
         ///管理员更新用户密码
         /// </summary>
         /// <param name="model"></param>

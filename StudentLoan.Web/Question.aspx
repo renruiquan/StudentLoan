@@ -203,7 +203,7 @@
                         </li>
                         <li>
                             <p class="ask">
-                                <b>17.我在填写学校信息的时候，找不到我们学校怎么办？</b>
+                                <b>17.我在填写学校信息的时候，ssssssssssss找不到我们学校怎么办？</b>
                             </p>
 
                             <div class="answer">

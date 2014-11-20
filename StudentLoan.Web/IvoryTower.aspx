@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="../css/bootstrap/css/bootstrap.ie6.min.css">
     <![endif]-->
     <script type="text/javascript" src="../css/bootstrap/js/jquery-1.7.2.min.js"></script>
-    <script src="js/scroll.js"></script>
+    <script src="js/jquery.kxbdmarquee.js"></script>
     <script type="text/javascript">
         $(function () {
             $("#madeloans").on("mouseover", function () {
@@ -28,10 +28,7 @@
                 $(this).css("cursor", "default");
             });
 
-            $("div.list").myScroll({
-                speed: 40,  //滚动速度,值越大速度越慢
-                rowHeight: 30 //每行的高度
-            });
+            $("#marquee").kxbdMarquee({ direction: "up", isEqual: false,scrollDelay:30 });
         });
     </script>
 </head>
@@ -159,7 +156,7 @@
                             <div class="blue-bg">
                                 <div class="person">
                                     <div class="blue-title">已申请人名单</div>
-                                    <div class="cont list" style="height: 120px; overflow: hidden;">
+                                    <div class="cont list" id="marquee">
                                         <StudentLoan:RepeaterPlus ID="objRepeater" runat="server">
                                             <HeaderTemplate>
                                                 <ul>

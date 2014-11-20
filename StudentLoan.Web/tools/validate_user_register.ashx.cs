@@ -13,6 +13,7 @@ namespace StudentLoan.Web.tools
     /// </summary>
     public class validate_user_register : IHttpHandler
     {
+        //用于Ajax检测用户名是否存在
 
         public void ProcessRequest(HttpContext context)
         {

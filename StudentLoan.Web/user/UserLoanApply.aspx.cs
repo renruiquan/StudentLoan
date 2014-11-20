@@ -63,7 +63,7 @@ namespace StudentLoan.Web.user
             else if (this.ProductId == 2)
             {
                 //高额贷款
-
+                this.ValiUserPoint();
                 this.ValidateBaseCert();
                 this.ValidateIdentityCardCert();
                 this.ValidateStudentIdCert();
@@ -218,16 +218,7 @@ namespace StudentLoan.Web.user
                 return;
             }
 
-            if (string.IsNullOrEmpty(schoolModel.XuexinUsername))
-            {
-                this.artDialog("提示", "对不起，您还没有填写学信网账号，请完善后重试！", "/user/UserAccountCert_2.aspx");
-                return;
-            }
-            if (string.IsNullOrEmpty(schoolModel.XuexinPassword))
-            {
-                this.artDialog("提示", "对不起，您还没有填写学信网密码，请完善后重试！", "/user/UserAccountCert_2.aspx");
-                return;
-            }
+
             if (string.IsNullOrEmpty(schoolModel.SchoolName))
             {
                 this.artDialog("提示", "对不起，您还没有填写就读学校，请完善后重试！", "/user/UserAccountCert_2.aspx");
@@ -338,11 +329,6 @@ namespace StudentLoan.Web.user
                     if (string.IsNullOrEmpty(FamilyModel.Mobile))
                     {
                         this.artDialog("提示", "对不起，你还没有填写直接亲属联系人的手机号码信息，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_2.aspx");
-                        return;
-                    }
-                    if (string.IsNullOrEmpty(FamilyModel.Profession))
-                    {
-                        this.artDialog("提示", "对不起，你还没有填写直接亲属联系人的职业信息，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_2.aspx");
                         return;
                     }
                 }
@@ -531,6 +517,22 @@ namespace StudentLoan.Web.user
             else
             {
                 this.artDialog("提示", "对不起，你还没有上传学银行流水截图，手机通讯详单等信息，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_3.aspx");
+                return;
+            }
+        }
+
+        /// <summary>
+        /// 验证用户积分是否可以高额借款
+        /// </summary>
+        protected void ValiUserPoint()
+        {
+            UsersEntityEx userModel = base.GetUserModel();
+
+            userModel = new UsersBLL().GetModel(userModel.UserId);
+
+            if (userModel.Point < 70)
+            {
+                this.artDialog("提示", "对不起，你当前信用等级无法进行高额贷款，请验证“可选认证资料”完成70信用积分即可申请高额贷款！", "/user/UserAccountCert_4.aspx");
                 return;
             }
         }

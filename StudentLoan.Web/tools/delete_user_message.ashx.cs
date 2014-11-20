@@ -13,6 +13,7 @@ namespace StudentLoan.Web.tools
     /// </summary>
     public class delete_user_message : IHttpHandler
     {
+        //删除用户短消息
 
         public void ProcessRequest(HttpContext context)
         {

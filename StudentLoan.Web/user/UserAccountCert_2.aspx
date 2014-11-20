@@ -8,6 +8,7 @@
     <script src="../js/Validform/js/Validform_v5.3.2_min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+
             $('.datepickers').datepicker();
             $("#demo1").typeahead();
 
@@ -67,6 +68,54 @@
             });
         });
     </script>
+
+    <script type="text/javascript">
+
+        var wait = 60;
+        var flag = true;
+
+        function time() {
+            if ($("#<%=txtMobile.ClientID%>").val() == "") {
+                this.alert("手机号码不能为空");
+                return;
+            }
+
+            if (flag) {
+
+                flag = false;
+                $.post("/tools/message_send.ashx", { "txtMobile": $("#<%=txtMobile.ClientID%>").val() }, function (data, status) {
+                    if (status != "success") {
+                        alert("短信发送失败");
+                        return;
+                    } else {
+                        alert(data);
+                    }
+                });
+            }
+
+            var btn = $("#<%=btnSendMessage.ClientID%>");
+            if (wait == 0) {
+                btn.removeAttr("disabled");
+                btn.text("发送手机验证码");
+                wait = 60;
+            } else {
+                btn.attr("disabled", true);
+                btn.text("重新发送(" + wait + ")");
+                wait--;
+                setTimeout(function () {
+                    time()
+                },
+                1000)
+            }
+        }
+
+
+        $(function () {
+            $("#form1").Validform({
+                tiptype: 3,
+            });
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -113,6 +162,14 @@
 
                                         <div class="controls text-left">
                                             <asp:TextBox ID="txtMobile" runat="server" class="span5" type="text" placeholder="请输入手机号" />
+                                            <button id="btnSendMessage" type="button" class="btn btn-info" runat="server" onclick="return time();">获取验证码</button>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">短信验证码：</label>
+
+                                        <div class="controls  text-left">
+                                            <asp:TextBox ID="txtValidatecode" runat="server" class="span5" type="text" datatype="*" ajaxurl="/tools/validate_message_send.ashx" placeholder="请输入发送至手机的验证码" />
                                         </div>
                                     </div>
                                     <div class="control-group">
@@ -228,7 +285,7 @@
                             <tr>
                                 <td>
 
-                                    <p class="mt10">* 学信网系统认证（请输入学信网的账号与密码，以方便我们核对信息，学子易贷保证您的得账户安全及个人隐私）</p>
+                                    <%--<p class="mt10">* 学信网系统认证（请输入学信网的账号与密码，以方便我们核对信息，学子易贷保证您的得账户安全及个人隐私）</p>
 
                                     <div class="control-group">
                                         <label class="control-label"><span class="c-blue">*</span> 账号：</label>
@@ -244,7 +301,7 @@
                                         <div class="controls text-left">
                                             <asp:TextBox ID="txtXuexin_Password" runat="server" class="span5" type="password" placeholder="请输入学信网密码" />
                                         </div>
-                                    </div>
+                                    </div>--%>
 
                                     <div class="control-group">
                                         <label class="control-label"><span class="c-blue">*</span> 就读学校：</label>
@@ -374,13 +431,13 @@
                                         </div>
                                     </div>
 
-                                    <div class="control-group">
+                                   <%-- <div class="control-group">
                                         <label class="control-label"><span class="c-blue">*</span> 职业：</label>
 
                                         <div class="controls text-left">
                                             <asp:TextBox ID="txtRelativeProfession" runat="server" class="span5" type="text" placeholder="请输入亲属职业" />
                                         </div>
-                                    </div>
+                                    </div>--%>
 
 
                                     <h3 class="text-left pl20">2.同学（同室）</h3>

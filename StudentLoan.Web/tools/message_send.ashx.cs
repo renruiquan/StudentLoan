@@ -12,6 +12,7 @@ namespace StudentLoan.Web.tools
     /// </summary>
     public class message_send : IHttpHandler
     {
+        //发送短信
 
         public void ProcessRequest(HttpContext context)
         {
@@ -31,7 +32,7 @@ namespace StudentLoan.Web.tools
             }
             else
             {
-                content = string.Format("【UTL温馨提醒】欢迎注册学子易贷帐号，您的手机验证码为：{0}，请在注册页面填写，有效期为5分钟。", mobileCode);
+                content = string.Format("【UTL温馨提醒】欢迎访问学子易贷，您的手机验证码为：{0}，请在基础认证页面填写，有效期为5分钟。", mobileCode);
             }
 
             context.Response.Write(Message.Send(mobile, content));

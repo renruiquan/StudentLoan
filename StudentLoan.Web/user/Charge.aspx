@@ -67,6 +67,24 @@
 
         });
     </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#form1").attr("onsubmit", "return checksubmit()");
+
+        });
+
+        function checksubmit() {
+
+            var amount = $("#<%=Amount.ClientID%>").val();
+
+            if (amount < 10) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="content">

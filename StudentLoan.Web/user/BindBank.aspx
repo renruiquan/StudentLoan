@@ -40,24 +40,21 @@
                     <div class="alert alert-error">
                         <strong>友情提示!</strong> 绑定的银行卡卡主姓名，必须和本站的真实姓名相同，否则无法完成提款操作！
                     </div>
-                    <asp:Repeater ID="objRepeater" runat="server" OnItemDataBound="objRepeater_ItemDataBound">
-                        <HeaderTemplate>
-                            <div>
-                                <h3>已绑定银行卡：</h3>
-                        </HeaderTemplate>
-                        <ItemTemplate>
-                            <label class="border-radius select-bank-cards">
-                                <span class="bank-name">
-                                    <asp:Literal runat="server" ID="objLiteral"></asp:Literal>
-                                </span>
-                                <span>卡号：<%#Eval("BankCardNo") %></span>
-                            </label>
-                        </ItemTemplate>
-                        <FooterTemplate>
-                            </div>
-                        </FooterTemplate>
-                    </asp:Repeater>
+                    <div>
+                        <h3>
+                            <asp:Literal ID="lblBindBankInfo" runat="server" Text="已绑定银行卡："></asp:Literal></h3>
+                        <asp:Repeater ID="objRepeater" runat="server" OnItemDataBound="objRepeater_ItemDataBound">
 
+                            <ItemTemplate>
+                                <label class="border-radius select-bank-cards">
+                                    <span class="bank-name">
+                                        <asp:Literal runat="server" ID="objLiteral"></asp:Literal>
+                                    </span>
+                                    <span>卡号：<%#Eval("BankCardNo") %></span>
+                                </label>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </div>
                     <div class="border-radius p10">
 
                         <p>

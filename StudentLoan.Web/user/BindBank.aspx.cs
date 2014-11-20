@@ -78,6 +78,11 @@ namespace StudentLoan.Web.user
 
             List<UserBankEntityEx> list = new UserBankBLL().GetList(strWhere);
 
+            if (list == null || list.Count == 0)
+            {
+                lblBindBankInfo.Visible = false;
+            }
+
             this.objRepeater.DataSource = list;
             this.objRepeater.DataBind();
         }

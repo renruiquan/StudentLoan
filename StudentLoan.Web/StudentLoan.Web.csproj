@@ -415,6 +415,7 @@
     <Content Include="js\DatePicker\skin\whyGreen\datepicker.css" />
     <Content Include="js\DatePicker\skin\whyGreen\img.gif" />
     <Content Include="js\DatePicker\WdatePicker.js" />
+    <Content Include="js\jquery.kxbdmarquee.js" />
     <Content Include="js\jquery.uploadify.js" />
     <Content Include="js\birthday.js" />
     <Content Include="js\bootstrap-datepicker.js" />
@@ -435,7 +436,6 @@
     <Content Include="js\jquery.min.js" />
     <Content Include="js\PCASClass\PCASClass.js" />
     <Content Include="js\prefixfree.min.js" />
-    <Content Include="js\scroll.js" />
     <Content Include="js\Uploadify\jquery.uploadify.js" />
     <Content Include="js\Uploadify\jquery.uploadify.min.js" />
     <Content Include="js\Uploadify\uploadify-cancel.png" />
@@ -937,6 +937,9 @@
     <Compile Include="tools\validate_code.ashx.cs">
       <DependentUpon>validate_code.ashx</DependentUpon>
     </Compile>
+    <Compile Include="tools\validate_message_send.ashx.cs">
+      <DependentUpon>validate_message_send.ashx</DependentUpon>
+    </Compile>
     <Compile Include="tools\validate_user_register.ashx.cs">
       <DependentUpon>validate_user_register.ashx</DependentUpon>
     </Compile>
@@ -1194,6 +1197,7 @@
     <Content Include="tools\upload_cert.ashx" />
     <Content Include="tools\validate_user_register.ashx" />
     <Content Include="tools\validate_vcerification_code.ashx" />
+    <Content Include="tools\validate_message_send.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

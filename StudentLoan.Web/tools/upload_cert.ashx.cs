@@ -14,6 +14,7 @@ namespace StudentLoan.Web.tools
     /// </summary>
     public class upload_cert : IHttpHandler
     {
+        //用于上传图片
 
         public void ProcessRequest(HttpContext context)
         {

@@ -18,6 +18,7 @@ namespace StudentLoan.Web.tools
     /// </summary>
     public class upload_avatar : IHttpHandler, IReadOnlySessionState
     {
+        //用于上传头像
 
         public void ProcessRequest(HttpContext context)
         {

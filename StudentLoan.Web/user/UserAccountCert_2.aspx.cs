@@ -76,6 +76,8 @@ namespace StudentLoan.Web.user
             string gender = ddlGender.SelectedValue;
             string nation = ddlNation.SelectedValue;
             string birthday = txtBirthday.Text.Trim().HtmlEncode();
+            string validateCode = this.txtValidatecode.Text.Trim();
+            string mobileCode = CacheHelper.Get<string>("MobileCode");
 
             //step1个人基本信息验证
             if (string.IsNullOrEmpty(truename))
@@ -128,11 +130,20 @@ namespace StudentLoan.Web.user
                 return;
             }
 
-
-
             if (!mobileRegex.IsMatch(mobile))
             {
                 this.artDialog("错误", "请输入正确的11位手机号码，如：15900001111");
+                return;
+            }
+            if (string.IsNullOrEmpty(mobileCode))
+            {
+                this.artDialog("验证码已过期,请重新获取！");
+                return;
+            }
+
+            if (validateCode != mobileCode)
+            {
+                this.artDialog("手机验证码不正确！");
                 return;
             }
 
@@ -161,6 +172,9 @@ namespace StudentLoan.Web.user
             {
                 Session[StudentLoanKeys.SESSION_USER_LOGIN_SUM] = Convert.ToInt32(Session[StudentLoanKeys.SESSION_USER_LOGIN_SUM]) + 1;
             }
+
+            //请除使用过的短信验证码
+            CacheHelper.Set("MobileCode", null);
 
             userModel.TrueName = truename;
             userModel.Mobile = mobile;
@@ -202,8 +216,8 @@ namespace StudentLoan.Web.user
             UsersEntityEx userModel = base.GetUserModel();
             UserSchoolEntityEx userschoolModel = new UserSchoolEntityEx();
             //step2学校信息
-            string xuexinusername = txtXuexin.Text.Trim().HtmlEncode();
-            string xuexinpass = txtXuexin_Password.Text.Trim().HtmlEncode();
+            //   string xuexinusername = txtXuexin.Text.Trim().HtmlEncode();
+            //  string xuexinpass = txtXuexin_Password.Text.Trim().HtmlEncode();
             string schoolname = txtSchoolName.Text.Trim().HtmlEncode();
             string schooladd = txtSchoolAdd.Text.Trim().HtmlEncode();
             string yearofadmission = txtYearOfAdmission.Text.Trim().HtmlEncode();
@@ -212,16 +226,16 @@ namespace StudentLoan.Web.user
             string major = txtMajor.Text.Trim().HtmlEncode();
 
             //step3学校信息验证
-            if (string.IsNullOrEmpty(xuexinusername))
-            {
-                this.artDialog("错误", "学信网账号不能为空，请重新填写");
-                return;
-            }
-            if (string.IsNullOrEmpty(xuexinpass))
-            {
-                this.artDialog("错误", "学信网密码不能为空，请重新填写");
-                return;
-            }
+            //if (string.IsNullOrEmpty(xuexinusername))
+            //{
+            //    this.artDialog("错误", "学信网账号不能为空，请重新填写");
+            //    return;
+            //}
+            //if (string.IsNullOrEmpty(xuexinpass))
+            //{
+            //    this.artDialog("错误", "学信网密码不能为空，请重新填写");
+            //    return;
+            //}
             if (string.IsNullOrEmpty(schoolname))
             {
                 this.artDialog("错误", "学校名称不能为空，请重新填写");
@@ -265,8 +279,8 @@ namespace StudentLoan.Web.user
 
 
             userschoolModel.UserId = userModel.UserId;
-            userschoolModel.XuexinUsername = xuexinusername;
-            userschoolModel.XuexinPassword = xuexinpass;
+            userschoolModel.XuexinUsername = string.Empty;  // xuexinusername;
+            userschoolModel.XuexinPassword = string.Empty;//xuexinpass;
             userschoolModel.SchoolAddress = schooladd;
             userschoolModel.YearOfAdmission = Convert.ToDateTime(yearofadmission);
             userschoolModel.SchoolSystem = schoolsystem;
@@ -314,11 +328,11 @@ namespace StudentLoan.Web.user
             UserRelationshipEntityEx userrelationshipmodel = new UserRelationshipEntityEx();
             //step3 联系人信息字段
             string relativename = txtRelativeName.Text.Trim().HtmlEncode();
-            string relativeprofession = txtRelativeProfession.Text.Trim().HtmlEncode();
+            // string relativeprofession = txtRelativeProfession.Text.Trim().HtmlEncode();
             string relativetype = txtRelationtype.Text.Trim().HtmlEncode();
             string relativemobile = txtRelativeMobile.Text.Trim().HtmlEncode();
 
-            if (string.IsNullOrEmpty(relativename) || string.IsNullOrEmpty(relativeprofession) || string.IsNullOrEmpty(relativetype) || string.IsNullOrEmpty(relativemobile))
+            if (string.IsNullOrEmpty(relativename) || string.IsNullOrEmpty(relativetype) || string.IsNullOrEmpty(relativemobile))
             {
                 this.artDialog("提示", "请将亲属信息填写完整");
                 return;
@@ -374,7 +388,7 @@ namespace StudentLoan.Web.user
             //亲属
             userrelationshipmodel.UserId = userModel.UserId;
             userrelationshipmodel.Name = relativename;
-            userrelationshipmodel.Profession = relativeprofession;
+            userrelationshipmodel.Profession = string.Empty; //relativeprofession;
             userrelationshipmodel.Relationship = relativetype;
             userrelationshipmodel.Mobile = relativemobile;
             userrelationshipmodel.Type = 1;
@@ -514,8 +528,8 @@ namespace StudentLoan.Web.user
 
             if (model != null)
             {
-                this.txtXuexin.Text = model.XuexinUsername;
-                this.txtXuexin_Password.Text = model.XuexinPassword;
+                // this.txtXuexin.Text = model.XuexinUsername;
+                //  this.txtXuexin_Password.Text = model.XuexinPassword;
                 this.txtSchoolName.Text = model.SchoolName;
                 this.txtSchoolAdd.Text = model.SchoolAddress;
                 this.txtYearOfAdmission.Text = model.YearOfAdmission.ToString("yyyy-MM-dd");
@@ -544,7 +558,7 @@ namespace StudentLoan.Web.user
                     this.txtRelativeName.Text = familyModel.Name;
                     this.txtRelationtype.Text = familyModel.Relationship;
                     this.txtRelativeMobile.Text = familyModel.Mobile;
-                    this.txtRelativeProfession.Text = familyModel.Profession;
+                    // this.txtRelativeProfession.Text = familyModel.Profession;
                 }
 
                 if (studentModel != null)

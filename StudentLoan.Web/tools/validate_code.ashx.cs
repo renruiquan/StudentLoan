@@ -14,6 +14,7 @@ namespace StudentLoan.Web.tools
     /// </summary>
     public class validate_code : IHttpHandler, IRequiresSessionState
     {
+        //用于生面网页中的验证码图片
 
         public void ProcessRequest(HttpContext context)
         {

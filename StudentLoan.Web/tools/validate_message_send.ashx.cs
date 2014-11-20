@@ -1,29 +1,32 @@
-﻿using System;
+﻿using StudentLoan.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.SessionState;
-using StudentLoan.Common;
-using StudentLoan.BLL;
-using StudentLoan.Model;
 
 namespace StudentLoan.Web.tools
 {
     /// <summary>
-    /// validate_vcerification_code 的摘要说明
+    /// validate_message_send 的摘要说明
     /// </summary>
-    public class validate_vcerification_code : IHttpHandler, IReadOnlySessionState
+    public class validate_message_send : IHttpHandler, IReadOnlySessionState
     {
-        //用于Ajax检测验证码输入是否正确
+        //验证Ajax用户输入的短信验证码是否正确
+
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/plain";
 
-            string code = context.Session[StudentLoanKeys.SESSION_CODE].ToString();
+            string code = CacheHelper.Get<string>("MobileCode");
 
             string vcerify_code = context.Request.Params["param"];
 
-            if (code.ToLower() != vcerify_code.ToLower())
+            if (string.IsNullOrEmpty(code))
+            {
+                context.Response.Write("{\"info\":\"请先获取验证码！\",\"status\":\"n\"}");
+            }
+            else if (code.ToLower() != vcerify_code.ToLower())
             {
                 context.Response.Write("{\"info\":\"验证码错误！\",\"status\":\"n\"}");
             }

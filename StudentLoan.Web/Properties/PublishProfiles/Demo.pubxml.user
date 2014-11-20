@@ -387,10 +387,10 @@
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>11/20/2014 02:34:29</publishTime>
+      <publishTime>11/21/2014 00:49:17</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>11/20/2014 02:34:29</publishTime>
+      <publishTime>11/21/2014 00:49:17</publishTime>
     </File>
     <File Include="bin/AspNetPager.dll">
       <publishTime>11/17/2014 19:11:47</publishTime>
@@ -447,7 +447,7 @@
       <publishTime>11/19/2014 01:05:52</publishTime>
     </File>
     <File Include="bin/StudentLoan.Web.dll">
-      <publishTime>11/20/2014 02:34:26</publishTime>
+      <publishTime>11/21/2014 00:49:14</publishTime>
     </File>
     <File Include="bin/zh-CHT/AspNetPager.resources.dll">
       <publishTime>11/17/2014 19:11:47</publishTime>
@@ -960,16 +960,16 @@
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="css/img/bg/step1.jpg">
-      <publishTime>11/17/2014 19:11:48</publishTime>
+      <publishTime>11/21/2014 00:01:32</publishTime>
     </File>
     <File Include="css/img/bg/step2.jpg">
-      <publishTime>11/17/2014 19:11:48</publishTime>
+      <publishTime>11/21/2014 00:01:32</publishTime>
     </File>
     <File Include="css/img/bg/step3.jpg">
-      <publishTime>11/17/2014 19:11:48</publishTime>
+      <publishTime>11/21/2014 00:01:32</publishTime>
     </File>
     <File Include="css/img/bg/step4.jpg">
-      <publishTime>11/17/2014 19:11:48</publishTime>
+      <publishTime>11/21/2014 00:01:32</publishTime>
     </File>
     <File Include="css/img/bg/step_rx.jpg">
       <publishTime>11/17/2014 19:11:48</publishTime>
@@ -1059,7 +1059,7 @@
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="img/anonymous.jpg">
-      <publishTime>11/17/2014 19:11:48</publishTime>
+      <publishTime>11/20/2014 21:31:37</publishTime>
     </File>
     <File Include="img/glyphicons-halflings-white.png">
       <publishTime>11/17/2014 19:11:48</publishTime>
@@ -1071,7 +1071,7 @@
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="IvoryTower.aspx">
-      <publishTime>11/19/2014 00:45:38</publishTime>
+      <publishTime>11/21/2014 00:48:49</publishTime>
     </File>
     <File Include="js/birthday.js">
       <publishTime>11/17/2014 19:11:48</publishTime>
@@ -1147,6 +1147,9 @@
     </File>
     <File Include="js/jquery.cityselect.js">
       <publishTime>11/17/2014 19:11:48</publishTime>
+    </File>
+    <File Include="js/jquery.kxbdmarquee.js">
+      <publishTime>11/21/2014 00:41:37</publishTime>
     </File>
     <File Include="js/jquery.min.js">
       <publishTime>11/17/2014 19:11:48</publishTime>
@@ -1464,13 +1467,13 @@
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>11/20/2014 02:34:27</publishTime>
+      <publishTime>11/21/2014 00:49:15</publishTime>
     </File>
     <File Include="ProductSchemeList.aspx">
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="Question.aspx">
-      <publishTime>11/17/2014 19:11:48</publishTime>
+      <publishTime>11/20/2014 22:14:34</publishTime>
     </File>
     <File Include="Register.aspx">
       <publishTime>11/20/2014 01:51:22</publishTime>
@@ -1502,6 +1505,9 @@
     <File Include="tools/validate_code.ashx">
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
+    <File Include="tools/validate_message_send.ashx">
+      <publishTime>11/20/2014 23:20:01</publishTime>
+    </File>
     <File Include="tools/validate_user_register.ashx">
       <publishTime>11/20/2014 00:12:31</publishTime>
     </File>
@@ -1521,10 +1527,10 @@
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="user/BindBank.aspx">
-      <publishTime>11/20/2014 01:40:16</publishTime>
+      <publishTime>11/20/2014 23:55:06</publishTime>
     </File>
     <File Include="user/BindMobile.aspx">
-      <publishTime>11/20/2014 01:43:04</publishTime>
+      <publishTime>11/20/2014 22:56:37</publishTime>
     </File>
     <File Include="user/ChangePassword.aspx">
       <publishTime>11/17/2014 23:25:55</publishTime>
@@ -1533,7 +1539,7 @@
       <publishTime>11/19/2014 23:31:32</publishTime>
     </File>
     <File Include="user/Charge.aspx">
-      <publishTime>11/19/2014 22:33:14</publishTime>
+      <publishTime>11/21/2014 00:16:10</publishTime>
     </File>
     <File Include="user/ChargeLog.aspx">
       <publishTime>11/17/2014 19:11:48</publishTime>
@@ -1554,7 +1560,7 @@
       <publishTime>11/17/2014 19:11:48</publishTime>
     </File>
     <File Include="user/ManageMoneyList_2.aspx">
-      <publishTime>11/20/2014 02:33:22</publishTime>
+      <publishTime>11/20/2014 02:39:32</publishTime>
     </File>
     <File Include="user/ManageMoneyList_3.aspx">
       <publishTime>11/17/2014 19:11:48</publishTime>
@@ -1572,7 +1578,7 @@
       <publishTime>11/19/2014 00:43:00</publishTime>
     </File>
     <File Include="user/UserAccountCert_2.aspx">
-      <publishTime>11/18/2014 01:20:35</publishTime>
+      <publishTime>11/20/2014 23:40:14</publishTime>
     </File>
     <File Include="user/UserAccountCert_3.aspx">
       <publishTime>11/17/2014 19:11:48</publishTime>

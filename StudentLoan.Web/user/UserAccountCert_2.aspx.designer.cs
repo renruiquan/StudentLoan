@@ -40,6 +40,24 @@ namespace StudentLoan.Web.user {
         protected global::System.Web.UI.WebControls.TextBox txtMobile;
         
         /// <summary>
+        /// btnSendMessage 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnSendMessage;
+        
+        /// <summary>
+        /// txtValidatecode 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtValidatecode;
+        
+        /// <summary>
         /// ddlGender 控件。
         /// </summary>
         /// <remarks>
@@ -74,24 +92,6 @@ namespace StudentLoan.Web.user {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton btnSaveStepOne;
-        
-        /// <summary>
-        /// txtXuexin 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtXuexin;
-        
-        /// <summary>
-        /// txtXuexin_Password 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtXuexin_Password;
         
         /// <summary>
         /// txtSchoolName 控件。
@@ -182,15 +182,6 @@ namespace StudentLoan.Web.user {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRelativeMobile;
-        
-        /// <summary>
-        /// txtRelativeProfession 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRelativeProfession;
         
         /// <summary>
         /// txtMateName 控件。

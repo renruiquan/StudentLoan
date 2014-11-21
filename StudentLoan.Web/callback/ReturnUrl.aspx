@@ -5,6 +5,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="/img/layout.css" rel="stylesheet" />
+    <script type="text/javascript">
+        setTimeout(function () { this.location.href = "/user/ChargeLog.aspx" }, 5000);
+    </script>
     <title></title>
 </head>
 <body>

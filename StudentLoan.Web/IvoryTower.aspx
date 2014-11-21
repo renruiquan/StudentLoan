@@ -28,7 +28,7 @@
                 $(this).css("cursor", "default");
             });
 
-            $("#marquee").kxbdMarquee({ direction: "up", isEqual: false,scrollDelay:30 });
+            $("#marquee").kxbdMarquee({ direction: "up", isEqual: false, scrollDelay: 30 });
         });
     </script>
 </head>
@@ -156,7 +156,7 @@
                             <div class="blue-bg">
                                 <div class="person">
                                     <div class="blue-title">已申请人名单</div>
-                                    <div class="cont list" id="marquee">
+                                    <div class="cont list" id="marquee" style="width: auto;">
                                         <StudentLoan:RepeaterPlus ID="objRepeater" runat="server">
                                             <HeaderTemplate>
                                                 <ul>

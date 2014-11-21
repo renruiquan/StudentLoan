@@ -11,7 +11,8 @@
         $(function () {
             $("#bank_area").citySelect(
                 {
-                    url: "/js/city.min.js"
+                    url: "/js/city.min.js",
+                    prov: "北京", nodata: "none"
                 });
 
             $("#form1").Validform({

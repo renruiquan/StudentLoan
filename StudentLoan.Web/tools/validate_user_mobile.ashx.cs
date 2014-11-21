@@ -18,6 +18,12 @@ namespace StudentLoan.Web.tools
 
             string mobile = context.Request.Params["param"];
 
+            if (string.IsNullOrEmpty(mobile))
+            {
+                context.Response.Write("{\"info\":\"请填写手机号码！\",\"status\":\"n\"}");
+                return;
+            }
+
             bool result = new UsersBLL().ExistsMobile(mobile);
 
             if (result)

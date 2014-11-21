@@ -18,6 +18,13 @@ namespace StudentLoan.Web.tools
 
             string email = context.Request.Params["param"];
 
+
+            if (string.IsNullOrEmpty(email))
+            {
+                context.Response.Write("{\"info\":\"请填写邮箱信息！\",\"status\":\"n\"}");
+                return;
+            }
+
             bool result = new UsersBLL().ExistsEMail(email);
 
             if (result)

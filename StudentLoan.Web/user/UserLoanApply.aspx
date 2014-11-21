@@ -11,13 +11,13 @@
             $("#<%=ddlLoanMoney.ClientID%>").on("change", function () {
                 var loanMoney = $(this).val();
                 var totalAmortization = $("#<%=ddlTotalAmortization.ClientID%>").val();
-                $("#repaymoney").text(loanMoney * totalAmortization * 0.09 + "元");
+                $("#repaymoney").text(loanMoney * 0.09 + "元");
             });
 
             $("#<%=ddlTotalAmortization.ClientID%>").on("change", function () {
                 var loanMoney = $("#<%=ddlLoanMoney.ClientID%>").val();
                 var totalAmortization = $(this).val();
-                $("#repaymoney").text(loanMoney * totalAmortization * 0.09 + "元");
+                $("#repaymoney").text(loanMoney  * 0.09 + "元");
             })
 
         });

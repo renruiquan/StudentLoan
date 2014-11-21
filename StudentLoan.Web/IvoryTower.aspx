@@ -135,7 +135,7 @@
                             </div>
 
                             <div class="right-items">
-                                <h4>归还金额</h4>
+                                <h4>本期还款金额</h4>
 
                                 <div class="blue-bg">
                                     <div class="blue-title">
@@ -145,7 +145,7 @@
                             </div>
 
                             <div class="right-items">
-                                <h4>归还进度</h4>
+                                <h4>本期还款进度</h4>
 
                                 <div class="blue-bg">
                                     <div class="blue-title">

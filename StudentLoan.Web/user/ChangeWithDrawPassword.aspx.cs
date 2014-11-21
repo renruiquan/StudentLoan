@@ -102,8 +102,14 @@ namespace StudentLoan.Web.user
 
             if (result)
             {
-                this.artDialog("提示", string.Format("密码修改{0}，请使用新的提现密码提现", result == true ? "成功" : "失败"));
+                //更新缓存
+                UsersEntityEx userModel = new UsersBLL().GetModel(base.GetUserModel().UserId);
 
+                this.WriteCookie("SLRememberName", model.UserName, 14400);
+                this.WriteCookie("UserName", "StudentLoan", model.UserName);
+                this.WriteCookie("UserPwd", "StudentLoan", model.Password);
+
+                this.artDialog("提示", string.Format("密码修改{0}，请使用新的提现密码提现", result == true ? "成功" : "失败"));
             }
         }
     }

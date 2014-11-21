@@ -113,7 +113,7 @@
                                     <a href="UserAccountCert_2.aspx">未完成</a>
                                     <%
                                        }
-                                       else if (!string.IsNullOrEmpty(this.UserSchoolModel.XuexinUsername) && !string.IsNullOrEmpty(this.UserSchoolModel.XuexinPassword) && !string.IsNullOrEmpty(this.UserSchoolModel.SchoolName)
+                                       else if (!string.IsNullOrEmpty(this.UserSchoolModel.SchoolName)
                                                 && !string.IsNullOrEmpty(this.UserSchoolModel.SchoolAddress) && (this.UserSchoolModel.YearOfAdmission != null || this.UserSchoolModel.YearOfAdmission != default(DateTime))
                                                 && this.UserSchoolModel.SchoolSystem > 0 && this.UserSchoolModel.Education > 0 && !string.IsNullOrEmpty(this.UserSchoolModel.Major))
                                        {
@@ -144,7 +144,7 @@
                                     <%
                                         }
                                         else if (!string.IsNullOrEmpty(this.FamilyModel.Name) && !string.IsNullOrEmpty(this.FamilyModel.Relationship) &&
-                                                 !string.IsNullOrEmpty(this.FamilyModel.Mobile) && !string.IsNullOrEmpty(this.FamilyModel.Profession) &&
+                                                 !string.IsNullOrEmpty(this.FamilyModel.Mobile) &&
                                                  !string.IsNullOrEmpty(this.StudentModel.Name) && !string.IsNullOrEmpty(this.StudentModel.Mobile) &&
                                                  !string.IsNullOrEmpty(this.FriendModel.Name) && !string.IsNullOrEmpty(this.FriendModel.Mobile))
                                         {

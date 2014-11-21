@@ -174,7 +174,7 @@ namespace StudentLoan.Web.user
             }
 
             //请除使用过的短信验证码
-            CacheHelper.Set("MobileCode", null);
+            CacheHelper.Remove("MobileCode");
 
             userModel.TrueName = truename;
             userModel.Mobile = mobile;

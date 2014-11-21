@@ -29,6 +29,35 @@ namespace StudentLoan.BLL
             return dal.Exists(userName);
         }
 
+        /// <summary>
+        /// 检测手机号是否被占用
+        /// </summary>
+        /// <param name="mobile"></param>
+        /// <returns></returns>
+        public bool ExistsMobile(string mobile)
+        {
+            return dal.ExistsMobile(mobile);
+        }
+
+        /// <summary>
+        /// 检测身份证是否被占用
+        /// </summary>
+        /// <param name="identityCard"></param>
+        /// <returns></returns>
+        public bool ExistsIdentityCard(string identityCard)
+        {
+            return dal.ExistsIdentityCard(identityCard);
+        }
+
+        /// <summary>
+        /// 检测邮箱是否被占用
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public bool ExistsEMail(string email)
+        {
+            return dal.ExistsEMail(email);
+        }
 
         /// <summary>
         /// 增加一条数据

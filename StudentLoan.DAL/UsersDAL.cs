@@ -44,6 +44,77 @@ namespace StudentLoan.DAL
             }
         }
 
+        public bool ExistsMobile(string mobile)
+        {
+            #region CommandText
+
+            StringBuilder commandText = new StringBuilder();
+
+            commandText.Append("Select Mobile From sl_users Where UserName = @Mobile");
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@Mobile", mobile));
+
+            #endregion
+
+            using (SqlDataReader objReader = SqlHelper.ExecuteReader(base.ConnectionString, CommandType.Text, commandText.ToString(), paramsList.ToArray()))
+            {
+                return objReader.HasRows;
+            }
+        }
+
+        public bool ExistsEMail(string email)
+        {
+            #region CommandText
+
+            StringBuilder commandText = new StringBuilder();
+
+            commandText.Append("Select Email From sl_users Where UserName = @Email");
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@Email", email));
+
+            #endregion
+
+            using (SqlDataReader objReader = SqlHelper.ExecuteReader(base.ConnectionString, CommandType.Text, commandText.ToString(), paramsList.ToArray()))
+            {
+                return objReader.HasRows;
+            }
+        }
+
+        public bool ExistsIdentityCard(string identityCard)
+        {
+            #region CommandText
+
+            StringBuilder commandText = new StringBuilder();
+
+            commandText.Append("Select IdentityCard From sl_users Where UserName = @IdentityCard");
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@IdentityCard", identityCard));
+
+            #endregion
+
+            using (SqlDataReader objReader = SqlHelper.ExecuteReader(base.ConnectionString, CommandType.Text, commandText.ToString(), paramsList.ToArray()))
+            {
+                return objReader.HasRows;
+            }
+        }
 
         /// <summary>
         /// 增加一条数据

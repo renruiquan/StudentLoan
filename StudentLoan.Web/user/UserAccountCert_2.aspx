@@ -3,7 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../css/datepicker.css" rel="stylesheet" />
     <script src="../js/bootstrap-datepicker.js"></script>
-    <script src="../css/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../js/Validform/css/Validform.css" />
     <script src="../js/Validform/js/Validform_v5.3.2_min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
@@ -154,14 +153,14 @@
                                         <label class="control-label"><span class="c-blue">*</span> 身份证号：</label>
 
                                         <div class="controls text-left">
-                                            <asp:TextBox ID="txtIdentityCard" runat="server" class="span5" type="text" placeholder="请输入身份证号" />
+                                            <asp:TextBox ID="txtIdentityCard" runat="server" ajaxurl="/tools/validate_user_identitycard.ashx" datatype="*" class="span5" type="text" placeholder="请输入身份证号" />
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label"><span class="c-blue">*</span> 手机号码：</label>
 
                                         <div class="controls text-left">
-                                            <asp:TextBox ID="txtMobile" runat="server" class="span5" type="text" placeholder="请输入手机号" />
+                                            <asp:TextBox ID="txtMobile" runat="server" ajaxurl="/tools/validate_user_mobile.ashx" class="span5" type="text" placeholder="请输入手机号" />
                                             <button id="btnSendMessage" type="button" class="btn btn-info" runat="server" onclick="return time();">获取验证码</button>
                                         </div>
                                     </div>
@@ -431,7 +430,7 @@
                                         </div>
                                     </div>
 
-                                   <%-- <div class="control-group">
+                                    <%-- <div class="control-group">
                                         <label class="control-label"><span class="c-blue">*</span> 职业：</label>
 
                                         <div class="controls text-left">
@@ -496,6 +495,5 @@
             </div>
 
         </div>
-
     </div>
 </asp:Content>

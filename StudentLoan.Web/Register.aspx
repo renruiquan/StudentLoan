@@ -153,7 +153,7 @@
                         <label class="control-label"><span class="c-red">* </span>邮箱：</label>
 
                         <div class="controls text-left">
-                            <asp:TextBox ID="txtEmail" runat="server" class="input-large span7" type="text" placeholder="有效邮箱，例如 test.@163.com" datatype="e" errormsg="邮箱格式不正确！" />
+                            <asp:TextBox ID="txtEmail" runat="server" class="input-large span7" ajaxurl="/tools/validate_user_email.ashx" type="text" placeholder="有效邮箱，例如 test.@163.com" datatype="e" errormsg="邮箱格式不正确！" />
                         </div>
                     </div>
 

@@ -65,6 +65,17 @@ namespace StudentLoan.BLL
             return dal.GetModel(userId);
         }
 
+        /// <summary>
+        /// 判断绑定的银行卡是否存在
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="bankCard"></param>
+        /// <returns></returns>
+        public bool IsExist(int userId, string bankCard)
+        {
+            return dal.IsExist(userId, bankCard);
+        }
+
 
         /// <summary>
         /// 获取数据列表

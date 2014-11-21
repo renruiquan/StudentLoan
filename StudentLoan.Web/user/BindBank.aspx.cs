@@ -52,6 +52,15 @@ namespace StudentLoan.Web.user
 
             UsersEntityEx userModel = base.GetUserModel();
 
+
+            bool isExist = new UserBankBLL().IsExist(userModel.UserId, bankCard);
+
+            if (isExist)
+            {
+                this.artDialog("提示", "您已经绑定此银行卡，无需再次绑定！");
+                return;
+            }
+
             this.BankModel = new UserBankEntityEx()
             {
                 UserId = userModel.UserId,

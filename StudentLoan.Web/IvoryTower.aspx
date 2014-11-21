@@ -28,7 +28,7 @@
                 $(this).css("cursor", "default");
             });
 
-            $("#marquee").kxbdMarquee({ direction: "up", isEqual: false, scrollDelay: 30 });
+            $("#marquee").kxbdMarquee({ direction: "left", isEqual: false, scrollDelay: 30 });
         });
     </script>
 </head>
@@ -75,6 +75,26 @@
                         <a href="About.aspx" class="dropdown-toggle">关于我们</a>
                     </li>
                 </ul>
+
+                <div class="roll-wrapper" id="marquee">
+                    <StudentLoan:RepeaterPlus ID="objRepeater" runat="server">
+                        <HeaderTemplate>
+                            <ul id="rollUl">
+                        </HeaderTemplate>
+                        <EmptyDataTemplate>
+                            <ul id="rollUl">
+                                <li>暂无申请记录</li>
+                            </ul>
+                        </EmptyDataTemplate>
+                        <ItemTemplate>
+                            <li style="color: #0060cc; height: 26px; line-height: 26px; cursor:pointer">【<%#Eval("SchoolName") %>】已申请<%#Eval("LoanMoney") %>元! </li>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            </ul>
+                        </FooterTemplate>
+                    </StudentLoan:RepeaterPlus>
+                </div>
+
             </div>
         </div>
 
@@ -153,30 +173,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="blue-bg">
+                            <%-- <div class="blue-bg">
                                 <div class="person">
                                     <div class="blue-title">已申请人名单</div>
-                                    <div class="cont list" id="marquee" style="width: auto;">
-                                        <StudentLoan:RepeaterPlus ID="objRepeater" runat="server">
-                                            <HeaderTemplate>
-                                                <ul>
-                                            </HeaderTemplate>
-                                            <EmptyDataTemplate>
-                                                <ul>
-                                                    <li>暂无申请记录</li>
-                                                </ul>
-                                            </EmptyDataTemplate>
-                                            <ItemTemplate>
-                                                <li style="border-bottom: 1px solid #d2cdc7; height: 30px; line-height: 30px;"><span style="float: right; line-height: 30px; margin-left: 40px;">已申请<%#Eval("LoanMoney") %>元</span> <%#Eval("SchoolName") %> </li>
-                                            </ItemTemplate>
-                                            <FooterTemplate>
-                                                </ul>
-                                            </FooterTemplate>
-                                        </StudentLoan:RepeaterPlus>
-                                    </div>
+                                    
                                 </div>
-                            </div>
-
+                            </div>--%>
                         </div>
 
                     </div>

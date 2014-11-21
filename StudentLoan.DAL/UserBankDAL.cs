@@ -195,6 +195,32 @@ namespace StudentLoan.DAL
             }
         }
 
+        public bool IsExist(int userId, string bankCard)
+        {
+            #region CommandText
+
+            StringBuilder commandText = new StringBuilder();
+
+            commandText.Append(" Select Top 1 UserId,BankId,BankName,BankCardNo,BankProvince,BankCity,Status,IsDefault,CreateTime,Remark From sl_user_bank Where UserId = @UserId and BankCardNo = @BankCardNo and IsDefault =1;");
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@UserId", userId));
+
+            paramsList.Add(new SqlParameter("@BankCardNo", bankCard));
+
+            #endregion
+
+            using (SqlDataReader objReader = SqlHelper.ExecuteReader(base.ConnectionString, CommandType.Text, commandText.ToString(), paramsList.ToArray()))
+            {
+                return objReader.HasRows;
+            }
+        }
+
 
         /// <summary>
         /// 获取数据列表

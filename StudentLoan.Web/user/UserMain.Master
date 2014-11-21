@@ -103,10 +103,10 @@
                     <div class="item">
                         <h2>聚宝盆管理</h2>
                         <ul>
-                            <li><a id="ManageMoneyList" runat="server" href="ManageMoneyList.aspx"><i class="ico-note"></i>理财记录</a></li>
-                            <li><a id="EarningsList" runat="server" href="EarningsList.aspx"><i class="ico-params"></i>我的收益</a></li>
-                            <li><a id="ManageMoneyDetail" runat="server" href="ManageMoneyDetail.aspx"><i class="ico-note"></i>理财明细</a></li>
-                            <li><a id="StatManageMoney" runat="server" href="StatManageMoney.aspx"><i class="ico-wallet"></i>理财统计</a></li>
+                            <li><a id="ManageMoneyList" runat="server" href="ManageMoneyList.aspx"><i class="ico-stack"></i>理财记录</a></li>
+                            <li><a id="EarningsList" runat="server" href="EarningsList.aspx"><i class="ico-banknote"></i>我的收益</a></li>
+                            <li><a id="ManageMoneyDetail" runat="server" href="ManageMoneyDetail.aspx"><i class="ico-calendar"></i>理财明细</a></li>
+                            <li><a id="StatManageMoney" runat="server" href="StatManageMoney.aspx"><i class="ico-data"></i>理财统计</a></li>
                         </ul>
                     </div>
                 </div>

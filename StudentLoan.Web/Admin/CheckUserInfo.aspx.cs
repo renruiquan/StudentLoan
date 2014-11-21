@@ -356,8 +356,7 @@ namespace StudentLoan.Web.Admin
                 AcceptUserName = new UsersBLL().GetModel(userLoanModel.UserId).UserName
             });
 
-            StudentLoan.API.Message.Send(new UsersBLL().GetModel(userLoanModel.UserId).Mobile, string.Format("尊敬的用户:{0}，您于{1}提交的贷款申请已经通过审核，申请金额为：{2}元，已将款打入您的账号中。【UTL温馨提醒】",
-                                                                                               userLoanModel.UserName, userLoanModel.CreateTime.ToString("yyyy-MM-dd"), userLoanModel.LoanMoney));
+            StudentLoan.API.Message.Send(new UsersBLL().GetModel(userLoanModel.UserId).Mobile, "已将您所申领的U豆送达至您的小金库，请登录网站查收，多谢关注【学子易贷】http://www.utllcenter.com");
 
             this.Alert(string.Format("操作{0}", result == true ? "成功" : "失败"), "UserLoanApplyList.aspx");
         }
@@ -395,7 +394,7 @@ namespace StudentLoan.Web.Admin
                 AcceptUserName = new UsersBLL().GetModel(userLoanModel.UserId).UserName
             });
 
-            StudentLoan.API.Message.Send(new UsersBLL().GetModel(userLoanModel.UserId).Mobile, this.txtRefuse.Text.Trim());
+            StudentLoan.API.Message.Send(new UsersBLL().GetModel(userLoanModel.UserId).Mobile, "您所申请的“点豆成金”业务因资料不全而未通过审核，具体请登录网站个人中心查看。");
 
 
             this.Alert(string.Format("操作{0}", result == true ? "成功" : "失败"), "UserLoanApplyList.aspx");

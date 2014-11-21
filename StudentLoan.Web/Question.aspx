@@ -20,11 +20,11 @@
                 <div class="item">
                     <h2>关于我们</h2>
                     <ul>
-                        <li><a href="About.aspx"><i class="ico-note"></i>安全保障</a></li>
-                        <li><a href="Introduction.aspx"><i class="ico-params"></i>公司简介</a></li>
-                        <li><a href="Contact.aspx"><i class="ico-note"></i>联系我们</a></li>
-                        <li><a href="Culture.aspx"><i class="ico-wallet"></i>企业文化</a></li>
-                        <li><a class="active" href="javascript:;"><i class="ico-wallet"></i>常见问题</a>
+                        <li><a href="About.aspx"><i class="ico-lock"></i>安全保障</a></li>
+                        <li><a href="Introduction.aspx"><i class="ico-bulb"></i>公司简介</a></li>
+                        <li><a href="Contact.aspx"><i class="ico-mail"></i>联系我们</a></li>
+                        <li><a href="Culture.aspx"><i class="ico-fire"></i>企业文化</a></li>
+                        <li><a class="active" href="javascript:;"><i class="ico-settings"></i>常见问题</a>
                         </li>
                     </ul>
                 </div>

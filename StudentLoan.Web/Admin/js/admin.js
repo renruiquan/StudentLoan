@@ -50,7 +50,7 @@ Admin.Init = function () {
 Admin.Logout = function () {
     jBox.confirm('确定要退出系统吗？', '提示', function (v, h, f) {
         if (v == 'ok') {
-            location.href = Admin.LogoutUrl;
+            location.href = "/admin/login.aspx";
         }
         return true;
     });

@@ -7,7 +7,23 @@
     <script type="text/javascript">
         $(function () {
             $("#form1").Validform({
-                tiptype: 3
+                tiptype: 3,
+                datatype: {
+                    "different": function (gets, obj, curform, regxp) {
+
+                        var checkVal = $.trim($("#" + obj.attr("chekVal")).val());
+
+                        if ((checkVal !== gets) && (gets.length >= 6) && (gets.length <= 18)) {
+                            return true;
+                        } else {
+                            if (checkVal == gets) {
+                                $(obj).attr("errormsg", "新密码不能和旧密码相同！");
+                            }
+                            return false;
+                        }
+
+                    }
+                }
             });
         });
     </script>
@@ -34,7 +50,7 @@
                         <label class="control-label">当前密码：</label>
 
                         <div class="controls">
-                            <asp:TextBox ID="txtOldPassword" CssClass="span5" runat="server" TextMode="Password" datatype="*" />
+                            <asp:TextBox ID="txtOldPassword" CssClass="span5" runat="server" ClientIDMode="Static" TextMode="Password" datatype="*" />
                         </div>
                     </div>
 
@@ -42,7 +58,7 @@
                         <label class="control-label">新密码：</label>
 
                         <div class="controls">
-                            <asp:TextBox ID="txtNewPassword" CssClass="span5" runat="server" TextMode="Password" placeholder="6-20个字符，可以使用字母数字或符号组合，不建议使用纯数字，纯字母，纯符号！" datatype="*6-18" sucmsg="密码验证通过！" tips="6-20个字符，可以使用字母数字或符号组合，不建议使用纯数字，纯字母，纯符号！" nullmsg="请填写密码！6-18个字符，可以使用字母数字或符号组合，不建议使用纯数字，纯字母，纯符号！" errormsg="密码必须是6-18个字符！可以使用字母数字或符号组合，不建议使用纯数字，纯字母，纯符号！" />
+                            <asp:TextBox ID="txtNewPassword" chekVal="txtOldPassword"  CssClass="span5" runat="server" TextMode="Password" placeholder="6-20个字符，可以使用字母数字或符号组合，不建议使用纯数字，纯字母，纯符号！" datatype="different" sucmsg="密码验证通过！" tips="6-20个字符，可以使用字母数字或符号组合，不建议使用纯数字，纯字母，纯符号！" nullmsg="请填写密码！6-18个字符，可以使用字母数字或符号组合，不建议使用纯数字，纯字母，纯符号！" errormsg="密码必须是6-18个字符！可以使用字母数字或符号组合，不建议使用纯数字，纯字母，纯符号！" />
                         </div>
                     </div>
 

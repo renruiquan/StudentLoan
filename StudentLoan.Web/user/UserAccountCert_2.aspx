@@ -153,7 +153,7 @@
                                         <label class="control-label"><span class="c-blue">*</span> 身份证号：</label>
 
                                         <div class="controls text-left">
-                                            <asp:TextBox ID="txtIdentityCard" runat="server" ajaxurl="/tools/validate_user_identitycard.ashx" datatype="*" class="span5" type="text" placeholder="请输入身份证号" />
+                                            <asp:TextBox ID="txtIdentityCard" runat="server"  datatype="*" class="span5" type="text" placeholder="请输入身份证号" />
                                         </div>
                                     </div>
                                     <div class="control-group">

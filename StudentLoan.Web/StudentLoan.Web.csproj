@@ -399,8 +399,11 @@
     <Content Include="css\img\banks\bank_SDB.jpg" />
     <Content Include="css\img\banks\bank_SPABANK.jpg" />
     <Content Include="css\img\banks\bank_SPDB.jpg" />
+    <Content Include="img\check.png" />
+    <Content Include="img\error.png" />
     <Content Include="img\glyphicons-halflings-white.png" />
     <Content Include="img\glyphicons-halflings.png" />
+    <Content Include="img\layout.css" />
     <Content Include="Introduction.aspx" />
     <Content Include="IvoryTower.aspx" />
     <Content Include="js\DatePicker\calendar.js" />

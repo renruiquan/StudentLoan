@@ -23,6 +23,7 @@
 	z-index: 5;
 }
 .wrap-btn {
+	min-width: 1200px;
 	clear: both;
 	overflow: hidden;
 	float: left;

@@ -68,7 +68,21 @@
                             }
                             return true;
                         }
+                    },
+
+                    "different": function (gets, obj, curform, regxp) {
+
+                        var checkVal = $.trim($("#" + obj.attr("chekVal")).val());
+
+                        // 与比较多值不同 
+                        // 6-18位
+                        if ((checkVal !== gets) && (gets.length >= 6) && (gets.length <= 18)) {
+                            return true;
+                        }
+
+                        return false;
                     }
+
                 }
             });
         });

@@ -42,6 +42,7 @@ body {
 	margin: 0;
 	display: inline-block;
 	position: relative;
+	background: #0a5bb6;
 }
 .top .menu .nav {
 	height: 64px;

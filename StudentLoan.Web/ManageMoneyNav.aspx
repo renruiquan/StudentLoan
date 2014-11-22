@@ -13,8 +13,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="h60 bbc"></div>
-
     <div class="container-wrap">
 
         <div class="cornucopia">

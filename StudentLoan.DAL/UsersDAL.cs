@@ -50,7 +50,7 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append("Select Mobile From sl_users Where UserName = @Mobile");
+            commandText.Append("Select Mobile From sl_users Where Mobile = @Mobile");
 
             #endregion
 
@@ -74,7 +74,7 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append("Select Email From sl_users Where UserName = @Email");
+            commandText.Append("Select Email From sl_users Where Email = @Email");
 
             #endregion
 
@@ -98,7 +98,7 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append("Select IdentityCard From sl_users Where UserName = @IdentityCard");
+            commandText.Append("Select IdentityCard From sl_users Where IdentityCard = @IdentityCard");
 
             #endregion
 

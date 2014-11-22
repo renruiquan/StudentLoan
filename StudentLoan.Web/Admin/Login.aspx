@@ -9,18 +9,10 @@
     <title>网站后台登陆</title>
     <link href="css/admin.global.css" rel="stylesheet" type="text/css" />
     <link href="css/admin.login.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
-    <script type="text/javascript" src="js/jquery.utils.js"></script>
-    <link href="jBox/Skins/Green/jbox.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="jBox/jquery.jBox-2.3.min.js"></script>
-    <script type="text/javascript" src="js/admin.js"></script>
-    <script type="text/javascript">
-        // 初始化下面的变量
-        Admin.IsLoginPage = true;
-        Admin.IndexUrl = 'index.html';
-        Admin.LoginUrl = 'Login.aspx';
-        Admin.VerifyImageUrl = '/tools/validate_code.ashx';
-    </script>
+    <script type="text/javascript" src="/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="/js/dialog-plus-min.js"></script>
+    
+    <link href="../css/ui-dialog.css" rel="stylesheet" />
 </head>
 <body>
     <form id="Form1" runat="server">
@@ -63,14 +55,13 @@
                             <td class="login_form_pad"></td>
                             <td class="login_form_label">验证码：</td>
                             <td>
-                                <asp:TextBox runat="server" type="text" id="txtValidateCode" class="login_input"  size="20" maxlength="4" /></td>
+                                <asp:TextBox runat="server" type="text" ID="txtValidateCode" class="login_input" size="20" MaxLength="4" /></td>
                         </tr>
                         <tr>
                             <td class="login_form_pad"></td>
                             <td class="login_form_label"></td>
                             <td>
-                                <img id="verify_image" class="middle hide" align="middle" src="" width="130" height="53" alt="点击刷新" />&nbsp;&nbsp;
-                    <a id="refresh_verify_image" class="middle" href="javascript:void(0);">换一张</a>
+                                <img id="verify_image" class="middle" align="middle" src="/tools/validate_code.ashx" width="130" height="53" alt="点击刷新" onclick="this.src='/tools/validate_code.ashx?token='+Math.random();" />&nbsp;&nbsp;
                             </td>
                         </tr>
                         <tr>

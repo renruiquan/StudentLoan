@@ -50,7 +50,7 @@ Admin.Init = function () {
 Admin.Logout = function () {
     jBox.confirm('确定要退出系统吗？', '提示', function (v, h, f) {
         if (v == 'ok') {
-            location.href = "/admin/Login.aspx";
+            location.href = Admin.LogoutUrl;
         }
         return true;
     });
@@ -98,8 +98,8 @@ Login.Tip = function (text, icon) {
 };
 
 Login.Submit = function () {
-    var username = $('#UserName').trim();
-    var password = $('#Password').trim();
+    var username = $('#username').trim();
+    var password = $('#password').trim();
     var verifycode = $('#verifycode').trim();
     var rememberMe = $('#rememberMe').get(0).checked;
 

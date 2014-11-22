@@ -53,6 +53,17 @@ namespace StudentLoan.Web.user
 
             UsersEntityEx userModel = base.GetUserModel();
 
+            userModel = new UsersBLL().GetModel(userModel.UserId);
+
+            if (string.IsNullOrEmpty(userModel.IdentityCard))
+            {
+                this.txtIdentityCard.Attributes.Add("ajaxurl", "/tools/validate_user_identitycard.ashx");
+            }
+            else
+            {
+                this.txtIdentityCard.Attributes.Add("ReadOnly", "true");
+            }
+
             if (!string.IsNullOrEmpty(userModel.TrueName))
             {
                 this.txtTruename.Attributes.Add("ReadOnly", "true");

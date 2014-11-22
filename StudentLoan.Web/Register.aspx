@@ -17,7 +17,7 @@
                     url: "/js/city.min.js"
                 });
 
-           
+
             $("#form1").Validform({
                 tiptype: 3,
                 datatype: {
@@ -69,15 +69,23 @@
                             return true;
                         }
                     },
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
                     "different": function (gets, obj, curform, regxp) {
 
                         var checkVal = $.trim($("#" + obj.attr("chekVal")).val());
 
+<<<<<<< HEAD
                         // 与比较多值不同 
                         // 6-18位
                         if ((checkVal !== gets) && (gets.length >= 6) && (gets.length <= 18)) {
                             return true;
+=======
+                        if (checkVal !== gets) {
+                            return false;
+>>>>>>> origin/master
                         }
 
                         return false;
@@ -134,7 +142,7 @@
                         <label class="control-label"><span class="c-red">* </span>密码：</label>
 
                         <div class="controls text-left">
-                            <asp:TextBox ID="txtPassword" runat="server" class="input-large span7" type="password" placeholder="输入密码，长度6-18位" datatype="*6-18" sucmsg="密码验证通过！" tips="6-18个字符，可以使用字母数字或符号组合，不建议使用纯数字，纯字母，纯符号！" nullmsg="请填写密码！6-18个字符，可以使用字母数字或符号组合，不建议使用纯数字，纯字母，纯符号！" errormsg="密码必须是6-18个字符！可以使用字母数字或符号组合，不建议使用纯数字，纯字母，纯符号！" />
+                            <asp:TextBox ID="txtPassword" ClientIDMode="Static" runat="server" class="input-large span7" type="password" placeholder="输入密码，长度6-18位" datatype="*6-18" sucmsg="密码验证通过！" tips="6-18个字符，可以使用字母数字或符号组合，不建议使用纯数字，纯字母，纯符号！" nullmsg="请填写密码！6-18个字符，可以使用字母数字或符号组合，不建议使用纯数字，纯字母，纯符号！" errormsg="密码必须是6-18个字符！可以使用字母数字或符号组合，不建议使用纯数字，纯字母，纯符号！" />
                         </div>
                     </div>
 
@@ -151,7 +159,7 @@
                         <label class="control-label"><span class="c-red">* </span>提现密码：</label>
 
                         <div class="controls text-left">
-                            <asp:TextBox ID="txtDrawMoneyPassword" runat="server" TextMode="Password" class="input-large span7" type="text" placeholder="输入提现密码，长度6-18位，至少包含数字和字母" datatype="*6-18" sucmsg="提现密码验证通过！" tips="6-20个字符，可以使用字母数字或符号组合，不建议使用纯数字，纯字母，纯符号！" nullmsg="请填写密码！6-20个字符，可以使用字母数字或符号组合，不建议使用纯数字，纯字母，纯符号！" errormsg="密码必须是6-18个字符！可以使用字母数字或符号组合，不建议使用纯数字，纯字母，纯符号！" />
+                            <asp:TextBox ID="txtDrawMoneyPassword" ClientIDMode="Static" runat="server" TextMode="Password" chekVal="txtPassword" class="input-large span7" type="text" placeholder="输入提现密码，长度6-18位，至少包含数字和字母" datatype="different" sucmsg="提现密码验证通过！" tips="6-20个字符，可以使用字母数字或符号组合，不建议使用纯数字，纯字母，纯符号！" nullmsg="请填写密码！6-20个字符，可以使用字母数字或符号组合，不建议使用纯数字，纯字母，纯符号！" errormsg="不能一样" />
                         </div>
                     </div>
 

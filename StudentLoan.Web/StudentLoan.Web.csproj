@@ -377,6 +377,7 @@
     <Content Include="css\ui-dialog.css" />
     <Content Include="Culture.aspx" />
     <Content Include="DetailInfo.aspx" />
+    <Content Include="ExceptionClause.aspx" />
     <Content Include="expressInstall.swf" />
     <Content Include="FindPassword.aspx" />
     <Content Include="fullAvatarEditor.swf" />
@@ -816,6 +817,13 @@
     </Compile>
     <Compile Include="DetailInfo.aspx.designer.cs">
       <DependentUpon>DetailInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExceptionClause.aspx.cs">
+      <DependentUpon>ExceptionClause.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExceptionClause.aspx.designer.cs">
+      <DependentUpon>ExceptionClause.aspx</DependentUpon>
     </Compile>
     <Compile Include="FindPassword.aspx.cs">
       <DependentUpon>FindPassword.aspx</DependentUpon>

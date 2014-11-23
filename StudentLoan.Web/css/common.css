@@ -79,7 +79,7 @@ hr { border: 0; border-bottom: 1px solid #555; height: 1px; margin: 5px 0; paddi
 /*链接*/
 a { text-decoration: none; }
 /*链接元素设置*/
-a:link { text-decoration: none; color: #333; }
+a:link { text-decoration: none; }
 a:hover { text-decoration: underline; }
 a:focus { outline: none; -moz-outline: none; }
 a, button, input[type="button"] { cursor: pointer; }

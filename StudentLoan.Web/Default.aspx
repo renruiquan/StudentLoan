@@ -18,6 +18,7 @@
 	<body>
 
 		<div class="into-bg">
+			<div class="logo"></div>
 			<div class="top-logo"></div>
 
 			<div class="into-banner">

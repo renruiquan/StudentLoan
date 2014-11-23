@@ -29,6 +29,13 @@ body {
 	float: left;
 	overflow: hidden;
 }
+.top .logo a {
+	width: 109px;
+	height: 45px;
+	line-height: 45px;
+	float: left;
+	display: inline-block;
+}
 .top .menu {
 	font: normal 16px/64px "microsoft yahei";
 }

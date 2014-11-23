@@ -33,7 +33,9 @@
         <div class="top">
             <div class="wrapper">
                 <h1 class="logo">
-                    <img src="../css/img/admin/logo.jpg" alt="" />
+                   <a href="/">
+                        <img src="../css/img/admin/logo.jpg" alt="" />
+                   </a> 
                 </h1>
                 <div class="user-icon">
                     <ul class="nav navbar-nav navbar-right">

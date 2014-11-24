@@ -82,7 +82,7 @@
             if (flag) {
 
                 flag = false;
-                $.post("/tools/message_send.ashx", { "txtMobile": $("#<%=txtMobile.ClientID%>").val() }, function (data, status) {
+                $.post("/tools/message_send.ashx", { "txtMobile": $("#<%=txtMobile.ClientID%>").val(), "type": "CertMobile" }, function (data, status) {
                     if (status != "success") {
                         alert("短信发送失败");
                         return;
@@ -153,7 +153,7 @@
                                         <label class="control-label"><span class="c-blue">*</span> 身份证号：</label>
 
                                         <div class="controls text-left">
-                                            <asp:TextBox ID="txtIdentityCard" runat="server"  datatype="*" class="span5" type="text" placeholder="请输入身份证号" />
+                                            <asp:TextBox ID="txtIdentityCard" runat="server" datatype="*" class="span5" type="text" placeholder="请输入身份证号" />
                                         </div>
                                     </div>
                                     <div class="control-group">

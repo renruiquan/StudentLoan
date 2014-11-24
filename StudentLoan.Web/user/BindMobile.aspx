@@ -15,7 +15,7 @@
             if (flag) {
 
                 flag = false;
-                $.post("/tools/message_send.ashx", { "txtMobile": $("#txtMobile").val() }, function (data, status) {
+                $.post("/tools/message_send.ashx", { "txtMobile": $("#txtMobile").val(),"type":"BindMobile" }, function (data, status) {
                     if (status != "success") {
                         alert("短信发送失败");
                         return;

@@ -7,7 +7,7 @@
     <script src="../js/Validform/js/Validform_v5.3.2_min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
 
-        var wait = 60;
+        var wait = 300;
         var flag = true;
 
         function time() {
@@ -29,7 +29,7 @@
             if (wait == 0) {
                 btn.removeAttr("disabled");
                 btn.text("发送手机验证码");
-                wait = 60;
+                wait = 300;
             } else {
                 btn.attr("disabled", true);
                 btn.text("重新发送(" + wait + ")");

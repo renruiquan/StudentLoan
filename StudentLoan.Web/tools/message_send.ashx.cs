@@ -28,11 +28,11 @@ namespace StudentLoan.Web.tools
 
             if (type == "findpassword")
             {
-                content = string.Format("【学子易贷】验证码：{0}，切勿将验证码泄露于他人。如非本人操作，建议及时修改账号密码。", mobileCode);
+                content = string.Format("验证码：{0}，切勿将验证码泄露于他人。如非本人操作，建议及时修改账号密码。【学子易贷】", mobileCode);
             }
             else
             {
-                content = string.Format("【学子易贷】欢迎注册学子易贷帐号，您的手机验证码为：{0}，请在手机绑定页面填写，有效期为5分钟。", mobileCode);
+                content = string.Format("欢迎注册学子易贷帐号，您的手机验证码为：{0}，请在手机绑定页面填写，有效期为5分钟。【学子易贷】", mobileCode);
             }
 
             context.Response.Write(Message.Send(mobile, content));

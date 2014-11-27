@@ -5,7 +5,7 @@
 
 	<head>
 		<meta charset="utf-8" />
-		<title>学子易贷入口</title>
+		<title>学子易贷官网</title>
 		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" >
 		<link rel="stylesheet" type="text/css" href="css/reset.css" />
 		<link rel="stylesheet" type="text/css" href="css/public.css" />
@@ -13,6 +13,8 @@
 		<link rel="stylesheet" type="text/css" href="css/animate.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/modules/front/into.css" />
 		<link rel="stylesheet" type="text/css" href="css/modules/front/animations.css" />
+        <keywords>学子易贷 学生贷款 学生理财 学生借款 </keywords>
+        <description>帮助莘莘学子们追寻梦想，是学子易贷网一直以来的奋斗目标。</description>
 	</head>
 
 	<body>

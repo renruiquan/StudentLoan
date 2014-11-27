@@ -186,10 +186,21 @@ namespace StudentLoan.BLL
             {
                 //先取得该用户的随机密钥
                 string salt = dal.GetSalt(userName);
+
+                if (string.IsNullOrEmpty(salt))
+                {
+                    salt = dal.GetSaltByEmail(userName);
+                }
+
+                if (string.IsNullOrEmpty(salt))
+                {
+                    salt = dal.GetSaltByMobile(salt);
+                }
                 if (string.IsNullOrEmpty(salt))
                 {
                     return null;
                 }
+
                 //把明文进行加密重新赋值
                 password = DESHelper.Encrypt(password, salt);
             }

@@ -759,6 +759,62 @@ namespace StudentLoan.DAL
             }
         }
 
+        public string GetSaltByMobile(string mobile)
+        {
+            #region CommandText
+
+            string commandText = @"Select Salt From sl_users Where Mobile = @Mobile ";
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@Mobile", mobile));
+
+            #endregion
+
+            object result = base.ExecuteScalar(commandText, paramsList.ToArray());
+
+            if (result == null)
+            {
+                return string.Empty;
+            }
+            else
+            {
+                return result.ToString();
+            }
+        }
+
+        public string GetSaltByEmail(string email)
+        {
+            #region CommandText
+
+            string commandText = @"Select Salt From sl_users Where Email = @Email ";
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@Email", email));
+
+            #endregion
+
+            object result = base.ExecuteScalar(commandText, paramsList.ToArray());
+
+            if (result == null)
+            {
+                return string.Empty;
+            }
+            else
+            {
+                return result.ToString();
+            }
+        }
+
         /// <summary>
         /// 获取数据列表
         /// </summary>

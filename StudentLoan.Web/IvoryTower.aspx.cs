@@ -1,4 +1,5 @@
 ﻿using StudentLoan.BLL;
+using StudentLoan.Common;
 using StudentLoan.Model;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,11 @@ namespace StudentLoan.Web
         /// </summary>
         public long GetLoanTotalCount { get { return new UserLoanBLL().GetLoanTotalCount(); } }
 
+        /// <summary>
+        /// 配置的借款用户人数
+        /// </summary>
+        public int TotalUserLoan { get { return ConfigHelper.AppSettings<int>("TotalUserLoan", 0); } }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -48,6 +54,10 @@ namespace StudentLoan.Web
         protected void BindData()
         {
             UsersEntityEx userModel = new UsersBLL().GetModel(base.GetUserModel().UserId);
+
+
+
+            this.lblTotalLoanUsers.Text = (this.GetLoanTotalCount + this.TotalUserLoan).ToString();
 
             this.lblPoint.Text = string.Format("{0}分  {1}", userModel.Point, this.GetLevel(userModel.Point));
 

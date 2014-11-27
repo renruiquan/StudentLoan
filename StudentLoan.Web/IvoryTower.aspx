@@ -87,7 +87,7 @@
                             </ul>
                         </EmptyDataTemplate>
                         <ItemTemplate>
-                            <li style="color: #0060cc; height: 26px; line-height: 26px; cursor:pointer">【<%#Eval("SchoolName") %>】已申请<%#Eval("LoanMoney") %>元! </li>
+                            <li style="color: #0060cc; height: 26px; line-height: 26px; cursor: pointer">【<%#Eval("SchoolName") %>】已申请<%#Eval("LoanMoney") %>元! </li>
                         </ItemTemplate>
                         <FooterTemplate>
                             </ul>
@@ -109,7 +109,8 @@
                         <div class="num-wrap">
                             <h3>目前申请人数</h3>
 
-                            <h2 class="num-red"><%=this.GetLoanTotalCount %></h2>
+                            <h2 class="num-red">
+                                <asp:Label ID="lblTotalLoanUsers" runat="server" Text="0"></asp:Label></h2>
 
                             <h3 class="click-sent">点击申请</h3>
 

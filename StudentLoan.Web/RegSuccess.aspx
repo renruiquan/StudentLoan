@@ -36,7 +36,7 @@
                 <p class="mtb10">美好生活，现在开始</p>
 
                 <p class="w526 auto text-center">
-                    <a class="btn btn-primary btn-large btn-block" href="/user/UserAccount.aspx">进入个人中心</a>
+                    <a class="btn btn-primary btn-large btn-block" href="/user/UserAccount.aspx">进入我的易贷</a>
                 </p>
                 <div class="clear"></div>
                 <div class="h200"></div>

@@ -194,7 +194,7 @@ namespace StudentLoan.BLL
 
                 if (string.IsNullOrEmpty(salt))
                 {
-                    salt = dal.GetSaltByMobile(salt);
+                    salt = dal.GetSaltByMobile(userName);
                 }
                 if (string.IsNullOrEmpty(salt))
                 {

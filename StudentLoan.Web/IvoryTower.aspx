@@ -110,7 +110,7 @@
                             <h3>目前申请人数</h3>
 
                             <h2 class="num-red">
-                                <asp:Label ID="lblTotalLoanUsers" runat="server" Text="0"></asp:Label></h2>
+                                <asp:Label ID="lblTotalLoanUsers" Style="font-size: 1em;" runat="server" Text="0"></asp:Label></h2>
 
                             <h3 class="click-sent">点击申请</h3>
 

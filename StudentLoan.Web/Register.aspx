@@ -9,12 +9,14 @@
         $(function () {
             $("#bank_area").citySelect(
                 {
-                    url: "/js/city.min.js"
+                    url: "/js/city.min.js",
+                    prov: "北京", nodata: "none"
                 });
 
             $("#bank_area2").citySelect(
                 {
-                    url: "/js/city.min.js"
+                    url: "/js/city.min.js",
+                    prov: "北京", nodata: "none"
                 });
 
 

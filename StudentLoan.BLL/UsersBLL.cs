@@ -194,7 +194,19 @@ namespace StudentLoan.BLL
                 password = DESHelper.Encrypt(password, salt);
             }
 
-            return dal.GetModel(userName, password);
+            UsersEntityEx model = dal.GetModel(userName, password);
+
+            if (model == null)
+            {
+                model = dal.GetModelByEmail(userName, password);
+            }
+
+            if (model == null)
+            {
+                model = dal.GetModelByMobile(userName, password);
+            }
+
+            return model;
         }
 
 

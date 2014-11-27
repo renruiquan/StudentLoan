@@ -679,6 +679,58 @@ namespace StudentLoan.DAL
             }
         }
 
+        public UsersEntityEx GetModelByMobile(string mobile, string password)
+        {
+            #region CommandText
+
+            StringBuilder commandText = new StringBuilder();
+
+            commandText.Append(" Select Top 1 UserId,GroupId,UserName,NickName,TrueName,Password,DrawMoneyPassword,Salt,Email,IdentityCard,Avatar,Gender,Nation,Birthday,Telphone,Mobile,QQ,Country,Province,City,Address,SafeQuestion,SafeAnswer,Amount,Point,Exp,Status,CreateTime,RegIP,Remark From sl_users Where Mobile = @Mobile and Password = @Password and Status = 0");
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@Mobile", mobile));
+
+            paramsList.Add(new SqlParameter("@Password", password));
+
+            #endregion
+
+            using (SqlDataReader objReader = SqlHelper.ExecuteReader(base.ConnectionString, CommandType.Text, commandText.ToString(), paramsList.ToArray()))
+            {
+                return objReader.ReaderToModel<UsersEntityEx>() as UsersEntityEx;
+            }
+        }
+
+        public UsersEntityEx GetModelByEmail(string email, string password)
+        {
+            #region CommandText
+
+            StringBuilder commandText = new StringBuilder();
+
+            commandText.Append(" Select Top 1 UserId,GroupId,UserName,NickName,TrueName,Password,DrawMoneyPassword,Salt,Email,IdentityCard,Avatar,Gender,Nation,Birthday,Telphone,Mobile,QQ,Country,Province,City,Address,SafeQuestion,SafeAnswer,Amount,Point,Exp,Status,CreateTime,RegIP,Remark From sl_users Where Email = @Email and Password = @Password and Status = 0");
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@Email", email));
+
+            paramsList.Add(new SqlParameter("@Password", password));
+
+            #endregion
+
+            using (SqlDataReader objReader = SqlHelper.ExecuteReader(base.ConnectionString, CommandType.Text, commandText.ToString(), paramsList.ToArray()))
+            {
+                return objReader.ReaderToModel<UsersEntityEx>() as UsersEntityEx;
+            }
+        }
+
         public string GetSalt(string userName)
         {
             #region CommandText

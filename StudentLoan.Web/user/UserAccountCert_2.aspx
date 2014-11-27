@@ -162,6 +162,7 @@
                                         <div class="controls text-left">
                                             <asp:TextBox ID="txtMobile" runat="server" ajaxurl="/tools/validate_user_mobile.ashx" class="span5" type="text" placeholder="请输入手机号" />
                                             <button id="btnSendMessage" type="button" class="btn btn-info" runat="server" onclick="return time();">获取验证码</button>
+                                            <span style="float:left;clear:both;padding-top:10px;">如未收到短信验证码，请联系客服：0527-88802678</span>
                                         </div>
                                     </div>
                                     <div class="control-group">

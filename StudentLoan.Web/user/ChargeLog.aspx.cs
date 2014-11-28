@@ -117,7 +117,7 @@ namespace StudentLoan.Web.user
 
                 if (model.Status == 0)
                 {
-                    objLiteral.Text = string.Format("<a href=\"ChargeLog.aspx?orderNo={0}\">支付</a>", model.OrderNo);
+                    objLiteral.Text = string.Format("<a target=\"_blank\" href=\"ChargeLog.aspx?orderNo={0}\">支付</a>", model.OrderNo);
                 }
                 else if (model.Status == 1)
                 {

@@ -145,7 +145,7 @@
                         </div>
 
                         <div class="condition">
-                            <p>在校大学生、身份证、学生证、手机服务密码 <span class="c-blue">（必验证）</span></p>
+                            <p>在校大学生、身份证、学生证<span class="c-blue">（必验证）</span></p>
                         </div>
 
                         <div class="cont">
@@ -186,7 +186,7 @@
                         </div>
 
                         <div class="condition">
-                            <p>1.在校大学生、身份证、学生证、手机服务密码 <span class="c-blue">（必验证）</span></p>
+                            <p>1.在校大学生、身份证、学生证<span class="c-blue">（必验证）</span></p>
                             <p>2.其他消费清单、家长身份证、室友身份证、学信网截图、手机近期通话记录截图驾驶证、户口本 <span class="c-blue">（必验证）</span></p>
                         </div>
 

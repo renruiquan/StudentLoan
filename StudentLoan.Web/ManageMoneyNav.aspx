@@ -17,7 +17,7 @@
 
         <div class="cornucopia">
 
-            <StudentLoan:RepeaterPlus ID="objReapter" runat="server">
+            <StudentLoan:RepeaterPlus ID="objReapter" runat="server" OnItemDataBound="objReapter_ItemDataBound">
                 <ItemTemplate>
                     <div class='<%#this.SetClass( Eval("ProductId").Convert<int>(1)) %>'>
 
@@ -34,7 +34,7 @@
                                         <span>保证计划：本息保障计划 </span>
                                         <span class="c-blue">利率：<%#Eval("BaseAnnualFee").Convert<decimal>().ToString("P2") %></span>
                                         <span>额度：<%#Eval("ProductMinMoney").Convert<decimal>().ToString("C") %>+</span>
-                                        <span>理财期限：<%#Eval("MinPeriod") %>-<%#Eval("MaxPeriod") %>个月</span>
+                                        <span>理财期限：<asp:Literal ID="objLiteral" runat="server">无限制</asp:Literal></span>
                                     </div>
                                 </div>
 

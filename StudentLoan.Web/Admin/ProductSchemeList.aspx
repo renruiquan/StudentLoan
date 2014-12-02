@@ -75,7 +75,7 @@
                 <div class="br corner"></div>
                 <div class="cnt-wp">
                     <div class="cnt">
-                        <asp:Repeater ID="objRepeater" runat="server">
+                        <asp:Repeater ID="objRepeater" runat="server" OnItemDataBound="objRepeater_ItemDataBound">
                             <HeaderTemplate>
                                 <table class="data-table" width="100%" border="0" cellspacing="0" cellpadding="0">
                                     <tr>
@@ -104,7 +104,8 @@
                                     <td class="txt40"><%#Eval("EndTime")%></td>
                                     <td class="txt40"><%#Eval("SchemeDescription")%></td>
                                     <td class="txt40"><%#Eval("Remark")%></td>
-                                    <td class="txt40"><%#this.GetStatusName(Convert.ToInt32(Eval("Status")))%></td>
+                                    <td class="txt40">
+                                        <asp:Literal ID="objLiteral" runat="server"></asp:Literal></td>
                                     <td class="txt40"><%#Eval("CreateTime")%></td>
                                     <td class="icon txt40 c"><a class="opt" title="编辑" href="ProductSchemeEdit.aspx?schemeId=<%#Eval("SchemeId") %>"><span class="icon-sprite icon-edit"></span></a><a class="opt" title="删除" onclick="return confirm('删除后不可恢复，确定删除？')" href='ProductSchemeList.aspx?Action=Delete&SchemeId=<%#Eval("SchemeId") %>'><span class="icon-sprite icon-delete"></span></a></td>
                                 </tr>

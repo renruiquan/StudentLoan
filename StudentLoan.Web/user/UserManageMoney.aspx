@@ -63,7 +63,7 @@
                                         </label>
                                     </p>
 
-                                    <p>
+                                    <p id="Period" runat="server">
                                         <label>
                                             请选择购买期限：
                                     <asp:DropDownList ID="ddlPeriod" runat="server">

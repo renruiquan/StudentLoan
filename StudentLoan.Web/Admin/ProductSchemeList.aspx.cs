@@ -85,19 +85,30 @@ namespace StudentLoan.Web.Admin
             this.BindData();
         }
 
-        public string GetStatusName(int target)
+        protected void objRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
-            string result = "未知";
-
-            switch (target)
+            if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
             {
-                default: break;
-                case 0: result = "禁用"; break;
-                case 1: result = "进行中"; break;
-                case 2: result = "已过期"; break;
-            }
+                Literal objLiteral = e.Item.FindControl("objLiteral") as Literal;
 
-            return result;
+                ProductSchemeEntityEx model = e.Item.DataItem as ProductSchemeEntityEx;
+
+                if (model.Status == 0)
+                {
+                    objLiteral.Text = "禁用";
+                }
+                else
+                {
+                    if (model.StartTime <= DateTime.Now && model.EndTime >= DateTime.Now)
+                    {
+                        objLiteral.Text = "正常";
+                    }
+                    else
+                    {
+                        objLiteral.Text = "已过期";
+                    }
+                }
+            }
         }
     }
 }

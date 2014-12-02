@@ -52,5 +52,25 @@ namespace StudentLoan.Web
 
             return result;
         }
+
+        protected void objReapter_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
+            {
+                Literal objLiteral = e.Item.FindControl("objLiteral") as Literal;
+
+                ProductEntityEx model = e.Item.DataItem as ProductEntityEx;
+
+                //聚少成多
+                if (model.ProductId == 4)
+                {
+                    objLiteral.Text = "无限制";
+                }
+                else
+                {
+                    objLiteral.Text = string.Format("{0}-{1}个月", model.MinPeriod, model.MaxPeriod);
+                }
+            }
+        }
     }
 }

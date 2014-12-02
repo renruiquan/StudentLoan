@@ -88,7 +88,7 @@ namespace StudentLoan.Web.user
             string nation = ddlNation.SelectedValue;
             string birthday = txtBirthday.Text.Trim().HtmlEncode();
             string validateCode = this.txtValidatecode.Text.Trim();
-            string mobileCode = CacheHelper.Get<string>("MobileCode");
+            string mobileCode = Session["MobileCode"] == null ? string.Empty : Session["MobileCode"].ToString();
 
             //step1个人基本信息验证
             if (string.IsNullOrEmpty(truename))
@@ -185,7 +185,7 @@ namespace StudentLoan.Web.user
             }
 
             //请除使用过的短信验证码
-            CacheHelper.Remove("MobileCode");
+            Session["MobileCode"] = null;
 
             userModel.TrueName = truename;
             userModel.Mobile = mobile;

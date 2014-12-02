@@ -18,7 +18,7 @@ namespace StudentLoan.Web.tools
         {
             context.Response.ContentType = "text/plain";
 
-            string code = CacheHelper.Get<string>("MobileCode");
+            string code = context.Session["MobileCode"] == null ? string.Empty : context.Session["MobileCode"].ToString();
 
             string vcerify_code = context.Request.Params["param"];
 

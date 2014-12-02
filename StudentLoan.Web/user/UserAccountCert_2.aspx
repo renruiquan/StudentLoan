@@ -138,26 +138,26 @@
                 <div class="item">
 
                     <table>
-                        <caption>基本信息（蓝色点为必填项）</caption>
+                        <caption>基本信息（红色点为必填项）</caption>
                         <tbody>
                             <tr>
                                 <td>
                                     <div class="control-group">
-                                        <label class="control-label"><span class="c-blue">*</span> 真实姓名：</label>
+                                        <label class="control-label"><span class="c-red">*</span> 真实姓名：</label>
 
                                         <div class="controls text-left">
                                             <asp:TextBox ID="txtTruename" runat="server" class="span5" type="text" placeholder="请输入真实姓名" />
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label"><span class="c-blue">*</span> 身份证号：</label>
+                                        <label class="control-label"><span class="c-red">*</span> 身份证号：</label>
 
                                         <div class="controls text-left">
                                             <asp:TextBox ID="txtIdentityCard" runat="server" datatype="*" class="span5" type="text" placeholder="请输入身份证号" />
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label"><span class="c-blue">*</span> 手机号码：</label>
+                                        <label class="control-label"><span class="c-red">*</span> 手机号码：</label>
 
                                         <div class="controls text-left">
                                             <asp:TextBox ID="txtMobile" runat="server" ajaxurl="/tools/validate_user_mobile.ashx" class="span5" type="text" placeholder="请输入手机号" />
@@ -173,7 +173,7 @@
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label"><span class="c-blue">*</span> 性别：</label>
+                                        <label class="control-label"><span class="c-red">*</span> 性别：</label>
 
                                         <div class="controls text-left">
                                             <asp:DropDownList runat="server" ID="ddlGender">
@@ -184,7 +184,7 @@
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label"><span class="c-blue">*</span> 民族：</label>
+                                        <label class="control-label"><span class="c-red">*</span> 民族：</label>
 
                                         <div class="controls text-left">
                                             <asp:DropDownList ID="ddlNation" runat="server">
@@ -249,7 +249,7 @@
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label"><span class="c-blue">*</span> 出生日期：</label>
+                                        <label class="control-label"><span class="c-red">*</span> 出生日期：</label>
 
                                         <div class="controls text-left">
                                             <asp:TextBox ID="txtBirthday" Style="cursor: pointer" runat="server" class="span2 datepickers" size="16" type="text" data-date-format="yyyy-mm-dd" placeholder="请选择" />
@@ -280,7 +280,7 @@
 
                 <div class="item">
                     <table>
-                        <caption>学校信息（蓝色点为必填项）</caption>
+                        <caption>学校信息（红色点为必填项）</caption>
                         <tbody>
                             <tr>
                                 <td>
@@ -288,7 +288,7 @@
                                     <%--<p class="mt10">* 学信网系统认证（请输入学信网的账号与密码，以方便我们核对信息，学子易贷保证您的得账户安全及个人隐私）</p>
 
                                     <div class="control-group">
-                                        <label class="control-label"><span class="c-blue">*</span> 账号：</label>
+                                        <label class="control-label"><span class="c-red">*</span> 账号：</label>
 
                                         <div class="controls text-left">
                                             <asp:TextBox ID="txtXuexin" runat="server" class="span5" type="text" placeholder="请输入学信网账号" />
@@ -296,7 +296,7 @@
                                     </div>
 
                                     <div class="control-group">
-                                        <label class="control-label"><span class="c-blue">*</span> 密码：</label>
+                                        <label class="control-label"><span class="c-red">*</span> 密码：</label>
 
                                         <div class="controls text-left">
                                             <asp:TextBox ID="txtXuexin_Password" runat="server" class="span5" type="password" placeholder="请输入学信网密码" />
@@ -304,7 +304,7 @@
                                     </div>--%>
 
                                     <div class="control-group">
-                                        <label class="control-label"><span class="c-blue">*</span> 就读学校：</label>
+                                        <label class="control-label"><span class="c-red">*</span> 就读学校：</label>
 
                                         <div class="controls text-left">
                                             <asp:TextBox ID="txtSchoolName" autocomplete="off" data-provide="typeahead" data-items="10" runat="server" class="span5" type="text" placeholder="请输入学校名称(与学生证上一致)" />
@@ -315,7 +315,7 @@
 
 
                                     <div class="control-group">
-                                        <label class="control-label"><span class="c-blue">*</span> 学校地址：</label>
+                                        <label class="control-label"><span class="c-red">*</span> 学校地址：</label>
 
                                         <div class="controls text-left">
                                             <asp:TextBox ID="txtSchoolAdd" runat="server" class="span5" type="text" placeholder="请输入学校地址" />
@@ -324,7 +324,7 @@
 
 
                                     <div class="control-group">
-                                        <label class="control-label"><span class="c-blue">*</span> 入学日期：</label>
+                                        <label class="control-label"><span class="c-red">*</span> 入学日期：</label>
 
                                         <div class="controls text-left">
                                             <asp:TextBox ID="txtYearOfAdmission" Style="cursor: pointer" runat="server" class="span2 datepickers" size="16" type="text" data-date-format="yyyy-mm-dd" placeholder="请选择" />
@@ -332,7 +332,7 @@
                                     </div>
 
                                     <div class="control-group">
-                                        <label class="control-label"><span class="c-blue">*</span> 学制：</label>
+                                        <label class="control-label"><span class="c-red">*</span> 学制：</label>
 
                                         <div class="controls text-left">
                                             <asp:DropDownList runat="server" ID="ddlSchoolSystem">
@@ -348,7 +348,7 @@
                                     </div>
 
                                     <div class="control-group">
-                                        <label class="control-label"><span class="c-blue">*</span> 学历：</label>
+                                        <label class="control-label"><span class="c-red">*</span> 学历：</label>
 
                                         <div class="controls text-left">
                                             <asp:DropDownList runat="server" ID="ddlEducation">
@@ -367,7 +367,7 @@
 
 
                                     <div class="control-group">
-                                        <label class="control-label"><span class="c-blue">*</span>专业（系）：</label>
+                                        <label class="control-label"><span class="c-red">*</span>专业（系）：</label>
 
                                         <div class="controls text-left">
                                             <asp:TextBox ID="txtMajor" runat="server" class="span5" type="text" placeholder="请输入专业名称" />
@@ -400,15 +400,15 @@
 
                 <div class="item">
                     <table>
-                        <caption>联系人信息（蓝色点为必填项）</caption>
+                        <caption>联系人信息（红色点为必填项）</caption>
                         <tbody>
                             <tr>
                                 <td>
 
-                                    <h3 class="text-left pl20">1.直接亲属联系人</h3>
+                                    <h3 class="text-left pl20">1.直系亲属联系人</h3>
 
                                     <div class="control-group">
-                                        <label class="control-label"><span class="c-blue">*</span> 姓名：</label>
+                                        <label class="control-label"><span class="c-red">*</span> 姓名：</label>
 
                                         <div class="controls text-left">
                                             <asp:TextBox ID="txtRelativeName" runat="server" class="span5" type="text" placeholder="请输入亲属姓名" />
@@ -416,7 +416,7 @@
                                     </div>
 
                                     <div class="control-group">
-                                        <label class="control-label"><span class="c-blue">*</span> 与本人关系：</label>
+                                        <label class="control-label"><span class="c-red">*</span> 与本人关系：</label>
 
                                         <div class="controls text-left">
                                             <asp:TextBox ID="txtRelationtype" runat="server" class="span5" type="text" placeholder="请输入关系" />
@@ -424,7 +424,7 @@
                                     </div>
 
                                     <div class="control-group">
-                                        <label class="control-label"><span class="c-blue">*</span> 手机号码：</label>
+                                        <label class="control-label"><span class="c-red">*</span> 手机号码：</label>
 
                                         <div class="controls text-left">
                                             <asp:TextBox ID="txtRelativeMobile" runat="server" class="span5" type="text" placeholder="请输入亲属手机号码" />
@@ -432,7 +432,7 @@
                                     </div>
 
                                     <%-- <div class="control-group">
-                                        <label class="control-label"><span class="c-blue">*</span> 职业：</label>
+                                        <label class="control-label"><span class="c-red">*</span> 职业：</label>
 
                                         <div class="controls text-left">
                                             <asp:TextBox ID="txtRelativeProfession" runat="server" class="span5" type="text" placeholder="请输入亲属职业" />
@@ -442,14 +442,14 @@
 
                                     <h3 class="text-left pl20">2.同学（同室）</h3>
                                     <div class="control-group">
-                                        <label class="control-label"><span class="c-blue">*</span> 姓名：</label>
+                                        <label class="control-label"><span class="c-red">*</span> 姓名：</label>
 
                                         <div class="controls text-left">
                                             <asp:TextBox ID="txtMateName" runat="server" class="span5" type="text" placeholder="请输入同学姓名" />
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label"><span class="c-blue">*</span> 手机号码：</label>
+                                        <label class="control-label"><span class="c-red">*</span> 手机号码：</label>
 
                                         <div class="controls text-left">
                                             <asp:TextBox ID="txtMateMobile" runat="server" class="span5" type="text" placeholder="请输入同学手机号码" />
@@ -457,14 +457,14 @@
                                     </div>
                                     <h3 class="text-left pl20">3.朋友（必须不是同学）</h3>
                                     <div class="control-group">
-                                        <label class="control-label"><span class="c-blue">*</span> 姓名：</label>
+                                        <label class="control-label"><span class="c-red">*</span> 姓名：</label>
 
                                         <div class="controls text-left">
                                             <asp:TextBox ID="txtFriendName" runat="server" class="span5" type="text" placeholder="请输入朋友姓名" />
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label"><span class="c-blue">*</span> 手机号码：</label>
+                                        <label class="control-label"><span class="c-red">*</span> 手机号码：</label>
 
                                         <div class="controls text-left">
                                             <asp:TextBox ID="txtFriendMobile" runat="server" class="span5" type="text" placeholder="请输入朋友手机号码" />

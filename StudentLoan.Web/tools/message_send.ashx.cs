@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Caching;
+using System.Web.SessionState;
 
 namespace StudentLoan.Web.tools
 {
     /// <summary>
     /// message_send 的摘要说明
     /// </summary>
-    public class message_send : IHttpHandler
+    public class message_send : IHttpHandler, IRequiresSessionState
     {
         //发送短信
 
@@ -23,7 +24,10 @@ namespace StudentLoan.Web.tools
             string type = context.Request.Params["type"];
 
 
-            HttpRuntime.Cache.Add("MobileCode", mobileCode, null, DateTime.Now.AddMinutes(5), TimeSpan.Zero, CacheItemPriority.NotRemovable, null);
+            // HttpRuntime.Cache.Add("MobileCode", mobileCode, null, DateTime.Now.AddMinutes(5), TimeSpan.Zero, CacheItemPriority.NotRemovable, null);
+            context.Session["MobileCode"] = mobileCode;
+            context.Session.Timeout = 5;
+
             string content = string.Empty;
 
             if (type == "findpassword")

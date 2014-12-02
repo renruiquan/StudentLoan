@@ -24,7 +24,7 @@ namespace StudentLoan.Web
 
             string validateCode = this.txtValidatecode.Text.Trim();
 
-            string mobileCode = CacheHelper.Get<string>("MobileCode");
+            string mobileCode = Session["MobileCode"] == null ? string.Empty : Session["MobileCode"].ToString();
 
             if (string.IsNullOrEmpty(mobile))
             {
@@ -61,6 +61,9 @@ namespace StudentLoan.Web
                 this.artDialog("提示", "该用户不存在，无法找回密码！");
                 return;
             }
+
+            //清除使用过的手机验证码
+            Session["MobileCode"] = null;
 
             //写入Cookies
             this.WriteCookie("SLRememberName", userModel.UserName, 14400);

@@ -23,7 +23,7 @@ namespace StudentLoan.Web.user
 
             string validateCode = this.txtValidatecode.Text.Trim();
 
-            string mobileCode = CacheHelper.Get<string>("MobileCode");
+            string mobileCode = Session["MobileCode"] == null ? string.Empty : Session["MobileCode"].ToString();
 
             if (string.IsNullOrEmpty(mobile))
             {
@@ -42,6 +42,8 @@ namespace StudentLoan.Web.user
                 this.artDialog("手机验证码不正确！");
                 return;
             }
+
+            Session["MobileCode"] = null;
 
             Response.Redirect("/user/ChangeWithDrawPassword.aspx?type=findwithdrawpassword");
         }

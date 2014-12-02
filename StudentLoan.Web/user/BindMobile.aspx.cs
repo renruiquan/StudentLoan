@@ -45,7 +45,7 @@ namespace StudentLoan.Web.user
 
             string validateCode = this.txtValidatecode.Text.Trim();
 
-            string mobileCode = CacheHelper.Get<string>("MobileCode");
+            string mobileCode = Session["MobileCode"] == null ? string.Empty : Session["MobileCode"].ToString();
 
             if (string.IsNullOrEmpty(mobile))
             {
@@ -84,6 +84,10 @@ namespace StudentLoan.Web.user
             {
                 this.artDialog("提示", "绑定手机失败，请联系管理员！", "BindMobile.aspx");
             }
+
+            //清除已使用过的手机验证码
+
+            Session["MobileCode"] = null;
         }
 
         public void BindMobileInfo()

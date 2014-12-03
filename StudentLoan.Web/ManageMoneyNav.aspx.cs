@@ -62,14 +62,14 @@ namespace StudentLoan.Web
                 ProductEntityEx model = e.Item.DataItem as ProductEntityEx;
 
                 //聚少成多
-                if (model.ProductId == 4)
-                {
-                    objLiteral.Text = "无限制";
-                }
-                else
-                {
-                    objLiteral.Text = string.Format("{0}-{1}个月", model.MinPeriod, model.MaxPeriod);
-                }
+                //if (model.ProductId == 4)
+                //{
+                //    objLiteral.Text = "无限制";
+                //}
+                //else
+                //{
+                objLiteral.Text = string.Format("{0}-{1}个月", model.MinPeriod, model.MaxPeriod);
+                //}
             }
         }
     }

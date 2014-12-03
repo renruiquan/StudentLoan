@@ -108,9 +108,10 @@
                                     <td class="txt40 c"><%#Eval("Count")%></td>
                                     <td class="txt40 c"><%#Eval("Amount")%></td>
                                     <td class="txt40 c"><%#Eval("CreateTime")%></td>
-                                    <td><%#Eval("PayTime").Convert<DateTime>().ToString("yyyy-MM-dd HH:mm:ss") =="0001-01-01 00:00:00"?"":Eval("PayTime").Convert<DateTime>().ToString("yyyy-MM-dd HH:mm:ss")%></td>
+                                    <td class="txt40 c"><%#Eval("PayTime").Convert<DateTime>().ToString("yyyy-MM-dd HH:mm:ss") =="0001-01-01 00:00:00"?"":Eval("PayTime").Convert<DateTime>().ToString("yyyy-MM-dd HH:mm:ss")%></td>
                                     <td class="txt40 c"><%# this.GetStatusName(Convert.ToInt32(Eval("Status")))%></td>
-                                    <td class="txt40 c"><asp:Literal ID="objLiteral" runat="server"></asp:Literal></td>
+                                    <td class="txt40 c">
+                                        <asp:Literal ID="objLiteral" runat="server"></asp:Literal></td>
 
                                 </tr>
                             </ItemTemplate>

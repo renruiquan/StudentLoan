@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DrawMoneyList.aspx.cs" Inherits="StudentLoan.Web.Admin.DrawMoneyList" %>
 
-
+<%@ Import Namespace="StudentLoan.Common" %>
 <%@ Register Assembly="AspNetPager" Namespace="Wuqi.Webdiyer" TagPrefix="webdiyer" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -121,7 +121,7 @@
                                     <td><%#Eval("ConfirmMoney")%></td>
                                     <td><%#Eval("Fee")%></td>
                                     <td><%#Eval("ApplyTime")%></td>
-                                    <td><%#Eval("PassTime")%></td>
+                                    <td><%#Eval("PassTime").Convert<DateTime>().ToString("yyyy-MM-dd HH:mm:ss") =="0001-01-01 00:00:00"?"":Eval("PassTime").Convert<DateTime>().ToString("yyyy-MM-dd HH:mm:ss")%></td>
                                     <td><%#Eval("AdminId")%></td>
                                     <td><%# this.GetStatusName(Convert.ToInt32(Eval("Status")))%></td>
                                     <td>

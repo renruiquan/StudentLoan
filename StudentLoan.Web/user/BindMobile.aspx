@@ -12,10 +12,15 @@
 
         function time() {
 
+            if ($("#<%=txtMobile.ClientID%>").val() == "") {
+                this.alert("手机号码不能为空");
+                return;
+            }
+
             if (flag) {
 
                 flag = false;
-                $.post("/tools/message_send.ashx", { "txtMobile": $("#txtMobile").val(),"type":"BindMobile" }, function (data, status) {
+                $.post("/tools/message_send.ashx", { "txtMobile": $("#txtMobile").val(), "type": "BindMobile" }, function (data, status) {
                     if (status != "success") {
                         alert("短信发送失败");
                         return;
@@ -45,6 +50,23 @@
         $(function () {
             $("#form1").Validform({
                 tiptype: 3,
+            });
+
+            $("#txtMobile").on("blur", function () {
+                $.post("/tools/validate_user_mobile.ashx", { "param": $(this).val() }, function (data, status) {
+                    if (status != "success") {
+                        alert("手机号码校验失败");
+                        return;
+                    } else {
+                        var result = $.parseJSON(data);
+                        var btn = $("#<%=btnSendMessage.ClientID%>");
+                        if (result.status == "n" && result.type == "1") {
+                            btn.attr("disabled", true);
+                        } else {
+                            btn.attr("disabled", false);
+                        }
+                    }
+                });
             });
         });
     </script>

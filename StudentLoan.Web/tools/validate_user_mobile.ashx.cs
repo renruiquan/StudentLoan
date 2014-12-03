@@ -20,7 +20,7 @@ namespace StudentLoan.Web.tools
 
             if (string.IsNullOrEmpty(mobile))
             {
-                context.Response.Write("{\"info\":\"请填写手机号码！\",\"status\":\"n\"}");
+                context.Response.Write("{\"info\":\"请填写手机号码！\",\"status\":\"n\",\"type\":\"0\"}");
                 return;
             }
 
@@ -28,11 +28,11 @@ namespace StudentLoan.Web.tools
 
             if (result)
             {
-                context.Response.Write("{\"info\":\"手机号已被使用！\",\"status\":\"n\"}");
+                context.Response.Write("{\"info\":\"手机号已被使用！\",\"status\":\"n\",\"type\":\"1\"}");
             }
             else
             {
-                context.Response.Write("{\"info\":\"可以使用！\",\"status\":\"y\"}");
+                context.Response.Write("{\"info\":\"可以使用！\",\"status\":\"y\",\"type\":\"2\"}");
             }
         }
 

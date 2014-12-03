@@ -90,7 +90,7 @@ namespace StudentLoan.Model.Base
         private int _minPeriod;
 
         /// <summary>
-        /// 最小投资期限
+        /// 最小理财期限
         /// </summary>
         public int MinPeriod
         {
@@ -101,7 +101,7 @@ namespace StudentLoan.Model.Base
         private int _maxPeriod;
 
         /// <summary>
-        /// 最大投资期限
+        /// 最大理财期限
         /// </summary>
         public int MaxPeriod
         {

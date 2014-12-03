@@ -5,6 +5,30 @@
     <title>聚宝盆 - 确认理财</title>
     <script src="../js/jquery-1.11.0.min.js"></script>
     <script src="../Admin/js/jquery.validate.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#ddlPeriod").on("change", function () {
+                var dateNow = new Date();
+                var dataTemp = AddMonths(dateNow, parseInt($(this).val(), 10));
+                $("#EndTime").text(dataTemp);
+            });
+        });
+
+        function AddMonths(datetime, month) {
+            var tempDate = new Date(datetime);
+            tempDate.setMonth(tempDate.getMonth() + month);
+            var m = tempDate.getMonth() + 1;
+            var d = tempDate.getDate();
+
+            if (m < 10) {
+                m = "0" + m;
+            }
+            if (d < 10) {
+                d = "0" + d;
+            }
+            return tempDate.getFullYear() + '-' + m + '-' + d;
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-wrap">
@@ -63,10 +87,10 @@
                                         </label>
                                     </p>
 
-                                    <p id="Period" runat="server">
+                                    <p>
                                         <label>
                                             请选择购买期限：
-                                    <asp:DropDownList ID="ddlPeriod" runat="server">
+                                    <asp:DropDownList ID="ddlPeriod" ClientIDMode="Static" runat="server">
                                     </asp:DropDownList>
                                         </label>
                                     </p>
@@ -103,13 +127,13 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>购买开始时间</td>
-                                <td><%=this.SchemeModel.StartTime.Convert<DateTime>().ToString("yyyy-MM-dd") %></td>
+                                <td>理财开始时间</td>
+                                <td><span id="StartTime"><%=DateTime.Now.ToString("yyyy-MM-dd") %></span> </td>
                             </tr>
                             <tr>
-                                <td>购买结束时间
+                                <td>理财结束时间
                                 </td>
-                                <td><%=this.SchemeModel.EndTime.Convert<DateTime>().ToString("yyyy-MM-dd") %>
+                                <td><span id="EndTime"><%=DateTime.Now.AddMonths(1).ToString("yyyy-MM-dd") %></span>
                                 </td>
                             </tr>
                         </tbody>

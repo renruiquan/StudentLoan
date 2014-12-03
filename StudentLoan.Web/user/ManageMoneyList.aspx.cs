@@ -115,7 +115,7 @@ namespace StudentLoan.Web.user
 
                                 if (result)
                                 {
-                                    string code =  Message.Send(userModel.Telphone, string.Format("亲，你购买了理财产品{0},共消费了{1}元。【学子易贷】", userManageMoneyModel.SchemeName, userManageMoneyModel.Amount));
+                                    string code = Message.Send(userModel.Telphone, string.Format("亲，你购买了理财产品{0},共消费了{1}元。【学子易贷】", userManageMoneyModel.SchemeName, userManageMoneyModel.Amount));
                                     LogHelper.Default.Info("短信内容：" + code);
 
                                     this.Alert("购买成功", "ManageMoneyList.aspx");
@@ -218,7 +218,7 @@ namespace StudentLoan.Web.user
                 {
                     objLiteral.Text = string.Format("<a href=\"ManageMoneyList.aspx?buyId={0}&action=pay\">支付</a>", model.BuyId);
                 }
-                else if (model.Status == 1)
+                else if (model.Status == 1 && model.ProductId == 4)
                 {
                     objLiteral.Text = string.Format("<a onclick=\"return confirm('确定转出？');\" href=\"ManageMoneyList_2.aspx?buyId={0}&action=drawMoney\">申请转出</a>", model.BuyId);
                 }

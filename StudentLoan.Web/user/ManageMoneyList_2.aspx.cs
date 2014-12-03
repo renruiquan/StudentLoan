@@ -163,7 +163,7 @@ namespace StudentLoan.Web.user
                 {
                     objLiteral.Text = string.Format("<a href=\"ManageMoneyList.aspx?buyId={0}&action=pay\">支付</a>", model.BuyId);
                 }
-                else if (model.Status == 1)
+                else if (model.Status == 1 && model.ProductId == 4)
                 {
                     objLiteral.Text = string.Format("<a class='draw' location = 'ManageMoneyList_2.aspx?buyId={0}&action=drawMoney' href=\"javascript:;\">申请转出</a>", model.BuyId);
                 }

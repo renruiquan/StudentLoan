@@ -23,7 +23,7 @@ namespace StudentLoan.Model.Base
         private int _period;
 
         /// <summary>
-        /// 投资期限
+        /// 理财期限
         /// </summary>
         public int Period
         {

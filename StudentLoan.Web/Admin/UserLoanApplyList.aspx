@@ -132,7 +132,7 @@
                                     <td><%#this.GetStatusName(Convert.ToInt32(Eval("Status"))) %></td>
 
                                     <td><%#this.GetAdminName(Convert.ToInt32(Eval("AdminID"))) %></td>
-                                    <td><%#Eval("PassTime") %></td>
+                                    <td><%#Eval("PassTime").ToString()=="0001/1/1 0:00:00"?"":Eval("PassTime") %></td>
                                     <td>
                                         <asp:Literal ID="objLiteral" runat="server"></asp:Literal>
                                     </td>

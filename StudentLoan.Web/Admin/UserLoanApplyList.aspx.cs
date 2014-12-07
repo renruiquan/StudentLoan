@@ -26,6 +26,16 @@ namespace StudentLoan.Web.Admin
 
                 if (!IsPostBack)
                 {
+                    string action = this.Request<string>("action");
+
+                    if (action == "delete")
+                    {
+                        int loanId = this.Request<int>("loanId");
+
+                        bool result = new UserLoanBLL().Delete(new UserLoanEntityEx() { LoanId = loanId });
+
+                        this.Alert(string.Format("操作{0}", result == true ? "成功" : "失败"));
+                    }
 
                     this.BindData();
                 }
@@ -194,7 +204,7 @@ namespace StudentLoan.Web.Admin
 
                 StringBuilder objSB = new StringBuilder();
                 objSB.AppendFormat("<a href=\"CheckUserInfo.aspx?loanid={0}\">审核资料</a>", model.LoanId);
-
+                objSB.AppendFormat(" | <a onclick=\"return confirm('删除后无法恢复，是否删除？');\" href=\"UserLoanApplyList.aspx?action=delete&loanId={0}\">删除</a>", model.LoanId);
                 objLiteral.Text = objSB.ToString();
             }
         }
@@ -300,7 +310,7 @@ namespace StudentLoan.Web.Admin
                 row.HeightInPoints = 25;
 
                 row.CreateCell(0, CellType.String).SetCellValue(sheetAdapter[i].LoanNo);
-                row.CreateCell(1, CellType.String).SetCellValue(sheetAdapter[i].UserName);
+                row.CreateCell(1, CellType.String).SetCellValue(string.Format("{0}/{1}", sheetAdapter[i].UserName, sheetAdapter[i].TrueName));
                 row.CreateCell(2, CellType.String).SetCellValue(sheetAdapter[i].ProductName);
                 row.CreateCell(3, CellType.Numeric).SetCellValue(sheetAdapter[i].LoanMoney.Convert<double>());
                 row.CreateCell(4, CellType.Numeric).SetCellValue(sheetAdapter[i].AnnualFee.Convert<double>());

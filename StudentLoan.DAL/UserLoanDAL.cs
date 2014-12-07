@@ -470,6 +470,7 @@ and a.UserId = b.UserId");
             commandText.Append(@" 	SELECT
 	                                    T.LoanNo,
 	                                    a.UserName,
+                                        a.TrueName,
 	                                    b.ProductName,
 	                                    T.LoanMoney,
 	                                    T.AnnualFee,
@@ -594,7 +595,7 @@ and a.UserId = b.UserId");
                 commandText.Append(" Order By T.LoanId Desc");
             }
 
-            commandText.Append(" )AS Row,a.UserName,b.ProductName, T.*  From sl_user_loan T,sl_users a,sl_product b ");
+            commandText.Append(" )AS Row,a.UserName,a.TrueName,b.ProductName, T.*  From sl_user_loan T,sl_users a,sl_product b ");
 
             if (!string.IsNullOrEmpty(strWhere))
             {

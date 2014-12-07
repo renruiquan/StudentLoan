@@ -153,6 +153,18 @@ namespace StudentLoan.BLL
             return dal.UpdatePasswordByAdmin(model);
         }
 
+
+        /// <summary>
+        /// 是否可以更新用户资料
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="canModify"></param>
+        /// <returns></returns>
+        public bool UpdateCanModifyValue(UsersEntityEx model)
+        {
+            return dal.UpdateCanModifyValue(model);
+        }
+
         /// <summary>
         /// 管理员放款时将借款金额直接打到用户账号中
         /// </summary>

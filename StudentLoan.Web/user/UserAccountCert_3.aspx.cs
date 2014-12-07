@@ -14,13 +14,6 @@ namespace StudentLoan.Web.user
 {
     public partial class UserAccountCert_3 : BasePage
     {
-        public UserCertificationEntityEx IdentityCard_1 { get; set; }
-        public UserCertificationEntityEx IdentityCard_2 { get; set; }
-
-        public UserCertificationEntityEx StudentId_1 { get; set; }
-        public UserCertificationEntityEx StudentId_2 { get; set; }
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -50,12 +43,24 @@ namespace StudentLoan.Web.user
 
             if (sourceList != null && sourceList.Count > 0)
             {
-                IdentityCard_1 = sourceList.FirstOrDefault(s => s.Type == 0);
-                IdentityCard_2 = sourceList.FirstOrDefault(s => s.Type == 1);
+                if (sourceList.FirstOrDefault(s => s.Type == 0) != null)
+                {
+                    this.imgIdentityCard.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 0).Images;
+                }
+                if (sourceList.FirstOrDefault(s => s.Type == 1) != null)
+                {
+                    this.imgIdentityCard2.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 1).Images;
+                }
 
-                StudentId_1 = sourceList.FirstOrDefault(s => s.Type == 2);
-                StudentId_2 = sourceList.FirstOrDefault(s => s.Type == 3);
+                if (sourceList.FirstOrDefault(s => s.Type == 2) != null)
+                {
+                    this.imgStudentId_1.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 2).Images;
+                }
 
+                if (sourceList.FirstOrDefault(s => s.Type == 3) != null)
+                {
+                    this.imgStudentId_2.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 3).Images;
+                }
             }
         }
     }

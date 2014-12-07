@@ -72,15 +72,19 @@ namespace StudentLoan.Web.tools
             }
             else
             {
-                //更新
-                userCertModel = new UserCertificationEntityEx()
+                if (userCertModel.CanModify == 1)
                 {
-                    UserId = userId,
-                    Type = type,
-                    Images = string.Format("/upload_images/{0}/{1}_{2}", userId, fileTicks, file.FileName),
-                };
+                    //更新
+                    userCertModel = new UserCertificationEntityEx()
+                    {
+                        UserId = userId,
+                        Type = type,
+                        Images = string.Format("/upload_images/{0}/{1}_{2}", userId, fileTicks, file.FileName),
+                        CanModify = 0,
+                    };
 
-                result = new UserCertificationBLL().Update(userCertModel);
+                    result = new UserCertificationBLL().Update(userCertModel);
+                }
             }
 
             if (File.Exists(fileName) && result == true)
@@ -117,6 +121,7 @@ namespace StudentLoan.Web.tools
                 case 14: model.CertificationName = "户口簿内容"; model.Point = 2; break;
                 case 15: model.CertificationName = "行驶证内容"; model.Point = 1; break;
                 case 16: model.CertificationName = "获奖证书内容"; model.Point = 5; break;
+                case 17: model.CertificationName = "身份证背面"; model.Point = 0; break;
             }
 
             return model;

@@ -163,6 +163,8 @@ namespace StudentLoan.DAL
 
             commandText.Append(" Name = @Name, ");
 
+            commandText.Append(" Status = 0, ");
+
             commandText.Append(" Relationship = @Relationship, ");
 
             commandText.Append(" Mobile = @Mobile, ");
@@ -196,6 +198,39 @@ namespace StudentLoan.DAL
             return base.ExecuteNonQuery(commandText.ToString(), paramsList.ToArray());
         }
 
+        /// <summary>
+        /// 是否可以更新联系人信息
+        /// </summary>
+        public bool UpdateByAdmin(UserRelationshipEntityEx model)
+        {
+            #region CommandText
+
+            StringBuilder commandText = new StringBuilder();
+
+            commandText.Append(" Update sl_user_relationship Set ");
+
+            commandText.Append(" Status = @Status ");
+
+            commandText.Append(" Where  UserId = @UserId ");
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@UserId", model.UserId));
+
+
+            paramsList.Add(new SqlParameter("@Status", model.Status));
+
+
+
+            #endregion
+
+            return base.ExecuteNonQuery(commandText.ToString(), paramsList.ToArray());
+        }
+
 
         /// <summary>
         /// 获取一个实体
@@ -206,7 +241,7 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select Top 1 ,UserId,Name,Relationship,Mobile,Profession,Address,Type,Remark,CreateTime From sl_user_relationship Where  UserId= @UserId ");
+            commandText.Append(" Select Top 1 UserId,Name,Relationship,Mobile,Profession,Address,Type,Remark,CreateTime,Status From sl_user_relationship Where  UserId= @UserId ");
 
             #endregion
 
@@ -234,7 +269,7 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select UserId,Name,Relationship,Mobile,Profession,Address,Type,Remark,CreateTime ");
+            commandText.Append(" Select UserId,Name,Relationship,Mobile,Profession,Address,Type,Remark,CreateTime,Status ");
 
             commandText.Append("From sl_user_relationship ");
 

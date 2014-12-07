@@ -171,6 +171,8 @@ namespace StudentLoan.DAL
 
             commandText.Append(" Education = @Education, ");
 
+            commandText.Append(" Status = 0 , ");
+
             commandText.Append(" xuexinUsername = @xuexinUsername, ");
 
             commandText.Append(" xuexinPassword = @xuexinPassword, ");
@@ -217,6 +219,38 @@ namespace StudentLoan.DAL
             return base.ExecuteNonQuery(commandText.ToString(), paramsList.ToArray());
         }
 
+        /// <summary>
+        /// 用于更新学校信息，是否可以修改 0=否，1=是
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public bool UpdateByAdmin(UserSchoolEntityEx model)
+        {
+            #region CommandText
+
+            StringBuilder commandText = new StringBuilder();
+
+            commandText.Append(" Update sl_user_school Set ");
+
+            commandText.Append(" Status = @Status  ");
+
+            commandText.Append(" Where  UserId= @UserId ");
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@UserId", model.UserId));
+
+            paramsList.Add(new SqlParameter("@Status", model.Status));
+
+
+            #endregion
+
+            return base.ExecuteNonQuery(commandText.ToString(), paramsList.ToArray());
+        }
 
         /// <summary>
         /// 获取一个实体

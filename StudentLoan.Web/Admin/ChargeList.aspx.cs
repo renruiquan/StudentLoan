@@ -20,6 +20,18 @@ namespace StudentLoan.Web.Admin
             if (!IsPostBack)
             {
                 this.txtStartTime.Text = DateTime.Now.ToString("yyyy-MM-dd");
+
+                string action = this.Request<string>("action");
+
+                if (action == "delete")
+                {
+                    int Id = this.Request<int>("Id");
+
+                    bool result = new UserChargeBLL().Delete(new UserChargeEntityEx() { Id = Id });
+
+                    this.Alert(string.Format("操作{0}", result == true ? "成功" : "失败"));
+                }
+
                 this.BindData();
             }
         }

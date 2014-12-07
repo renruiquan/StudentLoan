@@ -48,7 +48,7 @@
                                     <td>
                                         <asp:TextBox ID="txtNewPassword" placeholder="新密码" runat="server" class="required" /></td>
                                 </tr>
-                                 <tr>
+                                <tr>
                                     <th scope="row">新的提现密码：</th>
                                     <td>
                                         <asp:TextBox ID="txtDrawMoneyPassword" placeholder="新密码" runat="server" class="required" /></td>
@@ -65,6 +65,49 @@
 
                                     </td>
                                 </tr>
+
+
+                                <tr>
+                                    <th scope="row">基本资料：</th>
+                                    <td>
+                                        <asp:DropDownList ID="ddlCanModifyUserInfo" runat="server">
+                                            <asp:ListItem Value="0">锁定</asp:ListItem>
+                                            <asp:ListItem Value="1">正常</asp:ListItem>
+                                        </asp:DropDownList>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">学校资料：</th>
+                                    <td>
+                                        <asp:DropDownList ID="ddlCanModifySchool" runat="server">
+                                            <asp:ListItem Value="0">锁定</asp:ListItem>
+                                            <asp:ListItem Value="1">正常</asp:ListItem>
+                                        </asp:DropDownList>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">联系人：</th>
+                                    <td>
+                                        <asp:DropDownList ID="ddlCanModifyRelationship" runat="server">
+                                            <asp:ListItem Value="0">锁定</asp:ListItem>
+                                            <asp:ListItem Value="1">正常</asp:ListItem>
+                                        </asp:DropDownList>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">认证资料：</th>
+                                    <td>
+                                        <asp:DropDownList ID="ddlCanModifyUserCert" runat="server">
+                                            <asp:ListItem Value="0">锁定</asp:ListItem>
+                                            <asp:ListItem Value="1">正常</asp:ListItem>
+                                        </asp:DropDownList>
+
+                                    </td>
+                                </tr>
+
                                 <tr>
                                     <th scope="row">&nbsp;</th>
                                     <td>

@@ -246,6 +246,8 @@ namespace StudentLoan.DAL
 
             commandText.Append(" UserName = @UserName, ");
 
+            commandText.Append(" CanModify = 0, ");
+
             commandText.Append(" NickName = @NickName, ");
 
             commandText.Append(" TrueName = @TrueName, ");
@@ -474,6 +476,39 @@ namespace StudentLoan.DAL
         }
 
         /// <summary>
+        /// 是否可以更新用户资料
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="canModify"></param>
+        /// <returns></returns>
+        public bool UpdateCanModifyValue(UsersEntityEx model)
+        {
+            #region CommandText
+
+            StringBuilder commandText = new StringBuilder();
+
+            commandText.Append(" Update sl_users Set ");
+
+            commandText.Append(" CanModify = @CanModify");
+
+            commandText.Append(" Where UserId = @UserId ");
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@UserId", model.UserId));
+
+            paramsList.Add(new SqlParameter("@CanModify", model.CanModify));
+
+            #endregion
+
+            return base.ExecuteNonQuery(commandText.ToString(), paramsList.ToArray());
+        }
+
+        /// <summary>
         /// 更新一条数据
         /// </summary>
         public bool UpdatePasswordByAdmin(UsersEntityEx model)
@@ -488,7 +523,9 @@ namespace StudentLoan.DAL
 
             commandText.Append(" Password = @Password, ");
 
-            commandText.Append(" DrawMoneyPassword = @DrawMoneyPassword ");
+            commandText.Append(" DrawMoneyPassword = @DrawMoneyPassword, ");
+
+            commandText.Append(" CanModify = @CanModify ");
 
             commandText.Append(" Where UserId = @UserId ");
 
@@ -503,6 +540,8 @@ namespace StudentLoan.DAL
             paramsList.Add(new SqlParameter("@Status", model.Status));
 
             paramsList.Add(new SqlParameter("@Password", model.Password));
+
+            paramsList.Add(new SqlParameter("@CanModify", model.CanModify));
 
             paramsList.Add(new SqlParameter("@DrawMoneyPassword", model.DrawMoneyPassword));
 
@@ -610,7 +649,7 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select Top 1 UserId,GroupId,UserName,NickName,TrueName,Password,DrawMoneyPassword,Salt,Email,IdentityCard,Avatar,Gender,Nation,Birthday,Telphone,Mobile,QQ,Country,Province,City,Address,SafeQuestion,SafeAnswer,Amount,Point,Exp,Status,CreateTime,RegIP,Remark From sl_users Where UserId = @UserId ");
+            commandText.Append(" Select Top 1 UserId,GroupId,UserName,NickName,TrueName,Password,DrawMoneyPassword,Salt,Email,IdentityCard,Avatar,Gender,Nation,Birthday,Telphone,Mobile,QQ,Country,Province,City,Address,SafeQuestion,SafeAnswer,Amount,Point,Exp,Status,CreateTime,RegIP,Remark,CanModify From sl_users Where UserId = @UserId ");
 
             #endregion
 

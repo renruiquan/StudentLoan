@@ -56,11 +56,11 @@ namespace StudentLoan.DAL
 
             commandText.Append(" Insert Into sl_product_scheme( ");
 
-            commandText.Append(" SchemeName,InitiatorAdminId,ProductId,PlanType,MaxYield,Amount,Price,Part,LimitPart,NumberOfPeople,StartTime,EndTime,SchemeDescription,Remark,Status) ");
+            commandText.Append(" SchemeName,InitiatorAdminId,ProductId,PlanType,MaxYield,Amount,Price,Part,LimitPart,MinDeadline,MaxDeadline,NumberOfPeople,StartTime,EndTime,SchemeDescription,Remark,Status) ");
 
             commandText.Append(" Values ( ");
 
-            commandText.Append("@SchemeName,@InitiatorAdminId,@ProductId,@PlanType,@MaxYield,@Amount,@Price,@Part,@LimitPart,@NumberOfPeople,@StartTime,@EndTime,@SchemeDescription,@Remark,@Status) ");
+            commandText.Append("@SchemeName,@InitiatorAdminId,@ProductId,@PlanType,@MaxYield,@Amount,@Price,@Part,@LimitPart,@MinDeadline,@MaxDeadline,@NumberOfPeople,@StartTime,@EndTime,@SchemeDescription,@Remark,@Status) ");
 
             #endregion
 
@@ -85,6 +85,10 @@ namespace StudentLoan.DAL
             paramsList.Add(new SqlParameter("@Part", model.Part));
 
             paramsList.Add(new SqlParameter("@LimitPart", model.LimitPart));
+
+            paramsList.Add(new SqlParameter("@MinDeadline", model.MinDeadline));
+
+            paramsList.Add(new SqlParameter("@MaxDeadline", model.MaxDeadline));
 
             paramsList.Add(new SqlParameter("@NumberOfPeople", model.NumberOfPeople));
 
@@ -178,6 +182,10 @@ namespace StudentLoan.DAL
 
             commandText.Append(" LimitPart = @LimitPart, ");
 
+            commandText.Append(" MinDeadline = @MinDeadline, ");
+
+            commandText.Append(" MaxDeadline = @MaxDeadline, ");
+
             commandText.Append(" StartTime = @StartTime, ");
 
             commandText.Append(" EndTime = @EndTime, ");
@@ -212,6 +220,10 @@ namespace StudentLoan.DAL
 
             paramsList.Add(new SqlParameter("@LimitPart", model.LimitPart));
 
+            paramsList.Add(new SqlParameter("@MinDeadline", model.MinDeadline));
+
+            paramsList.Add(new SqlParameter("@MaxDeadline", model.MaxDeadline));
+
             paramsList.Add(new SqlParameter("@StartTime", model.StartTime));
 
             paramsList.Add(new SqlParameter("@EndTime", model.EndTime));
@@ -235,8 +247,8 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(@"Select Top 1 SchemeId,SchemeName,InitiatorAdminId,a.ProductId,b.ProductName,PlanType,MinYield,MaxYield,Amount,Price,Part,LimitPart,NumberOfPeople,StartTime,EndTime,LockStartTime,LockEndTime,SchemeDescription,Fee,a.Remark,a.Status,a.CreateTime From sl_product_scheme a,sl_product b Where  SchemeId= @SchemeId
-            and a.Status=1 and a.ProductId = b.ProductId and b.Status=1 ");
+            commandText.Append(@"Select Top 1 SchemeId,SchemeName,InitiatorAdminId,a.ProductId,b.ProductName,PlanType,MinYield,MaxYield,Amount,Price,Part,LimitPart,MinDeadline,MaxDeadline, NumberOfPeople,StartTime,EndTime,LockStartTime,LockEndTime,SchemeDescription,Fee,a.Remark,a.Status,a.CreateTime From sl_product_scheme a,sl_product b Where  SchemeId= @SchemeId
+            and a.Status=1 and a.ProductId = b.ProductId and b.Status=1  ");
 
             #endregion
 
@@ -264,7 +276,7 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select SchemeId,SchemeName,InitiatorAdminId,ProductId,PlanType,MinYield,MaxYield,Amount,Price,Part,LimitPart,NumberOfPeople,StartTime,EndTime,LockStartTime,LockEndTime,SchemeDescription,Fee,Remark,Status,CreateTime ");
+            commandText.Append(" Select SchemeId,SchemeName,InitiatorAdminId,ProductId,PlanType,MinYield,MaxYield,Amount,Price,Part,LimitPart,MinDeadline,MaxDeadline,NumberOfPeople,StartTime,EndTime,LockStartTime,LockEndTime,SchemeDescription,Fee,Remark,Status,CreateTime ");
 
             commandText.Append("From sl_product_scheme ");
 
@@ -303,7 +315,7 @@ namespace StudentLoan.DAL
             }
 
 
-            commandText.Append(" ,SchemeId,SchemeName,InitiatorAdminId,ProductId,PlanType,MinYield,MaxYield,Amount,Price,Part,LimitPart,NumberOfPeople,StartTime,EndTime,LockStartTime,LockEndTime,SchemeDescription,Fee,Remark,Status,CreateTime ");
+            commandText.Append(" ,SchemeId,SchemeName,InitiatorAdminId,ProductId,PlanType,MinYield,MaxYield,Amount,Price,Part,LimitPart,MinDeadline,MaxDeadline,NumberOfPeople,StartTime,EndTime,LockStartTime,LockEndTime,SchemeDescription,Fee,Remark,Status,CreateTime ");
 
             commandText.Append("From sl_product_scheme ");
 

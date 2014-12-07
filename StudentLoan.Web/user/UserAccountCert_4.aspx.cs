@@ -14,36 +14,6 @@ namespace StudentLoan.Web.user
 {
     public partial class UserAccountCert_4 : BasePage
     {
-        #region 公共属性
-
-        public UserCertificationEntityEx XueXin { get; set; }
-
-        public UserCertificationEntityEx Bank { get; set; }
-
-        public UserCertificationEntityEx Alipay { get; set; }
-
-        public UserCertificationEntityEx Mobile { get; set; }
-
-        public UserCertificationEntityEx Parents1 { get; set; }
-
-        public UserCertificationEntityEx Parents2 { get; set; }
-
-        public UserCertificationEntityEx Roommate1 { get; set; }
-
-        public UserCertificationEntityEx Roommate2 { get; set; }
-
-        public UserCertificationEntityEx StudentId1 { get; set; }
-
-        public UserCertificationEntityEx StudentId2 { get; set; }
-
-        public UserCertificationEntityEx Residencebooklet { get; set; }
-
-        public UserCertificationEntityEx DriversLicense { get; set; }
-
-        public UserCertificationEntityEx Awards { get; set; }
-
-        #endregion
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -73,19 +43,60 @@ namespace StudentLoan.Web.user
 
             if (sourceList != null && sourceList.Count > 0)
             {
-                this.XueXin = sourceList.FirstOrDefault(s => s.Type == 4);
-                this.Bank = sourceList.FirstOrDefault(s => s.Type == 5);
-                this.Alipay = sourceList.FirstOrDefault(s => s.Type == 6);
-                this.Mobile = sourceList.FirstOrDefault(s => s.Type == 7);
-                this.Parents1 = sourceList.FirstOrDefault(s => s.Type == 8);
-                this.Parents2 = sourceList.FirstOrDefault(s => s.Type == 9);
-                this.Roommate1 = sourceList.FirstOrDefault(s => s.Type == 10);
-                this.Roommate2 = sourceList.FirstOrDefault(s => s.Type == 11);
-                this.StudentId1 = sourceList.FirstOrDefault(s => s.Type == 12);
-                this.StudentId2 = sourceList.FirstOrDefault(s => s.Type == 13);
-                this.Residencebooklet = sourceList.FirstOrDefault(s => s.Type == 14);
-                this.DriversLicense = sourceList.FirstOrDefault(s => s.Type == 15);
-                this.Awards = sourceList.FirstOrDefault(s => s.Type == 16);
+                if (sourceList.FirstOrDefault(s => s.Type == 4) != null)
+                {
+                    this.imgXuexin.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 4).Images;
+                }
+                if (sourceList.FirstOrDefault(s => s.Type == 5) != null)
+                {
+                    this.imgBank.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 5).Images;
+                }
+
+                if (sourceList.FirstOrDefault(s => s.Type == 6) != null)
+                {
+                    this.imgAlipay.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 6).Images;
+                }
+
+                if (sourceList.FirstOrDefault(s => s.Type == 7) != null)
+                {
+                    this.imgMobile.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 7).Images;
+                }
+                if (sourceList.FirstOrDefault(s => s.Type == 8) != null)
+                {
+                    this.imgParents1.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 8).Images;
+                }
+                if (sourceList.FirstOrDefault(s => s.Type == 9) != null)
+                {
+                    this.imgParents2.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 9).Images;
+                }
+                if (sourceList.FirstOrDefault(s => s.Type == 10) != null)
+                {
+                    this.imgRoommate1.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 10).Images;
+                }
+                if (sourceList.FirstOrDefault(s => s.Type == 11) != null)
+                {
+                    this.imgRoommate2.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 11).Images;
+                }
+                if (sourceList.FirstOrDefault(s => s.Type == 12) != null)
+                {
+                    this.imgStudentId1.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 12).Images;
+                }
+                if (sourceList.FirstOrDefault(s => s.Type == 13) != null)
+                {
+                    this.imgStudentId2.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 13).Images;
+                }
+                if (sourceList.FirstOrDefault(s => s.Type == 14) != null)
+                {
+                    this.imgResidencebooklet.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 14).Images;
+                }
+                if (sourceList.FirstOrDefault(s => s.Type == 15) != null)
+                {
+                    this.imgDriversLicense.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 15).Images;
+                }
+                if (sourceList.FirstOrDefault(s => s.Type == 16) != null)
+                {
+                    this.imgAwards.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 16).Images;
+                }
             }
         }
     }

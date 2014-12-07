@@ -75,31 +75,14 @@ namespace StudentLoan.Web.user
             this.ValidateBaseCert();
 
 
-            ProductEntityEx productModel = new ProductBLL().GetModel(this.ProductId);
+            ProductSchemeEntityEx schemeModel = new ProductSchemeBLL().GetModel(this.SchemeId);
 
-            this.lblMsg.Text = string.Format("(至少购买{0}元)", productModel.ProductMinMoney);
+            this.lblMsg.Text = string.Format("(至少购买{0}元)", schemeModel.Amount);
 
-            if (this.ProductId == 4)
-            {
-                this.ddlPeriod.Items.Add(new ListItem("1个月", "1"));
-                this.ddlPeriod.Items.Add(new ListItem("2个月", "2"));
-                this.ddlPeriod.Items.Add(new ListItem("3个月", "3"));
-            }
-            else if (this.ProductId == 5)
-            {
-                this.ddlPeriod.Items.Add(new ListItem("4个月", "4"));
-                this.ddlPeriod.Items.Add(new ListItem("5个月", "5"));
-                this.ddlPeriod.Items.Add(new ListItem("6个月", "6"));
-            }
-            else if (this.ProductId == 6)
-            {
-                this.ddlPeriod.Items.Add(new ListItem("7个月", "7"));
-                this.ddlPeriod.Items.Add(new ListItem("8个月", "8"));
-                this.ddlPeriod.Items.Add(new ListItem("9个月", "9"));
-                this.ddlPeriod.Items.Add(new ListItem("10个月", "10"));
-                this.ddlPeriod.Items.Add(new ListItem("11个月", "11"));
-                this.ddlPeriod.Items.Add(new ListItem("12个月", "12"));
 
+            for (int i = schemeModel.MinDeadline; i <= schemeModel.MaxDeadline; i++)
+            {
+                this.ddlPeriod.Items.Add(new ListItem(string.Format("{0}个月", i), i.ToString()));
             }
         }
 
@@ -107,11 +90,11 @@ namespace StudentLoan.Web.user
         {
             decimal purchaseMoney = this.PurchaseMoney.Text.Trim().Convert<decimal>();
 
-            ProductEntityEx productModel = new ProductBLL().GetModel(this.ProductId);
+            ProductSchemeEntityEx schemeModel = new ProductSchemeBLL().GetModel(this.SchemeId);
 
-            if (purchaseMoney < productModel.ProductMinMoney)
+            if (purchaseMoney < schemeModel.Amount)
             {
-                this.artDialog("错误", string.Format("至小购买金额为{0}元", productModel.ProductMinMoney));
+                this.artDialog("错误", string.Format("至小购买金额为{0}元", schemeModel.Amount));
                 return;
             }
 

@@ -184,11 +184,13 @@
     <Content Include="Admin\js\jquery.utils.js" />
     <Content Include="Admin\js\jquery.validate.cn.js" />
     <Content Include="Admin\js\jquery.validate.js" />
+    <Content Include="Admin\js\jQueryRotate.js" />
     <Content Include="Admin\Login.aspx" />
     <Content Include="Admin\LoginLog.aspx" />
     <Content Include="Admin\ProductSchemeAdd.aspx" />
     <Content Include="Admin\ProductSchemeEdit.aspx" />
     <Content Include="Admin\ProductSchemeList.aspx" />
+    <Content Include="Admin\ShowImages.aspx" />
     <Content Include="Admin\UserDetail.aspx" />
     <Content Include="Admin\UserEdit.aspx" />
     <Content Include="Admin\UserList.aspx" />
@@ -702,6 +704,13 @@
     </Compile>
     <Compile Include="Admin\ProductSchemeList.aspx.designer.cs">
       <DependentUpon>ProductSchemeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ShowImages.aspx.cs">
+      <DependentUpon>ShowImages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ShowImages.aspx.designer.cs">
+      <DependentUpon>ShowImages.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\UserDetail.aspx.cs">
       <DependentUpon>UserDetail.aspx</DependentUpon>

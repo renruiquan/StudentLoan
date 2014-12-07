@@ -54,6 +54,8 @@ namespace StudentLoan.Web.Admin
                 Amount = txtAmount.Text.Trim().Convert<decimal>(),
                 Part = txtPart.Text.Trim().Convert<int>(),
                 LimitPart = 0,
+                MinDeadline = txtMinDeadline.Text.Trim().Convert<int>(),
+                MaxDeadline = txtMaxDeadline.Text.Trim().Convert<int>(),
                 NumberOfPeople = 0,//购买人数 
                 StartTime = txtStartTime.Text.Trim().Convert<DateTime>(),
                 EndTime = txtEndTime.Text.Trim().Convert<DateTime>(),

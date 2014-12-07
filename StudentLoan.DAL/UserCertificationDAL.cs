@@ -146,7 +146,9 @@ namespace StudentLoan.DAL
 
             commandText.Append(" Update sl_user_certification Set ");
 
-            commandText.Append(" Images = @Images ");
+            commandText.Append(" Images = @Images, ");
+
+            commandText.Append(" CanModify = 0 ");
 
             commandText.Append(" Where UserId = @UserId and Type = @Type");
 
@@ -169,6 +171,24 @@ namespace StudentLoan.DAL
 
 
         /// <summary>
+        /// 用于设置用户认证是否可以修改
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public bool UpdateByAdmin(UserCertificationEntityEx model)
+        {
+            string commandText = @"Update sl_user_certification set CanModify = @CanModify where UserId=@UserId";
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@CanModify", model.CanModify));
+
+            paramsList.Add(new SqlParameter("@UserId", model.UserId));
+
+            return base.ExecuteNonQuery(commandText, paramsList.ToArray());
+        }
+
+        /// <summary>
         /// 获取一个实体
         /// </summary>
         public UserCertificationEntityEx GetModel(int userId, int type)
@@ -177,7 +197,7 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select Top 1 Id,UserId,Type,CertificationName,Images,Point,Count,Status,Remark,CreateTime From sl_user_certification Where UserId = @UserId and Type = @Type ");
+            commandText.Append(" Select Top 1 Id,UserId,Type,CertificationName,Images,Point,Count,Status,Remark,CreateTime,CanModify From sl_user_certification Where UserId = @UserId and Type = @Type ");
 
             #endregion
 

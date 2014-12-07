@@ -105,6 +105,7 @@
                                         <th scope="col">回调时间</th>
                                         <th scope="col">回调代码</th>
                                         <th scope="col">状态</th>
+                                        <th scope="col">操作</th>
                                     </tr>
                             </HeaderTemplate>
                             <ItemTemplate>
@@ -119,6 +120,7 @@
                                     <td class="txt40 c"><%#Eval("CallbackTime")%></td>
                                     <td class="txt40 c"><%#Eval("CallbackCode")%></td>
                                     <td class="txt40 c"><%# this.GetStatusName(Convert.ToInt32(Eval("Status")))%></td>
+                                    <td class="txt40 c"><a onclick="return confirm('删除后无法恢复，是否删除？')" href='ChargeList.aspx?action=delete&Id=<%#Eval("Id") %>'>删除</a></td>
                                 </tr>
                             </ItemTemplate>
                             <FooterTemplate>

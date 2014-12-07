@@ -7,7 +7,7 @@ namespace StudentLoan.Model.Base
 {
     public class ProductSchemeEntity
     {
-        
+
         private int _schemeId;
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace StudentLoan.Model.Base
         private decimal _amount;
 
         /// <summary>
-        /// 总金额
+        /// 最小理财金额
         /// </summary>
         public decimal Amount
         {
@@ -239,5 +239,14 @@ namespace StudentLoan.Model.Base
             set { _createTime = value; }
         }
 
+        /// <summary>
+        /// 最小理财期限
+        /// </summary>
+        public int MinDeadline { get; set; }
+
+        /// <summary>
+        /// 最大理财期限
+        /// </summary>
+        public int MaxDeadline { get; set; }
     }
 }

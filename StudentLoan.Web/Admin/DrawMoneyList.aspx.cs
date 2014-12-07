@@ -46,7 +46,7 @@ namespace StudentLoan.Web.Admin
                             int userId = this.Request<int>("UserId");
                             string userMobile = new UsersBLL().GetModel(userId).Mobile;
 
-                            string code =  Message.Send(userMobile, "亲，你的提现申请已受理，请注意查收！【学子易贷】");
+                            string code = Message.Send(userMobile, "亲，你的提现申请已受理，请注意查收！【学子易贷】");
 
                             LogHelper.Default.Info("短信发送记录:" + code);
                         }
@@ -58,6 +58,15 @@ namespace StudentLoan.Web.Admin
                         this.Alert("参数不正确！", "DrawMoneyList.aspx");
                     }
 
+                }
+
+                if (action == "delete")
+                {
+                    int drawId = this.Request<int>("DrawId");
+
+                    bool result = new DrawMoneyBLL().Delete(new DrawMoneyEntityEx() { DrawId = drawId });
+
+                    this.Alert(string.Format("操作{0}", result == true ? "成功" : "失败"));
                 }
 
                 this.BindData();
@@ -162,15 +171,17 @@ namespace StudentLoan.Web.Admin
 
                 Literal objLiteral = e.Item.FindControl("objLiteral") as Literal;
 
+                StringBuilder objSB = new StringBuilder();
+
+                objSB.AppendFormat(" <a onclick=\"return confirm('删除后无法恢复，是否删除？');\" href=\"DrawMoneyList.aspx?action=delete&DrawId={0}\">删除</a>", model.DrawId);
 
                 if (model.Status == 0)
                 {
-                    StringBuilder objSB = new StringBuilder();
+                    objSB.AppendFormat(" | <a onclick=\"return confirm('打款后将更新用户提现记录，请确保打款成功后，再执行此操作！')\" href=\"DrawMoneyList.aspx?Action=DrawMoney&DrawId={0}&UserId={1}\">完成打款</a>", model.DrawId, model.UserId);
 
-                    objSB.AppendFormat(" <a onclick=\"return confirm('打款后将更新用户提现记录，请确保打款成功后，再执行此操作！')\" href=\"DrawMoneyList.aspx?Action=DrawMoney&DrawId={0}&UserId={1}\">完成打款</a>", model.DrawId, model.UserId);
-
-                    objLiteral.Text = objSB.ToString();
                 }
+
+                objLiteral.Text = objSB.ToString();
             }
         }
 

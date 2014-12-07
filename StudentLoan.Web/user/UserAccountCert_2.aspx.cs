@@ -49,11 +49,18 @@ namespace StudentLoan.Web.user
         //判断是否已经完善过信息
         protected void IsWritten()
         {
-            this.txtBirthday.Attributes.Add("ReadOnly", "true");
-
             UsersEntityEx userModel = base.GetUserModel();
 
             userModel = new UsersBLL().GetModel(userModel.UserId);
+
+            if (!string.IsNullOrEmpty(userModel.TrueName))
+            {
+                if (userModel.CanModify == 0)
+                {
+                    this.txtTruename.Attributes.Add("disabled", "disabled");
+                    this.btnSaveStepOne.Visible = false;
+                }
+            }
 
             if (string.IsNullOrEmpty(userModel.IdentityCard))
             {
@@ -61,19 +68,67 @@ namespace StudentLoan.Web.user
             }
             else
             {
-                this.txtIdentityCard.Attributes.Add("ReadOnly", "true");
+                if (userModel.CanModify == 0)
+                {
+                    this.txtIdentityCard.Attributes.Add("disabled", "disabled");
+                    this.btnSaveStepOne.Visible = false;
+                }
             }
 
-            if (!string.IsNullOrEmpty(userModel.TrueName))
+            if (!string.IsNullOrEmpty(userModel.Mobile))
             {
-                this.txtTruename.Attributes.Add("ReadOnly", "true");
-                txtBirthday.Text = userModel.Birthday.ToString("yyyy-MM-dd");
-                txtIdentityCard.Text = userModel.IdentityCard;
-                txtMobile.Text = userModel.Mobile;
-                txtTruename.Text = userModel.TrueName;
-                ddlGender.SelectedValue = userModel.Gender;
-                ddlNation.SelectedValue = userModel.Nation;
+                if (userModel.CanModify == 0)
+                {
+                    this.txtMobile.Attributes.Add("disabled", "disabled");
+                    this.txtValidatecode.Attributes.Add("disabled", "disabled");
+                    this.btnSendMessage.Attributes.Add("disabled", "disabled");
+                    this.btnSaveStepOne.Visible = false;
+                }
             }
+
+            if (!string.IsNullOrEmpty(userModel.Gender) && userModel.Gender != "保密")
+            {
+                if (userModel.CanModify == 0)
+                {
+                    this.ddlGender.Attributes.Add("disabled", "disabled");
+                    this.btnSaveStepOne.Visible = false;
+                }
+            }
+
+            if (!string.IsNullOrEmpty(userModel.Nation))
+            {
+                if (userModel.CanModify == 0)
+                {
+                    this.ddlNation.Attributes.Add("disabled", "disabled");
+                    this.btnSaveStepOne.Visible = false;
+                }
+            }
+
+            if (!string.IsNullOrEmpty(userModel.Birthday.ToString()) && userModel.Birthday != default(DateTime))
+            {
+                if (userModel.CanModify == 0)
+                {
+                    this.txtBirthday.Attributes.Add("disabled", "disabled");
+                    this.btnSaveStepOne.Visible = false;
+                }
+                else
+                {
+                    this.txtBirthday.Attributes.Add("readonly", "true");
+                }
+
+            }
+            else
+            {
+                this.txtBirthday.Attributes.Add("readonly", "true");
+            }
+
+            txtTruename.Text = userModel.TrueName;
+            txtIdentityCard.Text = userModel.IdentityCard;
+            txtMobile.Text = userModel.Mobile;
+            ddlGender.SelectedValue = userModel.Gender;
+            ddlNation.SelectedValue = userModel.Nation;
+            txtBirthday.Text = userModel.Birthday.ToString("yyyy-MM-dd") == "0001-01-01" ? "" : userModel.Birthday.ToString("yyyy-MM-dd");
+
         }
 
         //保存基本信息一
@@ -212,8 +267,8 @@ namespace StudentLoan.Web.user
                 this.WriteCookie("UserPwd", "StudentLoan", userModel.Password);
 
                 this.artDialog("提示", "保存成功！请继续填写其他信息");
-                this.txtTruename.Attributes.Add("ReadOnly", "true");
-                this.txtIdentityCard.Attributes.Add("ReadOnly", "true");
+                this.txtTruename.Attributes.Add("disabled", "disabled");
+                this.txtIdentityCard.Attributes.Add("disabled", "disabled");
             }
             else
             {
@@ -533,7 +588,7 @@ namespace StudentLoan.Web.user
         /// </summary>
         public void BindUserSchool()
         {
-            this.txtYearOfAdmission.Attributes.Add("ReadOnly", "true");
+            this.txtYearOfAdmission.Attributes.Add("readonly", "true");
 
             UserSchoolEntityEx model = new UserSchoolBLL().GetModel(base.GetUserModel().UserId);
 
@@ -543,10 +598,23 @@ namespace StudentLoan.Web.user
                 //  this.txtXuexin_Password.Text = model.XuexinPassword;
                 this.txtSchoolName.Text = model.SchoolName;
                 this.txtSchoolAdd.Text = model.SchoolAddress;
-                this.txtYearOfAdmission.Text = model.YearOfAdmission.ToString("yyyy-MM-dd");
+                this.txtYearOfAdmission.Text = model.YearOfAdmission.ToString("yyyy-MM-dd") == "0001-01-01" ? "" : model.YearOfAdmission.ToString("yyyy-MM-dd");
                 this.ddlSchoolSystem.SelectedValue = model.SchoolSystem.ToString();
                 this.ddlEducation.SelectedValue = model.Education.ToString();
                 this.txtMajor.Text = model.Major;
+
+                if (model.Status == 0)
+                {
+                    this.txtSchoolName.Attributes.Add("disabled", "disabled");
+                    this.txtSchoolAdd.Attributes.Add("disabled", "disabled");
+                    this.txtYearOfAdmission.Attributes.Add("disabled", "disabled");
+                    this.ddlSchoolSystem.Attributes.Add("disabled", "disabled");
+                    this.ddlEducation.Attributes.Add("disabled", "disabled");
+                    this.txtMajor.Attributes.Add("disabled", "disabled");
+
+                    this.btnSaveStepTwo.Visible = false;
+                }
+
 
             }
         }
@@ -570,18 +638,42 @@ namespace StudentLoan.Web.user
                     this.txtRelationtype.Text = familyModel.Relationship;
                     this.txtRelativeMobile.Text = familyModel.Mobile;
                     // this.txtRelativeProfession.Text = familyModel.Profession;
+
+                    if (familyModel.Status == 0)
+                    {
+                        this.txtRelativeName.Attributes.Add("disabled", "disabled");
+                        this.txtRelationtype.Attributes.Add("disabled", "disabled");
+                        this.txtRelativeMobile.Attributes.Add("disabled", "disabled");
+
+                        this.btnSaveStepFinal.Visible = false;
+                    }
                 }
 
                 if (studentModel != null)
                 {
                     this.txtMateName.Text = studentModel.Name;
                     this.txtMateMobile.Text = studentModel.Mobile;
+
+                    if (studentModel.Status == 0)
+                    {
+                        this.txtMateName.Attributes.Add("disabled", "disabled");
+                        this.txtMateMobile.Attributes.Add("disabled", "disabled");
+                        this.btnSaveStepFinal.Visible = false;
+                    }
+
                 }
 
                 if (friendModel != null)
                 {
                     this.txtFriendName.Text = friendModel.Name;
                     this.txtFriendMobile.Text = friendModel.Mobile;
+
+                    if (friendModel.Status == 0)
+                    {
+                        this.txtFriendName.Attributes.Add("disabled", "disabled");
+                        this.txtFriendMobile.Attributes.Add("disabled", "disabled");
+                        this.btnSaveStepFinal.Attributes.Add("disabled", "disabled");
+                    }
                 }
             }
         }

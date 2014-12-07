@@ -107,5 +107,10 @@ namespace StudentLoan.Model.Base
             set { _createTime = value; }
         }
 
+        /// <summary>
+        /// 状态 1=可以修改,0=不可以修改
+        /// </summary>
+        public int Status { get; set; }
+
     }
 }

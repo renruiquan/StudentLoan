@@ -18,7 +18,7 @@ namespace StudentLoan.BLL
     /// </summary>
     public class UserSchoolBLL
     {
-    
+
         UserSchoolDAL dal = new UserSchoolDAL();
 
 
@@ -29,7 +29,7 @@ namespace StudentLoan.BLL
         {
             return dal.Exists(userid);
         }
-        
+
         /// <summary>
         /// 增加一条数据
         /// </summary>
@@ -37,8 +37,8 @@ namespace StudentLoan.BLL
         {
             return dal.Insert(model);
         }
-        
-        
+
+
         /// <summary>
         /// 删除一条数据
         /// </summary>
@@ -46,8 +46,8 @@ namespace StudentLoan.BLL
         {
             return dal.Delete(model);
         }
-        
-        
+
+
         /// <summary>
         /// 批量删数据
         /// </summary>
@@ -55,8 +55,8 @@ namespace StudentLoan.BLL
         {
             return dal.DeleteList(UserSchoolIDList);
         }
-        
-        
+
+
         /// <summary>
         /// 更新一条数据
         /// </summary>
@@ -64,8 +64,18 @@ namespace StudentLoan.BLL
         {
             return dal.Update(model);
         }
-        
-        
+
+
+        /// <summary>
+        /// 用于更新学校信息，是否可以修改 0=否，1=是
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public bool UpdateByAdmin(UserSchoolEntityEx model)
+        {
+            return dal.UpdateByAdmin(model);
+        }
+
         /// <summary>
         /// 获取一个实体
         /// </summary>
@@ -73,8 +83,8 @@ namespace StudentLoan.BLL
         {
             return dal.GetModel(userId);
         }
-        
-        
+
+
         /// <summary>
         /// 获取数据列表
         /// </summary>
@@ -82,16 +92,16 @@ namespace StudentLoan.BLL
         {
             return dal.GetList(strWhere);
         }
-        
+
         /// <summary>
         /// 获取数据列表
         /// </summary>
-        public List<UserSchoolEntityEx> GetList(int top,string strWhere,string orderby)
+        public List<UserSchoolEntityEx> GetList(int top, string strWhere, string orderby)
         {
-            return dal.GetList(top,strWhere,orderby); 
+            return dal.GetList(top, strWhere, orderby);
         }
-        
-        
+
+
         /// <summary>
         /// 获取记录总数
         /// </summary>
@@ -99,16 +109,16 @@ namespace StudentLoan.BLL
         {
             return dal.GetRecordCount(strWhere);
         }
-        
-        
+
+
         /// <summary>
         /// 分页获取数据列表
         /// </summary>
-        public List<UserSchoolEntityEx> GetListByPage(string strWhere, string orderby, int startIndex, int endIndex,ref int RecordCount)
+        public List<UserSchoolEntityEx> GetListByPage(string strWhere, string orderby, int startIndex, int endIndex, ref int RecordCount)
         {
-            RecordCount = this.GetRecordCount(strWhere); 
-            
-            return dal.GetListByPage(strWhere,orderby,startIndex,endIndex);
+            RecordCount = this.GetRecordCount(strWhere);
+
+            return dal.GetListByPage(strWhere, orderby, startIndex, endIndex);
         }
     }
 }

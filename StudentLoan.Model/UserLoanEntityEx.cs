@@ -12,6 +12,11 @@ namespace StudentLoan.Model
         public string UserName { get; set; }
 
         /// <summary>
+        /// 真实姓名
+        /// </summary>
+        public string TrueName { get; set; }
+
+        /// <summary>
         /// 总借款金额
         /// </summary>
         public decimal TotalAmount { get; set; }

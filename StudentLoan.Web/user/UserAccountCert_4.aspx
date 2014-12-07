@@ -71,7 +71,7 @@
                             <td>查询结果截图</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <img id="imgXuexin" style="width: 237px; height: 168px;" src='<%=this.XueXin==null?"../css/img/admin/search_result.jpg":this.XueXin.Images %>' alt="" />
+                                    <asp:Image ID="imgXuexin" runat="server" ClientIDMode="Static" Width="237" Height="168" ImageUrl="../css/img/admin/search_result.jpg" />
                                     <input id="btnUploadXuexin" typeid="4" for="imgXuexin" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
@@ -111,7 +111,7 @@
                             <td>正面</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <img id="imgBank" style="width: 237px; height: 168px;" src='<%=this.Bank==null?"../css/img/admin/card.jpg":this.Bank.Images %>' alt="" />
+                                    <asp:Image ID="imgBank" runat="server" ClientIDMode="Static" Width="237" Height="168" ImageUrl="../css/img/admin/card.jpg" />
                                     <input id="btnUploadBankPic" typeid="5" for="imgBank" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
@@ -152,7 +152,7 @@
                             <td>全屏</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <img id="imgAlipay" style="width: 237px; height: 168px;" src='<%=this.Alipay==null?"../css/img/admin/internetbank.jpg":this.Alipay.Images %>' alt="" />
+                                    <asp:Image ID="imgAlipay" runat="server" ClientIDMode="Static" Width="237" Height="168" ImageUrl="../css/img/admin/internetbank.jpg" />
                                     <input id="btnUploadAlipay" typeid="6" for="imgAlipay" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
@@ -193,7 +193,7 @@
                             <td>正面</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <img id="imgMobile" style="width: 237px; height: 168px;" src='<%=this.Mobile==null?"../css/img/admin/telephone.jpg":this.Mobile.Images %>' alt="" />
+                                    <asp:Image ID="imgMobile" runat="server" ClientIDMode="Static" Width="237" Height="168" ImageUrl="../css/img/admin/telephone.jpg" />
                                     <input id="btnUploadMobile" typeid="7" for="imgMobile" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
@@ -231,8 +231,7 @@
                             <td>父母身份证正面</td>
                             <td class="w260">
                                 <div class="m10">
-
-                                    <img id="imgParents1" style="width: 237px; height: 168px;" src='<%=this.Parents1==null?"../css/img/admin/parents.jpg":this.Parents1.Images %>' alt="" />
+                                    <asp:Image ID="imgParents1" runat="server" ClientIDMode="Static" Width="237" Height="168" ImageUrl="../css/img/admin/parents.jpg" />
                                     <input id="btnUploadParents1" typeid="8" for="imgParents1" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
@@ -250,7 +249,7 @@
                             <td>父母身份证反面</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <img id="imgParents2" style="width: 237px; height: 168px;" src='<%=this.Parents2==null?"../css/img/admin/parents_back.jpg":this.Parents2.Images %>' alt="" />
+                                    <asp:Image ID="imgParents2" runat="server" ClientIDMode="Static" Width="237" Height="168" ImageUrl="../css/img/admin/parents_back.jpg" />
                                     <input id="btnUploadParents2" typeid="9" for="imgParents2" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
@@ -288,7 +287,7 @@
                             <td>手持身份证照片</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <img id="imgRoommate1" style="width: 237px; height: 168px;" src='<%=this.Roommate1==null?"../css/img/admin/identity_default.jpg":this.Roommate1.Images %>' alt="" />
+                                    <asp:Image ID="imgRoommate1" runat="server" ClientIDMode="Static" Width="237" Height="168" ImageUrl="../css/img/admin/identity_default.jpg" />
                                     <input id="btnUploadRoommate1" typeid="10" for="imgRoommate1" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
@@ -310,7 +309,7 @@
                             <td>身份证正面</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <img id="imgRoommate2" style="width: 237px; height: 168px;" src='<%=this.Roommate2 ==null?"../css/img/admin/identity_front.jpg":this.Roommate2.Images %>' alt="" />
+                                    <asp:Image ID="imgRoommate2" runat="server" ClientIDMode="Static" Width="237" Height="168" ImageUrl="../css/img/admin/identity_front.jpg" />
                                     <input id="btnUploadRoommate2" typeid="11" for="imgRoommate2" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
@@ -348,7 +347,7 @@
                             <td>学生证正面</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <img id="imgStudentId1" style="width: 237px; height: 168px;" src='<%=this.StudentId1==null?"../css/img/admin/student_front.jpg":this.StudentId1.Images %>' alt="" />
+                                    <asp:Image ID="imgStudentId1" runat="server" ClientIDMode="Static" Width="237" Height="168" ImageUrl="../css/img/admin/student_front.jpg" />
                                     <input id="btnUploadimgStudentId1" typeid="12" for="imgStudentId1" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
@@ -366,7 +365,7 @@
                             <td>学生证内容</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <img id="imgStudentId2" style="width: 237px; height: 168px;" src='<%=this.StudentId2==null?"../css/img/admin/student_content.jpg":this.StudentId2.Images %>' alt="" />
+                                    <asp:Image ID="imgStudentId2" runat="server" ClientIDMode="Static" Width="237" Height="168" ImageUrl="../css/img/admin/student_content.jpg" />
                                     <input id="btnUploadStudentId2" typeid="13" for="imgStudentId2" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
@@ -405,7 +404,7 @@
                             <td>户口薄内容页</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <img id="imgResidencebooklet" style="width: 237px; height: 168px;" src='<%=this.Residencebooklet==null?"../css/img/admin/booklet.jpg":this.Residencebooklet.Images %>' alt="" />
+                                    <asp:Image ID="imgResidencebooklet" runat="server" ClientIDMode="Static" Width="237" Height="168" ImageUrl="../css/img/admin/booklet.jpg" />
                                     <input id="btnUploadResidencebooklet" typeid="14" for="imgResidencebooklet" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
@@ -444,7 +443,7 @@
                             <td>行驶证内容页</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <img id="imgDriversLicense" style="width: 237px; height: 168px;" src='<%=this.DriversLicense==null?"../css/img/admin/carbook.jpg":this.DriversLicense.Images %>' alt="" />
+                                    <asp:Image ID="imgDriversLicense" runat="server" ClientIDMode="Static" Width="237" Height="168" ImageUrl="../css/img/admin/carbook.jpg" />
                                     <input id="btnUploadDriversLicense" typeid="15" for="imgDriversLicense" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
@@ -483,7 +482,7 @@
                             <td>获奖证书内容</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <img id="imgAwards" style="width: 237px; height: 168px;" src='<%=this.Awards==null?"../css/img/admin/cup.jpg":this.Awards.Images %>' alt="" />
+                                    <asp:Image ID="imgAwards" runat="server" ClientIDMode="Static" Width="237" Height="168" ImageUrl="../css/img/admin/cup.jpg" />
                                     <input id="btnUploadAwards" typeid="16" for="imgAwards" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>

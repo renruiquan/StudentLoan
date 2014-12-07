@@ -124,7 +124,7 @@
                                     <td class="txt40"><%#Eval("CreateTime")%></td>
                                     <td class="txt40"><%#Eval("RegIP")%></td>
                                     <td class="txt40"><%#this.GetStatusName(Convert.ToInt32(Eval("Status")))%></td>
-                                    <td class="icon txt80 tail"><a class="opt" title="详情" href="UserDetail.aspx?UserId=<%#Eval("UserId") %>"><span class="icon-sprite icon-list"></span></a><a class="opt" title="编辑" href="UserEdit.aspx?UserId=<%#Eval("UserId") %>"><span class="icon-sprite icon-edit"></span></a><a class="opt" title="锁定用户" onclick="return confirm('确定锁定该用户？')" href='UserList.aspx?Action=Delete&UserId=<%#Eval("UserId") %>'><span class="icon-sprite icon-delete"></span></a></td>
+                                    <td class="icon txt80 tail"><a class="opt" title="编辑" href="UserEdit.aspx?UserId=<%#Eval("UserId") %>"><span class="icon-sprite icon-edit"></span></a><a class="opt" title="锁定用户" onclick="return confirm('确定锁定该用户？')" href='UserList.aspx?Action=Delete&UserId=<%#Eval("UserId") %>'><span class="icon-sprite icon-delete"></span></a></td>
                                 </tr>
                             </ItemTemplate>
                             <FooterTemplate>

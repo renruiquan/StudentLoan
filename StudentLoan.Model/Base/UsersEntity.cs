@@ -338,5 +338,9 @@ namespace StudentLoan.Model.Base
             set { _remark = value; }
         }
 
+        /// <summary>
+        /// 用户资料是否可以更新，0=否，1=是
+        /// </summary>
+        public int CanModify { get; set; }
     }
 }

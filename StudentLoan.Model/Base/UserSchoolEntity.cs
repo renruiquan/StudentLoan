@@ -171,12 +171,12 @@ namespace StudentLoan.Model.Base
             set { _remark = value; }
         }
 
-        private byte _status;
+        private int _status;
 
         /// <summary>
         /// 状态 1=启用，0=禁用
         /// </summary>
-        public byte Status
+        public int Status
         {
             get { return _status; }
             set { _status = value; }

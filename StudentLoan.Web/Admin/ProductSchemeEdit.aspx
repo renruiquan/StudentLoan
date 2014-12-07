@@ -34,7 +34,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        
+
         <div class="container">
 
             <div class="location">当前位置：理财管理 -&gt; 更新方案</div>
@@ -55,7 +55,7 @@
                 <div class="br corner"></div>
                 <div class="cnt-wp">
                     <div class="cnt form">
-                           <table class="data-form" cellspacing="0" cellpadding="0">
+                        <table class="data-form" cellspacing="0" cellpadding="0">
                             <tbody>
                                 <tr>
                                     <th scope="row">方案名称：</th>
@@ -65,7 +65,7 @@
                                 <tr>
                                     <th scope="row">理财产品：</th>
                                     <td>
-                                        <asp:DropDownList ID="ddlProductId" runat="server" class="required" OnTextChanged="ddlProductId_TextChanged" AutoPostBack="true" >
+                                        <asp:DropDownList ID="ddlProductId" runat="server" class="required" OnTextChanged="ddlProductId_TextChanged" AutoPostBack="true">
                                         </asp:DropDownList></td>
                                 </tr>
                                 <tr>
@@ -75,10 +75,10 @@
                                             <asp:ListItem Value="1"> 本息保障计划 </asp:ListItem>
                                         </asp:DropDownList></td>
                                 </tr>
-                                <tr class="hide">
-                                    <th scope="row">方案总金额：</th>
+                                <tr>
+                                    <th scope="row">方案最小理财金额：</th>
                                     <td>
-                                        <asp:TextBox ID="txtAmount" runat="server" class="required number" Enabled="false"></asp:TextBox>(用于后期发起合买使用)</td>
+                                        <asp:TextBox ID="txtAmount" runat="server" class="required number"></asp:TextBox></td>
                                 </tr>
 
                                 <tr class="hide">
@@ -95,6 +95,16 @@
                                     <th scope="row">限购份数：</th>
                                     <td>
                                         <asp:TextBox ID="txtLimitPart" runat="server" Text="0" class="required digits" Enabled="false"></asp:TextBox>(用于后期发起合买使用)</td>
+                                </tr>
+                                 <tr>
+                                    <th scope="row">最小理财期限：</th>
+                                    <td>
+                                        <asp:TextBox ID="txtMinDeadline" runat="server" Text="0" class="required digits"></asp:TextBox></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">最大理财期限：</th>
+                                    <td>
+                                        <asp:TextBox ID="txtMaxDeadline" runat="server" Text="0" class="required digits"></asp:TextBox></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">益率：</th>

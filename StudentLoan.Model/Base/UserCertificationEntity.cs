@@ -118,5 +118,10 @@ namespace StudentLoan.Model.Base
             set { _createTime = value; }
         }
 
+        /// <summary>
+        /// 是否可以更新认证信息 0=否，1=是
+        /// </summary>
+        public int CanModify { get; set; }
+
     }
 }

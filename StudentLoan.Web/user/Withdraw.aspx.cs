@@ -13,7 +13,7 @@ namespace StudentLoan.Web.user
 {
     public partial class Withdraw : BasePage
     {
-        public UsersEntityEx UserModel { get { return base.GetUserModel(); } }
+        public UsersEntityEx UserModel { get { return new UsersBLL().GetModel(base.GetUserModel().UserId); } }
 
         public UserBankEntityEx BankModel { get { return new UserBankBLL().GetModel(this.UserModel.UserId); } }
 

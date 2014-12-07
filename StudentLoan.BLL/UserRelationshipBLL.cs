@@ -64,12 +64,20 @@ namespace StudentLoan.BLL
         }
         
         
+         /// <summary>
+        /// 是否可以更新联系人信息
+        /// </summary>
+        public bool UpdateByAdmin(UserRelationshipEntityEx model)
+        {
+            return dal.UpdateByAdmin(model);
+        }
+
         /// <summary>
         /// 获取一个实体
         /// </summary>
-        public UserRelationshipEntityEx GetModel(int CreateTime)
+        public UserRelationshipEntityEx GetModel(int userId)
         {
-            return dal.GetModel(CreateTime);
+            return dal.GetModel(userId);
         }
         
         

@@ -64,6 +64,15 @@ namespace StudentLoan.Web.Admin
 
                 }
 
+                if (action == "delete")
+                {
+                    int buyId = this.Request<int>("buyId");
+
+                    bool result = new UserManageMoneyBLL().Delete(new UserManageMoneyEntityEx { BuyId = buyId });
+
+                    this.Alert(string.Format("更新提现记录状态{0}", result == true ? "成功" : "失败"));
+                }
+
                 this.BindData();
             }
         }
@@ -270,6 +279,8 @@ namespace StudentLoan.Web.Admin
                 StringBuilder objSB = new StringBuilder();
 
                 objSB.AppendFormat(@"<a href='UserEarningsList.aspx?UserId={0}'>收益详情</a>", model.UserId);
+
+                objSB.AppendFormat(" | <a onclick=\"return confirm('删除后无法恢复，是否删除？');\" href=\"UserManageMoneyList.aspx?action=delete&BuyId={0}\">删除</a>", model.BuyId);
 
                 if (model.Status == 1)
                 {

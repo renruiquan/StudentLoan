@@ -50,7 +50,7 @@ namespace StudentLoan.Web.Admin
             {
                 this.txtSchemeName.Text = model.SchemeName;
                 this.ddlProductId.SelectedValue = model.ProductId.ToString();
-                //this.txtAmount.Text = model.Amount.ToString();
+                this.txtAmount.Text = model.Amount.ToString();
                 //this.txtPrice.Text = model.Price.ToString();
                 //this.txtPart.Text = model.Part.ToString();
                 //this.txtLimitPart.Text = model.LimitPart.ToString();
@@ -59,6 +59,8 @@ namespace StudentLoan.Web.Admin
                 this.txtSchemeDescription.Text = model.SchemeDescription;
                 this.txtRemark.Text = model.Remark;
                 this.txtMaxYield.Text = model.MaxYield.ToString();
+                this.txtMinDeadline.Text = model.MinDeadline.ToString();
+                this.txtMaxDeadline.Text = model.MaxDeadline.ToString();
             }
             else
             {
@@ -78,10 +80,12 @@ namespace StudentLoan.Web.Admin
                 SchemeName = this.txtSchemeName.Text.Trim(),
                 ProductId = this.ddlProductId.SelectedValue.Convert<int>(),
                 PlanType = this.ddlPlanType.SelectedValue.Convert<int>(),
-                //Amount = this.txtAmount.Text.Trim().Convert<decimal>(),
+                Amount = this.txtAmount.Text.Trim().Convert<decimal>(),
                 //Price = this.txtPrice.Text.Trim().Convert<decimal>(),
                 //Part = this.txtPart.Text.Trim().Convert<int>(),
                 //LimitPart = this.txtLimitPart.Text.Trim().Convert<int>(),
+                MinDeadline = this.txtMinDeadline.Text.Trim().Convert<int>(),
+                MaxDeadline = this.txtMaxDeadline.Text.Trim().Convert<int>(),
                 StartTime = this.txtStartTime.Text.Trim().Convert<DateTime>(),
                 EndTime = this.txtEndTime.Text.Trim().Convert<DateTime>(),
                 SchemeDescription = this.txtSchemeDescription.Text.Trim(),

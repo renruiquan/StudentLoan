@@ -15,6 +15,12 @@
 
     <script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
 
+    <style type="text/css">
+        .w450 {
+            width: 445px;
+        }
+    </style>
+
 </head>
 <body>
     <form id="form1" runat="server" class="form-inline">
@@ -63,41 +69,49 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">真实姓名：</th>
-                                    <td>
+                                    <td class="w450">
                                         <asp:Label Text="暂无资料" ID="lblTrueName" runat="server"></asp:Label>
                                     </td>
+                                    <td rowspan="6">
+                                        <asp:Image runat="server" Width="350" Height="250" ID="mainImgIdentityCard" ImageAlign="Left" Style="margin: 20px; border: 1px solid #CCC; padding: 5px;" /></td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">身份证号：</th>
+                                    <th scope="row" class="w450">身份证号：</th>
                                     <td>
                                         <asp:Label Text="暂无资料" ID="lblIdentityCard" runat="server"></asp:Label>
                                     </td>
+
                                 </tr>
                                 <tr>
                                     <th scope="row">手机号码：</th>
-                                    <td>
+                                    <td class="w450">
                                         <asp:Label Text="暂无资料" ID="lblUserMobile" runat="server"></asp:Label>
                                     </td>
+
                                 </tr>
                                 <tr>
                                     <th scope="row">性别：</th>
-                                    <td>
+                                    <td class="w450">
                                         <asp:Label Text="暂无资料" ID="lblGender" runat="server"></asp:Label>
                                     </td>
+
                                 </tr>
 
                                 <tr>
                                     <th scope="row">民族：</th>
-                                    <td>
+                                    <td class="w450">
                                         <asp:Label Text="暂无资料" ID="lblNation" runat="server"></asp:Label>
                                     </td>
+
                                 </tr>
                                 <tr>
                                     <th scope="row">出生日期：</th>
-                                    <td>
+                                    <td class="w450">
                                         <asp:Label Text="暂无资料" ID="lblBirthday" runat="server"></asp:Label>
                                     </td>
+
                                 </tr>
+
                             </tbody>
                         </table>
                     </div>
@@ -121,50 +135,53 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">学信网账号：</th>
-                                    <td>
+                                    <td class="w450">
                                         <asp:Label Text="暂无资料" ID="lblXueXinUserName" runat="server"></asp:Label>
+                                    </td>
+                                    <td rowspan="8">
+                                        <asp:Image runat="server" Width="350" Height="250" ID="mainImgStudent2" ImageAlign="Left" Style="margin: 20px; border: 1px solid #CCC; padding: 5px;" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">学信网密码：</th>
-                                    <td>
+                                    <td class="w450">
                                         <asp:Label Text="暂无资料" ID="lblXueXinPassword" runat="server"></asp:Label>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">就读学校：</th>
-                                    <td>
+                                    <td class="w450">
                                         <asp:Label Text="暂无资料" ID="lblSchoolName" runat="server"></asp:Label>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">学校地址：</th>
-                                    <td>
+                                    <td class="w450">
                                         <asp:Label Text="暂无资料" ID="lblSchoolAddress" runat="server"></asp:Label>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">入学日期：</th>
-                                    <td>
+                                    <td class="w450">
                                         <asp:Label Text="暂无资料" ID="lblYearOfAdmission" runat="server"></asp:Label>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <th scope="row">学制：</th>
-                                    <td>
+                                    <td class="w450">
                                         <asp:Label Text="暂无资料" ID="lblSchoolSystem" runat="server"></asp:Label>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">学历：</th>
-                                    <td>
+                                    <td class="w450">
                                         <asp:Label Text="暂无资料" ID="lblEducation" runat="server"></asp:Label>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">专业（系）</th>
-                                    <td>
+                                    <td class="w450">
                                         <asp:Label Text="暂无资料" ID="lblMajor" runat="server"></asp:Label>
                                     </td>
 
@@ -260,7 +277,8 @@
             <div class="block">
                 <div class="h">
                     <span class="icon-sprite icon-list"></span>
-                    <h3>必要信用认证</h3>
+                    <h3>必要信用认证（一）</h3>
+
                 </div>
                 <div class="tl corner"></div>
                 <div class="tr corner"></div>
@@ -271,25 +289,69 @@
                         <table class="data-table" width="100%" border="0" cellspacing="0" cellpadding="0">
                             <thead>
                                 <tr>
+                                    <th>手持身份证</th>
                                     <th>身份证正面</th>
-                                    <th>身份证背面</th>
                                     <th>学生证正面</th>
-                                    <th>学生证背面</th>
+                                    <th>学生证内容页</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>
-                                        <asp:Image runat="server" Width="350" Height="250" ID="imgIdentityCard1" ImageAlign="Left" Style="margin: 20px;"/>
+                                        <asp:Image runat="server" Width="350" Height="250" ID="imgIdentityCard1" ImageAlign="Left" Style="margin: 20px;" />
                                     </td>
                                     <td>
-                                        <asp:Image runat="server" Width="350" Height="250" ID="imgIdentityCard2" ImageAlign="Left" Style="margin: 20px;"/>
+                                        <asp:Image runat="server" Width="350" Height="250" ID="imgIdentityCard2" ImageAlign="Left" Style="margin: 20px;" />
                                     </td>
                                     <td>
-                                        <asp:Image runat="server" Width="350" Height="250" ID="imgStudentId1" ImageAlign="Left" Style="margin: 20px;"/>
+                                        <asp:Image runat="server" Width="350" Height="250" ID="imgStudentId1" ImageAlign="Left" Style="margin: 20px;" />
                                     </td>
                                     <td>
-                                        <asp:Image runat="server" Width="350" Height="250" ID="imgStudentId2" ImageAlign="Left" Style="margin: 20px;"/>
+                                        <asp:Image runat="server" Width="350" Height="250" ID="imgStudentId2" ImageAlign="Left" Style="margin: 20px;" />
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blank10"></div>
+            <div class="block">
+                <div class="h">
+                    <span class="icon-sprite icon-list"></span>
+                    <h3>必要信用认证（二）</h3>
+
+                </div>
+                <div class="tl corner"></div>
+                <div class="tr corner"></div>
+                <div class="bl corner"></div>
+                <div class="br corner"></div>
+                <div class="cnt-wp">
+                    <div class="cnt">
+                        <table class="data-table" width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <thead>
+                                <tr>
+                                    <th>身份证背面</th>
+                                    <th>待添加</th>
+                                    <th>待添加</th>
+                                    <th>待添加</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <asp:Image runat="server" Width="350" Height="250" ID="imgIdentityCard3" ImageAlign="Left" Style="margin: 20px;" />
+                                    </td>
+                                    <td>
+                                        <asp:Image runat="server" Width="350" Height="250" ID="Image1" ImageAlign="Left" Style="margin: 20px;" />
+                                    </td>
+                                    <td>
+                                        <asp:Image runat="server" Width="350" Height="250" ID="Image2" ImageAlign="Left" Style="margin: 20px;" />
+                                    </td>
+                                    <td>
+                                        <asp:Image runat="server" Width="350" Height="250" ID="Image3" ImageAlign="Left" Style="margin: 20px;" />
                                     </td>
                                 </tr>
 
@@ -305,6 +367,7 @@
                 <div class="h">
                     <span class="icon-sprite icon-list"></span>
                     <h3>可选信用认证（一）</h3>
+
                 </div>
                 <div class="tl corner"></div>
                 <div class="tr corner"></div>
@@ -325,16 +388,16 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <asp:Image runat="server" Width="350" Height="250" ID="imgXueXin" ImageAlign="Left" Style="margin: 20px;"/>
+                                        <asp:Image runat="server" Width="350" Height="250" ID="imgXueXin" ImageAlign="Left" Style="margin: 20px;" />
                                     </td>
                                     <td>
-                                        <asp:Image runat="server" Width="350" Height="250" ID="imgBank" ImageAlign="Left" Style="margin: 20px;"/>
+                                        <asp:Image runat="server" Width="350" Height="250" ID="imgBank" ImageAlign="Left" Style="margin: 20px;" />
                                     </td>
                                     <td>
-                                        <asp:Image runat="server" Width="350" Height="250" ID="imgAlipay" ImageAlign="Left" Style="margin: 20px;"/>
+                                        <asp:Image runat="server" Width="350" Height="250" ID="imgAlipay" ImageAlign="Left" Style="margin: 20px;" />
                                     </td>
                                     <td>
-                                        <asp:Image runat="server" Width="350" Height="250" ID="imgMobile"  ImageAlign="Left" Style="margin: 20px;"/>
+                                        <asp:Image runat="server" Width="350" Height="250" ID="imgMobile" ImageAlign="Left" Style="margin: 20px;" />
                                     </td>
                                 </tr>
 
@@ -368,16 +431,16 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <asp:Image runat="server" Width="350" Height="250" ID="imgParents1"  ImageAlign="Left" Style="margin: 20px;"/>
+                                        <asp:Image runat="server" Width="350" Height="250" ID="imgParents1" ImageAlign="Left" Style="margin: 20px;" />
                                     </td>
                                     <td>
-                                        <asp:Image runat="server" Width="350" Height="250" ID="imgParents2"  ImageAlign="Left" Style="margin: 20px;"/>
+                                        <asp:Image runat="server" Width="350" Height="250" ID="imgParents2" ImageAlign="Left" Style="margin: 20px;" />
                                     </td>
                                     <td>
-                                        <asp:Image runat="server" Width="350" Height="250" ID="imgRoommateIdentityCard1"  ImageAlign="Left" Style="margin: 20px;"/>
+                                        <asp:Image runat="server" Width="350" Height="250" ID="imgRoommateIdentityCard1" ImageAlign="Left" Style="margin: 20px;" />
                                     </td>
                                     <td>
-                                        <asp:Image runat="server" Width="350" Height="250" ID="imgRoommateIdentityCard2"  ImageAlign="Left" Style="margin: 20px;"/>
+                                        <asp:Image runat="server" Width="350" Height="250" ID="imgRoommateIdentityCard2" ImageAlign="Left" Style="margin: 20px;" />
                                     </td>
                                 </tr>
 
@@ -411,13 +474,13 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <asp:Image runat="server" Width="350" Height="250" ID="imgRoommateStudentId1"  ImageAlign="Left" Style="margin: 20px;"/>
+                                        <asp:Image runat="server" Width="350" Height="250" ID="imgRoommateStudentId1" ImageAlign="Left" Style="margin: 20px;" />
                                     </td>
                                     <td>
-                                        <asp:Image runat="server" Width="350" Height="250" ID="imgRoommateStudentId2"  ImageAlign="Left" Style="margin: 20px;"/>
+                                        <asp:Image runat="server" Width="350" Height="250" ID="imgRoommateStudentId2" ImageAlign="Left" Style="margin: 20px;" />
                                     </td>
                                     <td>
-                                        <asp:Image runat="server" Width="350" Height="250" ID="imgResidencebooklet"  ImageAlign="Left" Style="margin: 20px;"/>
+                                        <asp:Image runat="server" Width="350" Height="250" ID="imgResidencebooklet" ImageAlign="Left" Style="margin: 20px;" />
                                     </td>
                                     <td>
                                         <asp:Image runat="server" Width="350" Height="250" ID="imgDriversLicense" ImageAlign="Left" Style="margin: 20px;" />

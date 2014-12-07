@@ -133,28 +133,45 @@ namespace StudentLoan.Web.Admin
             {
                 var identityCard1 = sourceList.FirstOrDefault(s => s.Type == 0);
                 var identityCard2 = sourceList.FirstOrDefault(s => s.Type == 1);
+                var identityCard3 = sourceList.FirstOrDefault(s => s.Type == 17);
                 var studentId1 = sourceList.FirstOrDefault(s => s.Type == 2);
                 var studentId2 = sourceList.FirstOrDefault(s => s.Type == 3);
 
                 if (identityCard1 != null)
                 {
                     this.imgIdentityCard1.ImageUrl = identityCard1.Images;
-                    this.imgIdentityCard1.Attributes.Add("onclick", string.Format("return window.open('{0}')", identityCard1.Images));
+                    this.imgIdentityCard1.Attributes.Add("onclick", string.Format("return window.open('/Admin/ShowImages.aspx?picurl={0}')", identityCard1.Images));
+
                 }
                 if (identityCard2 != null)
                 {
                     this.imgIdentityCard2.ImageUrl = identityCard2.Images;
-                    this.imgIdentityCard2.Attributes.Add("onclick", string.Format("return window.open('{0}')", identityCard2.Images));
+                    this.imgIdentityCard2.Attributes.Add("onclick", string.Format("return window.open('/Admin/ShowImages.aspx?picurl={0}')", identityCard2.Images));
+
+                    this.mainImgIdentityCard.ImageUrl = identityCard2.Images;
+                    this.mainImgIdentityCard.Attributes.Add("onclick", string.Format("return window.open('/Admin/ShowImages.aspx?picurl={0}')", identityCard2.Images));
+
                 }
+
+                if (identityCard3 != null)
+                {
+                    this.imgIdentityCard3.ImageUrl = identityCard3.Images;
+                    this.imgIdentityCard3.Attributes.Add("onclick", string.Format("return window.open('/Admin/ShowImages.aspx?picurl={0}')", identityCard3.Images));
+                }
+
                 if (studentId1 != null)
                 {
                     this.imgStudentId1.ImageUrl = studentId1.Images;
-                    this.imgStudentId1.Attributes.Add("onclick", string.Format("return window.open('{0}')", studentId1.Images));
+                    this.imgStudentId1.Attributes.Add("onclick", string.Format("return window.open('/Admin/ShowImages.aspx?picurl={0}')", studentId1.Images));
                 }
                 if (studentId2 != null)
                 {
                     this.imgStudentId2.ImageUrl = studentId2.Images;
-                    this.imgStudentId2.Attributes.Add("onclick", string.Format("return window.open('{0}')", studentId2.Images));
+                    this.imgStudentId2.Attributes.Add("onclick", string.Format("return window.open('/Admin/ShowImages.aspx?picurl={0}')", studentId2.Images));
+
+                    this.mainImgStudent2.ImageUrl = studentId2.Images;
+                    this.mainImgStudent2.Attributes.Add("onclick", string.Format("return window.open('/Admin/ShowImages.aspx?picurl={0}')", studentId2.Images));
+
                 }
             }
         }
@@ -186,6 +203,7 @@ namespace StudentLoan.Web.Admin
                 {
                     this.imgXueXin.ImageUrl = XueXin.Images;
                     this.imgXueXin.Attributes.Add("onclick", string.Format("return window.open('{0}')", XueXin.Images));
+
                 }
                 if (Bank != null)
                 {
@@ -231,6 +249,7 @@ namespace StudentLoan.Web.Admin
                 {
                     this.imgRoommateStudentId2.ImageUrl = StudentId2.Images;
                     this.imgRoommateStudentId2.Attributes.Add("onclick", string.Format("return window.open('{0}')", StudentId2.Images));
+
                 }
                 if (Residencebooklet != null)
                 {
@@ -394,7 +413,7 @@ namespace StudentLoan.Web.Admin
                 AcceptUserName = new UsersBLL().GetModel(userLoanModel.UserId).UserName
             });
 
-            StudentLoan.API.Message.Send(new UsersBLL().GetModel(userLoanModel.UserId).Mobile, "您所申请的“点豆成金”业务因资料不全而未通过审核，具体请登录网站“我的易贷”查看。【学子易贷】");
+            StudentLoan.API.Message.Send(new UsersBLL().GetModel(userLoanModel.UserId).Mobile, "您所申请的“点豆成金”业务因资料不全而未通过审核，具体请登录网站“个人中心”查看。【学子易贷】");
 
 
             this.Alert(string.Format("操作{0}", result == true ? "成功" : "失败"), "UserLoanApplyList.aspx");

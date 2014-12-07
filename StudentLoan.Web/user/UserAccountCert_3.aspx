@@ -71,7 +71,7 @@
                             <td>手持身份证照片</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <img id="imgIdentityCard" style="width: 237px; height: 168px;" src='<%=this.IdentityCard_1==null?"../css/img/admin/identity_default.jpg":this.IdentityCard_1.Images %>' alt="" />
+                                    <asp:Image ID="imgIdentityCard" runat="server" Width="237" Height="168" ClientIDMode="Static" ImageUrl="../css/img/admin/identity_default.jpg" />
                                     <input id="btnUploadIdentityCard_1" typeid="0" for="imgIdentityCard" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
@@ -81,7 +81,7 @@
                                 </div>
                             </td>
                             <td>
-                                <p>1.五官课件</p>
+                                <p>1.五官可见</p>
 
                                 <p>2.证件全部信息无遮拦</p>
 
@@ -92,13 +92,30 @@
                             <td>身份证正面</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <img id="imgIdentityCard2" style="width: 237px; height: 168px;" src='<%=this.IdentityCard_2==null?"../css/img/admin/identity_front.jpg":this.IdentityCard_2.Images %>' alt="" />
+                                    <asp:Image ID="imgIdentityCard2" runat="server" Width="237" Height="168" ClientIDMode="Static" ImageUrl="../css/img/admin/identity_front.jpg" />
                                     <input id="btnUploadIdentityCard_2" typeid="1" for="imgIdentityCard2" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
                             <td class="w260" style="vertical-align: top;">
                                 <div class="m10">
                                     <img src="../css/img/admin/identity_front_ex.jpg" alt="" />
+                                </div>
+                            </td>
+                            <td>
+                                <p>证件上文字清晰可识别</p>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>身份证背面</td>
+                            <td class="w260">
+                                <div class="m10">
+                                    <asp:Image ID="btnUploadIdentityCard3" runat="server" Width="237" Height="168" ClientIDMode="Static" ImageUrl="../css/img/admin/parents_back.jpg" />
+                                    <input id="btnUploadIdentityCard_3" typeid="17" for="imgIdentityCard3" name="fileData" type="file" class="uploadify-button" />
+                                </div>
+                            </td>
+                            <td class="w260" style="vertical-align: top;">
+                                <div class="m10">
+                                    <img src="../css/img/admin/identity_back.jpg" alt="" />
                                 </div>
                             </td>
                             <td>
@@ -129,7 +146,7 @@
                             <td>学生证正面</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <img id="imgStudentId_1" style="width: 237px; height: 168px;" src='<%=this.StudentId_1==null?"../css/img/admin/student_front.jpg":this.StudentId_1.Images %>' alt="" />
+                                    <asp:Image ID="imgStudentId_1" runat="server" Width="237" Height="168" ClientIDMode="Static" ImageUrl="../css/img/admin/student_front.jpg" />
                                     <input id="btnUploadStudentId_1" typeid="2" for="imgStudentId_1" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
@@ -146,7 +163,7 @@
                             <td>学生证内容</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <img id="imgStudentId_2" style="width: 237px; height: 168px;" src='<%=this.StudentId_2==null?"../css/img/admin/student_content.jpg":this.StudentId_2.Images %>' alt="" />
+                                    <asp:Image ID="imgStudentId_2" runat="server" Width="237" Height="168" ClientIDMode="Static" ImageUrl="../css/img/admin/student_content.jpg" />
                                     <input id="btnUploadStudentId_2" typeid="3" for="imgStudentId_2" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>

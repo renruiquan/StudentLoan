@@ -51,6 +51,10 @@ namespace StudentLoan.Web.user
                 {
                     this.imgIdentityCard2.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 1).Images;
                 }
+                if (sourceList.FirstOrDefault(s => s.Type == 17) != null)
+                {
+                    this.imgIdentityCard3.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 17).Images;
+                }
 
                 if (sourceList.FirstOrDefault(s => s.Type == 2) != null)
                 {
@@ -61,6 +65,8 @@ namespace StudentLoan.Web.user
                 {
                     this.imgStudentId_2.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 3).Images;
                 }
+
+
             }
         }
     }

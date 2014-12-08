@@ -109,7 +109,7 @@
                             <td>身份证背面</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <asp:Image ID="btnUploadIdentityCard3" runat="server" Width="237" Height="168" ClientIDMode="Static" ImageUrl="../css/img/admin/parents_back.jpg" />
+                                    <asp:Image ID="imgIdentityCard3" runat="server" Width="237" Height="168" ClientIDMode="Static" ImageUrl="../css/img/admin/parents_back.jpg" />
                                     <input id="btnUploadIdentityCard_3" typeid="17" for="imgIdentityCard3" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>

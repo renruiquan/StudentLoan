@@ -36,6 +36,7 @@
                     <div class="bar">
                         <label><a class="btn-lit btn-middle btn-lit-top" id="btnPass" runat="server" onserverclick="btnPass_ServerClick" href="javascript:void(0)"><span>通过</span></a></label>
                         <label><a class="btn-lit btn-middle btn-lit-top" id="btnRefuse" runat="server" onserverclick="btnRefuse_ServerClick" href="javascript:void(0)"><span>驳回</span></a></label>
+                        <label><a class="btn-lit btn-middle btn-lit-top" id="btnReturn" href="UserLoanApplyList.aspx"><span>返回</span></a></label>
                     </div>
                 </div>
                 <div class="tl corner"></div>

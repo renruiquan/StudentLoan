@@ -190,11 +190,16 @@ namespace StudentLoan.Model.Base
         /// <summary>
         /// 审核通过日期
         /// </summary>
-        public System.DateTime PassTime
+        public DateTime PassTime
         {
             get { return _passTime; }
             set { _passTime = value; }
         }
 
+
+        /// <summary>
+        /// 借款描述（审核未通过原因）
+        /// </summary>
+        public string Description { get; set; }
     }
 }

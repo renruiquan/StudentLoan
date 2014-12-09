@@ -84,6 +84,24 @@ namespace StudentLoan.BLL
             return dal.GetModel(userId, type);
         }
 
+        /// <summary>
+        /// 获取用户上传指定类型的截图数据
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public int GetPictureCertCount(int userId, int type)
+        {
+            List<UserCertificationEntityEx> list = dal.GetList(string.Format(" UserId={0} and type ={1}", userId, type));
+
+            if (list == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return list.Count;
+            }
+        }
 
         /// <summary>
         /// 获取数据列表

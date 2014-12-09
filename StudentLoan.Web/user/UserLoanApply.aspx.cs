@@ -21,6 +21,16 @@ namespace StudentLoan.Web.user
         {
             if (!IsPostBack)
             {
+                UsersEntityEx userModel = base.GetUserModel();
+
+                bool isExist = new UserLoanBLL().Exists(userModel.UserId);
+
+                if (isExist)
+                {
+                    this.artDialog("提示", "对不起，您还有借款未通过审核，暂时无法再次申请借款！", "/user/UserLoanList.aspx");
+                    return;
+                }
+
                 this.BindDropDownList();
             }
         }
@@ -48,6 +58,7 @@ namespace StudentLoan.Web.user
                 this.ValidateBaseCert();
                 this.ValidateIdentityCardCert();
                 this.ValidateStudentIdCert();
+                this.ValidateMobileCallLog();
 
                 this.ddlLoanMoney.Items.Add(new ListItem("1000元", "1000"));
                 this.ddlLoanMoney.Items.Add(new ListItem("2000元", "2000"));
@@ -68,6 +79,7 @@ namespace StudentLoan.Web.user
                 this.ValidateIdentityCardCert();
                 this.ValidateStudentIdCert();
                 this.ValidateOptionalCert();
+                this.ValidateMobileCallLog();
 
                 this.ddlLoanMoney.Items.Add(new ListItem("6000元", "6000"));
                 this.ddlLoanMoney.Items.Add(new ListItem("7000元", "7000"));
@@ -88,6 +100,7 @@ namespace StudentLoan.Web.user
                 this.ValidateBaseCert();
                 this.ValidateIdentityCardCert();
                 this.ValidateStudentIdCert();
+                this.ValidateMobileCallLog();
 
                 this.ddlLoanMoney.Items.Add(new ListItem("1000元", "1000"));
                 this.ddlLoanMoney.Items.Add(new ListItem("2000元", "2000"));
@@ -127,6 +140,16 @@ namespace StudentLoan.Web.user
             if (this.ProductId == 3)
             {
                 totalAmortization = this.txtTotalAmortization.Text.Trim().Convert<int>(1);
+
+                if (loanMoney >= 6000)
+                {
+                    this.ValiUserPoint();
+                    this.ValidateBaseCert();
+                    this.ValidateIdentityCardCert();
+                    this.ValidateStudentIdCert();
+                    this.ValidateOptionalCert();
+                }
+
             }
             else
             {
@@ -381,12 +404,13 @@ namespace StudentLoan.Web.user
         /// </summary>
         protected void ValidateStudentIdCert()
         {
-            List<UserCertificationEntityEx> sourceList = new UserCertificationBLL().GetList(string.Format(" 1=1 and UserId = {0} and Type >=2 and Type <=3", base.GetUserModel().UserId));
+            List<UserCertificationEntityEx> sourceList = new UserCertificationBLL().GetList(string.Format(" 1=1 and UserId = {0} and Type in (2,3,18)", base.GetUserModel().UserId));
 
             if (sourceList != null && sourceList.Count > 0)
             {
                 var StudentId1 = sourceList.FirstOrDefault(s => s.Type == 2);
                 var StudentId2 = sourceList.FirstOrDefault(s => s.Type == 3);
+                var StudentId3 = sourceList.FirstOrDefault(s => s.Type == 18);
 
                 if (StudentId1 == null)
                 {
@@ -395,7 +419,12 @@ namespace StudentLoan.Web.user
                 }
                 if (StudentId2 == null)
                 {
-                    this.artDialog("提示", "对不起，你还没有上传学生证内容页截图，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_3.aspx");
+                    this.artDialog("提示", "对不起，你还没有上传学生证内容页1截图，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_3.aspx");
+                    return;
+                }
+                if (StudentId3 == null)
+                {
+                    this.artDialog("提示", "对不起，你还没有上传学生证内容页2截图，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_3.aspx");
                     return;
                 }
 
@@ -450,7 +479,6 @@ namespace StudentLoan.Web.user
                 var XueXin = sourceList.FirstOrDefault(s => s.Type == 4);
                 var Bank = sourceList.FirstOrDefault(s => s.Type == 5);
                 var Alipay = sourceList.FirstOrDefault(s => s.Type == 6);
-                var Mobile = sourceList.FirstOrDefault(s => s.Type == 7);
                 var Parents1 = sourceList.FirstOrDefault(s => s.Type == 8);
                 var Parents2 = sourceList.FirstOrDefault(s => s.Type == 9);
                 var RoommateIdentityCard1 = sourceList.FirstOrDefault(s => s.Type == 10);
@@ -463,12 +491,12 @@ namespace StudentLoan.Web.user
 
                 if (XueXin == null)
                 {
-                    this.artDialog("提示", "对不起，你还没有上传学信网截图，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_3.aspx");
+                    this.artDialog("提示", "对不起，你还没有上传学信网截图，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_4.aspx");
                     return;
                 }
                 if (Bank == null)
                 {
-                    this.artDialog("提示", "对不起，你还没有上传近期银行卡流水截图，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_3.aspx");
+                    this.artDialog("提示", "对不起，你还没有上传近期银行卡流水截图，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_4.aspx");
                     return;
                 }
                 //考虑到部分用户没使用过支付宝，暂不验证
@@ -478,46 +506,65 @@ namespace StudentLoan.Web.user
                 //    return;
                 //}
 
-                if (Mobile == null)
-                {
-                    this.artDialog("提示", "对不起，你还没有上传近期通话记录详单，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_3.aspx");
-                    return;
-                }
                 if (Parents1 == null)
                 {
-                    this.artDialog("提示", "对不起，你还没有上传家长身份证正面截图，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_3.aspx");
+                    this.artDialog("提示", "对不起，你还没有上传家长身份证正面截图，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_4.aspx");
                     return;
                 }
                 if (Parents2 == null)
                 {
-                    this.artDialog("提示", "对不起，你还没有上传家长身份证背面截图，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_3.aspx");
+                    this.artDialog("提示", "对不起，你还没有上传家长身份证背面截图，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_4.aspx");
                     return;
                 }
                 if (RoommateIdentityCard1 == null)
                 {
-                    this.artDialog("提示", "对不起，你还没有上传室友手持身份证截图，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_3.aspx");
+                    this.artDialog("提示", "对不起，你还没有上传室友手持身份证截图，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_4.aspx");
                     return;
                 }
                 if (RoommateIdentityCard2 == null)
                 {
-                    this.artDialog("提示", "对不起，你还没有上传室友身份证正面截图，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_3.aspx");
+                    this.artDialog("提示", "对不起，你还没有上传室友身份证正面截图，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_4.aspx");
                     return;
                 }
                 if (DriversLicense == null)
                 {
-                    this.artDialog("提示", "对不起，你还没有上传驾驶证截图，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_3.aspx");
+                    this.artDialog("提示", "对不起，你还没有上传驾驶证截图，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_4.aspx");
                     return;
                 }
                 if (Residencebooklet == null)
                 {
-                    this.artDialog("提示", "对不起，你还没有上户口内容页截图，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_3.aspx");
+                    this.artDialog("提示", "对不起，你还没有上户口内容页截图，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_4.aspx");
                     return;
                 }
             }
             else
             {
-                this.artDialog("提示", "对不起，你还没有上传学银行流水截图，手机通讯详单等信息，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_3.aspx");
+                this.artDialog("提示", "对不起，你还没有上传学银行流水截图，手机通讯详单等信息，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_4.aspx");
                 return;
+            }
+        }
+
+        /// <summary>
+        /// 验证手机通话记录
+        /// </summary>
+        protected void ValidateMobileCallLog()
+        {
+            List<UserCertificationEntityEx> sourceList = new UserCertificationBLL().GetList(string.Format(" 1=1 and UserId = {0} and Type> = 4", base.GetUserModel().UserId));
+
+            if (sourceList != null && sourceList.Count > 0)
+            {
+                var Mobile = sourceList.FirstOrDefault(s => s.Type == 7);
+
+                if (Mobile == null)
+                {
+                    this.artDialog("提示", "对不起，你还没有上传近期通话记录详单，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_3.aspx");
+                    return;
+                }
+                else
+                {
+                    this.artDialog("提示", "对不起，你还没有上传学银行流水截图，手机通讯详单等信息，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_3.aspx");
+                    return;
+                }
             }
         }
 

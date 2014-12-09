@@ -112,13 +112,13 @@ namespace StudentLoan.Web.Admin {
         protected global::System.Web.UI.WebControls.Label lblBirthday;
         
         /// <summary>
-        /// lblXueXinUserName 控件。
+        /// lblSchoolName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblXueXinUserName;
+        protected global::System.Web.UI.WebControls.Label lblSchoolName;
         
         /// <summary>
         /// mainImgStudent2 控件。
@@ -128,24 +128,6 @@ namespace StudentLoan.Web.Admin {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image mainImgStudent2;
-        
-        /// <summary>
-        /// lblXueXinPassword 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblXueXinPassword;
-        
-        /// <summary>
-        /// lblSchoolName 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSchoolName;
         
         /// <summary>
         /// lblSchoolAddress 控件。

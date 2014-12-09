@@ -57,7 +57,7 @@
             <div class="item">
 
                 <table class="table table-bordered">
-                    <caption>学贷网截图（学信网网址：<a href="http://www.chsi.com.cn" target="_blank">www.chsi.com.cn</a>）</caption>
+                    <caption>学信网截图（学信网网址：<a href="http://www.chsi.com.cn" target="_blank">www.chsi.com.cn</a>）</caption>
                     <thead>
                         <tr>
                             <th>照片角度/场景</th>
@@ -172,45 +172,6 @@
                 </table>
 
             </div>
-
-
-            <div class="clear mt20"></div>
-
-            <div class="item">
-
-                <table class="table table-bordered">
-                    <caption>手机通话记录清单</caption>
-                    <thead>
-                        <tr>
-                            <th>照片角度/场景</th>
-                            <th>预览/上传</th>
-                            <th>示例</th>
-                            <th>要求</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>正面</td>
-                            <td class="w260">
-                                <div class="m10">
-                                    <asp:Image ID="imgMobile" runat="server" ClientIDMode="Static" Width="237" Height="168" ImageUrl="../css/img/admin/telephone.jpg" />
-                                    <input id="btnUploadMobile" typeid="7" for="imgMobile" name="fileData" type="file" class="uploadify-button" />
-                                </div>
-                            </td>
-                            <td class="w260" style="vertical-align: top;">
-                                <div class="m10">
-                                    <img src="../css/img/admin/telephone_ex.jpg" alt="" />
-                                </div>
-                            </td>
-                            <td>
-                                <p>字迹清晰可见</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-            </div>
-
 
             <div class="clear mt20"></div>
 

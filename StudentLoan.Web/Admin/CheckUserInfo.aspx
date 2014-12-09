@@ -135,24 +135,12 @@
                         <table class="data-form" cellspacing="0" cellpadding="0">
                             <tbody>
                                 <tr>
-                                    <th scope="row">学信网账号：</th>
-                                    <td class="w450">
-                                        <asp:Label Text="暂无资料" ID="lblXueXinUserName" runat="server"></asp:Label>
-                                    </td>
-                                    <td rowspan="8">
-                                        <asp:Image runat="server" Width="350" Height="250" ID="mainImgStudent2" ImageAlign="Left" Style="margin: 20px; border: 1px solid #CCC; padding: 5px;" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">学信网密码：</th>
-                                    <td class="w450">
-                                        <asp:Label Text="暂无资料" ID="lblXueXinPassword" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
                                     <th scope="row">就读学校：</th>
                                     <td class="w450">
                                         <asp:Label Text="暂无资料" ID="lblSchoolName" runat="server"></asp:Label>
+                                    </td>
+                                    <td rowspan="6">
+                                        <asp:Image runat="server" Width="350" Height="250" ID="mainImgStudent2" ImageAlign="Left" Style="margin: 20px; border: 1px solid #CCC; padding: 5px;" />
                                     </td>
                                 </tr>
                                 <tr>

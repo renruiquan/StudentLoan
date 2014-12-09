@@ -312,6 +312,7 @@
     <Content Include="css\img\admin\service.png" />
     <Content Include="css\img\admin\student_content.jpg" />
     <Content Include="css\img\admin\student_content_ex.jpg" />
+    <Content Include="css\img\admin\student_content_ex2.jpg" />
     <Content Include="css\img\admin\student_front.jpg" />
     <Content Include="css\img\admin\student_front_ex.jpg" />
     <Content Include="css\img\admin\telephone.jpg" />

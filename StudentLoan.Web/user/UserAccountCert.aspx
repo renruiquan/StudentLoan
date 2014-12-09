@@ -164,7 +164,7 @@
                         </tr>
 
                         <tr>
-                            <td rowspan="2">必要信用认证</td>
+                            <td rowspan="3">必要信用认证</td>
                             <td>
                                 <p>身份证认证（15分）</p>
                             </td>
@@ -186,7 +186,7 @@
                                     %>
                                 </p>
                             </td>
-                            <td rowspan="2">
+                            <td rowspan="3">
                                 <p><span class="big-num"><%=this.MustPoint %></span>分</p>
                             </td>
                         </tr>
@@ -213,10 +213,32 @@
                                 </p>
                             </td>
                         </tr>
-
+                         <tr>
+                            <td>
+                                <p>手机通话记录清单（1分）</p>
+                            </td>
+                            <td>
+                                <p>
+                                    <% 
+                                        if (this.Mobile == null)
+                                        {
+                                    %>
+                                    <a href="UserAccountCert_3.aspx">未完成</a>
+                                    <%
+                                        }
+                                        else
+                                        {
+                                    %>
+                                    已完成
+                                    <%
+                                        }
+                                    %>
+                                </p>
+                            </td>
+                        </tr>
 
                         <tr>
-                            <td rowspan="10">可选信用认证</td>
+                            <td rowspan="9">可选信用认证</td>
                             <td>
                                 <p>学信网截图（2分）</p>
                             </td>
@@ -238,7 +260,7 @@
                                     %>
                                 </p>
                             </td>
-                            <td rowspan="10">
+                            <td rowspan="9">
                                 <p><span class="big-num"><%=this.OptionalPoint %></span>分</p>
 
                                 <p>（总分满70分即可享受高额贷款服务）</p>
@@ -276,30 +298,6 @@
                                 <p>
                                     <% 
                                         if (this.Alipay == null)
-                                        {
-                                    %>
-                                    <a href="UserAccountCert_4.aspx">未完成</a>
-                                    <%
-                                        }
-                                        else
-                                        {
-                                    %>
-                                    已完成
-                                    <%
-                                        }
-                                    %>
-                                </p>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <p>手机通话记录清单（1分）</p>
-                            </td>
-                            <td>
-                                <p>
-                                    <% 
-                                        if (this.Mobile == null)
                                         {
                                     %>
                                     <a href="UserAccountCert_4.aspx">未完成</a>

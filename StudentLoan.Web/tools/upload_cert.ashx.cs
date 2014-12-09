@@ -56,19 +56,27 @@ namespace StudentLoan.Web.tools
 
             bool result = false;
 
-            if (userCertModel == null)
+            if (userCertModel == null || type == 7 || type == 5)
             {
-                //新增
-                userCertModel = new UserCertificationEntityEx()
-                {
-                    UserId = userId,
-                    Type = type,
-                    CertificationName = this.GetCertification(type).CertificationName,
-                    Images = string.Format("/upload_images/{0}/{1}_{2}", userId, fileTicks, file.FileName),
-                    Point = this.GetCertification(type).Point
-                };
+                //验证用户银行流水截图或手机通讯的截图数量
+                int pictureCertCount = new UserCertificationBLL().GetPictureCertCount(userId, type);
 
-                result = new UserCertificationBLL().Insert(userCertModel);
+                if (pictureCertCount < 5 && (type == 5 || type == 7))
+                {
+                    //新增
+                    userCertModel = new UserCertificationEntityEx()
+                    {
+                        UserId = userId,
+                        Type = type,
+                        CertificationName = this.GetCertification(type).CertificationName,
+                        Images = string.Format("/upload_images/{0}/{1}_{2}", userId, fileTicks, file.FileName),
+                        Point = this.GetCertification(type).Point
+                    };
+
+                    result = new UserCertificationBLL().Insert(userCertModel);
+                }
+
+
             }
             else
             {
@@ -107,7 +115,7 @@ namespace StudentLoan.Web.tools
                 case 0: model.CertificationName = "手持身份证照片"; model.Point = 0; break;
                 case 1: model.CertificationName = "身份证正面"; model.Point = 15; break;
                 case 2: model.CertificationName = "学生证正面"; model.Point = 0; break;
-                case 3: model.CertificationName = "学生证内容"; model.Point = 15; break;
+                case 3: model.CertificationName = "学生证内容"; model.Point = 7; break;
                 case 4: model.CertificationName = "学信网截图"; model.Point = 2; break;
                 case 5: model.CertificationName = "银行卡流水截图"; model.Point = 1; break;
                 case 6: model.CertificationName = "网银或支付宝流水截图"; model.Point = 1; break;
@@ -122,6 +130,7 @@ namespace StudentLoan.Web.tools
                 case 15: model.CertificationName = "行驶证内容"; model.Point = 1; break;
                 case 16: model.CertificationName = "获奖证书内容"; model.Point = 5; break;
                 case 17: model.CertificationName = "身份证背面"; model.Point = 0; break;
+                case 18: model.CertificationName = "学生证内容2"; model.Point = 8; break;
             }
 
             return model;

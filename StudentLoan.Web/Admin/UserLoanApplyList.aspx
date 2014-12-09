@@ -122,7 +122,7 @@
                             <ItemTemplate>
                                 <tr class="c">
                                     <td><%#Eval("LoanNo") %></td>
-                                    <td><%#Eval("UserName") %>/<%#Eval("TrueName") %></td>
+                                    <td><%#Eval("TrueName") %></td>
                                     <td><%#Eval("ProductName") %></td>
                                     <td><%#Convert.ToDecimal( Eval("LoanMoney")).ToString("C") %></td>
                                     <td><%#Convert.ToDecimal(Eval("AnnualFee")).ToString("P2") %></td>

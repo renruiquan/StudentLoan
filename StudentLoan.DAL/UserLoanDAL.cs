@@ -20,13 +20,13 @@ namespace StudentLoan.DAL
         /// <summary>
         /// 是否存在该记录
         /// </summary>
-        public bool Exists(int LoanId)
+        public bool Exists(int userId)
         {
             #region CommandText
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append("Select LoanId From sl_user_loan Where LoanId = @LoanId");
+            commandText.Append("Select LoanId From sl_user_loan Where UserId = @UserId and Status = 0");
 
             #endregion
 
@@ -34,7 +34,7 @@ namespace StudentLoan.DAL
 
             List<SqlParameter> paramsList = new List<SqlParameter>();
 
-            paramsList.Add(new SqlParameter("@LoanId", LoanId));
+            paramsList.Add(new SqlParameter("@UserId", userId));
 
             #endregion
 
@@ -43,7 +43,6 @@ namespace StudentLoan.DAL
                 return objReader.HasRows;
             }
         }
-
 
         /// <summary>
         /// 增加一条数据
@@ -200,44 +199,50 @@ namespace StudentLoan.DAL
 
             commandText.Append(" PassTime = @PassTime, ");
 
-            commandText.Append(" Status = @Status ");
+            commandText.Append(" Status = @Status, ");
+
+            commandText.Append(" Description = @Description ");
 
             commandText.Append(" Where LoanId = @LoanId; ");
 
             //生成借款账单
-            commandText.Append(@" while @i<= @TotalAmortization");
 
-            commandText.Append(@" Begin ");
-
-            commandText.Append(@" SET @Interest = @Amount * @AnnualFee; ");
-
-            commandText.Append(@" if(@i=@TotalAmortization) ");
-
-            commandText.Append(@" BEGIN ");
-
-            commandText.Append(@" set @RepaymentMoney = @Amount; ");
-
-            commandText.Append(@" END ");
-
-            commandText.Append(" Insert Into sl_user_repayment( ");
-
-            commandText.Append(" LoanId,UserId, CurrentAmortization, Interest, RepaymentMoney, BreakContract, RepaymentTime, Status) ");
-
-            commandText.Append(" Values ( ");
-
-            commandText.Append(@" @LoanId,@UserId, @i, @Interest, @RepaymentMoney, 0, ");
-
-            if (model.ProductId == 3)
+            if (model.Status == 1)
             {
-                commandText.Append(@" DATEADD(DAY, @i, GETDATE()), 0); ");
-            }
-            else
-            {
-                commandText.Append(@" DATEADD(MONTH, @i, GETDATE()), 0); ");
-            }
-            commandText.Append(@" set @i+=1;");
+                commandText.Append(@" while @i<= @TotalAmortization");
 
-            commandText.Append(@" End; ");
+                commandText.Append(@" Begin ");
+
+                commandText.Append(@" SET @Interest = @Amount * @AnnualFee; ");
+
+                commandText.Append(@" if(@i=@TotalAmortization) ");
+
+                commandText.Append(@" BEGIN ");
+
+                commandText.Append(@" set @RepaymentMoney = @Amount; ");
+
+                commandText.Append(@" END ");
+
+                commandText.Append(" Insert Into sl_user_repayment( ");
+
+                commandText.Append(" LoanId,UserId, CurrentAmortization, Interest, RepaymentMoney, BreakContract, RepaymentTime, Status) ");
+
+                commandText.Append(" Values ( ");
+
+                commandText.Append(@" @LoanId,@UserId, @i, @Interest, @RepaymentMoney, 0, ");
+
+                if (model.ProductId == 3)
+                {
+                    commandText.Append(@" DATEADD(DAY, @i, GETDATE()), 0); ");
+                }
+                else
+                {
+                    commandText.Append(@" DATEADD(MONTH, @i, GETDATE()), 0); ");
+                }
+                commandText.Append(@" set @i+=1;");
+
+                commandText.Append(@" End; ");
+            }
 
             #endregion
 
@@ -256,6 +261,8 @@ namespace StudentLoan.DAL
             paramsList.Add(new SqlParameter("@PassTime", DateTime.Now));
 
             paramsList.Add(new SqlParameter("@Status", model.Status));
+
+            paramsList.Add(new SqlParameter("@Description", model.Description));
 
             paramsList.Add(new SqlParameter("@TotalAmortization", model.TotalAmortization));
 
@@ -293,7 +300,8 @@ namespace StudentLoan.DAL
 	a.Status,
 	a.AdminId,
 	a.CreateTime,
-	a.PassTime
+	a.PassTime,
+    a.Description
 FROM sl_user_loan a,sl_users b
 WHERE LoanId = @LoanId
 and a.UserId = b.UserId");

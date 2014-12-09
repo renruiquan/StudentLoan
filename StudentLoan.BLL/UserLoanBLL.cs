@@ -24,9 +24,9 @@ namespace StudentLoan.BLL
         /// <summary>
         /// 是否存在该记录
         /// </summary>
-        public bool Exists(int PassTime)
+        public bool Exists(int userId)
         {
-            return dal.Exists(PassTime);
+            return dal.Exists(userId);
         }
 
 

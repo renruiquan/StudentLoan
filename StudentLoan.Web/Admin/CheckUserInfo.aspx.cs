@@ -38,7 +38,7 @@ namespace StudentLoan.Web.Admin
 
                     this.BindUserOptionalCert();
 
-                    this.txtRefuse.Text = string.Format(@"尊敬的用户:{0}，您于{1}提交的贷款认证资料未通过审核，请根据申请提示完善资料后再提交审核。如有疑问，请咨询：0527-88802678", this.UserLoanModel.UserName, UserLoanModel.CreateTime);
+                    this.txtRefuse.Text = string.IsNullOrEmpty(this.UserLoanModel.Description) == true ? string.Format(@"尊敬的用户:{0}，您于{1}提交的贷款认证资料未通过审核，请根据申请提示完善资料后再提交审核。如有疑问，请咨询：0527-88802678", this.UserLoanModel.UserName, UserLoanModel.CreateTime) : this.UserLoanModel.Description;
                 }
                 else
                 {
@@ -75,8 +75,6 @@ namespace StudentLoan.Web.Admin
 
             if (model != null)
             {
-                this.lblXueXinUserName.Text = model.XuexinUsername;
-                this.lblXueXinPassword.Text = model.XuexinPassword;
                 this.lblSchoolName.Text = model.SchoolName;
                 this.lblSchoolAddress.Text = model.SchoolAddress;
                 this.lblYearOfAdmission.Text = model.YearOfAdmission.ToString("yyyy-MM-dd");
@@ -400,7 +398,8 @@ namespace StudentLoan.Web.Admin
                  UserId = userLoanModel.UserId,
                  TotalAmortization = userLoanModel.TotalAmortization,
                  AnnualFee = userLoanModel.AnnualFee,
-                 ProductId = userLoanModel.ProductId
+                 ProductId = userLoanModel.ProductId,
+                 Description = this.txtRefuse.Text.Trim()
              });
 
             //发短消息

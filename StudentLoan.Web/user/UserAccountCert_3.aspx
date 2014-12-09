@@ -105,7 +105,7 @@
                                 <p>证件上文字清晰可识别</p>
                             </td>
                         </tr>
-                         <tr>
+                        <tr>
                             <td>身份证背面</td>
                             <td class="w260">
                                 <div class="m10">
@@ -160,7 +160,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>学生证内容</td>
+                            <td>学生证内容1</td>
                             <td class="w260">
                                 <div class="m10">
                                     <asp:Image ID="imgStudentId_2" runat="server" Width="237" Height="168" ClientIDMode="Static" ImageUrl="../css/img/admin/student_content.jpg" />
@@ -176,11 +176,82 @@
                                 <p>证件上文字清晰可识别</p>
                             </td>
                         </tr>
+                        <tr>
+                            <td>学生证内容2</td>
+                            <td class="w260">
+                                <div class="m10">
+                                    <asp:Image ID="imgStudentId_3" runat="server" Width="237" Height="168" ClientIDMode="Static" ImageUrl="../css/img/admin/student_content.jpg" />
+                                    <input id="btnUploadStudentId_3" typeid="3" for="imgStudentId_3" name="fileData" type="file" class="uploadify-button" />
+                                </div>
+                            </td>
+                            <td class="w260" style="vertical-align: top;">
+                                <div class="m10">
+                                    <img src="../css/img/admin/student_content_ex2.jpg" alt="" />
+                                </div>
+                            </td>
+                            <td>
+                                <p>证件上文字清晰可识别</p>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
 
             </div>
 
+            <div class="clear mt20"></div>
+
+            <div class="item">
+
+                <table class="table table-bordered">
+                    <caption>手机通话记录清单</caption>
+                    <thead>
+                        <tr>
+                            <th>照片角度/场景</th>
+                            <th>预览/上传</th>
+                            <th>示例</th>
+                            <th>要求</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>正面</td>
+                            <td class="w260">
+                                <div class="m10">
+                                    <div id="myCarousel" class="carousel slide">
+
+                                        <!-- Carousel items -->
+                                        <div class="carousel-inner">
+                                            <asp:Literal ID="litMobile" runat="server">
+                                                <div class="active item">
+                                                    <img id="imgMobile"  Width="237" Height="168" src="../css/img/admin/telephone.jpg" />
+                                                </div>
+                                            </asp:Literal>
+                                        </div>
+
+                                        <!-- Carousel nav -->
+                                        <a class="carousel-control left" style="margin-top: 0; text-align: right;" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                                        <a class="carousel-control right" style="margin-top: 0; text-align: right;" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                                    </div>
+
+
+                                    <input id="btnUploadMobile" typeid="7" for="imgMobile" name="fileData" type="file" class="uploadify-button" />
+                                </div>
+                            </td>
+                            <td class="w260" style="vertical-align: top;">
+                                <div class="m10">
+                                    <img src="../css/img/admin/telephone_ex.jpg" alt="" />
+                                </div>
+                            </td>
+                            <td>
+                                <p>1.字迹清晰可见</p>
+                                <p>2.不用不少于2张截图</p>
+                                <p>3.近一个月的通讯记录</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
             <div class="item">
                 <div class="w400 ptb20 auto">
                     <p class="text-center">

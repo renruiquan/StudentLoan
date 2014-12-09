@@ -300,6 +300,10 @@ namespace StudentLoan.Web.user
             {
                 this.MustPoint += this.StudentId2.Point;
             }
+            if (this.Mobile != null)
+            {
+                this.MustPoint += this.Mobile.Point;
+            }
         }
 
         /// <summary>
@@ -320,10 +324,6 @@ namespace StudentLoan.Web.user
             if (this.Alipay != null)
             {
                 this.OptionalPoint += this.Alipay.Point;
-            }
-            if (this.Mobile != null)
-            {
-                this.OptionalPoint += this.Mobile.Point;
             }
             if (this.Parents1 != null)
             {

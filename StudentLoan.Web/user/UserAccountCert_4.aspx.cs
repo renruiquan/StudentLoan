@@ -57,10 +57,7 @@ namespace StudentLoan.Web.user
                     this.imgAlipay.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 6).Images;
                 }
 
-                if (sourceList.FirstOrDefault(s => s.Type == 7) != null)
-                {
-                    this.imgMobile.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 7).Images;
-                }
+                
                 if (sourceList.FirstOrDefault(s => s.Type == 8) != null)
                 {
                     this.imgParents1.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 8).Images;

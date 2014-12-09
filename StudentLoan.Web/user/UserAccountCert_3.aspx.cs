@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using StudentLoan.Model;
 using StudentLoan.Common;
 using StudentLoan.BLL;
+using System.Text;
 
 namespace StudentLoan.Web.user
 {
@@ -34,6 +35,8 @@ namespace StudentLoan.Web.user
                 #endregion
 
                 this.BindData();
+
+                this.BindMobilePictureCert();
             }
         }
 
@@ -65,7 +68,35 @@ namespace StudentLoan.Web.user
                 {
                     this.imgStudentId_2.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 3).Images;
                 }
+            }
+        }
 
+        public void BindMobilePictureCert()
+        {
+            List<UserCertificationEntityEx> sourceList = new UserCertificationBLL().GetList(string.Format(" UserId={0} and type=7 ", base.GetUserModel().UserId));
+
+            if (sourceList == null || sourceList.Count == 0)
+            {
+                litMobile.Text = "<div class=\"active item\"><img id=\"imgMobile_0\" style='width:237px;height:168px;' src=\"../css/img/admin/telephone.jpg\" /></div>";
+            }
+            else
+            {
+                StringBuilder objSB = new StringBuilder();
+
+                for (int i = 0; i < sourceList.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        objSB.AppendFormat("<div class=\"active item\"><img id=\"imgMobile_0\"  style='width:237px;height:168px;' src=\"{0}\" /></div>", sourceList[i].Images);
+                    }
+                    else
+                    {
+                        objSB.AppendFormat("<div class=\"item\"><img id=\"imgMobile_{0}\"  style='width:237px;height:168px;' src=\"{1}\" /></div>", i, sourceList[i].Images);
+                    }
+
+                }
+
+                litMobile.Text = objSB.ToString();
 
             }
         }

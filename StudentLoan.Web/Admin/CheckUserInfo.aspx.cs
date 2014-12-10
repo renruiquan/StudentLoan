@@ -38,6 +38,10 @@ namespace StudentLoan.Web.Admin
 
                     this.BindUserOptionalCert();
 
+                    this.BindMobilePictureCert();
+
+                    this.BindBankPictureCert();
+
                     this.txtRefuse.Text = string.IsNullOrEmpty(this.UserLoanModel.Description) == true ? string.Format(@"尊敬的用户:{0}，您于{1}提交的贷款认证资料未通过审核，请根据申请提示完善资料后再提交审核。如有疑问，请咨询：0527-88802678", this.UserLoanModel.UserName, UserLoanModel.CreateTime) : this.UserLoanModel.Description;
                 }
                 else
@@ -184,9 +188,9 @@ namespace StudentLoan.Web.Admin
             if (sourceList != null && sourceList.Count > 0)
             {
                 var XueXin = sourceList.FirstOrDefault(s => s.Type == 4);
-                var Bank = sourceList.FirstOrDefault(s => s.Type == 5);
+                //var Bank = sourceList.FirstOrDefault(s => s.Type == 5);
                 var Alipay = sourceList.FirstOrDefault(s => s.Type == 6);
-                var Mobile = sourceList.FirstOrDefault(s => s.Type == 7);
+                //var Mobile = sourceList.FirstOrDefault(s => s.Type == 7);
                 var Parents1 = sourceList.FirstOrDefault(s => s.Type == 8);
                 var Parents2 = sourceList.FirstOrDefault(s => s.Type == 9);
                 var Roommate1 = sourceList.FirstOrDefault(s => s.Type == 10);
@@ -200,70 +204,130 @@ namespace StudentLoan.Web.Admin
                 if (XueXin != null)
                 {
                     this.imgXueXin.ImageUrl = XueXin.Images;
-                    this.imgXueXin.Attributes.Add("onclick", string.Format("return window.open('{0}')", XueXin.Images));
+                    this.imgXueXin.Attributes.Add("onclick", string.Format("return window.open('/Admin/ShowImages.aspx?picurl={0}')", XueXin.Images));
 
                 }
-                if (Bank != null)
-                {
-                    this.imgBank.ImageUrl = Bank.Images;
-                    this.imgBank.Attributes.Add("onclick", string.Format("return window.open('{0}')", Bank.Images));
-                }
+                //if (Bank != null)
+                //{
+                //    this.imgBank.ImageUrl = Bank.Images;
+                //    this.imgBank.Attributes.Add("onclick", string.Format("return window.open('/Admin/ShowImages.aspx?picurl={0}')", Bank.Images));
+                //}
                 if (Alipay != null)
                 {
                     this.imgAlipay.ImageUrl = Alipay.Images;
-                    this.imgAlipay.Attributes.Add("onclick", string.Format("return window.open('{0}')", Alipay.Images));
+                    this.imgAlipay.Attributes.Add("onclick", string.Format("return window.open('/Admin/ShowImages.aspx?picurl={0}')", Alipay.Images));
                 }
-                if (Mobile != null)
-                {
-                    this.imgMobile.ImageUrl = Mobile.Images;
-                    this.imgMobile.Attributes.Add("onclick", string.Format("return window.open('{0}')", Mobile.Images));
-                }
+                //if (Mobile != null)
+                //{
+                //    this.imgMobile.ImageUrl = Mobile.Images;
+                //    this.imgMobile.Attributes.Add("onclick", string.Format("return window.open('/Admin/ShowImages.aspx?picurl={0}')", Mobile.Images));
+                //}
                 if (Parents1 != null)
                 {
                     this.imgParents1.ImageUrl = Parents1.Images;
-                    this.imgParents1.Attributes.Add("onclick", string.Format("return window.open('{0}')", Parents1.Images));
+                    this.imgParents1.Attributes.Add("onclick", string.Format("return window.open('/Admin/ShowImages.aspx?picurl={0}')", Parents1.Images));
                 }
                 if (Parents2 != null)
                 {
                     this.imgParents2.ImageUrl = Parents2.Images;
-                    this.imgParents2.Attributes.Add("onclick", string.Format("return window.open('{0}')", Parents2.Images));
+                    this.imgParents2.Attributes.Add("onclick", string.Format("return window.open('/Admin/ShowImages.aspx?picurl={0}')", Parents2.Images));
                 }
                 if (Roommate1 != null)
                 {
                     this.imgRoommateIdentityCard1.ImageUrl = Roommate1.Images;
-                    this.imgRoommateIdentityCard1.Attributes.Add("onclick", string.Format("return window.open('{0}')", Roommate1.Images));
+                    this.imgRoommateIdentityCard1.Attributes.Add("onclick", string.Format("return window.open('/Admin/ShowImages.aspx?picurl={0}')", Roommate1.Images));
                 }
                 if (Roommate2 != null)
                 {
                     this.imgRoommateIdentityCard2.ImageUrl = Roommate2.Images;
-                    this.imgRoommateIdentityCard2.Attributes.Add("onclick", string.Format("return window.open('{0}')", Roommate2.Images));
+                    this.imgRoommateIdentityCard2.Attributes.Add("onclick", string.Format("return window.open('/Admin/ShowImages.aspx?picurl={0}')", Roommate2.Images));
                 }
                 if (StudentId1 != null)
                 {
                     this.imgRoommateStudentId1.ImageUrl = StudentId1.Images;
-                    this.imgRoommateStudentId1.Attributes.Add("onclick", string.Format("return window.open('{0}')", StudentId1.Images));
+                    this.imgRoommateStudentId1.Attributes.Add("onclick", string.Format("return window.open('/Admin/ShowImages.aspx?picurl={0}')", StudentId1.Images));
                 }
                 if (StudentId2 != null)
                 {
                     this.imgRoommateStudentId2.ImageUrl = StudentId2.Images;
-                    this.imgRoommateStudentId2.Attributes.Add("onclick", string.Format("return window.open('{0}')", StudentId2.Images));
+                    this.imgRoommateStudentId2.Attributes.Add("onclick", string.Format("return window.open('/Admin/ShowImages.aspx?picurl={0}')", StudentId2.Images));
 
                 }
                 if (Residencebooklet != null)
                 {
                     this.imgResidencebooklet.ImageUrl = Residencebooklet.Images;
-                    this.imgResidencebooklet.Attributes.Add("onclick", string.Format("return window.open('{0}')", Residencebooklet.Images));
+                    this.imgResidencebooklet.Attributes.Add("onclick", string.Format("return window.open('/Admin/ShowImages.aspx?picurl={0}')", Residencebooklet.Images));
                 }
                 if (DriversLicense != null)
                 {
                     this.imgDriversLicense.ImageUrl = DriversLicense.Images;
-                    this.imgDriversLicense.Attributes.Add("onclick", string.Format("return window.open('{0}')", DriversLicense.Images));
+                    this.imgDriversLicense.Attributes.Add("onclick", string.Format("return window.open('/Admin/ShowImages.aspx?picurl={0}')", DriversLicense.Images));
                 }
                 if (Awards != null)
                 {
                     this.imgAwards.ImageUrl = Awards.Images;
-                    this.imgAwards.Attributes.Add("onclick", string.Format("return window.open('{0}')", Awards.Images));
+                    this.imgAwards.Attributes.Add("onclick", string.Format("return window.open('/Admin/ShowImages.aspx?picurl={0}')", Awards.Images));
                 }
+            }
+        }
+
+        public void BindMobilePictureCert()
+        {
+            List<UserCertificationEntityEx> sourceList = new UserCertificationBLL().GetList(string.Format(" UserId={0} and type=7 ", this.UserLoanModel.UserId));
+
+            if (sourceList == null || sourceList.Count == 0)
+            {
+                litMobile.Text = "<div class=\"active item\"><img id=\"imgMobile_0\" style='width:350px;height:250px;' src=\"../css/img/admin/card.jpg\" /></div>";
+            }
+            else
+            {
+                StringBuilder objSB = new StringBuilder();
+
+                for (int i = 0; i < sourceList.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        objSB.AppendFormat("<div class=\"active item\"><a target='_blank' href=\"/Admin/ShowImages.aspx?picurl={0}\"><img id=\"imgMobile_0\"  style='width:350px;height:250px;' src=\"{1}\" /></a></div>", sourceList[i].Images, sourceList[i].Images);
+                    }
+                    else
+                    {
+                        objSB.AppendFormat("<div class=\"item\"><a  target='_blank' href=\"/Admin/ShowImages.aspx?picurl={0}\"><img id=\"imgMobile_{1}\"  style='width:350px;height:250px;' src=\"{2}\" /></a></div>", sourceList[i].Images, i, sourceList[i].Images);
+                    }
+
+                }
+
+                litMobile.Text = objSB.ToString();
+
+            }
+        }
+
+        public void BindBankPictureCert()
+        {
+            List<UserCertificationEntityEx> sourceList = new UserCertificationBLL().GetList(string.Format(" UserId={0} and type=5 ", this.UserLoanModel.UserId));
+
+            if (sourceList == null || sourceList.Count == 0)
+            {
+                litBank.Text = "<div class=\"active item\"><img id=\"imgBank_0\" style='width:350px;height:250px;' src=\"../css/img/admin/card.jpg\" /></div>";
+            }
+            else
+            {
+                StringBuilder objSB = new StringBuilder();
+
+                for (int i = 0; i < sourceList.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        objSB.AppendFormat("<div class=\"active item\"><a target='_blank' href=\"/Admin/ShowImages.aspx?picurl={0}\"><img id=\"imgBank_0\" style='width:350px;height:250px;' src=\"{1}\" /></a></div>", sourceList[i].Images, sourceList[i].Images);
+                    }
+                    else
+                    {
+                        objSB.AppendFormat("<div class=\"item\"><a target='_blank' href=\"/Admin/ShowImages.aspx?picurl={0}\"><img id=\"imgBank_{1}\"  style='width:350px;height:250px;' src=\"{2}\" /></a></div>", sourceList[i].Images, i, sourceList[i].Images);
+                    }
+
+                }
+
+                litBank.Text = objSB.ToString();
+
             }
         }
 

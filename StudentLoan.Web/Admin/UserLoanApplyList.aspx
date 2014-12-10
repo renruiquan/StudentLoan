@@ -32,7 +32,7 @@
 </head>
 <body>
     <form id="form1" runat="server" class="form-inline">
-        <div class="container">
+        <div class="container1">
             <div class="location">当前位置：借款管理 -&gt; 借款记录</div>
 
             <div class="blank10"></div>

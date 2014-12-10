@@ -6,6 +6,8 @@
     <script type="text/javascript">
         $(function () {
             var target = $(".uploadify-button");
+            var fileCount = 0; //上传文件数量
+            var number = 0;    //图片编号
             target.each(function () {
                 var typeId = $(this).attr("typeId");
                 var _for = $(this).attr("for");
@@ -17,11 +19,26 @@
                     fileTypeExts: '*.gif; *.jpg;*.jpeg; *.png',
                     fileSizeLimit: '500KB',
                     buttonClass: 'btn mt5 btn-primary',
+                    onDialogClose: function (queueData) {
+                        fileCount = queueData.filesQueued;
+                        number = fileCount;
+                    },
                     onUploadSuccess: function (file, data, response) {
-
                         var json_data = $.parseJSON(data);
                         if (json_data.result == "true") {
                             $("#" + _for).attr("src", json_data.url);
+                            if (_for == "imgBank") {
+
+                                $("#imgBank_0").parent().remove();
+                                if (number == fileCount) {
+                                    $("#CarouselItems").children().removeClass("active");
+                                    $("#CarouselItems").append("<div class=\"item active\"><img id=\"imgBank_" + number + "\" style='width:237px;height:168px;' src=\"" + json_data.url + "\" /></div>");
+                                } else {
+                                    $("#CarouselItems").append("<div class=\"item\"><img id=\"imgBank_" + number + "\" style='width:237px;height:168px;' src=\"" + json_data.url + "\" /></div>");
+                                }
+
+                                number--;
+                            }
                         } else {
                             alert("上传失败");
                         }
@@ -111,7 +128,20 @@
                             <td>正面</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <asp:Image ID="imgBank" runat="server" ClientIDMode="Static" Width="237" Height="168" ImageUrl="../css/img/admin/card.jpg" />
+
+                                    <div id="myCarousel" class="carousel slide">
+
+                                        <!-- Carousel items -->
+                                        <div id="CarouselItems" class="carousel-inner">
+                                            <asp:Literal ID="litBank" runat="server">
+                                                
+                                            </asp:Literal>
+                                        </div>
+
+                                        <!-- Carousel nav -->
+                                        <a class="carousel-control left" style="margin-top: 0; text-align: right;" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                                        <a class="carousel-control right" style="margin-top: 0; text-align: right;" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                                    </div>
                                     <input id="btnUploadBankPic" typeid="5" for="imgBank" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>

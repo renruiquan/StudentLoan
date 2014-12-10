@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using StudentLoan.Common;
 using StudentLoan.BLL;
 using StudentLoan.Model;
+using System.Text;
 
 namespace StudentLoan.Web.user
 {
@@ -34,6 +35,7 @@ namespace StudentLoan.Web.user
                 #endregion
 
                 this.BindData();
+                this.BindBankPictureCert();
             }
         }
 
@@ -47,17 +49,10 @@ namespace StudentLoan.Web.user
                 {
                     this.imgXuexin.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 4).Images;
                 }
-                if (sourceList.FirstOrDefault(s => s.Type == 5) != null)
-                {
-                    this.imgBank.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 5).Images;
-                }
-
                 if (sourceList.FirstOrDefault(s => s.Type == 6) != null)
                 {
                     this.imgAlipay.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 6).Images;
                 }
-
-                
                 if (sourceList.FirstOrDefault(s => s.Type == 8) != null)
                 {
                     this.imgParents1.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 8).Images;
@@ -94,6 +89,36 @@ namespace StudentLoan.Web.user
                 {
                     this.imgAwards.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 16).Images;
                 }
+            }
+        }
+
+        public void BindBankPictureCert()
+        {
+            List<UserCertificationEntityEx> sourceList = new UserCertificationBLL().GetList(string.Format(" UserId={0} and type=5 ", base.GetUserModel().UserId));
+
+            if (sourceList == null || sourceList.Count == 0)
+            {
+                litBank.Text = "<div class=\"active item\"><img id=\"imgBank_0\" style='width:237px;height:168px;' src=\"../css/img/admin/card.jpg\" /></div>";
+            }
+            else
+            {
+                StringBuilder objSB = new StringBuilder();
+
+                for (int i = 0; i < sourceList.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        objSB.AppendFormat("<div class=\"active item\"><img id=\"imgBank_0\"  style='width:237px;height:168px;' src=\"{0}\" /></div>", sourceList[i].Images);
+                    }
+                    else
+                    {
+                        objSB.AppendFormat("<div class=\"item\"><img id=\"imgBank_{0}\"  style='width:237px;height:168px;' src=\"{1}\" /></div>", i, sourceList[i].Images);
+                    }
+
+                }
+
+                litBank.Text = objSB.ToString();
+
             }
         }
     }

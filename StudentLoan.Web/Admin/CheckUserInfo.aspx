@@ -8,13 +8,14 @@
     <title>网站后台登陆</title>
     <link href="css/admin.global.css" rel="stylesheet" type="text/css" />
     <link href="css/admin.content.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
-    <script type="text/javascript" src="js/jquery.utils.js"></script>
+    <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+    
     <link href="jBox/Skins/Green/jbox.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="jBox/jquery.jBox-2.3.min.js"></script>
-
     <script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap/css/ie.css" />
+    <script type="text/javascript" src="../css/bootstrap/js/bootstrap.min.js"></script>
     <style type="text/css">
         .w450 {
             width: 445px;
@@ -24,7 +25,7 @@
 </head>
 <body>
     <form id="form1" runat="server" class="form-inline">
-        <div class="container">
+        <div class="container1">
             <div class="location">当前位置：借款管理 -&gt; 借款记录 -&gt; 审核用户</div>
 
             <div class="blank10"></div>
@@ -323,7 +324,7 @@
                             <thead>
                                 <tr>
                                     <th>身份证背面</th>
-                                    <th>待添加</th>
+                                    <th>手机通话详单</th>
                                     <th>待添加</th>
                                     <th>待添加</th>
                                 </tr>
@@ -334,10 +335,20 @@
                                         <asp:Image runat="server" Width="350" Height="250" ID="imgIdentityCard3" ImageAlign="Left" Style="margin: 20px;" />
                                     </td>
                                     <td>
-                                        <asp:Image runat="server" Width="350" Height="250" ID="Image1" ImageAlign="Left" Style="margin: 20px;" />
+                                        <div id="myCarousel" class="carousel slide" style="margin:20px;">
+
+                                            <!-- Carousel items -->
+                                            <div class="carousel-inner">
+                                                <asp:Literal ID="litMobile" runat="server"></asp:Literal>
+                                            </div>
+                                            <!-- Carousel nav -->
+                                            <a class="carousel-control left" href="#myCarousel" style="margin-top:0px;" data-slide="prev">&lsaquo;</a>
+                                            <a class="carousel-control right" style="right:35px;margin-top:0px;" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                                        </div>
                                     </td>
                                     <td>
-                                        <asp:Image runat="server" Width="350" Height="250" ID="Image2" ImageAlign="Left" Style="margin: 20px;" />
+                                        <asp:Image runat="server" Width="350" Height="250" ID="Image1" ImageAlign="Left" Style="margin: 20px;" />
+
                                     </td>
                                     <td>
                                         <asp:Image runat="server" Width="350" Height="250" ID="Image3" ImageAlign="Left" Style="margin: 20px;" />
@@ -370,7 +381,7 @@
                                     <th>学信网截图</th>
                                     <th>银行卡流水</th>
                                     <th>支付流水</th>
-                                    <th>手机通话详单</th>
+                                    <th>获奖证书</th>
 
                                 </tr>
                             </thead>
@@ -380,13 +391,24 @@
                                         <asp:Image runat="server" Width="350" Height="250" ID="imgXueXin" ImageAlign="Left" Style="margin: 20px;" />
                                     </td>
                                     <td>
-                                        <asp:Image runat="server" Width="350" Height="250" ID="imgBank" ImageAlign="Left" Style="margin: 20px;" />
+                                          <div id="myCarousel2" class="carousel slide" style="margin:20px;">
+
+                                            <!-- Carousel items -->
+                                            <div class="carousel-inner">
+                                                <asp:Literal ID="litBank" runat="server"></asp:Literal>
+                                            </div>
+                                            <!-- Carousel nav -->
+                                            <a class="carousel-control left" href="#myCarousel2" style="margin-top:0px;" data-slide="prev">&lsaquo;</a>
+                                            <a class="carousel-control right" style="right:35px;margin-top:0px;" href="#myCarousel2" data-slide="next">&rsaquo;</a>
+                                        </div>
                                     </td>
                                     <td>
                                         <asp:Image runat="server" Width="350" Height="250" ID="imgAlipay" ImageAlign="Left" Style="margin: 20px;" />
                                     </td>
                                     <td>
-                                        <asp:Image runat="server" Width="350" Height="250" ID="imgMobile" ImageAlign="Left" Style="margin: 20px;" />
+
+                                        <asp:Image runat="server" Width="350" Height="250" ID="imgAwards" ImageAlign="Left" Style="margin: 20px;" />
+
                                     </td>
                                 </tr>
 
@@ -497,17 +519,13 @@
                         <table class="data-table" width="100%" border="0" cellspacing="0" cellpadding="0">
                             <thead>
                                 <tr>
-                                    <th colspan="4">获奖证书</th>
+                                    <th colspan="4">待添加</th>
 
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td colspan="4">
-                                        <asp:Image runat="server" Width="350" Height="250" ID="imgAwards" ImageAlign="Left" Style="margin: 20px;" />
-                                    </td>
-
-
+                                    <td colspan="4"></td>
                                 </tr>
 
                             </tbody>

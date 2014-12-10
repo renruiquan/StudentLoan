@@ -22,7 +22,7 @@
 <body>
     <form id="form1" runat="server">
 
-        <div class="container">
+        <div class="container1">
 
             <div class="location">当前位置：用户管理 -&gt; 用户详细资料</div>
 

@@ -25,7 +25,7 @@
     </script>
 </head>
 <body>
-    <div class="container">
+    <div class="container1">
         <div class="location">当前位置：后台首页</div>
 
         <table class="hide" width="100%" border="0" cellpadding="0" cellspacing="0">

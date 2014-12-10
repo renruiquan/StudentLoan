@@ -23,7 +23,7 @@
 <body>
     <form id="form1" runat="server">
 
-        <div class="container">
+        <div class="container1">
 
             <div class="location">当前位置：系统管理 -&gt; 添加管理员</div>
 

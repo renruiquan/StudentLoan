@@ -69,9 +69,9 @@ namespace StudentLoan.BLL
         /// <summary>
         /// 获取一个实体
         /// </summary>
-        public ChannelEntityEx GetModel(int CreateTime)
+        public ChannelEntityEx GetModel(int ChannelId)
         {
-            return dal.GetModel(CreateTime);
+            return dal.GetModel(ChannelId);
         }
         
         

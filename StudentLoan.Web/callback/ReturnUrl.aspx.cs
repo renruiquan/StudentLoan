@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using StudentLoan.Common;
 using System.Text;
+using StudentLoan.Model;
 
 namespace StudentLoan.Web.callback
 {
@@ -96,7 +97,14 @@ namespace StudentLoan.Web.callback
                 signStr = signStr + "trade_time=" + trade_time + "&";
             }
 
+            ChannelEntityEx channelModel = new BLL.ChannelBLL().GetModel(1);
+
             string key = "123456789a123456789_";
+
+            if (channelModel != null)
+            {
+                key = channelModel.AppKey;
+            }
 
             signStr = signStr + "key=" + key;
             string signInfo = signStr;

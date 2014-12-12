@@ -219,7 +219,7 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select Top 1 ChannelId,ChannelName,ChannelFlag,AppId,AppKey,Rate,Weight,RequestUrl,Status,Remark,CreateTime From sl_channel Where ChannelId = @ChannelId ");
+            commandText.Append(" Select Top 1 ChannelId,ChannelName,ChannelFlag,AppId,AppKey,Rate,Weight,RequestUrl,Status,Remark,CreateTime From sl_channel Where ChannelId = @ChannelId and Status =1 ");
 
             #endregion
 

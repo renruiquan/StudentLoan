@@ -150,8 +150,14 @@ namespace StudentLoan.Web.user
                 string postString = string.Format("merchant_code={0}&order_amount={1}&bank_code={2}&key={3}&product_name={4}&order_no={5}&order_time={6}",
                                                     channelModel.AppId, model.ChargeMoney, model.Ext5, channelModel.AppKey,
                                                     model.ProductName, model.OrderNo, model.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"));
+                string domain = Request.Url.Authority;
 
-                Response.Redirect(string.Format("http://{0}/channel/dinpay.aspx?{1}", Request.Url.Authority, postString));
+                if (!domain.StartsWith("www."))
+                {
+                    domain = string.Format("www.{0}", domain);
+                }
+
+                Response.Redirect(string.Format("http://{0}/channel/dinpay.aspx?{1}", domain, postString));
             }
             else if (channelModel.ChannelFlag.ToLower() == "alipay")
             {

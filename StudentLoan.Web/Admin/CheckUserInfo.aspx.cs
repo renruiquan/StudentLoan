@@ -476,7 +476,7 @@ namespace StudentLoan.Web.Admin
                 AcceptUserName = new UsersBLL().GetModel(userLoanModel.UserId).UserName
             });
 
-            StudentLoan.API.Message.Send(new UsersBLL().GetModel(userLoanModel.UserId).Mobile, "您所申请的“点豆成金”业务因资料不全而未通过审核，具体请登录网站“个人中心”查看。【学子易贷】");
+            StudentLoan.API.Message.Send(new UsersBLL().GetModel(userLoanModel.UserId).Mobile, "您所申请的“点豆成金”业务因资料不全而未通过审核，具体请登录网站个人中心查看。【学子易贷】");
 
 
             this.Alert(string.Format("操作{0}", result == true ? "成功" : "失败"), "UserLoanApplyList.aspx");

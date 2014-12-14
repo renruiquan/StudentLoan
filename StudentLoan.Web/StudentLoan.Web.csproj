@@ -1222,8 +1222,6 @@
     <Content Include="Main.Master" />
     <Content Include="js\Validform\plugin\swfupload\thanks.php" />
     <Content Include="js\Validform\plugin\swfupload\upload.php" />
-    <None Include="Properties\PublishProfiles\Demo.pubxml" />
-    <None Include="Properties\PublishProfiles\StudentLoan.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -13,7 +13,7 @@
                 var _for = $(this).attr("for");
                 $(this).uploadify({
                     swf: '../uploadify.swf',
-                    uploader: '../tools/upload_cert.ashx?type=' + typeId + '&userId=<%=base.GetUserModel().UserId%>',
+                    uploader: '../tools/upload_cert.ashx?type=' + typeId + '&userId=<%=base.GetUserModel().UserId%>&action=add',
                     width: 212,
                     buttonText: "上传并预览",
                     fileTypeExts: '*.gif; *.jpg;*.jpeg; *.png',
@@ -23,6 +23,11 @@
                         fileCount = queueData.filesQueued;
                         number = fileCount;
                     },
+                    onQueueComplete: function (queueData) {
+                        if (_for == "imgMobile") {
+                            location.reload();
+                        }
+                    },
                     onUploadSuccess: function (file, data, response) {
 
                         var json_data = $.parseJSON(data);
@@ -31,11 +36,16 @@
                             if (_for == "imgMobile") {
 
                                 $("#imgMobile_0").parent().remove();
+
                                 if (number == fileCount) {
                                     $("#CarouselItems").children().removeClass("active");
+                                    $("#CarouselIndex").children().removeClass("active");
+
                                     $("#CarouselItems").append("<div class=\"item active\"><img id=\"imgMobile_" + number + "\" style='width:237px;height:168px;' src=\"" + json_data.url + "\" /></div>");
+                                    $("#CarouselIndex").append("<li data-target=\"#myCarousel\" data-slide-to=\"" + number + "\" class=\"active\"></li>");
                                 } else {
                                     $("#CarouselItems").append("<div class=\"item\"><img id=\"imgMobile_" + number + "\" style='width:237px;height:168px;' src=\"" + json_data.url + "\" /></div>");
+                                    $("#CarouselIndex").append("<li data-target=\"#myCarousel\" data-slide-to=\"" + number + "\"></li>");
                                 }
 
                                 number--;
@@ -237,7 +247,11 @@
                             <td class="w260">
                                 <div class="m10">
                                     <div id="myCarousel" class="carousel slide">
+                                        <ol class="carousel-indicators" id="CarouselIndex">
+                                            <asp:Literal ID="litMobileIndex" runat="server">
 
+                                            </asp:Literal>
+                                        </ol>
                                         <!-- Carousel items -->
                                         <div id="CarouselItems" class="carousel-inner">
                                             <asp:Literal ID="litMobile" runat="server">
@@ -261,8 +275,8 @@
                             </td>
                             <td>
                                 <p>1.字迹清晰可见</p>
-                                <p>2.不用不少于2张截图</p>
-                                <p>3.近一个月的通讯记录</p>
+                                <p>2.必须是真实查询结果截图</p>
+                                <p>3.上传资料不少于6张（必须显示本人手机号码）</p>
                             </td>
                         </tr>
                     </tbody>

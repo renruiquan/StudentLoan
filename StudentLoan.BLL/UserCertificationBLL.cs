@@ -65,6 +65,13 @@ namespace StudentLoan.BLL
             return dal.Update(model);
         }
 
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        public bool Update2(UserCertificationEntityEx model)
+        {
+            return dal.Update2(model);
+        }
 
         /// <summary>
         /// 用于设置用户认证是否可以修改

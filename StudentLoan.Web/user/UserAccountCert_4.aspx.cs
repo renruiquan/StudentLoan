@@ -36,6 +36,7 @@ namespace StudentLoan.Web.user
 
                 this.BindData();
                 this.BindBankPictureCert();
+                this.BindAlipayPictureCert();
             }
         }
 
@@ -48,10 +49,6 @@ namespace StudentLoan.Web.user
                 if (sourceList.FirstOrDefault(s => s.Type == 4) != null)
                 {
                     this.imgXuexin.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 4).Images;
-                }
-                if (sourceList.FirstOrDefault(s => s.Type == 6) != null)
-                {
-                    this.imgAlipay.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 6).Images;
                 }
                 if (sourceList.FirstOrDefault(s => s.Type == 8) != null)
                 {
@@ -103,22 +100,58 @@ namespace StudentLoan.Web.user
             else
             {
                 StringBuilder objSB = new StringBuilder();
+                StringBuilder objSB2 = new StringBuilder();
 
                 for (int i = 0; i < sourceList.Count; i++)
                 {
                     if (i == 0)
                     {
-                        objSB.AppendFormat("<div class=\"active item\"><img id=\"imgBank_0\"  style='width:237px;height:168px;' src=\"{0}\" /></div>", sourceList[i].Images);
+                        objSB.AppendFormat("<div class=\"active item\"><a href=\"ModifyCert.aspx?uid={0}&cid={1}&tid={2}\"><img id=\"imgBank_0\"  style='width:237px;height:168px;' src=\"{3}\" /></a></div>", sourceList[i].UserId, sourceList[i].Id, sourceList[i].Type, sourceList[i].Images);                        
+                        objSB2.AppendFormat("<li data-target=\"#myCarousel\" data-slide-to=\"{0}\" class=\"active\"></li>", i);
                     }
                     else
                     {
-                        objSB.AppendFormat("<div class=\"item\"><img id=\"imgBank_{0}\"  style='width:237px;height:168px;' src=\"{1}\" /></div>", i, sourceList[i].Images);
+                        objSB.AppendFormat("<div class=\"item\"><a href=\"ModifyCert.aspx?uid={0}&cid={1}&tid={2}\"><img id=\"imgBank_{3}\"  style='width:237px;height:168px;' src=\"{4}\" /></a></div>", sourceList[i].UserId, sourceList[i].Id, sourceList[i].Type, i, sourceList[i].Images);
+                        objSB2.AppendFormat("<li data-target=\"#myCarousel\" data-slide-to=\"{0}\"></li>", i);
                     }
 
                 }
 
                 litBank.Text = objSB.ToString();
+                litBankIndex.Text = objSB2.ToString();
+            }
+        }
 
+        public void BindAlipayPictureCert()
+        {
+            List<UserCertificationEntityEx> sourceList = new UserCertificationBLL().GetList(string.Format(" UserId={0} and type=6 ", base.GetUserModel().UserId));
+
+            if (sourceList == null || sourceList.Count == 0)
+            {
+                litAlipay.Text = "<div class=\"active item\"><img id=\"imgAlipay_0\" style='width:237px;height:168px;' src=\"../css/img/admin/internetbank.jpg\" /></div>";
+            }
+            else
+            {
+                StringBuilder objSB = new StringBuilder();
+                StringBuilder objSB2 = new StringBuilder();
+
+                for (int i = 0; i < sourceList.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        objSB.AppendFormat("<div class=\"active item\"><a href=\"ModifyCert.aspx?uid={0}&cid={1}&tid={2}\"><img id=\"imgAlipay_0\"  style='width:237px;height:168px;' src=\"{3}\" /></a></div>", sourceList[i].UserId, sourceList[i].Id, sourceList[i].Type, sourceList[i].Images);
+                        objSB2.AppendFormat("<li data-target=\"#myCarousel2\" data-slide-to=\"{0}\" class=\"active\"></li>", i);
+                    }
+                    else
+                    {
+                        objSB.AppendFormat("<div class=\"item\"><a href=\"ModifyCert.aspx?uid={0}&cid={1}&tid={2}\"><img id=\"imgAlipay_{3}\"  style='width:237px;height:168px;' src=\"{4}\" /></a></div>", sourceList[i].UserId, sourceList[i].Id, sourceList[i].Type, i, sourceList[i].Images);
+                        objSB2.AppendFormat("<li data-target=\"#myCarousel2\" data-slide-to=\"{0}\"></li>", i);
+                    }
+
+                }
+
+                litAlipay.Text = objSB.ToString();
+                litAlipayIndex.Text = objSB2.ToString();
             }
         }
     }

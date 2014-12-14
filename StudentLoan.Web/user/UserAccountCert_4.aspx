@@ -13,7 +13,7 @@
                 var _for = $(this).attr("for");
                 $(this).uploadify({
                     swf: '../uploadify.swf',
-                    uploader: '../tools/upload_cert.ashx?type=' + typeId + '&userId=<%=base.GetUserModel().UserId%>',
+                    uploader: '../tools/upload_cert.ashx?type=' + typeId + '&userId=<%=base.GetUserModel().UserId%>&action=add',
                     width: 212,
                     buttonText: "上传并预览",
                     fileTypeExts: '*.gif; *.jpg;*.jpeg; *.png',
@@ -22,6 +22,11 @@
                     onDialogClose: function (queueData) {
                         fileCount = queueData.filesQueued;
                         number = fileCount;
+                    },
+                    onQueueComplete: function (queueData) {
+                        if (_for == "imgBank" || _for == "imgAlipay") {
+                            location.reload();
+                        }
                     },
                     onUploadSuccess: function (file, data, response) {
                         var json_data = $.parseJSON(data);
@@ -32,9 +37,27 @@
                                 $("#imgBank_0").parent().remove();
                                 if (number == fileCount) {
                                     $("#CarouselItems").children().removeClass("active");
+                                    $("#CarouselIndex").children().removeClass("active");
+
                                     $("#CarouselItems").append("<div class=\"item active\"><img id=\"imgBank_" + number + "\" style='width:237px;height:168px;' src=\"" + json_data.url + "\" /></div>");
+                                    $("#CarouselIndex").append("<li data-target=\"#myCarousel\" data-slide-to=\"" + number + "\" class=\"active\"></li>");
                                 } else {
                                     $("#CarouselItems").append("<div class=\"item\"><img id=\"imgBank_" + number + "\" style='width:237px;height:168px;' src=\"" + json_data.url + "\" /></div>");
+                                    $("#CarouselIndex").append("<li data-target=\"#myCarousel\" data-slide-to=\"" + number + "\"></li>");
+                                }
+
+                                number--;
+                            } else if (_for == "imgAlipay") {
+                                $("#imgAlipay_0").parent().remove();
+                                if (number == fileCount) {
+                                    $("#CarouselItems2").children().removeClass("active");
+                                    $("#CarouselIndex2").children().removeClass("active");
+
+                                    $("#CarouselItems2").append("<div class=\"item active\"><img id=\"imgAlipay_" + number + "\" style='width:237px;height:168px;' src=\"" + json_data.url + "\" /></div>");
+                                    $("#CarouselIndex2").append("<li data-target=\"#myCarousel2\" data-slide-to=\"" + number + "\" class=\"active\"></li>");
+                                } else {
+                                    $("#CarouselItems2").append("<div class=\"item\"><img id=\"imgAlipay_" + number + "\" style='width:237px;height:168px;' src=\"" + json_data.url + "\" /></div>");
+                                    $("#CarouselIndex2").append("<li data-target=\"#myCarousel2\" data-slide-to=\"" + number + "\"></li>");
                                 }
 
                                 number--;
@@ -130,7 +153,11 @@
                                 <div class="m10">
 
                                     <div id="myCarousel" class="carousel slide">
+                                        <ol class="carousel-indicators" id="CarouselIndex">
+                                            <asp:Literal ID="litBankIndex" runat="server">
 
+                                            </asp:Literal>
+                                        </ol>
                                         <!-- Carousel items -->
                                         <div id="CarouselItems" class="carousel-inner">
                                             <asp:Literal ID="litBank" runat="server">
@@ -152,8 +179,8 @@
                             </td>
                             <td>
                                 <p>1.字迹清晰可见</p>
-
-                                <p>2.必须是查询结果截图</p>
+                                <p>2.必须是真实查询结果截图</p>
+                                <p>3.上传资料不少于3张（必须显示是本人银行卡卡号）</p>
 
                             </td>
                         </tr>
@@ -182,7 +209,23 @@
                             <td>全屏</td>
                             <td class="w260">
                                 <div class="m10">
-                                    <asp:Image ID="imgAlipay" runat="server" ClientIDMode="Static" Width="237" Height="168" ImageUrl="../css/img/admin/internetbank.jpg" />
+                                    <div id="myCarousel2" class="carousel slide">
+                                        <ol class="carousel-indicators" id="CarouselIndex2">
+                                            <asp:Literal ID="litAlipayIndex" runat="server">
+
+                                            </asp:Literal>
+                                        </ol>
+                                        <!-- Carousel items -->
+                                        <div id="CarouselItems2" class="carousel-inner">
+                                            <asp:Literal ID="litAlipay" runat="server">
+                                                
+                                            </asp:Literal>
+                                        </div>
+
+                                        <!-- Carousel nav -->
+                                        <a class="carousel-control left" style="margin-top: 0; text-align: right;" href="#myCarousel2" data-slide="prev">&lsaquo;</a>
+                                        <a class="carousel-control right" style="margin-top: 0; text-align: right;" href="#myCarousel2" data-slide="next">&rsaquo;</a>
+                                    </div>
                                     <input id="btnUploadAlipay" typeid="6" for="imgAlipay" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
@@ -194,7 +237,9 @@
                             <td>
                                 <p>1.字迹清晰可见</p>
 
-                                <p>2.必须是查询结果截图</p>
+                                <p>2.必须是真实查询结果截图</p>
+
+                                <p>3.上传资料不少于3张（必须显示本人支付宝账号）</p>
                             </td>
                         </tr>
 
@@ -288,7 +333,7 @@
                                 </div>
                             </td>
                             <td>
-                                <p>1.五官课件</p>
+                                <p>1.五官可见</p>
 
                                 <p>2.证件全部信息无遮拦</p>
 

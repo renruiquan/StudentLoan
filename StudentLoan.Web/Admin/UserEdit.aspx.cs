@@ -37,7 +37,7 @@ namespace StudentLoan.Web.Admin
                 this.ddlCanModifyUserInfo.SelectedValue = model.CanModify.ToString();
 
                 UserSchoolEntityEx schoolModel = new UserSchoolBLL().GetModel(userId);
-                UserCertificationEntityEx userCertModel = new UserCertificationBLL().GetModel(userId, 1);
+                UserCertificationEntityEx userCertModel = new UserCertificationBLL().GetList(string.Format(" UserId = {0}", userId)).FirstOrDefault();
                 UserRelationshipEntityEx userRelationshipModel = new UserRelationshipBLL().GetModel(userId);
 
                 if (schoolModel != null)

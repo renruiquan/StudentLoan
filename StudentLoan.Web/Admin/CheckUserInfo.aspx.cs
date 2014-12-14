@@ -481,5 +481,49 @@ namespace StudentLoan.Web.Admin
 
             this.Alert(string.Format("操作{0}", result == true ? "成功" : "失败"), "UserLoanApplyList.aspx");
         }
+
+        public void EnabledUserInfo()
+        {
+            int userId = this.UserLoanModel.UserId;
+
+            //是否可以更新用户资料
+            UsersEntityEx model = new Model.UsersEntityEx()
+            {
+                UserId = userId,
+                CanModify = 0
+            };
+
+            bool result = new UsersBLL().UpdateCanModifyValue(model);
+
+
+            //是否可以更新用户认证信息
+            UserCertificationEntityEx certModel = new UserCertificationEntityEx()
+            {
+                UserId = userId,
+                CanModify = 0
+            };
+
+            result = new UserCertificationBLL().UpdateByAdmin(certModel);
+
+            //是否可以更新学校信息
+            UserSchoolEntityEx schoolModel = new UserSchoolEntityEx()
+            {
+                UserId = userId,
+                Status = 0
+            };
+
+
+            result = new UserSchoolBLL().UpdateByAdmin(schoolModel);
+
+
+            //是否可以更新联系人信息
+            UserRelationshipEntityEx relateionshipModel = new UserRelationshipEntityEx()
+            {
+                UserId = userId,
+                Status = 0
+            };
+
+            result = new UserRelationshipBLL().UpdateByAdmin(relateionshipModel);
+        }
     }
 }

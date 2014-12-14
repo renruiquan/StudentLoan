@@ -23,6 +23,8 @@ namespace StudentLoan.Web.tools
 
             int type = context.Request.Params["type"].Convert<int>();
             int userId = context.Request.Params["userId"].Convert<int>();
+            int cId = context.Request.Params["cid"].Convert<int>();
+            string action = context.Request["action"];
 
             HttpPostedFile file = context.Request.Files["fileData"];
 
@@ -56,12 +58,12 @@ namespace StudentLoan.Web.tools
 
             bool result = false;
 
-            if (userCertModel == null || type == 7 || type == 5)
+            if (userCertModel == null || type == 7 || type == 5 || type == 6)
             {
                 //验证用户银行流水截图或手机通讯的截图数量
                 int pictureCertCount = new UserCertificationBLL().GetPictureCertCount(userId, type);
 
-                if (pictureCertCount < 5 && (type == 5 || type == 7))
+                if (pictureCertCount < 6 && action == "add")
                 {
                     //新增
                     userCertModel = new UserCertificationEntityEx()
@@ -75,8 +77,23 @@ namespace StudentLoan.Web.tools
 
                     result = new UserCertificationBLL().Insert(userCertModel);
                 }
+                else
+                {
+                    if (userCertModel.CanModify == 1)
+                    {
+                        //更新
+                        userCertModel = new UserCertificationEntityEx()
+                        {
+                            UserId = userId,
+                            Type = type,
+                            Images = string.Format("/upload_images/{0}/{1}_{2}", userId, fileTicks, file.FileName),
+                            CanModify = 1,
+                            Id = cId
+                        };
 
-
+                        result = new UserCertificationBLL().Update(userCertModel);
+                    }
+                }
             }
             else
             {
@@ -87,11 +104,12 @@ namespace StudentLoan.Web.tools
                     {
                         UserId = userId,
                         Type = type,
+                        OldImages = userCertModel.Images,
                         Images = string.Format("/upload_images/{0}/{1}_{2}", userId, fileTicks, file.FileName),
-                        CanModify = 0,
+                        CanModify = 1,
                     };
 
-                    result = new UserCertificationBLL().Update(userCertModel);
+                    result = new UserCertificationBLL().Update2(userCertModel);
                 }
             }
 

@@ -99,7 +99,7 @@ namespace StudentLoan.DAL
 
             commandText.Append(" Delete From sl_user_certification ");
 
-            commandText.Append(" Where Id = @Id ");
+            commandText.Append(" Where UserId = @UserId and Type=@Type ");
 
             #endregion
 
@@ -107,7 +107,9 @@ namespace StudentLoan.DAL
 
             List<SqlParameter> paramsList = new List<SqlParameter>();
 
-            paramsList.Add(new SqlParameter("@Id", model.Id));
+            paramsList.Add(new SqlParameter("@UserId", model.UserId));
+
+            paramsList.Add(new SqlParameter("@Type", model.Type));
 
 
             #endregion
@@ -148,9 +150,9 @@ namespace StudentLoan.DAL
 
             commandText.Append(" Images = @Images, ");
 
-            commandText.Append(" CanModify = 0 ");
+            commandText.Append(" CanModify = @CanModify ");
 
-            commandText.Append(" Where UserId = @UserId and Type = @Type");
+            commandText.Append(" Where UserId = @UserId and Type = @Type and Id = @Id");
 
             #endregion
 
@@ -164,11 +166,51 @@ namespace StudentLoan.DAL
 
             paramsList.Add(new SqlParameter("@Images", model.Images));
 
+            paramsList.Add(new SqlParameter("@CanModify", model.CanModify));
+
+            paramsList.Add(new SqlParameter("@Id", model.Id));
+
             #endregion
 
             return base.ExecuteNonQuery(commandText.ToString(), paramsList.ToArray());
         }
 
+
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        public bool Update2(UserCertificationEntityEx model)
+        {
+            #region CommandText
+
+            StringBuilder commandText = new StringBuilder();
+
+            commandText.Append(" Update sl_user_certification Set ");
+
+            commandText.Append(" Images = @Images, ");
+
+            commandText.Append(" CanModify = @CanModify ");
+
+            commandText.Append(" Where UserId = @UserId and Type = @Type ");
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@UserId", model.UserId));
+
+            paramsList.Add(new SqlParameter("@Type", model.Type));
+
+            paramsList.Add(new SqlParameter("@Images", model.Images));
+
+            paramsList.Add(new SqlParameter("@CanModify", model.CanModify));
+
+            #endregion
+
+            return base.ExecuteNonQuery(commandText.ToString(), paramsList.ToArray());
+        }
 
         /// <summary>
         /// 用于设置用户认证是否可以修改
@@ -227,7 +269,7 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select Id,UserId,Type,CertificationName,Images,Point,Count,Status,Remark,CreateTime ");
+            commandText.Append(" Select Id,UserId,Type,CertificationName,Images,Point,Count,Status,Remark,CreateTime,CanModify ");
 
             commandText.Append("From sl_user_certification ");
 

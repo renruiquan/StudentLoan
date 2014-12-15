@@ -69,10 +69,10 @@ namespace StudentLoan.Web.Admin
             this.objAspNetPager.RecordCount = new ProductSchemeBLL().GetRecordCount(strWhere);
 
             //如果查询的结束索引大于数据总条数，当前页为最后一页，并重新绑定分页数据
-            if (endIndex > this.objAspNetPager.RecordCount)
-            {
-                this.objAspNetPager.CurrentPageIndex = this.objAspNetPager.RecordCount / this.objAspNetPager.CurrentPageIndex + 1;
-            }
+            //if (endIndex > this.objAspNetPager.RecordCount)
+            //{
+            //    this.objAspNetPager.CurrentPageIndex = this.objAspNetPager.RecordCount / this.objAspNetPager.CurrentPageIndex + 1;
+            //}
 
 
             objRepeater.DataSource = sourceList;

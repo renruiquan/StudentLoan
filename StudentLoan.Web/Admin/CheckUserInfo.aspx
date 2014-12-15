@@ -283,7 +283,7 @@
                                     <th>手持身份证</th>
                                     <th>身份证正面</th>
                                     <th>学生证正面</th>
-                                    <th>学生证内容页</th>
+                                    <th>学生证内容页1</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -326,7 +326,7 @@
                                 <tr>
                                     <th>身份证背面</th>
                                     <th>手机通话详单</th>
-                                    <th>待添加</th>
+                                    <th>学生证内容页2</th>
                                     <th>待添加</th>
                                 </tr>
                             </thead>
@@ -352,7 +352,7 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <asp:Image runat="server" Width="350" Height="250" ID="Image1" ImageAlign="Left" Style="margin: 20px;" />
+                                        <asp:Image runat="server" Width="350" Height="250" ID="imgStudentId3" ImageAlign="Left" Style="margin: 20px;" />
 
                                     </td>
                                     <td>

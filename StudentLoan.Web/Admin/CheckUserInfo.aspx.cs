@@ -140,6 +140,7 @@ namespace StudentLoan.Web.Admin
                 var identityCard3 = sourceList.FirstOrDefault(s => s.Type == 17);
                 var studentId1 = sourceList.FirstOrDefault(s => s.Type == 2);
                 var studentId2 = sourceList.FirstOrDefault(s => s.Type == 3);
+                var studentId3 = sourceList.FirstOrDefault(s => s.Type == 18);
 
                 if (identityCard1 != null)
                 {
@@ -176,6 +177,12 @@ namespace StudentLoan.Web.Admin
                     this.mainImgStudent2.ImageUrl = studentId2.Images;
                     this.mainImgStudent2.Attributes.Add("onclick", string.Format("return window.open('/Admin/ShowImages.aspx?picurl={0}')", studentId2.Images));
 
+                }
+
+                if (studentId3 != null)
+                {
+                    this.imgStudentId3.ImageUrl = studentId3.Images;
+                    this.imgStudentId3.Attributes.Add("onclick", string.Format("return window.open('/Admin/ShowImages.aspx?picurl={0}')", studentId3.Images));
                 }
             }
         }

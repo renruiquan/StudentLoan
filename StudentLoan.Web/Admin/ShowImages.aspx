@@ -29,7 +29,7 @@
     <form id="form1" runat="server">
         <div style="width: 80%; margin-left: auto; margin-right: auto; margin-top: 100px;">
             <p style="font-size: 12px;">点击图片可以旋转查看</p>
-            <asp:Image ID="imgPicture" runat="server" AlternateText="点击图片可以旋转查看" Style="width: 50%; height: 50%;" />
+            <asp:Image ID="imgPicture" runat="server" AlternateText="点击图片可以旋转查看"  />
         </div>
     </form>
 </body>

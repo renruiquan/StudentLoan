@@ -18,6 +18,9 @@
     <script type="text/javascript" src="../css/bootstrap/js/bootstrap.min.js"></script>
     <style type="text/css">
         .w450 { width: 445px; }
+
+        .carousel-indicators .active { background-color: #04790A; }
+        .carousel-indicators li { display: block; float: left; width: 10px; height: 10px; margin-left: 5px; text-indent: -999px; background-color: #21763F; background-color: rgba(210, 218, 212, 0.99); border-radius: 5px; }
     </style>
 
 </head>

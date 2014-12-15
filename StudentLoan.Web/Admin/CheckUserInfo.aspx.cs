@@ -336,7 +336,7 @@ namespace StudentLoan.Web.Admin
                 }
 
                 litBank.Text = objSB.ToString();
-                litBankIndex.Text = objSB.ToString();
+                litBankIndex.Text = objSB2.ToString();
 
             }
         }
@@ -347,7 +347,7 @@ namespace StudentLoan.Web.Admin
 
             if (sourceList == null || sourceList.Count == 0)
             {
-                litBank.Text = "<div class=\"active item\"><img id=\"imgAlipay_0\" style='width:350px;height:250px;' src=\"../css/img/admin/card.jpg\" /></div>";
+                litAlipay.Text = "<div class=\"active item\"><img id=\"imgAlipay_0\" style='width:350px;height:250px;' src=\"../css/img/admin/card.jpg\" /></div>";
             }
             else
             {

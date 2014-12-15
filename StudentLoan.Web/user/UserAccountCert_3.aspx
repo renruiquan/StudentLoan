@@ -210,7 +210,7 @@
                             <td class="w260">
                                 <div class="m10">
                                     <asp:Image ID="imgStudentId_3" runat="server" Width="237" Height="168" ClientIDMode="Static" ImageUrl="../css/img/admin/student_content.jpg" />
-                                    <input id="btnUploadStudentId_3" typeid="3" for="imgStudentId_3" name="fileData" type="file" class="uploadify-button" />
+                                    <input id="btnUploadStudentId_3" typeid="18" for="imgStudentId_3" name="fileData" type="file" class="uploadify-button" />
                                 </div>
                             </td>
                             <td class="w260" style="vertical-align: top;">

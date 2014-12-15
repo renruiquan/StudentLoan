@@ -560,11 +560,6 @@ namespace StudentLoan.Web.user
                     this.artDialog("提示", "对不起，你还没有上传近期通话记录详单，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_3.aspx");
                     return;
                 }
-                else
-                {
-                    this.artDialog("提示", "对不起，你还没有上传学银行流水截图，手机通讯详单等信息，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_3.aspx");
-                    return;
-                }
             }
         }
 

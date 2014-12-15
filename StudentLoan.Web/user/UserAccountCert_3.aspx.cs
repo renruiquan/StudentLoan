@@ -68,6 +68,11 @@ namespace StudentLoan.Web.user
                 {
                     this.imgStudentId_2.ImageUrl = sourceList.FirstOrDefault(s => s.Type == 3).Images;
                 }
+
+                if (sourceList.FirstOrDefault(s => s.Type == 18) != null)
+                {
+                    this.imgStudentId_3.ImageUrl = sourceList.FirstOrDefault(s => s.Type ==18).Images;
+                }
             }
         }
 

@@ -4,6 +4,7 @@ using StudentLoan.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -66,6 +67,8 @@ namespace StudentLoan.Web.Admin
             int canModifyRelationship = this.ddlCanModifyRelationship.SelectedValue.Convert<int>();
             int canModifySchool = this.ddlCanModifySchool.SelectedValue.Convert<int>();
 
+            StringBuilder objSB = new StringBuilder();
+
             //是否可以更新用户资料
             UsersEntityEx model = new Model.UsersEntityEx()
             {
@@ -78,6 +81,10 @@ namespace StudentLoan.Web.Admin
 
             bool result = new UsersBLL().UpdatePasswordByAdmin(model);
 
+            if (!result)
+            {
+                objSB.Append("基本资料权限更新失败（用户不存在或验证失败）;");
+            }
 
             //是否可以更新用户认证信息
             UserCertificationEntityEx certModel = new UserCertificationEntityEx()
@@ -87,6 +94,10 @@ namespace StudentLoan.Web.Admin
             };
 
             result = new UserCertificationBLL().UpdateByAdmin(certModel);
+            if (!result)
+            {
+                objSB.Append("认证资料权限更新失败（用户还没有上传认证资料，无法修改）;");
+            }
 
             //是否可以更新学校信息
             UserSchoolEntityEx schoolModel = new UserSchoolEntityEx()
@@ -97,7 +108,10 @@ namespace StudentLoan.Web.Admin
 
 
             result = new UserSchoolBLL().UpdateByAdmin(schoolModel);
-
+            if (!result)
+            {
+                objSB.Append("认证资料权限更新失败（用户还没有填写学校资料，无法修改）;");
+            }
 
             //是否可以更新联系人信息
             UserRelationshipEntityEx relateionshipModel = new UserRelationshipEntityEx()
@@ -107,8 +121,12 @@ namespace StudentLoan.Web.Admin
             };
 
             result = new UserRelationshipBLL().UpdateByAdmin(relateionshipModel);
+            if (!result)
+            {
+                objSB.Append("联系人权限更新失败（用户还没有填写联系人资料，无法修改）;");
+            }
 
-            this.Alert(string.Format("更新{0}", result == true ? "成功" : "失败"), "UserList.aspx");
+            this.Alert(string.Format("更新{0},提示信息：{1}", result == true ? "成功" : "失败", objSB.ToString()), "UserList.aspx");
         }
     }
 }

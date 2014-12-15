@@ -72,7 +72,7 @@
                                     <td>
                                         <asp:DropDownList ID="ddlCanModifyUserInfo" runat="server">
                                             <asp:ListItem Value="0">锁定</asp:ListItem>
-                                            <asp:ListItem Value="1">正常</asp:ListItem>
+                                            <asp:ListItem Value="1" Selected="True">正常</asp:ListItem>
                                         </asp:DropDownList>
 
                                     </td>
@@ -82,7 +82,7 @@
                                     <td>
                                         <asp:DropDownList ID="ddlCanModifySchool" runat="server">
                                             <asp:ListItem Value="0">锁定</asp:ListItem>
-                                            <asp:ListItem Value="1">正常</asp:ListItem>
+                                            <asp:ListItem Value="1" Selected="True">正常</asp:ListItem>
                                         </asp:DropDownList>
 
                                     </td>
@@ -92,7 +92,7 @@
                                     <td>
                                         <asp:DropDownList ID="ddlCanModifyRelationship" runat="server">
                                             <asp:ListItem Value="0">锁定</asp:ListItem>
-                                            <asp:ListItem Value="1">正常</asp:ListItem>
+                                            <asp:ListItem Value="1" Selected="True">正常</asp:ListItem>
                                         </asp:DropDownList>
 
                                     </td>
@@ -102,7 +102,7 @@
                                     <td>
                                         <asp:DropDownList ID="ddlCanModifyUserCert" runat="server">
                                             <asp:ListItem Value="0">锁定</asp:ListItem>
-                                            <asp:ListItem Value="1">正常</asp:ListItem>
+                                            <asp:ListItem Value="1" Selected="True">正常</asp:ListItem>
                                         </asp:DropDownList>
 
                                     </td>

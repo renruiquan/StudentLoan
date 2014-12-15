@@ -691,6 +691,35 @@ namespace StudentLoan.DAL
             return base.ExecuteScalar(commandText.ToString(), paramsList.ToArray()).Convert<int>();
         }
 
+        /// <summary>
+        /// 根据用户真实姓名，获取用户ID集体
+        /// </summary>
+        /// <param name="trueName"></param>
+        /// <returns></returns>
+        public List<UsersEntityEx> GetUserIds(string trueName)
+        {
+            #region CommandText
+
+            StringBuilder commandText = new StringBuilder();
+
+            commandText.Append(" Select  UserId from sl_users Where TrueName =@TrueName");
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@TrueName", trueName));
+
+            #endregion
+
+            using (SqlDataReader objReader = SqlHelper.ExecuteReader(base.ConnectionString, CommandType.Text, commandText.ToString(), paramsList.ToArray()))
+            {
+                return objReader.ReaderToList<UsersEntityEx>() as List<UsersEntityEx>;
+            }
+        }
+
 
         public UsersEntityEx GetModel(string userName, string password)
         {

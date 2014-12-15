@@ -189,6 +189,25 @@ namespace StudentLoan.BLL
         }
 
         /// <summary>
+        /// 根据用户真实姓名，获取用户ID集体
+        /// </summary>
+        /// <param name="trueName"></param>
+        /// <returns></returns>
+        public string GetUserIds(string trueName)
+        {
+            List<UsersEntityEx> list = dal.GetUserIds(trueName);
+
+            StringBuilder objSB = new StringBuilder();
+
+            foreach (UsersEntityEx model in list)
+            {
+                objSB.AppendFormat("'{0}',", model.UserId);
+            }
+
+            return objSB.ToString().TrimEnd(',');
+        }
+
+        /// <summary>
         /// 获取一个实体
         /// </summary>
         public UsersEntityEx GetModel(string userName, string password, bool isEncrypt)

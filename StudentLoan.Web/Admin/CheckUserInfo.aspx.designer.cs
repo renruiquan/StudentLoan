@@ -292,6 +292,15 @@ namespace StudentLoan.Web.Admin {
         protected global::System.Web.UI.WebControls.Image imgIdentityCard3;
         
         /// <summary>
+        /// litMobileIndex 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litMobileIndex;
+        
+        /// <summary>
         /// litMobile 控件。
         /// </summary>
         /// <remarks>
@@ -328,6 +337,15 @@ namespace StudentLoan.Web.Admin {
         protected global::System.Web.UI.WebControls.Image imgXueXin;
         
         /// <summary>
+        /// litBankIndex 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litBankIndex;
+        
+        /// <summary>
         /// litBank 控件。
         /// </summary>
         /// <remarks>
@@ -337,13 +355,22 @@ namespace StudentLoan.Web.Admin {
         protected global::System.Web.UI.WebControls.Literal litBank;
         
         /// <summary>
-        /// imgAlipay 控件。
+        /// litAlipayIndex 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgAlipay;
+        protected global::System.Web.UI.WebControls.Literal litAlipayIndex;
+        
+        /// <summary>
+        /// litAlipay 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litAlipay;
         
         /// <summary>
         /// imgAwards 控件。

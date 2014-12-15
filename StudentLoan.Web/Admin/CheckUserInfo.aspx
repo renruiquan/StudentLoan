@@ -9,7 +9,7 @@
     <link href="css/admin.global.css" rel="stylesheet" type="text/css" />
     <link href="css/admin.content.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
-    
+
     <link href="jBox/Skins/Green/jbox.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="jBox/jquery.jBox-2.3.min.js"></script>
     <script type="text/javascript" src="js/DatePicker/WdatePicker.js"></script>
@@ -17,9 +17,7 @@
     <link rel="stylesheet" type="text/css" href="../css/bootstrap/css/ie.css" />
     <script type="text/javascript" src="../css/bootstrap/js/bootstrap.min.js"></script>
     <style type="text/css">
-        .w450 {
-            width: 445px;
-        }
+        .w450 { width: 445px; }
     </style>
 
 </head>
@@ -335,15 +333,19 @@
                                         <asp:Image runat="server" Width="350" Height="250" ID="imgIdentityCard3" ImageAlign="Left" Style="margin: 20px;" />
                                     </td>
                                     <td>
-                                        <div id="myCarousel" class="carousel slide" style="margin:20px;">
+                                        <div id="myCarousel" class="carousel slide" style="margin: 20px;">
+                                            <ol class="carousel-indicators" id="CarouselIndex">
+                                                <asp:Literal ID="litMobileIndex" runat="server">
 
+                                                </asp:Literal>
+                                            </ol>
                                             <!-- Carousel items -->
                                             <div class="carousel-inner">
                                                 <asp:Literal ID="litMobile" runat="server"></asp:Literal>
                                             </div>
                                             <!-- Carousel nav -->
-                                            <a class="carousel-control left" href="#myCarousel" style="margin-top:0px;" data-slide="prev">&lsaquo;</a>
-                                            <a class="carousel-control right" style="right:35px;margin-top:0px;" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                                            <a class="carousel-control left" href="#myCarousel" style="margin-top: 0px;" data-slide="prev">&lsaquo;</a>
+                                            <a class="carousel-control right" style="right: 35px; margin-top: 0px;" href="#myCarousel" data-slide="next">&rsaquo;</a>
                                         </div>
                                     </td>
                                     <td>
@@ -391,19 +393,36 @@
                                         <asp:Image runat="server" Width="350" Height="250" ID="imgXueXin" ImageAlign="Left" Style="margin: 20px;" />
                                     </td>
                                     <td>
-                                          <div id="myCarousel2" class="carousel slide" style="margin:20px;">
+                                        <div id="myCarousel2" class="carousel slide" style="margin: 20px;">
+                                            <ol class="carousel-indicators">
+                                                <asp:Literal ID="litBankIndex" runat="server">
 
+                                                </asp:Literal>
+                                            </ol>
                                             <!-- Carousel items -->
                                             <div class="carousel-inner">
                                                 <asp:Literal ID="litBank" runat="server"></asp:Literal>
                                             </div>
                                             <!-- Carousel nav -->
-                                            <a class="carousel-control left" href="#myCarousel2" style="margin-top:0px;" data-slide="prev">&lsaquo;</a>
-                                            <a class="carousel-control right" style="right:35px;margin-top:0px;" href="#myCarousel2" data-slide="next">&rsaquo;</a>
+                                            <a class="carousel-control left" href="#myCarousel2" style="margin-top: 0px;" data-slide="prev">&lsaquo;</a>
+                                            <a class="carousel-control right" style="right: 35px; margin-top: 0px;" href="#myCarousel2" data-slide="next">&rsaquo;</a>
                                         </div>
                                     </td>
                                     <td>
-                                        <asp:Image runat="server" Width="350" Height="250" ID="imgAlipay" ImageAlign="Left" Style="margin: 20px;" />
+                                        <div id="myCarousel3" class="carousel slide" style="margin: 20px;">
+                                            <ol class="carousel-indicators">
+                                                <asp:Literal ID="litAlipayIndex" runat="server">
+
+                                                </asp:Literal>
+                                            </ol>
+                                            <!-- Carousel items -->
+                                            <div class="carousel-inner">
+                                                <asp:Literal ID="litAlipay" runat="server"></asp:Literal>
+                                            </div>
+                                            <!-- Carousel nav -->
+                                            <a class="carousel-control left" href="#myCarousel3" style="margin-top: 0px;" data-slide="prev">&lsaquo;</a>
+                                            <a class="carousel-control right" style="right: 35px; margin-top: 0px;" href="#myCarousel3" data-slide="next">&rsaquo;</a>
+                                        </div>
                                     </td>
                                     <td>
 

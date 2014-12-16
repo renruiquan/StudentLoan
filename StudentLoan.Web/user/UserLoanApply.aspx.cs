@@ -73,6 +73,14 @@ namespace StudentLoan.Web.user
             }
             else if (this.ProductId == 2)
             {
+                bool EnabledGED = ConfigHelper.AppSettings<bool>("EnabledGED", false);
+
+                if (!EnabledGED)
+                {
+                    this.artDialog("提示", "对不起，高额贷正在开发，暂时无法申请，你可以先申请一般贷！", "/LoanList.aspx");
+                    return;
+                }
+
                 //高额贷款
                 this.ValiUserPoint();
                 this.ValidateBaseCert();
@@ -96,6 +104,14 @@ namespace StudentLoan.Web.user
             }
             else if (this.ProductId == 3)
             {
+                bool EnabledSSD = ConfigHelper.AppSettings<bool>("EnabledSSD", false);
+
+                if (!EnabledSSD)
+                {
+                    this.artDialog("提示", "对不起，随时贷正在开发，暂时无法申请，你可以先申请一般贷！", "/LoanList.aspx");
+                    return;
+                }
+
                 //随时贷款
                 this.ValidateBaseCert();
                 this.ValidateIdentityCardCert();

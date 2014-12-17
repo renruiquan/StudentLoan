@@ -113,6 +113,7 @@
                                         <th>申请时间</th>
                                         <th>应还金额</th>
                                         <th>已还期数/总期数</th>
+                                        <th>借款原因</th>
                                         <th>借款状态</th>
                                         <th>管理员</th>
                                         <th>操作时间</th>
@@ -129,8 +130,8 @@
                                     <td><%#Eval("CreateTime") %></td>
                                     <td><%#Convert.ToDecimal(Eval("ShouldRepayMoney")).ToString("C") %></td>
                                     <td><%#Eval("AlreadyAmortization") %>/<%#Eval("TotalAmortization") %></td>
+                                    <td style="width: 300px; text-align: left; padding:0 5px;"><%#Eval("LoanDescription") %></td>
                                     <td><%#this.GetStatusName(Convert.ToInt32(Eval("Status"))) %></td>
-
                                     <td><%#this.GetAdminName(Convert.ToInt32(Eval("AdminID"))) %></td>
                                     <td><%#Eval("PassTime").Convert<DateTime>().ToString("yyyy-MM-dd HH:mm:ss")=="0001-01-01 00:00:00"?"":Eval("PassTime").Convert<DateTime>().ToString("yyyy-MM-dd HH:mm:ss") %></td>
                                     <td>

@@ -55,10 +55,15 @@ namespace StudentLoan.Web.Admin
 
                 if (this.ddlQueryType.SelectedValue == "2")
                 {
-                    strWhere += string.Format(@" and IdentityCard = '{0}'", queryContent);
+                    strWhere += string.Format(@" and TrueName = '{0}'", queryContent);
                 }
 
                 if (this.ddlQueryType.SelectedValue == "3")
+                {
+                    strWhere += string.Format(@" and IdentityCard = '{0}'", queryContent);
+                }
+
+                if (this.ddlQueryType.SelectedValue == "4")
                 {
                     strWhere += string.Format(@" and Mobile = '{0}'", queryContent);
                 }

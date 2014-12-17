@@ -336,7 +336,7 @@ namespace StudentLoan.Web.user
 
             List<UserRelationshipEntityEx> list = new UserRelationshipBLL().GetList(string.Format(" 1=1 and UserId = {0}", model.UserId));
 
-            if (list == null)
+            if (list == null || list.Count == 0)
             {
                 this.artDialog("提示", "对不起，你还没有填写联系人信息，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_2.aspx");
                 return;

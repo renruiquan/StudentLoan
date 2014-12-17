@@ -288,14 +288,15 @@ namespace StudentLoan.Web.Admin
                 firstRow.CreateCell(6, CellType.String).SetCellValue("应还金额");
                 firstRow.CreateCell(7, CellType.Numeric).SetCellValue("已还期数");
                 firstRow.CreateCell(8, CellType.Numeric).SetCellValue("总期数");
-                firstRow.CreateCell(9, CellType.String).SetCellValue("借款状态");
-                firstRow.CreateCell(10, CellType.String).SetCellValue("管理员");
-                firstRow.CreateCell(11, CellType.String).SetCellValue("通过日期");
+                firstRow.CreateCell(9, CellType.String).SetCellValue("借款原因");
+                firstRow.CreateCell(10, CellType.String).SetCellValue("借款状态");
+                firstRow.CreateCell(11, CellType.String).SetCellValue("管理员");
+                firstRow.CreateCell(12, CellType.String).SetCellValue("通过日期");
 
 
 
                 //居中对齐
-                for (int j = 0; j <= 11; j++)
+                for (int j = 0; j <= 12; j++)
                 {
                     firstRow.Cells[j].CellStyle.VerticalAlignment = VerticalAlignment.Center;
                     firstRow.Cells[j].CellStyle.Alignment = HorizontalAlignment.Center;
@@ -318,9 +319,10 @@ namespace StudentLoan.Web.Admin
                 row.CreateCell(6, CellType.Numeric).SetCellValue(sheetAdapter[i].ShouldRepayMoney.Convert<double>());
                 row.CreateCell(7, CellType.Numeric).SetCellValue(sheetAdapter[i].AlreadyAmortization);
                 row.CreateCell(8, CellType.Numeric).SetCellValue(sheetAdapter[i].TotalAmortization);
-                row.CreateCell(9, CellType.String).SetCellValue(string.Format("{0}", this.GetStatusName(sheetAdapter[i].Status)));
-                row.CreateCell(10, CellType.String).SetCellValue(string.Format("{0}", sheetAdapter[i].AdminName));
-                row.CreateCell(11, CellType.String).SetCellValue(string.Format("{0}", sheetAdapter[i].PassTime));
+                row.CreateCell(9, CellType.String).SetCellValue(sheetAdapter[i].LoanDescription);
+                row.CreateCell(10, CellType.String).SetCellValue(string.Format("{0}", this.GetStatusName(sheetAdapter[i].Status)));
+                row.CreateCell(11, CellType.String).SetCellValue(string.Format("{0}", sheetAdapter[i].AdminName));
+                row.CreateCell(12, CellType.String).SetCellValue(string.Format("{0}", sheetAdapter[i].PassTime));
 
 
             }

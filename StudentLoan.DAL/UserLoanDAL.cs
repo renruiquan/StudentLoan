@@ -483,6 +483,7 @@ and a.UserId = b.UserId");
 	                                    T.LoanMoney,
 	                                    T.AnnualFee,
 	                                    T.CreateTime,
+                                        T.LoanDescription,
 	                                    T.ShouldRepayMoney,
 	                                    T.AlreadyAmortization,
 	                                    T.TotalAmortization,

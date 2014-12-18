@@ -19,5 +19,7 @@ namespace StudentLoan.Model
         public string TrueName { get; set; }
 
         public string AdminName { get; set; }
+
+        public string Mobile { get; set; }
     }
 }

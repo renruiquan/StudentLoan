@@ -97,6 +97,7 @@
                                     <tr>
                                         <th class="txt40 c">提款编号</th>
                                         <th class="txt40 c">用户名/真实姓名</th>
+                                          <th class="txt40 c">手机号码</th>
                                         <th class="txt40 c">开户行名称</th>
                                         <th class="txt40 c">银行卡卡号</th>
                                         <th class="txt40 c">开户行地区</th>
@@ -114,6 +115,7 @@
                                 <tr>
                                     <td><%#Eval("DrawId")%></td>
                                     <td><%#Eval("UserName")%>/<%#Eval("TrueName")%></td>
+                                    <td><%#Eval("Mobile")%></td>
                                     <td><%#Eval("BankName")%></td>
                                     <td><%#Eval("BankCardNo")%></td>
                                     <td><%#Eval("BankProvince")%> <%#Eval("BankCity")%></td>

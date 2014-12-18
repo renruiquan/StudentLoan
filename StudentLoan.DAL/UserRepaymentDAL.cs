@@ -243,13 +243,13 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select a.UserId,b.UserName, b.Mobile, LoanId,CurrentAmortization, interest,RepaymentMoney,BreakContract,RepaymentTime,a.CreateTime,a.Status ");
+            commandText.Append(" Select a.UserId,b.UserName, b.Mobile, a.LoanId,CurrentAmortization, interest,RepaymentMoney,BreakContract,RepaymentTime,a.CreateTime,a.Status  ");
 
-            commandText.Append(" From sl_user_repayment a,sl_users b ");
+            commandText.Append(" From sl_user_repayment a,sl_users b,sl_user_loan c ");
 
             if (!string.IsNullOrEmpty(strWhere.Trim()))
             {
-                commandText.AppendFormat(" WHERE a.UserId = b.UserId and {0}", strWhere);
+                commandText.AppendFormat(" WHERE a.UserId = b.UserId and a.LoanId = c.LoanId and c.status = 1 and {0}", strWhere);
             }
 
             #endregion

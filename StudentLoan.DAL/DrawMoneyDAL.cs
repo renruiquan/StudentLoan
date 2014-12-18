@@ -427,7 +427,7 @@ namespace StudentLoan.DAL
                 commandText.Append(" Order By T.DrawId Desc");
             }
 
-            commandText.Append(" )AS Row, T.*,c.TrueName,c.UserName, b.BankName ,b.BankCardNo,b.BankProvince,b.BankCity From sl_draw_money T,sl_user_bank b,sl_users c ");
+            commandText.Append(" )AS Row, T.*,c.TrueName,c.UserName, b.BankName ,b.BankCardNo,b.BankProvince,b.BankCity,c.Mobile From sl_draw_money T,sl_user_bank b,sl_users c ");
 
             if (!string.IsNullOrEmpty(strWhere.Trim()))
             {

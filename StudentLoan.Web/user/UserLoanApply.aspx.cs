@@ -28,6 +28,7 @@ namespace StudentLoan.Web.user
                 if (isExist)
                 {
                     this.artDialog("提示", "对不起，您还有借款未通过审核，暂时无法再次申请借款！", "/user/UserLoanList.aspx");
+                    Response.Redirect("/user/UserLoanList.aspx");
                     return;
                 }
 

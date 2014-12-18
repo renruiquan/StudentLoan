@@ -88,6 +88,7 @@ namespace StudentLoan.Web.user
                 this.ValidateIdentityCardCert();
                 this.ValidateStudentIdCert();
                 this.ValidateOptionalCert();
+                this.ValidateAliPayAndBankCert();
                 this.ValidateMobileCallLog();
 
                 this.ddlLoanMoney.Items.Add(new ListItem("6000元", "6000"));
@@ -165,6 +166,7 @@ namespace StudentLoan.Web.user
                     this.ValidateIdentityCardCert();
                     this.ValidateStudentIdCert();
                     this.ValidateOptionalCert();
+                    this.ValidateAliPayAndBankCert();
                 }
 
             }
@@ -494,8 +496,8 @@ namespace StudentLoan.Web.user
             if (sourceList != null && sourceList.Count > 0)
             {
                 var XueXin = sourceList.FirstOrDefault(s => s.Type == 4);
-                var Bank = sourceList.FirstOrDefault(s => s.Type == 5);
-                var Alipay = sourceList.FirstOrDefault(s => s.Type == 6);
+                //var Bank = sourceList.FirstOrDefault(s => s.Type == 5);
+                //var Alipay = sourceList.FirstOrDefault(s => s.Type == 6);
                 var Parents1 = sourceList.FirstOrDefault(s => s.Type == 8);
                 var Parents2 = sourceList.FirstOrDefault(s => s.Type == 9);
                 var RoommateIdentityCard1 = sourceList.FirstOrDefault(s => s.Type == 10);
@@ -511,11 +513,11 @@ namespace StudentLoan.Web.user
                     this.artDialog("提示", "对不起，你还没有上传学信网截图，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_4.aspx");
                     return;
                 }
-                if (Bank == null)
-                {
-                    this.artDialog("提示", "对不起，你还没有上传近期银行卡流水截图，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_4.aspx");
-                    return;
-                }
+                //if (Bank == null)
+                //{
+                //    this.artDialog("提示", "对不起，你还没有上传近期银行卡流水截图，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_4.aspx");
+                //    return;
+                //}
                 //考虑到部分用户没使用过支付宝，暂不验证
                 //if (Alipay == null)
                 //{
@@ -561,6 +563,45 @@ namespace StudentLoan.Web.user
             }
         }
 
+        protected void ValidateAliPayAndBankCert()
+        {
+            List<UserCertificationEntityEx> sourceList = new UserCertificationBLL().GetList(string.Format(" 1=1 and UserId = {0} and Type> = 4", base.GetUserModel().UserId));
+
+            if (sourceList != null && sourceList.Count > 0)
+            {
+
+                var Bank = sourceList.Where(s => s.Type == 5);
+                var Alipay = sourceList.Where(s => s.Type == 6);
+
+                if (Bank == null || Bank.Count() == 0)
+                {
+                    this.artDialog("提示", "对不起，你还没有上传近期银行卡流水截图，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_4.aspx");
+                    return;
+                }
+                else if (Bank.Count() < 6)
+                {
+                    this.artDialog("提示", "对不起，最少上传6张近期银行卡流水截图，申请借款失败，请完善资料后再试！", "/user/UserAccountCert_4.aspx");
+                    return;
+                }
+
+                if (Alipay == null || Alipay.Count() == 0)
+                {
+                    this.artDialog("提示", "对不起，你还没有上传近期支付宝流水截图，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_3.aspx");
+                    return;
+                }
+                else if (Alipay.Count() < 6)
+                {
+                    this.artDialog("提示", "对不起，最少上传6张近期支付宝流水截图，申请借款失败，请完善资料后再试！", "/user/UserAccountCert_4.aspx");
+                    return;
+                }
+            }
+            else
+            {
+                this.artDialog("提示", "对不起，你还没有上传学银行流水截图，手机通讯详单等信息，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_4.aspx");
+                return;
+            }
+        }
+
         /// <summary>
         /// 验证手机通话记录
         /// </summary>
@@ -575,6 +616,11 @@ namespace StudentLoan.Web.user
                 if (Mobile == null)
                 {
                     this.artDialog("提示", "对不起，你还没有上传近期通话记录详单，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_3.aspx");
+                    return;
+                }
+                else if (sourceList.Count < 6)
+                {
+                    this.artDialog("提示", "对不起，最少上传6张近期通话记录详单，申请借款失败，请完善资料后再试！", "/user/UserAccountCert_3.aspx");
                     return;
                 }
             }

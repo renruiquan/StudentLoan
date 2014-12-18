@@ -388,11 +388,11 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select count(0) From sl_draw_money T,sl_user_bank b,sl_users c ");
+            commandText.Append(" Select count(0) From sl_draw_money T,sl_user_bank b,sl_users c,sl_base_bank d ");
 
             if (!string.IsNullOrEmpty(strWhere.Trim()))
             {
-                commandText.AppendFormat(" WHERE T.BindBankId=b.BankId and T.UserId = c.UserId and  {0}", strWhere);
+                commandText.AppendFormat(" WHERE T.BindBankId=b.BankId and b.BaseBankId = d.BankId and T.UserId = c.UserId and  {0}", strWhere);
             }
 
             #endregion
@@ -427,11 +427,13 @@ namespace StudentLoan.DAL
                 commandText.Append(" Order By T.DrawId Desc");
             }
 
-            commandText.Append(" )AS Row, T.*,c.TrueName,c.UserName, b.BankName ,b.BankCardNo,b.BankProvince,b.BankCity,c.Mobile From sl_draw_money T,sl_user_bank b,sl_users c ");
+            commandText.Append(" )AS Row, T.*,c.TrueName,c.UserName,d.BankName as 'BaseBankName', b.BankName ,b.BankCardNo,b.BankProvince,b.BankCity,c.Mobile ");
+
+            commandText.Append(" From sl_draw_money T,sl_user_bank b,sl_users c,sl_base_bank d ");
 
             if (!string.IsNullOrEmpty(strWhere.Trim()))
             {
-                commandText.AppendFormat(" WHERE T.BindBankId=b.BankId and T.UserId = c.UserId and {0}", strWhere);
+                commandText.AppendFormat(" WHERE T.BindBankId=b.BankId and b.BaseBankId = d.BankId and T.UserId = c.UserId and {0}", strWhere);
             }
 
             commandText.Append(" ) TT");

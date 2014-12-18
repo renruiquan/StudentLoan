@@ -116,7 +116,7 @@
                                     <td><%#Eval("DrawId")%></td>
                                     <td><%#Eval("UserName")%>/<%#Eval("TrueName")%></td>
                                     <td><%#Eval("Mobile")%></td>
-                                    <td><%#Eval("BankName")%></td>
+                                    <td><%#Eval("BaseBankName")%>-<%#Eval("BankName")%></td>
                                     <td><%#Eval("BankCardNo")%></td>
                                     <td><%#Eval("BankProvince")%> <%#Eval("BankCity")%></td>
                                     <td><%#Eval("DrawMoney")%></td>

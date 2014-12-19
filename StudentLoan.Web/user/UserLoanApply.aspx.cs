@@ -611,14 +611,14 @@ namespace StudentLoan.Web.user
 
             if (sourceList != null && sourceList.Count > 0)
             {
-                var Mobile = sourceList.FirstOrDefault(s => s.Type == 7);
+                var Mobile = sourceList.Where(s => s.Type == 7);
 
-                if (Mobile == null)
+                if (Mobile == null || Mobile.Count() == 0)
                 {
                     this.artDialog("提示", "对不起，你还没有上传近期通话记录详单，无法申请借款，请完善资料后再试！", "/user/UserAccountCert_3.aspx");
                     return;
                 }
-                else if (sourceList.Count < 6)
+                else if (Mobile.Count() < 6)
                 {
                     this.artDialog("提示", "对不起，最少上传6张近期通话记录详单，申请借款失败，请完善资料后再试！", "/user/UserAccountCert_3.aspx");
                     return;

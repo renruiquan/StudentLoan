@@ -81,6 +81,11 @@ namespace StudentLoan.Web.Admin
             {
                 string userIds = new UsersBLL().GetUserIds(queryContent);
 
+                if (string.IsNullOrEmpty(userIds))
+                {
+                    userIds = "'0'";
+                }
+
                 if (this.ddlQueryType.SelectedValue == "1")
                 {
                     strWhere += string.Format(" and T.UserId in ({0})", userIds);

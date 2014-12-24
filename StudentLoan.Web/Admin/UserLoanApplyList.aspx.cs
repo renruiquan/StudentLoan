@@ -211,6 +211,9 @@ namespace StudentLoan.Web.Admin
                 objSB.AppendFormat("<a href=\"CheckUserInfo.aspx?loanid={0}\">审核资料</a>", model.LoanId);
                 objSB.AppendFormat(" | <a onclick=\"return confirm('删除后无法恢复，是否删除？');\" href=\"UserLoanApplyList.aspx?action=delete&loanId={0}\">删除</a>", model.LoanId);
                 objLiteral.Text = objSB.ToString();
+
+                
+
             }
         }
 

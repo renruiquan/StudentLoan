@@ -136,7 +136,7 @@ namespace StudentLoan.BLL
         {
             if (CacheHelper.Get<Dictionary<int, string>>("AdminDictionary") == null)
             {
-                Dictionary<int, string> dic = this.GetList(strWhere).ToDictionary(s => s.AdminId, s => s.AdminName);
+                Dictionary<int, string> dic = this.GetList(strWhere).ToDictionary(s => s.AdminId, s => s.RealName);
 
                 CacheHelper.Set("AdminDictionary", dic);
 

@@ -23,7 +23,7 @@ namespace StudentLoan.Web.user
 
                 string id = MethodBase.GetCurrentMethod().DeclaringType.Name;
 
-                Control objControl = Master.FindControl(id.Replace("_2", ""));
+                Control objControl = Master.FindControl(id);
 
                 if (objControl != null)
                 {
@@ -40,11 +40,12 @@ namespace StudentLoan.Web.user
                 if (action == "repayment")
                 {
                     int loanId = this.Request<int>("loanid", 0);
+                    int currentAmortization = this.Request<int>("current", 0);
 
                     //检查用户余额并还款
 
                     UsersEntityEx userModel = base.GetUserModel();
-                    UserLoanEntityEx userLoanModel = new UserLoanBLL().GetModel(loanId);
+                    UserRepaymentEntityEx userRepaymentModel = new UserRepaymentBLL().GetModel(loanId, currentAmortization);
 
                     if (userModel == null)
                     {
@@ -56,38 +57,13 @@ namespace StudentLoan.Web.user
                         //从数据库中读取用户余额信息，防止提示用户重复充值
                         userModel = new UsersBLL().GetModel(userModel.UserId);
 
-                        decimal repaymentMoney = userLoanModel.LoanMoney * userLoanModel.AnnualFee;
-                        decimal last_repaymentMoney = userLoanModel.LoanMoney * userLoanModel.AnnualFee + userLoanModel.LoanMoney;
+                        bool result = false;
 
-                        if (userLoanModel != null)
-                        {
-                            bool result = false;
+                        result = this.Repayment(userModel, userRepaymentModel);
 
-                            if (userLoanModel.TotalAmortization == userLoanModel.AlreadyAmortization)
-                            {
-                                this.artDialog("提示", "借款编号" + userLoanModel.LoanNo + "已完成还款，无需再还款！祝您生活愉快 O(∩_∩)O", this.Request.UrlReferrer.LocalPath);
-                                return;
-                            }
 
-                            //处理用户最后一期还款
-                            if (userLoanModel.AlreadyAmortization == userLoanModel.TotalAmortization - 1)
-                            {
-                                //最后一期利息+本金一起还款
-                                result = this.Repayment(userModel, userLoanModel, userModel.Amount, last_repaymentMoney);
-                            }
-                            else
-                            {
-                                //只还利息
-                                result = this.Repayment(userModel, userLoanModel, userModel.Amount, repaymentMoney);
-                            }
+                        this.artDialog("提示", string.Format("还款{0}", result == true ? "成功" : "失败"), "UserBillList.aspx");
 
-                            this.artDialog("提示", string.Format("还款{0}", result == true ? "成功" : "失败"), "UserBillList.aspx");
-                        }
-                        else
-                        {
-                            this.artDialog("订单信息错误");
-                            return;
-                        }
                     }
                 }
 
@@ -127,61 +103,49 @@ namespace StudentLoan.Web.user
         {
             this.BindData();
         }
-
-        private bool Repayment(UsersEntityEx userModel, UserLoanEntityEx userLoanModel, decimal userAmount, decimal repaymentMoney)
+        private bool Repayment(UsersEntityEx userModel, UserRepaymentEntityEx userRepaymentModel)
         {
-            if (userAmount < repaymentMoney)
+            if (userModel.Amount < (userRepaymentModel.Interest + userRepaymentModel.RepaymentMoney))
             {
-                this.artDialog("提示", string.Format("对不起，你的账户余额不足，无法完成还款，当前账号的余额为{0}，还需充值{1}元", userAmount.ToString("C"), Convert.ToDecimal(repaymentMoney - userAmount).ToString("C")), "Charge.aspx");
+                this.artDialog("提示", string.Format("对不起，你的账户余额不足，无法完成还款，当前账号的余额为{0}，还需充值{1}元", userModel.Amount.ToString("C"), Convert.ToDecimal((userRepaymentModel.Interest + userRepaymentModel.RepaymentMoney) - userModel.Amount).ToString("C")), "Charge.aspx");
                 return false;
             }
             else
             {
-                //当前第N期还款期数
-                int currentAmortization = userLoanModel.AlreadyAmortization + 1;
+                //获取借款订单
+                UserLoanEntityEx userLoanModel = new UserLoanBLL().GetModel(userRepaymentModel.LoanId);
 
                 //逾期天数
                 int overdueDay = 0;
-
-                //获取用户还款详情
-                UserRepaymentEntityEx userRepaymentModel = new UserRepaymentBLL().GetModel(userLoanModel.LoanId, currentAmortization);
-
-                if (userRepaymentModel == null)
-                {
-                    return false;
-                }
 
                 DateTime currentDateTime = DateTime.Now.ToString("yyyy-MM-dd").Convert<DateTime>();
                 DateTime repaymentDateTime = userRepaymentModel.RepaymentTime.ToString("yyyy-MM-dd").Convert<DateTime>();
 
                 TimeSpan ts = currentDateTime - repaymentDateTime;
 
-                userRepaymentModel = new UserRepaymentEntityEx()
-                {
-                    LoanId = userLoanModel.LoanId,
-                    CurrentAmortization = currentAmortization
-                };
-
-
                 if (ts.Days > 5)
                 {
                     overdueDay = ts.Days;
                     userRepaymentModel.BreakContract = (0.005 * overdueDay * Convert.ToDouble(userLoanModel.LoanMoney)).Convert<decimal>();
-                    userRepaymentModel.RepaymentMoney = repaymentMoney + userRepaymentModel.BreakContract;
+                    userRepaymentModel.RepaymentMoney = userRepaymentModel.RepaymentMoney + userRepaymentModel.BreakContract;
                     userRepaymentModel.Status = 2;
-                    userRepaymentModel.UserId = userLoanModel.UserId;
+                    //逾期5天以上积分扣除1分
+                    userRepaymentModel.Point = -1;
                 }
                 else
                 {
                     userRepaymentModel.BreakContract = 0;
-                    userRepaymentModel.RepaymentMoney = repaymentMoney;
+                    userRepaymentModel.RepaymentMoney = userRepaymentModel.RepaymentMoney;
                     userRepaymentModel.Status = 1;
-                    userRepaymentModel.UserId = userLoanModel.UserId;
+                    //正常还款积分加1分
+                    userRepaymentModel.Point = 1;
                 }
 
                 //从用户账户中扣除金额并更新还款期数，以及还款详情
 
                 bool result = new UserRepaymentBLL().Update(userRepaymentModel, userLoanModel);
+
+
 
                 return result;
             }
@@ -197,7 +161,7 @@ namespace StudentLoan.Web.user
 
                 if (model.Status == 0)
                 {
-                    objLiteral.Text = string.Format("<a href=\"UserBillList_2.aspx?loanid={0}&action=repayment\">还款</a>", model.LoanId);
+                    objLiteral.Text = string.Format("<a href=\"UserBillList_2.aspx?loanid={0}&action=repayment&current={1}\">还款</a>", model.LoanId, model.CurrentAmortization);
                 }
                 else
                 {

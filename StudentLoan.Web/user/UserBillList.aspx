@@ -64,7 +64,7 @@
                                             <td><%#((DateTime)Eval("RepaymentTime")).ToString("yyyy-MM-dd") %></td>
                                             <td><%#((DateTime)Eval("CreateTime")).ToString("yyyy-MM-dd")=="0001-01-01"?"":((DateTime)Eval("CreateTime")).ToString("yyyy-MM-dd") %></td>
                                             <td><%#Convert.ToInt32(Eval("CurrentAmortization"))==Convert.ToInt32(Eval("TotalAmortization"))?Convert.ToDecimal( Eval("LoanMoney")).ToString("C"):"￥0" %></td>
-                                            <td><%#(Convert.ToDecimal( Eval("LoanMoney")) *Convert.ToDecimal( Eval("AnnualFee"))).ToString("C") %></td>
+                                            <td><%#Convert.ToDouble(Eval("Interest")).ToString("C")%></td>
                                             <td><%#Convert.ToDouble(Eval("BreakContract")).ToString("C") %></td>
 
                                             <td>

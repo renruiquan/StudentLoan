@@ -180,7 +180,7 @@ namespace StudentLoan.DAL
 
             paramsList.Add(new SqlParameter("@UserId", userLoanModel.UserId));
 
-            paramsList.Add(new SqlParameter("@Amount", model.RepaymentMoney));
+            paramsList.Add(new SqlParameter("@Amount", model.RepaymentMoney + model.Interest + model.BreakContract));
 
             paramsList.Add(new SqlParameter("@LoanId", model.LoanId));
 
@@ -213,7 +213,7 @@ namespace StudentLoan.DAL
 
             StringBuilder commandText = new StringBuilder();
 
-            commandText.Append(" Select Top 1 LoanId,CurrentAmortization,RepaymentMoney,BreakContract,RepaymentTime,CreateTime,Status From sl_user_repayment Where LoanId = @LoanId and  CurrentAmortization = @CurrentAmortization ");
+            commandText.Append(" SELECT top 1 LoanId,UserId,CurrentAmortization,Interest,RepaymentMoney,BreakContract,RepaymentTime,CreateTime,Status  FROM sl_user_repayment where LoanId=@LoanId and CurrentAmortization=@CurrentAmortization ");
 
             #endregion
 

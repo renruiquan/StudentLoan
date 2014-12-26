@@ -163,6 +163,25 @@ namespace StudentLoan.Web.Admin
             }
         }
 
+        /// <summary>
+        /// 获取管理员名称
+        /// </summary>
+        /// <param name="adminId"></param>
+        /// <returns></returns>
+        public string GetAdminName(int adminId)
+        {
+            string result = string.Empty;
+
+            if (adminId == 0)
+            {
+                return string.Empty;
+            }
+
+            Dictionary<int, string> adminDictionary = new AdminBLL().GetAdminDictionary(" isLock = 1");
+
+            return adminDictionary[adminId];
+        }
+
         protected void objRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)

@@ -124,7 +124,7 @@
                                     <td><%#Eval("Fee")%></td>
                                     <td><%#Eval("ApplyTime")%></td>
                                     <td><%#Eval("PassTime").Convert<DateTime>().ToString("yyyy-MM-dd HH:mm:ss") =="0001-01-01 00:00:00"?"":Eval("PassTime").Convert<DateTime>().ToString("yyyy-MM-dd HH:mm:ss")%></td>
-                                    <td><%#Eval("AdminId")%></td>
+                                    <td><%#this.GetAdminName(Convert.ToInt32(Eval("AdminID"))) %></td>
                                     <td><%# this.GetStatusName(Convert.ToInt32(Eval("Status")))%></td>
                                     <td>
                                         <asp:Literal ID="objLiteral" runat="server"></asp:Literal>

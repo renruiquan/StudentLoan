@@ -475,7 +475,8 @@ namespace StudentLoan.Web.Admin
                   UserId = userLoanModel.UserId,
                   TotalAmortization = userLoanModel.TotalAmortization,
                   AnnualFee = userLoanModel.AnnualFee,
-                  ProductId = userLoanModel.ProductId
+                  ProductId = userLoanModel.ProductId,
+                  CanModify = 0
               });
 
             //发短消息
@@ -514,7 +515,8 @@ namespace StudentLoan.Web.Admin
                  TotalAmortization = userLoanModel.TotalAmortization,
                  AnnualFee = userLoanModel.AnnualFee,
                  ProductId = userLoanModel.ProductId,
-                 Description = this.txtRefuse.Text.Trim()
+                 Description = this.txtRefuse.Text.Trim(),
+                 CanModify = 1
              });
 
             //发短消息

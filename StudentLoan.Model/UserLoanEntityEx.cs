@@ -84,5 +84,10 @@ namespace StudentLoan.Model
         /// 学校名称
         /// </summary>
         public string SchoolName { get; set; }
+
+        /// <summary>
+        /// 用户是否可以更新资料  1=是，0=否
+        /// </summary>
+        public int CanModify { get; set; }
     }
 }

@@ -190,7 +190,7 @@ namespace StudentLoan.DAL
             commandText.Append(" DECLARE @i int,@Interest decimal,@RepaymentMoney decimal; set @i = 1;set @RepaymentMoney = 0;");
 
             //更新用户账户余额
-            commandText.Append(" Update sl_users Set Amount += @Amount where UserId = @UserId;");
+            commandText.Append(" Update sl_users Set Amount += @Amount, CanModify = @CanModify where UserId = @UserId;");
 
             //更新管理员放款时间及状态
             commandText.Append(" Update sl_user_loan Set ");
@@ -251,6 +251,8 @@ namespace StudentLoan.DAL
             List<SqlParameter> paramsList = new List<SqlParameter>();
 
             paramsList.Add(new SqlParameter("@UserId", model.UserId));
+
+            paramsList.Add(new SqlParameter("@CanModify", model.CanModify));
 
             paramsList.Add(new SqlParameter("@Amount", model.LoanMoney));
 

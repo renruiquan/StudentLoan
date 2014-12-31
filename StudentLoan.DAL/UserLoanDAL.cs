@@ -192,6 +192,12 @@ namespace StudentLoan.DAL
             //更新用户账户余额
             commandText.Append(" Update sl_users Set Amount += @Amount, CanModify = @CanModify where UserId = @UserId;");
 
+            //锁定用户学校信息
+            commandText.Append(" Update sl_user_school Set Status=@SchoolStatus where UserId = @UserId;");
+
+            //锁定用户联系人信息
+            commandText.Append(" Update sl_user_relationship Set Status=@RelationshipStatus where UserId = @UserId;");
+
             //更新管理员放款时间及状态
             commandText.Append(" Update sl_user_loan Set ");
 
@@ -253,6 +259,10 @@ namespace StudentLoan.DAL
             paramsList.Add(new SqlParameter("@UserId", model.UserId));
 
             paramsList.Add(new SqlParameter("@CanModify", model.CanModify));
+
+            paramsList.Add(new SqlParameter("@SchoolStatus", model.CanModify));
+
+            paramsList.Add(new SqlParameter("@RelationshipStatus", model.CanModify));
 
             paramsList.Add(new SqlParameter("@Amount", model.LoanMoney));
 

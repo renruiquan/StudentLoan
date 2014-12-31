@@ -246,7 +246,7 @@ namespace StudentLoan.DAL
 
             commandText.Append(" UserName = @UserName, ");
 
-            commandText.Append(" CanModify = 0, ");
+            commandText.Append(" CanModify = 1, ");
 
             commandText.Append(" NickName = @NickName, ");
 

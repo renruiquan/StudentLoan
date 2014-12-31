@@ -72,8 +72,17 @@ namespace StudentLoan.Web.tools
                         Type = type,
                         CertificationName = this.GetCertification(type).CertificationName,
                         Images = string.Format("/upload_images/{0}/{1}_{2}", userId, fileTicks, file.FileName),
-                        Point = this.GetCertification(type).Point
+
                     };
+
+                    if (pictureCertCount == 0)
+                    {
+                        userCertModel.Point = this.GetCertification(type).Point;
+                    }
+                    else
+                    {
+                        userCertModel.Point = 0;
+                    }
 
                     result = new UserCertificationBLL().Insert(userCertModel);
                 }

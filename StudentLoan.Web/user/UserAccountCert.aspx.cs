@@ -150,9 +150,14 @@ namespace StudentLoan.Web.user
         public UserCertificationEntityEx StudentId1 { get; set; }
 
         /// <summary>
-        /// 学生证内容
+        /// 学生证内容1
         /// </summary>
         public UserCertificationEntityEx StudentId2 { get; set; }
+
+        /// <summary>
+        /// 学生证内容2
+        /// </summary>
+        public UserCertificationEntityEx StudentId3 { get; set; }
 
         /// <summary>
         /// 室友学生证正面
@@ -224,6 +229,7 @@ namespace StudentLoan.Web.user
                 this.IdentityCard_2 = sourceList.FirstOrDefault(s => s.Type == 1);
                 this.StudentId1 = sourceList.FirstOrDefault(s => s.Type == 2);
                 this.StudentId2 = sourceList.FirstOrDefault(s => s.Type == 3);
+                this.StudentId3 = sourceList.FirstOrDefault(s => s.Type == 18);
                 this.XueXin = sourceList.FirstOrDefault(s => s.Type == 4);
                 this.Bank = sourceList.FirstOrDefault(s => s.Type == 5);
                 this.Alipay = sourceList.FirstOrDefault(s => s.Type == 6);
@@ -299,6 +305,10 @@ namespace StudentLoan.Web.user
             if (this.StudentId2 != null)
             {
                 this.MustPoint += this.StudentId2.Point;
+            }
+            if (this.StudentId3 != null)
+            {
+                this.MustPoint += this.StudentId3.Point;
             }
             if (this.Mobile != null)
             {

@@ -368,7 +368,7 @@ and a.UserId = b.UserId");
                                  T.AlreadyAmortization,
 		                         T.TotalAmortization
                             FROM sl_user_loan T
-                            WHERE T.UserId = @UserId) TT
+                            WHERE T.UserId = @UserId and t.Status!=2) TT
                             WHERE TT.Row between @startIndex and @endIndex";
 
             #region SqlParameters

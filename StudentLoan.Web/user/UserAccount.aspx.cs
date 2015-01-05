@@ -70,7 +70,7 @@ namespace StudentLoan.Web.user
             #endregion
 
             List<UserLoanEntityEx> sourceList = new UserLoanBLL().GetAccountLoan(base.GetUserModel().UserId, startIndex, endIndex);
-            this.objAspNetPager.RecordCount = new UserLoanBLL().GetRecordCount(string.Format(" T.UserId={0}", base.GetUserModel().UserId));
+            this.objAspNetPager.RecordCount = new UserLoanBLL().GetRecordCount(string.Format(" T.UserId={0} and t.Status!=2", base.GetUserModel().UserId));
 
             objRepeater.DataSource = sourceList;
             objRepeater.DataBind();

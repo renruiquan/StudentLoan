@@ -92,10 +92,8 @@ namespace StudentLoan.Web.user
             model = new UsersEntityEx()
             {
                 UserId = model.UserId,
-                Salt = Guid.NewGuid().ToString().Split('-')[1],
+                Password = DESHelper.Encrypt(newPassword, model.Salt)
             };
-
-            model.Password = DESHelper.Encrypt(newPassword, model.Salt);
 
             bool result = new UsersBLL().UpdatePassword(model);
 

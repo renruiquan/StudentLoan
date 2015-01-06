@@ -53,7 +53,8 @@
 
                             <asp:DropDownList ID="ddlQueryType" runat="server">
                                 <asp:ListItem Value="1">用户名</asp:ListItem>
-                                <asp:ListItem Value="2">银行卡卡号</asp:ListItem>
+                                <asp:ListItem Value="2">真实姓名</asp:ListItem>
+                                <asp:ListItem Value="3">银行卡卡号</asp:ListItem>
                             </asp:DropDownList>
                             <asp:TextBox ID="txtQueryContent" runat="server" CssClass="input-small"></asp:TextBox>
 

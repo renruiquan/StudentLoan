@@ -98,8 +98,18 @@ namespace StudentLoan.Web.Admin
                 {
                     strWhere += string.Format(@" and T.UserId = '{0}'", new UsersBLL().GetUserId(queryContent));
                 }
-
                 if (this.ddlQueryType.SelectedValue == "2")
+                {
+                    string userIds = new UsersBLL().GetUserIds(queryContent);
+
+                    if (string.IsNullOrEmpty(userIds))
+                    {
+                        userIds = "'0'";
+                    }
+
+                    strWhere += string.Format(" and T.UserId in ({0})", userIds);
+                }
+                if (this.ddlQueryType.SelectedValue == "3")
                 {
                     strWhere += string.Format(@" and b.BankCardNo = '{0}'", queryContent);
                 }

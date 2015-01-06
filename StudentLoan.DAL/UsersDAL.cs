@@ -666,6 +666,33 @@ namespace StudentLoan.DAL
         /// <summary>
         /// 获取一个实体
         /// </summary>
+        public UsersEntityEx GetModel(string userName)
+        {
+            #region CommandText
+
+            StringBuilder commandText = new StringBuilder();
+
+            commandText.Append(" Select Top 1 UserId,GroupId,UserName,NickName,TrueName,Password,DrawMoneyPassword,Salt,Email,IdentityCard,Avatar,Gender,Nation,Birthday,Telphone,Mobile,QQ,Country,Province,City,Address,SafeQuestion,SafeAnswer,Amount,Point,Exp,Status,CreateTime,RegIP,Remark,CanModify From sl_users Where UserName = @UserName ");
+
+            #endregion
+
+            #region SqlParameters
+
+            List<SqlParameter> paramsList = new List<SqlParameter>();
+
+            paramsList.Add(new SqlParameter("@UserName", userName));
+
+            #endregion
+
+            using (SqlDataReader objReader = SqlHelper.ExecuteReader(base.ConnectionString, CommandType.Text, commandText.ToString(), paramsList.ToArray()))
+            {
+                return objReader.ReaderToModel<UsersEntityEx>() as UsersEntityEx;
+            }
+        }
+
+        /// <summary>
+        /// 获取一个实体
+        /// </summary>
         public int GetUserId(string userName)
         {
             #region CommandText

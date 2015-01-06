@@ -251,7 +251,10 @@ namespace StudentLoan.BLL
             return model;
         }
 
-
+        public UsersEntityEx GetModel(string userName)
+        {
+            return dal.GetModel(userName);
+        }
 
         /// <summary>
         /// 获取数据列表

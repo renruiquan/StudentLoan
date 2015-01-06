@@ -3,10 +3,40 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>找回密码</title>
+
+    <link rel="stylesheet" type="text/css" href="/js/Validform/css/Validform.css" />
+    <script src="/js/Validform/js/Validform_v5.3.2_min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
 
         var wait = 60;
         var flag = true;
+
+        $(function () {
+
+            $("#form1").Validform({
+                tiptype: 3,
+            });
+
+
+            $("#txtMobile").attr("ajaxurl", "/tools/validate_find_password.ashx?txtusername="+"<%=base.GetUserModel().UserName%>");
+
+            $("#txtMobile").on("blur", function () {
+                $.post("/tools/validate_find_password.ashx", { "param": $(this).val(), "txtusername": "<%=base.GetUserModel().UserName%>" }, function (data, status) {
+                    if (status != "success") {
+                        alert("手机号码校验失败");
+                        return;
+                    } else {
+                        var result = $.parseJSON(data);
+                        var btn = $("#<%=btnSendMessage.ClientID%>");
+                        if (result.status == "n" && result.type == "1") {
+                            btn.attr("disabled", true);
+                        } else {
+                            btn.attr("disabled", false);
+                        }
+                    }
+                });
+            });
+        });
 
         function time() {
 
@@ -68,7 +98,7 @@
                                 发送至手机：</label>
 
                             <div class="controls text-left">
-                                <asp:TextBox ID="txtMobile" runat="server" class="" type="text" placeholder="有效手机号码" />
+                                <asp:TextBox ID="txtMobile" ClientIDMode="Static"  runat="server" class="" type="text" placeholder="有效手机号码" datatype="/^1\d{10}$/" />
                                 <span class="check-a">
                                     <button id="btnSendMessage" runat="server" type="button" class="btn btn-success" onclick="return time();">发送短信验证码</button>
                                 </span>

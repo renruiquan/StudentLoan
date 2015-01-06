@@ -46,8 +46,34 @@
             }
         }
 
-        $("#form1").Validform({
-            tiptype: 3,
+
+
+        $(function () {
+
+            $("#form1").Validform({
+                tiptype: 3,
+            });
+
+            $("#<%=txtUserName.ClientID%>").on("blur", function () {
+                $("#<%=txtMobile.ClientID%>").attr("ajaxurl", "/tools/validate_find_password.ashx?txtusername=" + $(this).val());
+            });
+
+             $("#<%=txtMobile.ClientID%>").on("blur", function () {
+                $.post("/tools/validate_find_password.ashx", { "param": $(this).val(), "txtusername": $("#<%=txtUserName.ClientID%>").val() }, function (data, status) {
+                    if (status != "success") {
+                        alert("手机号码校验失败");
+                        return;
+                    } else {
+                        var result = $.parseJSON(data);
+                        var btn = $("#<%=btnSendMessage.ClientID%>");
+                        if (result.status == "n" && result.type == "1") {
+                            btn.attr("disabled", true);
+                        } else {
+                            btn.attr("disabled", false);
+                        }
+                    }
+                });
+            });
         });
 
     </script>
@@ -83,7 +109,7 @@
                                 发送至手机：</label>
 
                             <div class="controls text-left">
-                                <asp:TextBox ID="txtMobile" runat="server" class="" type="text" placeholder="有效手机号码" datatype="n11" />
+                                <asp:TextBox ID="txtMobile" runat="server" ClientIDMode="Static" class="" type="text" placeholder="有效手机号码" datatype="/^1\d{10}$/" />
                                 <span class="check-a">
                                     <button id="btnSendMessage" runat="server" type="button" class="btn btn-success" onclick="return time();">发送短信验证码</button>
                                 </span>

@@ -959,6 +959,9 @@
     <Compile Include="tools\validate_code.ashx.cs">
       <DependentUpon>validate_code.ashx</DependentUpon>
     </Compile>
+    <Compile Include="tools\validate_find_password.ashx.cs">
+      <DependentUpon>validate_find_password.ashx</DependentUpon>
+    </Compile>
     <Compile Include="tools\validate_message_send.ashx.cs">
       <DependentUpon>validate_message_send.ashx</DependentUpon>
     </Compile>
@@ -1237,6 +1240,7 @@
     <Content Include="tools\validate_user_email.ashx" />
     <Content Include="tools\validate_user_mobile.ashx" />
     <Content Include="tools\validate_user_identitycard.ashx" />
+    <Content Include="tools\validate_find_password.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

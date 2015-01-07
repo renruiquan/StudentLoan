@@ -26,6 +26,14 @@ namespace StudentLoan.Web.tools
             int cId = context.Request.Params["cid"].Convert<int>();
             string action = context.Request["action"];
 
+            UsersEntityEx userModel = new UsersBLL().GetModel(userId);
+
+            if (userModel.CanModify == 0)
+            {
+                context.Response.Write("{\"result\":\"false\",\"url\":\"\"}");
+                return;
+            }
+
             HttpPostedFile file = context.Request.Files["fileData"];
 
             //根据用户Id分配图片保存路径
@@ -88,25 +96,23 @@ namespace StudentLoan.Web.tools
                 }
                 else
                 {
-                    if (userCertModel.CanModify == 1)
+                    //更新
+                    userCertModel = new UserCertificationEntityEx()
                     {
-                        //更新
-                        userCertModel = new UserCertificationEntityEx()
-                        {
-                            UserId = userId,
-                            Type = type,
-                            Images = string.Format("/upload_images/{0}/{1}_{2}", userId, fileTicks, file.FileName),
-                            CanModify = 1,
-                            Id = cId
-                        };
+                        UserId = userId,
+                        Type = type,
+                        Images = string.Format("/upload_images/{0}/{1}_{2}", userId, fileTicks, file.FileName),
+                        CanModify = 1,
+                        Id = cId
+                    };
 
-                        result = new UserCertificationBLL().Update(userCertModel);
-                    }
+                    result = new UserCertificationBLL().Update(userCertModel);
+
                 }
             }
             else
             {
-                if (userCertModel.CanModify == 1)
+                if (userModel.CanModify == 1)
                 {
                     //更新
                     userCertModel = new UserCertificationEntityEx()

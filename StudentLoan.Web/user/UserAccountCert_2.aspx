@@ -245,6 +245,7 @@
                                                 <asp:ListItem Text="裕固族" Value="裕固族"></asp:ListItem>
                                                 <asp:ListItem Text="维吾尔族" Value="维吾尔族"></asp:ListItem>
                                                 <asp:ListItem Text="壮族" Value="壮族"></asp:ListItem>
+                                                <asp:ListItem Text="藏族" Value="藏族"></asp:ListItem>
                                             </asp:DropDownList>
                                         </div>
                                     </div>

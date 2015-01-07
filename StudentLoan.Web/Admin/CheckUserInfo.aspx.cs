@@ -475,8 +475,7 @@ namespace StudentLoan.Web.Admin
                   UserId = userLoanModel.UserId,
                   TotalAmortization = userLoanModel.TotalAmortization,
                   AnnualFee = userLoanModel.AnnualFee,
-                  ProductId = userLoanModel.ProductId,
-                  CanModify = 0
+                  ProductId = userLoanModel.ProductId
               });
 
             //发短消息

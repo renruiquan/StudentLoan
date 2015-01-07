@@ -68,7 +68,7 @@
 
 
                                 <tr>
-                                    <th scope="row">基本资料：</th>
+                                    <th scope="row">锁定全部资料：</th>
                                     <td>
                                         <asp:DropDownList ID="ddlCanModifyUserInfo" runat="server">
                                             <asp:ListItem Value="0">锁定</asp:ListItem>
@@ -77,37 +77,6 @@
 
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">学校资料：</th>
-                                    <td>
-                                        <asp:DropDownList ID="ddlCanModifySchool" runat="server">
-                                            <asp:ListItem Value="0">锁定</asp:ListItem>
-                                            <asp:ListItem Value="1" Selected="True">正常</asp:ListItem>
-                                        </asp:DropDownList>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">联系人：</th>
-                                    <td>
-                                        <asp:DropDownList ID="ddlCanModifyRelationship" runat="server">
-                                            <asp:ListItem Value="0">锁定</asp:ListItem>
-                                            <asp:ListItem Value="1" Selected="True">正常</asp:ListItem>
-                                        </asp:DropDownList>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">认证资料：</th>
-                                    <td>
-                                        <asp:DropDownList ID="ddlCanModifyUserCert" runat="server">
-                                            <asp:ListItem Value="0">锁定</asp:ListItem>
-                                            <asp:ListItem Value="1" Selected="True">正常</asp:ListItem>
-                                        </asp:DropDownList>
-
-                                    </td>
-                                </tr>
-
                                 <tr>
                                     <th scope="row">&nbsp;</th>
                                     <td>

@@ -58,33 +58,6 @@ namespace StudentLoan.Web.Admin {
         protected global::System.Web.UI.WebControls.DropDownList ddlCanModifyUserInfo;
         
         /// <summary>
-        /// ddlCanModifySchool 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCanModifySchool;
-        
-        /// <summary>
-        /// ddlCanModifyRelationship 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCanModifyRelationship;
-        
-        /// <summary>
-        /// ddlCanModifyUserCert 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCanModifyUserCert;
-        
-        /// <summary>
         /// btnSubmit 控件。
         /// </summary>
         /// <remarks>

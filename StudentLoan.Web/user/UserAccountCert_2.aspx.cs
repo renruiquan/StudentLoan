@@ -53,69 +53,23 @@ namespace StudentLoan.Web.user
 
             userModel = new UsersBLL().GetModel(userModel.UserId);
 
-            if (!string.IsNullOrEmpty(userModel.TrueName))
-            {
-                if (userModel.CanModify == 0)
-                {
-                    this.txtTruename.Attributes.Add("disabled", "disabled");
-                    this.btnSaveStepOne.Visible = false;
-                }
-            }
-
             if (string.IsNullOrEmpty(userModel.IdentityCard))
             {
                 this.txtIdentityCard.Attributes.Add("ajaxurl", "/tools/validate_user_identitycard.ashx");
             }
-            else
-            {
-                if (userModel.CanModify == 0)
-                {
-                    this.txtIdentityCard.Attributes.Add("disabled", "disabled");
-                    this.btnSaveStepOne.Visible = false;
-                }
-            }
+           
 
-            if (!string.IsNullOrEmpty(userModel.Mobile))
+            if (userModel.CanModify == 0)
             {
-                if (userModel.CanModify == 0)
-                {
-                    this.txtMobile.Attributes.Add("disabled", "disabled");
-                    this.txtValidatecode.Attributes.Add("disabled", "disabled");
-                    this.btnSendMessage.Attributes.Add("disabled", "disabled");
-                    this.btnSaveStepOne.Visible = false;
-                }
-            }
-
-            if (!string.IsNullOrEmpty(userModel.Gender) && userModel.Gender != "保密")
-            {
-                if (userModel.CanModify == 0)
-                {
-                    this.ddlGender.Attributes.Add("disabled", "disabled");
-                    this.btnSaveStepOne.Visible = false;
-                }
-            }
-
-            if (!string.IsNullOrEmpty(userModel.Nation))
-            {
-                if (userModel.CanModify == 0)
-                {
-                    this.ddlNation.Attributes.Add("disabled", "disabled");
-                    this.btnSaveStepOne.Visible = false;
-                }
-            }
-
-            if (!string.IsNullOrEmpty(userModel.Birthday.ToString()) && userModel.Birthday != default(DateTime))
-            {
-                if (userModel.CanModify == 0)
-                {
-                    this.txtBirthday.Attributes.Add("disabled", "disabled");
-                    this.btnSaveStepOne.Visible = false;
-                }
-                else
-                {
-                    this.txtBirthday.Attributes.Add("readonly", "true");
-                }
-
+                this.txtTruename.Attributes.Add("disabled", "disabled");
+                this.txtMobile.Attributes.Add("disabled", "disabled");
+                this.txtValidatecode.Attributes.Add("disabled", "disabled");
+                this.btnSendMessage.Attributes.Add("disabled", "disabled");
+                this.ddlGender.Attributes.Add("disabled", "disabled");
+                this.ddlNation.Attributes.Add("disabled", "disabled");
+                this.txtBirthday.Attributes.Add("disabled", "disabled");
+                this.txtIdentityCard.Attributes.Add("disabled", "disabled");
+                this.btnSaveStepOne.Visible = false;
             }
             else
             {
@@ -267,8 +221,7 @@ namespace StudentLoan.Web.user
                 this.WriteCookie("UserPwd", "StudentLoan", userModel.Password);
 
                 this.artDialog("提示", "保存成功！请继续填写其他信息");
-                this.txtTruename.Attributes.Add("disabled", "disabled");
-                this.txtIdentityCard.Attributes.Add("disabled", "disabled");
+               
             }
             else
             {
@@ -291,17 +244,7 @@ namespace StudentLoan.Web.user
             int education = Convert.ToInt32(ddlEducation.SelectedValue);
             string major = txtMajor.Text.Trim().HtmlEncode();
 
-            //step3学校信息验证
-            //if (string.IsNullOrEmpty(xuexinusername))
-            //{
-            //    this.artDialog("错误", "学信网账号不能为空，请重新填写");
-            //    return;
-            //}
-            //if (string.IsNullOrEmpty(xuexinpass))
-            //{
-            //    this.artDialog("错误", "学信网密码不能为空，请重新填写");
-            //    return;
-            //}
+           
             if (string.IsNullOrEmpty(schoolname))
             {
                 this.artDialog("错误", "学校名称不能为空，请重新填写");
@@ -592,6 +535,10 @@ namespace StudentLoan.Web.user
 
             UserSchoolEntityEx model = new UserSchoolBLL().GetModel(base.GetUserModel().UserId);
 
+            UsersEntityEx userModel = base.GetUserModel();
+
+            userModel = new UsersBLL().GetModel(userModel.UserId);
+
             if (model != null)
             {
                 // this.txtXuexin.Text = model.XuexinUsername;
@@ -603,7 +550,7 @@ namespace StudentLoan.Web.user
                 this.ddlEducation.SelectedValue = model.Education.ToString();
                 this.txtMajor.Text = model.Major;
 
-                if (model.Status == 0)
+                if (userModel.CanModify == 0)
                 {
                     this.txtSchoolName.Attributes.Add("disabled", "disabled");
                     this.txtSchoolAdd.Attributes.Add("disabled", "disabled");
@@ -626,6 +573,10 @@ namespace StudentLoan.Web.user
         {
             List<UserRelationshipEntityEx> list = new UserRelationshipBLL().GetList(string.Format(" 1=1 and UserId = {0}", base.GetUserModel().UserId));
 
+            UsersEntityEx userModel = base.GetUserModel();
+
+            userModel = new UsersBLL().GetModel(userModel.UserId);
+
             if (list != null && list.Count > 0)
             {
                 UserRelationshipEntityEx familyModel = list.FirstOrDefault(s => s.Type == 1);
@@ -639,7 +590,7 @@ namespace StudentLoan.Web.user
                     this.txtRelativeMobile.Text = familyModel.Mobile;
                     // this.txtRelativeProfession.Text = familyModel.Profession;
 
-                    if (familyModel.Status == 0)
+                    if (userModel.CanModify == 0)
                     {
                         this.txtRelativeName.Attributes.Add("disabled", "disabled");
                         this.txtRelationtype.Attributes.Add("disabled", "disabled");
@@ -654,7 +605,7 @@ namespace StudentLoan.Web.user
                     this.txtMateName.Text = studentModel.Name;
                     this.txtMateMobile.Text = studentModel.Mobile;
 
-                    if (studentModel.Status == 0)
+                    if (userModel.CanModify == 0)
                     {
                         this.txtMateName.Attributes.Add("disabled", "disabled");
                         this.txtMateMobile.Attributes.Add("disabled", "disabled");
@@ -668,7 +619,7 @@ namespace StudentLoan.Web.user
                     this.txtFriendName.Text = friendModel.Name;
                     this.txtFriendMobile.Text = friendModel.Mobile;
 
-                    if (friendModel.Status == 0)
+                    if (userModel.CanModify == 0)
                     {
                         this.txtFriendName.Attributes.Add("disabled", "disabled");
                         this.txtFriendMobile.Attributes.Add("disabled", "disabled");

@@ -108,7 +108,7 @@
                         <div class="control-group check-code">
                             <label class="control-label"><span class="c-red">* </span>短信验证码：</label>
                             <div class="controls text-left">
-                                <asp:TextBox ID="txtValidatecode" runat="server" class="" type="text" placeholder="请输入您收到的短信验证码" />
+                                <asp:TextBox ID="txtValidatecode" runat="server" class="" datatype="/^[0-9a-zA-Z]{4}$/" type="text" placeholder="请输入您收到的短信验证码" />
                             </div>
                         </div>
 

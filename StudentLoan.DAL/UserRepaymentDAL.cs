@@ -249,7 +249,7 @@ namespace StudentLoan.DAL
 
             if (!string.IsNullOrEmpty(strWhere.Trim()))
             {
-                commandText.AppendFormat(" WHERE a.UserId = b.UserId and a.LoanId = c.LoanId and c.status = 1 and {0}", strWhere);
+                commandText.AppendFormat(" WHERE a.UserId = b.UserId and a.LoanId = c.LoanId and c.status = 1  and a.Status = 0 and {0}", strWhere);
             }
 
             #endregion

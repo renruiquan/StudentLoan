@@ -128,7 +128,7 @@
 
                 <div class="">
 
-                    <StudentLoan:RepeaterPlus ID="objRepeater" runat="server">
+                    <StudentLoan:RepeaterPlus ID="objRepeater" runat="server" OnItemDataBound="objRepeater_ItemDataBound">
                         <HeaderTemplate>
                             <table class="table table-bordered table-striped user-table">
                                 <caption>最近借款记录</caption>
@@ -156,7 +156,7 @@
                                     <td><%#((DateTime)Eval("CreateTime")).ToString("yyyy-MM-dd") %></td>
                                     <td><%#Convert.ToDecimal( Eval("LoanMoney")).ToString("C") %></td>
                                     <td>已还<%#Eval("AlreadyAmortization")%>期 / 共<%#Eval("TotalAmortization") %>期</td>
-                                    <td><%#((DateTime)Eval("RepaymentTime")).ToString("yyyy-MM-dd")=="0001-01-01"?"完成还款":((DateTime)Eval("RepaymentTime")).ToString("yyyy-MM-dd") %></td>
+                                    <td><asp:Literal ID="objLiteral" runat="server"></asp:Literal></td>
                                 </tr>
                             </tbody>
                         </ItemTemplate>

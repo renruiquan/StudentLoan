@@ -80,5 +80,25 @@ namespace StudentLoan.Web.user
         {
             this.BindData();
         }
+
+        protected void objRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
+            {
+                Literal objLiteral = e.Item.FindControl("ObjLiteral") as Literal;
+
+                UserLoanEntityEx model = e.Item.DataItem as UserLoanEntityEx;
+
+                if (model.RepaymentTime == null || model.RepaymentTime.ToString("yyyy-MM-dd") == "0001-01-01")
+                {
+                    objLiteral.Text = "审核中";
+                }
+                else
+                {
+                    objLiteral.Text = model.RepaymentTime.ToString("yyyy-MM-dd");
+                }
+
+            }
+        }
     }
 }

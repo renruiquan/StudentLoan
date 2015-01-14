@@ -65,7 +65,7 @@
                                             <td><%#((DateTime)Eval("CreateTime")).ToString("yyyy-MM-dd")=="0001-01-01"?"":((DateTime)Eval("CreateTime")).ToString("yyyy-MM-dd") %></td>
                                             <td><%#Convert.ToInt32(Eval("CurrentAmortization"))==Convert.ToInt32(Eval("TotalAmortization"))?Convert.ToDecimal( Eval("LoanMoney")).ToString("C"):"￥0" %></td>
                                             <td><%#Convert.ToDouble(Eval("Interest")).ToString("C")%></td>
-                                            <td><%#Convert.ToDouble(Eval("BreakContract")).ToString("C") %></td>
+                                            <td><asp:Literal ID="litBreakContract" runat="server"></asp:Literal> </td>
 
                                             <td>
                                                 <asp:Literal ID="objLiteral" runat="server">还款</asp:Literal>

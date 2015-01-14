@@ -157,7 +157,28 @@ namespace StudentLoan.Web.user
             {
                 UserRepaymentEntityEx model = e.Item.DataItem as UserRepaymentEntityEx;
                 Literal objLiteral = e.Item.FindControl("objLiteral") as Literal;
+                Literal litBreakContract = e.Item.FindControl("litBreakContract") as Literal;
 
+                #region 计算显示逾期金额
+
+                DateTime currentDateTime = DateTime.Now.ToString("yyyy-MM-dd").Convert<DateTime>();
+                DateTime repaymentDateTime = model.RepaymentTime.ToString("yyyy-MM-dd").Convert<DateTime>();
+
+                TimeSpan ts = currentDateTime - repaymentDateTime;
+
+                if (ts.Days > 5)
+                {
+
+                    model.BreakContract = (0.005 * ts.Days * Convert.ToDouble(model.LoanMoney)).Convert<decimal>();
+                }
+                else
+                {
+                    model.BreakContract = 0;
+                }
+
+                litBreakContract.Text = model.BreakContract.Convert<double>().ToString("C");
+
+                #endregion
 
                 if (model.Status == 0)
                 {

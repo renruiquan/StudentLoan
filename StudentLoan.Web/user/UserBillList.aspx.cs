@@ -145,8 +145,6 @@ namespace StudentLoan.Web.user
 
                 bool result = new UserRepaymentBLL().Update(userRepaymentModel, userLoanModel);
 
-
-
                 return result;
             }
         }
@@ -176,13 +174,21 @@ namespace StudentLoan.Web.user
                     model.BreakContract = 0;
                 }
 
+                //逾期还款后，显示截至到日期时逾期天数的费用
+                if (model.Status == 2)
+                {
+                    ts = model.CreateTime - repaymentDateTime;
+
+                    model.BreakContract = (0.005 * ts.Days * Convert.ToDouble(model.LoanMoney)).Convert<decimal>();
+                }
+
                 litBreakContract.Text = model.BreakContract.Convert<double>().ToString("C");
 
                 #endregion
 
                 if (model.Status == 0)
                 {
-                    objLiteral.Text = string.Format("<a href=\"UserBillList_2.aspx?loanid={0}&action=repayment&current={1}\">还款</a>", model.LoanId, model.CurrentAmortization);
+                    objLiteral.Text = string.Format("<a href=\"UserBillList.aspx?loanid={0}&action=repayment&current={1}\">还款</a>", model.LoanId, model.CurrentAmortization);
                 }
                 else
                 {

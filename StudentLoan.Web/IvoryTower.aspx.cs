@@ -76,7 +76,7 @@ namespace StudentLoan.Web
                 this.StepBackground = "step-four";
             }
 
-            var result = new UserRepaymentBLL().GetListByPage(string.Format(" a.UserId={0}", base.GetUserModel().UserId), "RepaymentTime Desc", 1, 1).FirstOrDefault();
+            var result = new UserRepaymentBLL().GetListByPage(string.Format(" a.UserId={0} and T.Status = 0", base.GetUserModel().UserId), "RepaymentTime ", 1, 1).FirstOrDefault();
 
             if (result != null)
             {

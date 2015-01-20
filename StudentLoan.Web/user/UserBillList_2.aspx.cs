@@ -127,7 +127,7 @@ namespace StudentLoan.Web.user
                 {
                     overdueDay = ts.Days;
                     userRepaymentModel.BreakContract = (0.005 * overdueDay * Convert.ToDouble(userLoanModel.LoanMoney)).Convert<decimal>();
-                    userRepaymentModel.RepaymentMoney = userRepaymentModel.RepaymentMoney + userRepaymentModel.BreakContract;
+                    userRepaymentModel.RepaymentMoney = userRepaymentModel.RepaymentMoney;
                     userRepaymentModel.Status = 2;
                     //逾期5天以上积分扣除1分
                     userRepaymentModel.Point = -1;

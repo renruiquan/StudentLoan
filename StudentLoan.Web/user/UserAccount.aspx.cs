@@ -98,6 +98,11 @@ namespace StudentLoan.Web.user
                     objLiteral.Text = model.RepaymentTime.ToString("yyyy-MM-dd");
                 }
 
+                if (model.AlreadyAmortization == model.TotalAmortization)
+                {
+                    objLiteral.Text = "全部完成";
+                }
+
             }
         }
     }

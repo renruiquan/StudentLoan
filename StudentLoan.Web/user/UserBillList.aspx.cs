@@ -162,7 +162,7 @@ namespace StudentLoan.Web.user
 
                 TimeSpan ts = currentDateTime - repaymentDateTime;
 
-                if (ts.Days > 5)
+                if (ts.Days > 5 && model.Status == 0)
                 {
 
                     model.BreakContract = (0.005 * ts.Days * Convert.ToDouble(model.LoanMoney)).Convert<decimal>();

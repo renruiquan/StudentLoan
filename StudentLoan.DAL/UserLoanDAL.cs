@@ -353,8 +353,7 @@ and a.UserId = b.UserId");
 	                            (SELECT
 		                            MIN(RepaymentTime)
 	                            FROM sl_user_repayment
-	                            WHERE LoanId = T.LoanId
-	                            AND Status = 0)
+	                            WHERE LoanId = T.LoanId )
 	                            AS 'RepaymentTime',
                                  T.AlreadyAmortization,
 		                         T.TotalAmortization

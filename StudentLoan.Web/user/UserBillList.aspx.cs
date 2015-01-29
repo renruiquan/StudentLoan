@@ -105,40 +105,39 @@ namespace StudentLoan.Web.user
         }
         private bool Repayment(UsersEntityEx userModel, UserRepaymentEntityEx userRepaymentModel)
         {
-            if (userModel.Amount < (userRepaymentModel.Interest + userRepaymentModel.RepaymentMoney))
+            //获取借款订单
+            UserLoanEntityEx userLoanModel = new UserLoanBLL().GetModel(userRepaymentModel.LoanId);
+
+            //逾期天数
+            int overdueDay = 0;
+
+            DateTime currentDateTime = DateTime.Now.ToString("yyyy-MM-dd").Convert<DateTime>();
+            DateTime repaymentDateTime = userRepaymentModel.RepaymentTime.ToString("yyyy-MM-dd").Convert<DateTime>();
+            TimeSpan ts = currentDateTime - repaymentDateTime;
+
+            if (ts.Days > 5)
             {
-                this.artDialog("提示", string.Format("对不起，你的账户余额不足，无法完成还款，当前账号的余额为{0}，还需充值{1}元", userModel.Amount.ToString("C"), Convert.ToDecimal((userRepaymentModel.Interest + userRepaymentModel.RepaymentMoney) - userModel.Amount).ToString("C")), "Charge.aspx");
+                overdueDay = ts.Days;
+                userRepaymentModel.BreakContract = (0.005 * overdueDay * Convert.ToDouble(userLoanModel.LoanMoney)).Convert<decimal>();
+                userRepaymentModel.Status = 2;
+                //逾期5天以上积分扣除1分
+                userRepaymentModel.Point = -1;
+            }
+            else
+            {
+                userRepaymentModel.BreakContract = 0;
+                userRepaymentModel.Status = 1;
+                //正常还款积分加1分
+                userRepaymentModel.Point = 1;
+            }
+
+            if (userModel.Amount < (userRepaymentModel.Interest + userRepaymentModel.RepaymentMoney + userRepaymentModel.BreakContract))
+            {
+                this.artDialog("提示", string.Format("对不起，你的账户余额不足，无法完成还款，当前账号的余额为{0}，还需充值{1}元", userModel.Amount.ToString("C"), Convert.ToDecimal((userRepaymentModel.Interest + userRepaymentModel.RepaymentMoney + userRepaymentModel.BreakContract) - userModel.Amount).ToString("C")), "Charge.aspx");
                 return false;
             }
             else
             {
-                //获取借款订单
-                UserLoanEntityEx userLoanModel = new UserLoanBLL().GetModel(userRepaymentModel.LoanId);
-
-                //逾期天数
-                int overdueDay = 0;
-
-                DateTime currentDateTime = DateTime.Now.ToString("yyyy-MM-dd").Convert<DateTime>();
-                DateTime repaymentDateTime = userRepaymentModel.RepaymentTime.ToString("yyyy-MM-dd").Convert<DateTime>();
-
-                TimeSpan ts = currentDateTime - repaymentDateTime;
-
-                if (ts.Days > 5)
-                {
-                    overdueDay = ts.Days;
-                    userRepaymentModel.BreakContract = (0.005 * overdueDay * Convert.ToDouble(userLoanModel.LoanMoney)).Convert<decimal>();
-                    userRepaymentModel.Status = 2;
-                    //逾期5天以上积分扣除1分
-                    userRepaymentModel.Point = -1;
-                }
-                else
-                {
-                    userRepaymentModel.BreakContract = 0;
-                    userRepaymentModel.Status = 1;
-                    //正常还款积分加1分
-                    userRepaymentModel.Point = 1;
-                }
-
                 //从用户账户中扣除金额并更新还款期数，以及还款详情
 
                 bool result = new UserRepaymentBLL().Update(userRepaymentModel, userLoanModel);

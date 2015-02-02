@@ -434,6 +434,7 @@
     <Content Include="Admin\jBox\LGPL-LICENSE" />
     <Content Include=".idea\.name" />
     <Content Include=".idea\学子易贷.iml" />
+    <Content Include="App_Browsers\ie.browser" />
     <None Include="js\jquery-1.11.0-vsdoc.js" />
     <Content Include="js\jquery-1.11.0.min.js" />
     <Content Include="js\jquery-ui-slide.min.js" />
@@ -1225,6 +1226,7 @@
     <Content Include="Main.Master" />
     <Content Include="js\Validform\plugin\swfupload\thanks.php" />
     <Content Include="js\Validform\plugin\swfupload\upload.php" />
+    <None Include="Properties\PublishProfiles\发布站点.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

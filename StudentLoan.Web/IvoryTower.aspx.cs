@@ -48,6 +48,8 @@ namespace StudentLoan.Web
             if (!IsPostBack)
             {
                 this.BindData();
+
+                this.artDialog("放假公告", "为欢度新春佳节，学子易贷平台将于2015年2月15日-2月25日放假，关于2月份申请贷款的用户将于年后审核，特此公告！ ");
             }
         }
 

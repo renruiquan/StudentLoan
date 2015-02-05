@@ -19,6 +19,10 @@
     <link rel="stylesheet" type="text/css" href="../css/bootstrap/css/bootstrap.ie6.min.css">
     <![endif]-->
     <script type="text/javascript" src="../css/bootstrap/js/jquery-1.7.2.min.js"></script>
+
+    <link href="../css/ui-dialog.css" rel="stylesheet" />
+    <script src="../js/dialog-plus-min.js"></script>
+
     <script src="js/jquery.kxbdmarquee.js"></script>
     <script type="text/javascript">
         $(function () {

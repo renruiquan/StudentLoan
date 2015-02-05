@@ -2,6 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>注册完成</title>
+    <link href="../css/ui-dialog.css" rel="stylesheet" />
+    <script src="../js/dialog-plus-min.js"></script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-wrap">

@@ -70,21 +70,25 @@ namespace StudentLoan.Web
 
                     this.PayInterest();
 
-                    string msg_3day = string.Format("截止{0}月{1}日，距您的U豆运费结算日还有三日，请您在百忙之中抽出时间结算。【学子易贷】", DateTime.Now.Month, DateTime.Now.Day);
+                    string msg_3day = string.Format("截止{0}月{1}日，距您本月的还款日还有三天，请您在百忙之中抽出时间办理还款业务。【学子易贷】", DateTime.Now.Month, DateTime.Now.Day);
                     string msg_3day_2 = string.Format("截止{0}月{1}日，距您的U豆回收日还有三日，请您及时协助学子易贷进行U豆回收工作。【学子易贷】", DateTime.Now.Month, DateTime.Now.Day);
+                    string msg_3day_3 = string.Format("您好，截止{0}月{1}日，您已逾期三天未还款，请及时还款，对于逾期用户，我们将按协议约定收取逾期费用。【学子易贷】", DateTime.Now.Month, DateTime.Now.Day);
 
-                    string today = string.Format("您好，截止{0}月{1}日，已到本月U豆业务维护费结算日期，请及时办理结算手续。【学子易贷】", DateTime.Now.Month, DateTime.Now.Day);
+                    string today = string.Format("您好，截止{0}月{1}日，已到本月还款日，请及时进行还款操作。【学子易贷】", DateTime.Now.Month, DateTime.Now.Day);
                     string today_2 = string.Format("您好，截止{0}月{1}日，已到U豆回收日，U豆若不及时回收，则无法被点成金，从此变为一颗普通的豆豆╮(╯_╰)╭。【学子易贷】", DateTime.Now.Month, DateTime.Now.Day);
 
-                    string msg_5day = string.Format("您好，您的U豆回收日期为{0}月{1}日，现已逾期{2}天，逾期5天内U豆尚不会变质，崇尚高调奢华的U豆们不想从此变得普通o(︶︿︶)o，请您及时为它们办理回收手续。【学子易贷】 ", DateTime.Now.Month, DateTime.Now.Day, 5);
+                    string msg_5day = string.Format("您好，截止{0}月{1}日，您已逾期五天未还款，请及时还款。对于逾期拖延还款的用户，我们除收取逾期费用外，还将联系您通讯录中的家人和朋友。【学子易贷】", DateTime.Now.Month, DateTime.Now.Day, 5);
+                    string msg_5day2 = string.Format("截止{0}月{1}日，距您本月的还款日还有五天，请您在百忙之中抽出时间办理还款业务。【学子易贷】", DateTime.Now.Month, DateTime.Now.Day);
 
                     this.GetRepayment(3, msg_3day);
                     this.GetRepayment(3, msg_3day_2);
+                    this.GetRepayment(-3, msg_3day_3);
 
                     this.GetRepayment(0, today);
                     this.GetRepayment(0, today_2);
 
                     this.GetRepayment(-5, msg_5day);
+                    this.GetRepayment(5, msg_5day);
                 }
             }
         }

@@ -70,6 +70,8 @@ namespace StudentLoan.Web
 
                     this.PayInterest();
 
+                    //天数为负数时=逾期提醒，天数为正数时为还款日期提醒
+
                     string msg_3day = string.Format("截止{0}月{1}日，距您本月的还款日还有三天，请您在百忙之中抽出时间办理还款业务。【学子易贷】", DateTime.Now.Month, DateTime.Now.Day);
                     string msg_3day_2 = string.Format("截止{0}月{1}日，距您的U豆回收日还有三日，请您及时协助学子易贷进行U豆回收工作。【学子易贷】", DateTime.Now.Month, DateTime.Now.Day);
                     string msg_3day_3 = string.Format("您好，截止{0}月{1}日，您已逾期三天未还款，请及时还款，对于逾期用户，我们将按协议约定收取逾期费用。【学子易贷】", DateTime.Now.Month, DateTime.Now.Day);
@@ -88,7 +90,7 @@ namespace StudentLoan.Web
                     this.GetRepayment(0, today_2);
 
                     this.GetRepayment(-5, msg_5day);
-                    this.GetRepayment(5, msg_5day);
+                    this.GetRepayment(5, msg_5day2);
                 }
             }
         }
